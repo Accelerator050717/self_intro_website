@@ -29,6 +29,7 @@ export default function Avatar({ lang }: { lang: Lang }) {
   const [message, setMessage] = useState(false);
   const [sceneReady, setSceneReady] = useState(false);
   const [sceneSettled, setSceneSettled] = useState(false);
+  const [sceneTimedOut, setSceneTimedOut] = useState(false);
   const [dark, setDark] = useState(false);
   const person = useRef<HTMLButtonElement>(null);
   const shoulder = useRef<SVGGElement>(null);
@@ -62,6 +63,10 @@ export default function Avatar({ lang }: { lang: Lang }) {
       localStorage.removeItem('mingyang:ice-play:v1');
     } catch { /* Storage is optional; never clear unrelated preferences. */ }
     setPreferencesReady(true);
+    const pausePreference = (event: Event) => setPaused((event as CustomEvent<boolean>).detail);
+    const storedPreference = (event: StorageEvent) => { if (event.key === 'ice-paused') setPaused(event.newValue === 'true'); };
+    window.addEventListener('ice-pause-change', pausePreference);
+    window.addEventListener('storage', storedPreference);
     const theme = () => setDark(document.documentElement.dataset.theme === 'dark');
     theme(); window.addEventListener('ice-theme-change', theme);
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting && entry.intersectionRatio >= 0.2), { threshold: [0, 0.2] });
@@ -75,9 +80,19 @@ export default function Avatar({ lang }: { lang: Lang }) {
       observer.disconnect(); media.removeEventListener('change', update);
       window.removeEventListener('ice-theme-change', theme);
       document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('ice-pause-change', pausePreference);
+      window.removeEventListener('storage', storedPreference);
       cancelMotion();
     };
   }, [cancelMotion]);
+
+  useEffect(() => {
+    if (!sceneReady || sceneSettled) return;
+    // A stalled optional import/network must not disable the character forever.
+    // Unmount the entire 3D island before enabling greetings on the static stage.
+    const timeout = setTimeout(() => { setSceneTimedOut(true); setSceneSettled(true); }, 10000);
+    return () => clearTimeout(timeout);
+  }, [sceneReady, sceneSettled]);
 
   useEffect(() => {
     if (!visible || rig || resourceFailed) return;
@@ -138,13 +153,14 @@ export default function Avatar({ lang }: { lang: Lang }) {
     cancelMotion(); setGreeting(false);
     const next = !paused; setPaused(next);
     try { localStorage.setItem('ice-paused', String(next)); } catch { /* Optional preference. */ }
+    window.dispatchEvent(new CustomEvent('ice-pause-change', { detail: next }));
   }
   const layer = (name: string) => <image href={`${rigBase}${name}.webp`} x="0" y="0" width="720" height="960" />;
   const origin = (joint: keyof AvatarRig['joints']) => ({ transformOrigin: `${rig!.joints[joint][0]}px ${rig!.joints[joint][1]}px` });
 
-  return <div className={`avatar-exhibit ${canMove ? '' : 'is-still'}`} data-state={paused ? 'paused' : greeting ? 'greeting' : 'idle'} data-rig={rig ? 'ready' : resourceFailed ? 'fallback' : 'loading'} data-scene-settled={sceneSettled}>
-    <div className="exhibit-halo" aria-hidden="true" />
-    <div className="brick-stage" aria-hidden="true">{sceneReady ? <IceBoundary onFailure={onSceneSettled}><Suspense fallback={<SceneFallback />}><HeroBricks paused={!canMove || greeting} dark={dark} onSettled={onSceneSettled} /></Suspense></IceBoundary> : <SceneFallback />}</div>
+  return <div className={`avatar-exhibit ${canMove ? '' : 'is-still'}`} data-ambient data-state={paused ? 'paused' : greeting ? 'greeting' : 'idle'} data-rig={rig ? 'ready' : resourceFailed ? 'fallback' : 'loading'} data-scene-settled={sceneSettled}>
+    <div className="exhibit-halo" aria-hidden="true"><div className="spectral-facet" /><div className="spectral-glow" /></div>
+    <div className="brick-stage" aria-hidden="true">{sceneReady && !sceneTimedOut ? <IceBoundary onFailure={onSceneSettled}><Suspense fallback={<SceneFallback />}><HeroBricks paused={!canMove || greeting} dark={dark} onSettled={onSceneSettled} /></Suspense></IceBoundary> : <SceneFallback />}</div>
     <div className="person-wrap" onPointerMove={event => {
       if (!canMove || busy.current || event.pointerType !== 'mouse' || !head.current) return;
       const bounds = event.currentTarget.getBoundingClientRect();

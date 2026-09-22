@@ -148,7 +148,7 @@ test('theme choice updates the page and survives refresh', async ({ page }) => {
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await expect(page.locator('.theme-toggle')).toHaveAttribute('aria-label', ui.en.light);
   await waitForRenderedScene(page);
-  await page.screenshot({ path: 'docs/screenshots/revision/dark-home.png', fullPage: true });
+  await page.screenshot({ path: `${process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision'}/dark-home.png`, fullPage: true });
 });
 
 for (const width of [320, 360, 390, 768, 1024, 1440]) {
@@ -279,13 +279,13 @@ test('saves the current desktop, mobile, and project views', async ({ page }) =>
   await page.setViewportSize({ width: 1440, height: 1000 });
   await open(page, '/en/');
   await waitForRenderedScene(page);
-  await page.screenshot({ path: 'docs/screenshots/revision/desktop-home.png', fullPage: true });
+  await page.screenshot({ path: `${process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision'}/desktop-home.png`, fullPage: true });
   await open(page, '/en/work/context-ai/');
-  await page.screenshot({ path: 'docs/screenshots/revision/project-detail.png', fullPage: true });
+  await page.screenshot({ path: `${process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision'}/project-detail.png`, fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   await open(page, '/en/');
   await waitForRenderedScene(page);
-  await page.screenshot({ path: 'docs/screenshots/revision/mobile-home.png', fullPage: true });
+  await page.screenshot({ path: `${process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision'}/mobile-home.png`, fullPage: true });
 });
 
 test.describe('without JavaScript', () => {

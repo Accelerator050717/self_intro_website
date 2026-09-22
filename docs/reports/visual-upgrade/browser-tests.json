@@ -1,0 +1,844 @@
+{
+  "date": "2026-09-22T17:02:00.329Z",
+  "stats": {
+    "startTime": "2026-09-22T17:02:00.329Z",
+    "duration": 215894.443,
+    "expected": 63,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "environment": {
+    "browser": "Playwright Chromium 153.0.8010.12",
+    "workers": 1,
+    "retries": 0,
+    "baseURL": "http://127.0.0.1:4321",
+    "defaultViewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "defaultReducedMotion": "reduce; avatar/visual suites explicitly use no-preference except reduced-motion cases"
+  },
+  "tests": [
+    {
+      "file": "avatar.spec.ts",
+      "title": "welcome articulates the actual arm once per session, including language changes and returning home",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 7288,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "two manual greetings move shoulder, elbow, wrist and head while body and feet stay fixed",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 8752,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "rapid clicks do not stack or queue greetings",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 6333,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "keyboard can trigger both named controls with visible focus",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 8519,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "pause cancels and resets joints, survives refresh, and resumes without a queue",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 8048,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "offscreen cancels actual joint updates and returning does not replay",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 4449,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "visibility handler cancels actual animations (injected hidden-document event)",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 3762,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "pointer response rotates only the head and resets on leave",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2890,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "reduced motion has no auto, wrist or pointer animation and offers static feedback",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2697,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "failed animation layer retains original figure and usable content",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 418,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "failed optional 3D module keeps the articulated character and SVG stage usable",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 4153,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "unavailable storage does not break manual greeting or erase other preferences",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 5493,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "retired experiment storage is removed without clearing theme or other data",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2458,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "touch greeting at 320px in Chinese dark theme fits the character canvas",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 8818,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "avatar.spec.ts",
+      "title": "touch greeting at 390px in Chinese dark theme fits the character canvas",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 8774,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "root provides a working English entrance",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2090,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "built pages and scripts exclude the retired playground and old contact address",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 116,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en main pages have localized content, metadata, and real links",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 4007,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en goldencamp supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 816,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en context-ai supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 834,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en yunxinyi supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 813,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en ml-pipeline supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 857,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en admin-modernization supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 842,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en registry-integrity supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 827,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en project filters expose the matching set and selection state",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1078,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh main pages have localized content, metadata, and real links",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 4470,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh goldencamp supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1393,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh context-ai supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1343,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh yunxinyi supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1212,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh ml-pipeline supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1209,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh admin-modernization supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1163,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh registry-integrity supports direct access and refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1071,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh project filters expose the matching set and selection state",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1524,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "language switching retains a deep project page in both directions",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1413,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "theme choice updates the page and survives refresh",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 5669,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "pages remain within a 320px viewport",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 6541,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "pages remain within a 360px viewport",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 6139,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "pages remain within a 390px viewport",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 5930,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "pages remain within a 768px viewport",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 5992,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "pages remain within a 1024px viewport",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 6017,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "pages remain within a 1440px viewport",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 6148,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "mobile navigation opens, closes with Escape, and follows a link",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2222,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en reduced-motion character stays clear, responds, and preserves pause",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2896,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh reduced-motion character stays clear, responds, and preserves pause",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2859,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "email copy succeeds with clipboard permission and reports the actual address",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2223,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "clipboard rejection reports failure and selects the usable email address",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2217,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "missing Clipboard API leaves a selectable address and honest failure feedback",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2182,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "web resume provides print behavior without an invented PDF download",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 775,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "WebGL fallback keeps the character, greeting, and page content usable",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1327,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "saves the current desktop, mobile, and project views",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 5268,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "core pages, project content, and language links remain usable",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 1960,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "en retired playground route returns the normal 404",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 195,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "zh retired playground route returns the normal 404",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 196,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "title": "404 exposes usable home and work links",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 192,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "bounded spotlight and cover tilt follow mouse without moving link or title, then settle",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 3378,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "pause controls ambient motion and card tracking across navigation; resume restores",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2836,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "ambient stops while greeting, offscreen, or document hidden and resumes without a new loop",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 6029,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "live reduced-motion change cancels decorative tracking and reveals immediately",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2760,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "touch keeps static ambient and stable covers while preserving actual arm gestures",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 3703,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "slow optional graphics settle to SVG within a bounded time and actual waving stays available",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 12215,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "theme updates paper while retaining one ice canvas; SVG remains available in both palettes",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 3099,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "no JavaScript still exposes all four covers, text, mail and native links",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 416,
+          "errorCount": 0
+        }
+      ]
+    },
+    {
+      "file": "visual-upgrade.spec.ts",
+      "title": "history return retains card input and a cached pagehide does not consume final cleanup",
+      "status": "expected",
+      "expectedStatus": "passed",
+      "runs": [
+        {
+          "status": "passed",
+          "durationMs": 2381,
+          "errorCount": 0
+        }
+      ]
+    }
+  ],
+  "pageLifecycleNote": "Hidden-document and bfcache pagehide cleanup paths also use explicit event injection; actual scroll, native history navigation and real input are tested separately."
+}

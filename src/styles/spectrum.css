@@ -1,0 +1,256 @@
+/* Glacial Spectrum. Shared palette and one small motion vocabulary. */
+@layer base {
+  :root {
+    --paper: #f5faff;
+    --surface: #ffffff;
+    --frost: #e7f2fc;
+    --ice: #a6dbe9;
+    --accent: #2964af;
+    --ink: #132943;
+    --muted: #49637d;
+    --line: #cfdfed;
+    --button: #205eab;
+    --button-ink: #ffffff;
+    --glacial-cyan: #74dceb;
+    --glacial-blue: #3d7fe8;
+    --glacial-violet: #b9b4f5;
+    --motion-fast: 180ms;
+    --motion-settle: 320ms;
+    --motion-enter: 520ms;
+    --motion-ambient: 18s;
+    --ease-out: cubic-bezier(.2, .7, .2, 1);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  :root[data-theme='dark'] {
+    --paper: #0d1d32;
+    --surface: #142b43;
+    --frost: #19364f;
+    --ice: #568dbe;
+    --accent: #a8ceff;
+    --ink: #eaf5ff;
+    --muted: #b0c5da;
+    --line: #2c455f;
+    --button: #b9e4ff;
+    --button-ink: #112f4b;
+  }
+}
+
+@layer components {
+  /* Header and readable emphasis; the existing Manrope font stays local. */
+  .site-header { border-bottom-color: color-mix(in srgb, var(--line) 70%, transparent); }
+  .brand-period { color: var(--accent); }
+  .navigation { gap: 10px; }
+  .navigation > a {
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: color var(--motion-fast), background-color var(--motion-fast);
+  }
+  .navigation > a:hover,
+  .navigation > a:focus-visible,
+  .navigation > a[aria-current='page'] {
+    background: var(--frost);
+    color: var(--accent);
+  }
+  .navigation > a[aria-current='page']::after {
+    bottom: 4px;
+    width: 18px;
+    height: 2px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  .hero { column-gap: 38px; }
+  .intro-name { color: var(--accent); }
+  .hero h1 span:nth-child(2) { color: var(--accent); }
+  .hero-intro { max-width: 440px; }
+  .button {
+    border-radius: 9px;
+    transition: background-color var(--motion-fast), transform var(--motion-fast) var(--ease-out), box-shadow var(--motion-fast);
+  }
+  .button.primary {
+    background: linear-gradient(120deg, #2468b6, #26539a);
+    box-shadow: 0 5px 16px #225fa51a, inset 0 1px 0 #ffffff30;
+  }
+  [data-theme='dark'] .button.primary {
+    background: linear-gradient(120deg, #b9eaff, #aec9fc);
+    box-shadow: 0 5px 22px #090f2124, inset 0 1px 0 #ffffff55;
+  }
+  .button.primary:hover { filter: none; box-shadow: 0 8px 22px #225fa52b; }
+  .button.secondary { background: color-mix(in srgb, var(--surface) 40%, transparent); }
+  .button:active { transform: translateY(0) scale(.985); }
+  .status-dot { background: #39879a; box-shadow: 0 0 0 4px #74dceb26; }
+  [data-theme='dark'] .status-dot { background: #74dceb; }
+
+  /* One bounded ambient field. Geometry/ice use the same palette in WebGL. */
+  .exhibit-halo {
+    inset: 1% 1% 11%;
+    z-index: 2;
+    border-radius: 0;
+    pointer-events: none;
+    background: none;
+  }
+  [data-theme='dark'] .exhibit-halo { background: none; }
+  .spectral-facet {
+    position: absolute;
+    inset: 13% 9% 21% 8%;
+    clip-path: polygon(45% 0, 97% 24%, 75% 90%, 24% 100%, 0 49%);
+    background: linear-gradient(145deg, #d9f4ff08 10%, #6edbea24 48%, #bac0ff19 68%, #f5faff00 88%);
+    border-radius: 50%;
+    transform: rotate(-17deg);
+  }
+  .spectral-glow {
+    position: absolute;
+    inset: 14% 2% 28% 7%;
+    background: radial-gradient(ellipse at 32% 62%, #5ad9e92b, transparent 60%), radial-gradient(ellipse at 74% 32%, #b3b9ff24, transparent 55%);
+    /* Color lobes can reach their layer bounds: fade the layer itself as well. */
+    -webkit-mask-image: radial-gradient(ellipse farthest-side at center, #000 20%, transparent 100%);
+    mask-image: radial-gradient(ellipse farthest-side at center, #000 20%, transparent 100%);
+    animation: glacial-drift var(--motion-ambient) ease-in-out infinite alternate;
+    animation-play-state: paused;
+  }
+  [data-theme='dark'] .spectral-facet {
+    background: linear-gradient(145deg, #122f6200, #4ac7eb12 48%, #8c88ff15 68%, #0d1d3200 88%);
+  }
+  [data-theme='dark'] .spectral-glow {
+    background: radial-gradient(ellipse at 32% 62%, #20a5d426, transparent 60%), radial-gradient(ellipse at 74% 32%, #767de32e, transparent 55%);
+  }
+  .person-wrap { z-index: 3; }
+  .hello-button, .animation-toggle {
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    border-color: color-mix(in srgb, var(--ice) 60%, var(--line));
+    box-shadow: 0 4px 12px #1536600a;
+  }
+  @keyframes glacial-drift {
+    from { transform: translate(-6px, 3px) rotate(-3deg); opacity: .7; }
+    to { transform: translate(9px, -8px) rotate(3deg); opacity: 1; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    [data-motion='enabled'] .avatar-exhibit:not(.is-still):not([data-state='greeting']) .spectral-glow {
+      animation-play-state: running;
+    }
+  }
+
+  /* SpotlightCard's local light, adapted to a stable server-rendered anchor. */
+  .project-art-link {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid color-mix(in srgb, var(--ice) 50%, var(--line));
+    border-radius: 15px;
+    perspective: 1000px;
+    overflow: hidden;
+    background: var(--frost);
+    box-shadow: 0 1px 0 #ffffff70 inset;
+  }
+  .project-art-link .project-art {
+    transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(1.025);
+    transition: transform var(--motion-settle) var(--ease-out);
+    border-radius: inherit;
+  }
+  .project-art-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(260px circle at var(--light-x, 50%) var(--light-y, 50%), #eaffff80, #74dceb20 45%, transparent 75%);
+    box-shadow: inset 0 0 0 1px #ffffff60;
+    transition: opacity var(--motion-settle);
+  }
+  [data-theme='dark'] .project-art-link::after {
+    background: radial-gradient(260px circle at var(--light-x, 50%) var(--light-y, 50%), #9ecfff36, #74dceb12 45%, transparent 75%);
+    box-shadow: inset 0 0 0 1px #b4eaff50;
+  }
+  .project-art-link[data-tracking='true']::after { opacity: 1; }
+  .project-art-link:focus-visible { outline-offset: 5px; }
+  .project-open {
+    z-index: 2;
+    background: var(--surface);
+    color: var(--accent);
+    border: 1px solid var(--line);
+    transition: background-color var(--motion-fast), color var(--motion-fast);
+  }
+  .project-art-link:hover .project-open { background: var(--button); color: var(--button-ink); }
+  .project-card h3 a:hover { color: var(--accent); }
+  .project-meta { color: var(--muted); }
+  .small-count { background: var(--frost); border-color: transparent; color: var(--accent); }
+  .text-link svg { transition: transform var(--motion-fast) var(--ease-out); }
+  .text-link:hover svg { transform: translateX(3px); }
+  .experience-row { border-color: color-mix(in srgb, var(--line) 85%, transparent); }
+
+  /* A quiet closing light field. It does not animate or enter printed résumés. */
+  .contact-section {
+    position: relative;
+    isolation: isolate;
+    padding: 65px 48px;
+    margin-top: 20px;
+    margin-bottom: 68px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: radial-gradient(ellipse at 12% 120%, #74dceb24, transparent 58%), linear-gradient(120deg, #eaf5ff, #f0f4ff 70%, #f5faff);
+  }
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    inset: 0;
+    border-radius: inherit;
+    clip-path: polygon(41% 100%, 59% 0, 70% 0, 53% 100%);
+    background: linear-gradient(115deg, transparent, #a2d4eb30 50%, #ffffff80);
+  }
+  [data-theme='dark'] .contact-section {
+    background: radial-gradient(ellipse at 12% 120%, #359ac32e, transparent 58%), linear-gradient(120deg, #142f49, #1c2b4a 70%, #12263e);
+  }
+  [data-theme='dark'] .contact-section::before { opacity: .2; }
+  .contact-section h2 { font-size: clamp(32px, 3.2vw, 44px); }
+  .email-address { font-size: clamp(21px, 2vw, 28px); gap: 18px; }
+  .email-address:hover, .contact-links a:hover, .text-button:hover { color: var(--accent); }
+  .contact-links a, .text-button { min-height: 44px; }
+  .contact-section .copy-status { margin-top: 0 !important; }
+
+  @media (max-width: 1100px) {
+    .hero { column-gap: 8px; }
+    .navigation { gap: 2px; }
+    .navigation > a { padding-inline: 10px; }
+    .contact-section { padding: 45px 28px; gap: 24px; }
+  }
+  @media (max-width: 800px) {
+    .contact-section { grid-template-columns: 1fr; gap: 25px; }
+    .contact-actions { justify-self: start; min-width: 0; width: 100%; }
+    .email-address { max-width: 440px; justify-content: space-between; }
+  }
+  @media (max-width: 640px) {
+    .hero { gap: 16px; }
+    .hero h1 span:nth-child(2) { color: #2964af; }
+    [data-theme='dark'] .hero h1 span:nth-child(2) { color: #a8ceff; }
+    .navigation { gap: 18px; }
+    .contact-section { padding: 34px 22px 42px; margin-top: 5px; margin-bottom: 40px; }
+    .contact-section p { font-size: 13px; }
+    .email-address { font-size: clamp(18px, 5.25vw, 24px); }
+    .email-address svg { width: 21px; }
+    .contact-section::before { opacity: .6; }
+    .spectral-glow { animation: none; }
+  }
+  @media (prefers-reduced-motion: reduce), (hover: none) {
+    .project-art-link .project-art { transform: none; }
+    .project-art-link::after { display: none; }
+  }
+  [data-motion='still'] .project-art-link .project-art { transform: none; }
+  [data-motion='still'] .spectral-glow { animation-play-state: paused; }
+  [data-motion='still'] .button:hover,
+  [data-motion='still'] .button:active,
+  [data-motion='still'] .text-link:hover svg { transform: none; }
+  @media print {
+    :root, :root[data-theme='dark'] {
+      --ink: #111;
+      --muted: #444;
+      --paper: #fff;
+      --surface: #fff;
+      --line: #bbb;
+    }
+    .exhibit-halo, .contact-section::before { display: none; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+}

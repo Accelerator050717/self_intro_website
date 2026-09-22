@@ -14,10 +14,13 @@ __pycache__/
 .DS_Store
 /Codex_Personal_Website_Ice_Bricks_Prompt.md
 /Codex_Website_Revision_Animated_Avatar.md
+/Codex_Ice_Website_Visual_Upgrade.md
 /docs/screenshots/*
 !/docs/screenshots/revision/
+!/docs/screenshots/visual-upgrade/
 /docs/reports/lighthouse-*.report.*
 /docs/reports/performance-before/
+/docs/reports/visual-upgrade/playwright.json
 /docs/test-results.json
 /docs/first-visual-check.json
 /docs/dependency-audit.json

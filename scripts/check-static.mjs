@@ -20,7 +20,7 @@ const option = (name, fallback) => {
 };
 const configuredDir = option('--configured', null);
 const configuredSite = option('--site', 'https://portfolio.test').replace(/\/$/, '');
-const reportPath = join(root, 'docs', 'reports', 'static-audit.json');
+const reportPath = join(root, process.env.REPORT_DIRECTORY || 'docs/reports', 'static-audit.json');
 const checksum = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const posix = (path) => path.replaceAll('\\', '/');
 const issues = [];

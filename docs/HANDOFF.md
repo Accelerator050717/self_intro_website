@@ -1,4 +1,10 @@
-# 本轮增量交接 · 2026-09-22
+# 当前交接：Glacial Spectrum 视觉升级
+
+当前分支为 `feat/ice-visual-upgrade`。访问/启动、维护入口、保留范围与Git边界见 [HANDOFF-VISUAL.md](HANDOFF-VISUAL.md)，前后截图、真实录屏和性能对照见 [VISUAL-UPGRADE.md](VISUAL-UPGRADE.md)。本地地址仍为 `http://127.0.0.1:4321/en/` 和 `/zh/`，启动仍为 `npm.cmd ci` 后 `.\start-site.ps1`。
+
+以下保留**上一轮人物修复交接**；其中 `main`、旧证据和旧轮范围是历史记录，不代表当前视觉升级分支的测试结果。
+
+## 上一轮增量交接 · 2026-09-22
 
 英文预览：http://127.0.0.1:4321/en/ ，中文：http://127.0.0.1:4321/zh/ 。仅本机访问。根目录运行 `.\start-site.ps1` 可重建并启动/复用预览，新环境先执行 `npm.cmd ci`。开发模式用 `npm.cmd run dev -- --port 4321`。
 

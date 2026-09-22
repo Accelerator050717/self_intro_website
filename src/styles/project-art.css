@@ -1,0 +1,161 @@
+@layer components {
+  /* Original portfolio concept illustrations. No product screenshots or metrics. */
+  .project-art.spectrum-art {
+    --art-bright: #f7fdff;
+    --art-panel: #f0faff;
+    --art-surface: #c9eafa;
+    --art-blue-soft: #b3cfe9;
+    --art-cyan-soft: #c4f0f2;
+    --art-line: #7ea9c6;
+    --art-ink: #244662;
+    --art-shadow: #275c8a;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #d7eaf8;
+  }
+
+  .spectrum-art.art-goldencamp {
+    background:
+      radial-gradient(ellipse at 73% 17%, #d1eaf9 0, transparent 59%),
+      linear-gradient(145deg, #e5f7fa 0%, #c9e8ed 48%, #a8cedd 100%);
+  }
+
+  .spectrum-art.art-context-ai {
+    background:
+      radial-gradient(ellipse at 28% 22%, #e3f9ff 0, transparent 54%),
+      radial-gradient(ellipse at 78% 82%, #b8c2ee 0, transparent 65%),
+      linear-gradient(130deg, #d9e9ff, #c7ddf7);
+  }
+
+  .spectrum-art.art-yunxinyi {
+    background:
+      radial-gradient(ellipse at 23% 15%, #ecffff 0, transparent 60%),
+      linear-gradient(145deg, #d3f5f6 0%, #b5e3ed 54%, #b7cee9 100%);
+  }
+
+  .spectrum-art.art-ml-pipeline {
+    background:
+      radial-gradient(ellipse at 75% 18%, #dceafd 0, transparent 58%),
+      linear-gradient(140deg, #d3dcf7 0%, #c1d7ee 52%, #a8c8e0 100%);
+  }
+
+  .spectrum-art.art-admin-modernization {
+    background: linear-gradient(135deg, #d2eef6, #bfd3ed 65%, #b7c5e8);
+  }
+
+  .spectrum-art.art-registry-integrity {
+    background: linear-gradient(135deg, #d7edf4, #badde6 65%, #aacade);
+  }
+
+  .spectrum-art .spectrum-illustration {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    overflow: visible;
+  }
+
+  .spectrum-art .spectrum-label {
+    fill: var(--art-ink);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -.2px;
+  }
+
+  .spectrum-art .spectrum-label.emphasis {
+    font-weight: 650;
+  }
+
+  .spectrum-art .art-contours {
+    opacity: .42;
+  }
+
+  .spectrum-art .art-label {
+    z-index: 2;
+    left: 16px;
+    bottom: 14px;
+    padding: 4px 8px;
+    color: #33546c;
+    background: #f4fbffd9;
+    border: 1px solid #ffffffa3;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  :root[data-theme='dark'] .project-art.spectrum-art {
+    --art-bright: #a7dae9;
+    --art-panel: #254861;
+    --art-surface: #397291;
+    --art-blue-soft: #355a89;
+    --art-cyan-soft: #326c7d;
+    --art-line: #79abc6;
+    --art-ink: #e0f2fc;
+    --art-shadow: #041120;
+  }
+
+  :root[data-theme='dark'] .spectrum-art.art-goldencamp {
+    background:
+      radial-gradient(ellipse at 55% 12%, #285572 0, transparent 65%),
+      linear-gradient(140deg, #16384b, #174456 52%, #1a3854);
+  }
+
+  :root[data-theme='dark'] .spectrum-art.art-context-ai {
+    background:
+      radial-gradient(ellipse at 23% 23%, #285472 0, transparent 58%),
+      radial-gradient(ellipse at 80% 90%, #41466f 0, transparent 65%),
+      linear-gradient(130deg, #1a3451, #253b60);
+  }
+
+  :root[data-theme='dark'] .spectrum-art.art-yunxinyi {
+    background:
+      radial-gradient(ellipse at 23% 15%, #235d69 0, transparent 60%),
+      linear-gradient(145deg, #163947, #235567 54%, #233f60);
+  }
+
+  :root[data-theme='dark'] .spectrum-art.art-ml-pipeline {
+    background:
+      radial-gradient(ellipse at 75% 18%, #304c70 0, transparent 58%),
+      linear-gradient(140deg, #293554, #264663 52%, #233d5c);
+  }
+
+  :root[data-theme='dark'] .spectrum-art.art-admin-modernization {
+    background: linear-gradient(135deg, #173e55, #2a3f66);
+  }
+
+  :root[data-theme='dark'] .spectrum-art.art-registry-integrity {
+    background: linear-gradient(135deg, #173c4d, #244958);
+  }
+
+  :root[data-theme='dark'] .spectrum-art .art-label {
+    color: #d5e9f6;
+    background: #122c42dc;
+    border-color: #8dc0db3d;
+  }
+
+  @media (max-width: 640px) {
+    .spectrum-art .spectrum-label {
+      font-size: 21px;
+    }
+
+    .spectrum-art .art-label {
+      left: 12px;
+      bottom: 12px;
+    }
+
+    .spectrum-art .spectrum-illustration {
+      width: 110%;
+      max-width: 110%;
+      flex-shrink: 0;
+    }
+  }
+
+  @media print {
+    .spectrum-art {
+      print-color-adjust: exact;
+    }
+  }
+}

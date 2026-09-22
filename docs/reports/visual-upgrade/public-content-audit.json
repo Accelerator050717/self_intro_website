@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-22T17:15:38.114Z",
+  "scope": "Exact staged files before public commit, excluding this generated self-report; pattern scan plus separate manual source/file review. Not a guarantee that every possible secret format is detectable.",
+  "excludedSelfReport": "docs/reports/visual-upgrade/public-content-audit.json",
+  "files": 232,
+  "totalBytes": 38306782,
+  "findings": [],
+  "fileListSha256": "62ddffdea3854d4b257be67b29e0e3623ca6b73332a694dd9ba54afef7c57e75",
+  "exclusions": [
+    "Raw reference PNGs and retired side/back derivatives",
+    "Private briefs and local snapshots",
+    "Real .env values and credentials",
+    "Dependencies, dist, caches, traces and machine-specific raw reports"
+  ],
+  "passed": true
+}

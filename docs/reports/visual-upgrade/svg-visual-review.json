@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-22T17:12:59.255Z",
+  "base": "http://127.0.0.1:4321",
+  "route": "/en/?webgl=0",
+  "browser": "Installed Chrome, headless",
+  "scope": "Forced SVG fallback visual review",
+  "settings": {
+    "paused": true,
+    "reason": "Stable screenshots without a greeting overlay; no product code modified."
+  },
+  "cases": [
+    {
+      "device": "desktop",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "docs/screenshots/visual-upgrade/after/svg-desktop-light.png",
+      "canvasCount": 0,
+      "svgCount": 1,
+      "sceneSettled": true,
+      "scrollY": 0,
+      "viewportWidth": 1440,
+      "viewportHeight": 1000,
+      "svgBounds": {
+        "x": 739,
+        "y": 143,
+        "width": 601,
+        "height": 645
+      },
+      "horizontalOverflow": false,
+      "studEllipses": 20,
+      "sidePolygons": 12,
+      "svgTopColor": "#f1ffff",
+      "svgBlueColor": "#69bce0",
+      "visualReview": {
+        "inspected": true,
+        "backgroundEdgePass": true,
+        "studsVisible": true,
+        "thicknessVisible": true,
+        "unintendedClipping": false
+      }
+    },
+    {
+      "device": "desktop",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "docs/screenshots/visual-upgrade/after/svg-desktop-dark.png",
+      "canvasCount": 0,
+      "svgCount": 1,
+      "sceneSettled": true,
+      "scrollY": 0,
+      "viewportWidth": 1440,
+      "viewportHeight": 1000,
+      "svgBounds": {
+        "x": 739,
+        "y": 143,
+        "width": 601,
+        "height": 645
+      },
+      "horizontalOverflow": false,
+      "studEllipses": 20,
+      "sidePolygons": 12,
+      "svgTopColor": "#d0f8ff",
+      "svgBlueColor": "#3675a7",
+      "visualReview": {
+        "inspected": true,
+        "backgroundEdgePass": true,
+        "studsVisible": true,
+        "thicknessVisible": true,
+        "unintendedClipping": false
+      }
+    },
+    {
+      "device": "mobile",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "docs/screenshots/visual-upgrade/after/svg-mobile-light.png",
+      "canvasCount": 0,
+      "svgCount": 1,
+      "sceneSettled": true,
+      "scrollY": 329,
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "svgBounds": {
+        "x": 7,
+        "y": 232.9375,
+        "width": 376,
+        "height": 445
+      },
+      "horizontalOverflow": false,
+      "studEllipses": 20,
+      "sidePolygons": 12,
+      "svgTopColor": "#f1ffff",
+      "svgBlueColor": "#69bce0",
+      "visualReview": {
+        "inspected": true,
+        "backgroundEdgePass": true,
+        "studsVisible": true,
+        "thicknessVisible": true,
+        "unintendedClipping": false
+      }
+    },
+    {
+      "device": "mobile",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "docs/screenshots/visual-upgrade/after/svg-mobile-dark.png",
+      "canvasCount": 0,
+      "svgCount": 1,
+      "sceneSettled": true,
+      "scrollY": 335,
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "svgBounds": {
+        "x": 7,
+        "y": 226.9375,
+        "width": 376,
+        "height": 445
+      },
+      "horizontalOverflow": false,
+      "studEllipses": 20,
+      "sidePolygons": 12,
+      "svgTopColor": "#d0f8ff",
+      "svgBlueColor": "#3675a7",
+      "visualReview": {
+        "inspected": true,
+        "backgroundEdgePass": true,
+        "studsVisible": true,
+        "thicknessVisible": true,
+        "unintendedClipping": false
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "visualReviewPending": false,
+  "reviewedAt": "2026-09-22T17:13:40.508Z",
+  "passed": true,
+  "visualFindings": {
+    "allFourImagesInspected": true,
+    "backgroundEdges": "No rectangular SVG surface, visible canvas seam, or clipped glow boundary. The intentional cyan/violet polygon behind the avatar remains visible.",
+    "brickShape": "Cylindrical stud tops and sides, thick front/side faces, bright edge strokes and cyan-to-violet face contrast remain readable at both viewport sizes.",
+    "darkTheme": "Dark SVG colors were applied; platform edges and peripheral bricks remain distinct against the navy page.",
+    "mobileFraming": "The page was scrolled to center the complete Hero stage. The title crop at the top is the viewport scroll position, not document clipping. No horizontal overflow or clipped peripheral brick.",
+    "limitations": "These are static SVG fallback illustrations, not physical WebGL refraction. Installed Chrome desktop and mobile viewport emulation only."
+  },
+  "browsersClosed": true
+}

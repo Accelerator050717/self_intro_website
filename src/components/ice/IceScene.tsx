@@ -1,12 +1,48 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { ACESFilmicToneMapping, Color, CubeUVReflectionMapping, DataTexture, Group, HalfFloatType, Line, LinearFilter, LinearSRGBColorSpace, Mesh, NoToneMapping, OrthographicCamera, RGBAFormat, SRGBColorSpace, WebGLRenderTarget, type Camera, type Scene, type WebGLRenderer } from 'three';
+import { ACESFilmicToneMapping, Color, CubeUVReflectionMapping, DataTexture, Group, HalfFloatType, Line, LinearFilter, LinearSRGBColorSpace, Mesh, NoToneMapping, OrthographicCamera, RGBAFormat, SRGBColorSpace, Vector3, WebGLRenderTarget, type Camera, type Scene, type WebGLRenderer } from 'three';
 import IceBrick, { IceBrickResources } from './IceBrick';
+import { studioPalette } from './studio-palette';
 
 type SceneProps = {
   active: boolean; interactive?: boolean; dark?: boolean;
   onReady: () => void; onFailure: () => void;
 };
+
+function createLightField(dark: boolean) {
+  const palette = studioPalette[dark ? 'dark' : 'light'];
+  const rgb = (hex: string) => [1, 3, 5].map(index => parseInt(hex.slice(index, index + 2), 16));
+  const paper = rgb(palette.paper);
+  const lobes = [
+    { color: rgb(palette.cyan), x: 0.38, y: 0.66, rx: 0.43, ry: 0.34, strength: dark ? 0.26 : 0.55 },
+    { color: rgb(palette.blue), x: 0.61, y: 0.79, rx: 0.38, ry: 0.21, strength: dark ? 0.3 : 0.24 },
+    { color: rgb(palette.violet), x: 0.73, y: 0.36, rx: 0.3, ry: 0.4, strength: dark ? 0.22 : 0.38 },
+  ];
+  const size = 128;
+  const pixels = new Uint8Array(size * size * 4);
+  for (let row = 0; row < size; row++) for (let column = 0; column < size; column++) {
+    const x = column / (size - 1);
+    const y = 1 - row / (size - 1);
+    // Exact paper at the outer edge avoids a colored line at the Canvas bounds.
+    const edge = Math.min(1, Math.min(x, 1 - x) / 0.07, Math.min(y, 1 - y) / 0.06);
+    const color = [...paper];
+    for (const lobe of lobes) {
+      const radius = ((x - lobe.x) / lobe.rx) ** 2 + ((y - lobe.y) / lobe.ry) ** 2;
+      const weight = Math.exp(-2 * radius) * lobe.strength * edge;
+      for (let channel = 0; channel < 3; channel++) color[channel] += (lobe.color[channel] - color[channel]) * weight;
+    }
+    const index = (row * size + column) * 4;
+    for (let channel = 0; channel < 3; channel++) pixels[index + channel] = Math.round(color[channel]);
+    pixels[index + 3] = 255;
+  }
+  const texture = new DataTexture(pixels, size, size, RGBAFormat);
+  texture.colorSpace = SRGBColorSpace;
+  texture.minFilter = LinearFilter;
+  texture.magFilter = LinearFilter;
+  texture.generateMipmaps = false;
+  texture.needsUpdate = true;
+  return texture;
+}
 
 async function loadStudioEnvironment(signal: AbortSignal): Promise<DataTexture> {
   const [metadataResponse, textureResponse] = await Promise.all([
@@ -65,12 +101,16 @@ async function compileStudio(gl: WebGLRenderer, scene: Scene, camera: Camera, si
 function Studio({ dark, onReady, onFailure, onPrepared }: Pick<SceneProps, 'dark' | 'onReady' | 'onFailure'> & { onPrepared: () => void }) {
   const { gl, scene, camera, size, invalidate } = useThree();
   const reported = useRef(false);
+  const backdrop = useRef<Mesh>(null);
+  const lightField = useMemo(() => createLightField(Boolean(dark)), [dark]);
+  useEffect(() => () => lightField.dispose(), [lightField]);
   useEffect(() => {
     // A real local backdrop participates in the transmission prepass; DOM color
     // behind a transparent canvas cannot supply refracted light to the material.
     const previousBackground = scene.background;
-    scene.background = new Color(dark ? '#101e2c' : '#f4f8fc');
-    gl.setClearColor(dark ? '#101e2c' : '#f4f8fc', 1);
+    const paper = studioPalette[dark ? 'dark' : 'light'].paper;
+    scene.background = new Color(paper);
+    gl.setClearColor(paper, 1);
     invalidate();
     return () => { scene.background = previousBackground; };
   }, [dark, gl, scene, invalidate]);
@@ -103,21 +143,31 @@ function Studio({ dark, onReady, onFailure, onPrepared }: Pick<SceneProps, 'dark
     gl.domElement.addEventListener('webglcontextlost', handleLost);
     return () => gl.domElement.removeEventListener('webglcontextlost', handleLost);
   }, [gl, onFailure]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!(camera instanceof OrthographicCamera)) return;
     camera.zoom = Math.min(size.width / 7.1, size.height / 7.75);
     camera.position.set(7, 8, 12);
     camera.lookAt(0, 2.75, 0);
     camera.updateProjectionMatrix();
+    if (backdrop.current) {
+      const direction = camera.getWorldDirection(new Vector3());
+      backdrop.current.position.copy(camera.position).addScaledVector(direction, 35);
+      backdrop.current.quaternion.copy(camera.quaternion);
+      backdrop.current.scale.set((camera.right - camera.left) / camera.zoom * 1.01, (camera.top - camera.bottom) / camera.zoom * 1.01, 1);
+    }
     invalidate();
   }, [camera, size.width, size.height, invalidate]);
   useFrame(() => {
     if (!reported.current) { reported.current = true; requestAnimationFrame(onReady); }
   });
   return <>
-    <ambientLight intensity={dark ? 0.5 : 0.6} color={dark ? '#9ac7e6' : '#e8f5ff'} />
-    <directionalLight position={[-4, 9, 6]} intensity={dark ? 2.4 : 1.9} color="#f3fbff" />
-    <directionalLight position={[6, 3, -4]} intensity={1.4} color="#91c9f0" />
+    <mesh ref={backdrop} renderOrder={-1000} frustumCulled={false}>
+      <planeGeometry args={[1, 1]} />
+      <meshBasicMaterial map={lightField} toneMapped={false} depthWrite={false} />
+    </mesh>
+    <ambientLight intensity={dark ? 0.42 : 0.5} color={dark ? '#91cddd' : '#def7ff'} />
+    <directionalLight position={[-4, 9, 6]} intensity={dark ? 2 : 1.65} color="#f2fcff" />
+    <directionalLight position={[6, 3, -4]} intensity={1.15} color="#b9b4f5" />
   </>;
 }
 
@@ -158,9 +208,15 @@ export default function IceScene({ active, interactive = false, dark = false, on
   const [prepared, setPrepared] = useState(false);
   const onPrepared = useCallback(() => setPrepared(true), []);
   return <Canvas className="ice-canvas" orthographic camera={{ position: [7, 8, 12], zoom: 70, near: 0.1, far: 70 }}
-    frameloop={active && prepared ? 'demand' : 'never'} dpr={[1, 1.5]}
+    frameloop={active && prepared ? 'demand' : 'never'} dpr={[1, 1.25]}
     gl={{ alpha: true, antialias: true, powerPreference: 'low-power', failIfMajorPerformanceCaveat: true }}
-    onCreated={({ gl }) => { gl.setClearColor('#f4f8fc', 0); gl.toneMapping = ACESFilmicToneMapping; gl.toneMappingExposure = 0.95; gl.outputColorSpace = SRGBColorSpace; }}
+    onCreated={({ gl }) => {
+      gl.setClearColor(studioPalette[dark ? 'dark' : 'light'].paper, 1);
+      gl.transmissionResolutionScale = 0.75;
+      gl.toneMapping = ACESFilmicToneMapping;
+      gl.toneMappingExposure = 0.95;
+      gl.outputColorSpace = SRGBColorSpace;
+    }}
     style={{ position: 'absolute', inset: 0, touchAction: 'pan-y' }}>
     <Studio dark={dark} onReady={onReady} onFailure={onFailure} onPrepared={onPrepared} />
     <IceBrickResources dark={dark}>

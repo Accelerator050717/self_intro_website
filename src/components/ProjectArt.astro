@@ -1,31 +1,228 @@
 ---
-import type {Lang} from '../i18n/ui';
-const {slug,lang='en',large=false}=Astro.props as {slug:string;lang?:Lang;large?:boolean};
-const zh=lang==='zh';
-const labels:Record<string,string[]>={
-  'context-ai':zh?['结构化资料','共享上下文','摘要','后续问答']:['Structured input','Shared context','Summary','Follow-up'],
-  yunxinyi:zh?['测量记录','报告','患者查看端']:['Records','Reports','Patient view'],
-  'ml-pipeline':zh?['数据','时间划分','模型','评估']:['Data','Time splits','Models','Evaluation'],
-  'admin-modernization':zh?['新前端','接口适配','既有后端']:['New interface','API adaptation','Existing backend'],
-  'registry-integrity':zh?['录入','校验','唯一记录']:['Input','Validation','Unique record'],
+import type { Lang } from '../i18n/ui';
+import '../styles/project-art.css';
+
+const { slug, lang = 'en', large = false } = Astro.props as {
+  slug: string;
+  lang?: Lang;
+  large?: boolean;
 };
-const l=labels[slug]||[];
+const zh = lang === 'zh';
+const labels: Record<string, string[]> = {
+  'context-ai': zh
+    ? ['结构化资料', '共享上下文', '摘要', '后续问答']
+    : ['Structured input', 'Shared context', 'Summary', 'Follow-up'],
+  yunxinyi: zh ? ['测量记录', '报告', '患者查看端'] : ['Records', 'Reports', 'Patient view'],
+  'ml-pipeline': zh ? ['数据', '时间划分', '模型', '评估'] : ['Data', 'Time splits', 'Models', 'Evaluation'],
+  'admin-modernization': zh ? ['新前端', '接口适配', '既有后端'] : ['New interface', 'API adaptation', 'Existing backend'],
+  'registry-integrity': zh ? ['录入', '校验', '唯一记录'] : ['Input', 'Validation', 'Unique record'],
+};
+const words = labels[slug] || [];
+const id = `spectrum-${slug}-${large ? 'detail' : 'card'}`;
+const paint = (name: string) => `url(#${id}-${name})`;
 ---
-<div class:list={['project-art',`art-${slug}`,{large}]} aria-hidden="true">
-{slug==='goldencamp'?<svg viewBox="0 0 640 360" fill="none" class="camp-art">
-  <ellipse cx="320" cy="296" rx="205" ry="24" fill="#294b5b" opacity=".12"/>
-  <path d="m116 224 199-98 211 100-202 102Z" fill="#80a9b6"/><path d="m116 224 208 104v25L116 249Z" fill="#64909f"/><path d="m324 328 202-102v25L324 353Z" fill="#467785"/>
-  <path d="m138 203 62-89 79 89-68 39Z" fill="#678d9b"/><path d="m200 114 11 128 68-39Z" fill="#476e80"/><path d="m180 144 20-30 24 27-16-8-12 14-6-7Z" fill="#dbedf1"/>
-  <path d="m282 221 68-94 80 94-74 39Z" fill="#9fc0c9"/><path d="m350 127 6 133 74-39Z" fill="#6b95a4"/><path d="m330 156 20-29 27 32-25-10-7 11Z" fill="#eaf6f8"/>
-  <path d="m220 247 71-66 49 92-53 28Z" fill="#c9a570"/><path d="m291 181-4 120 53-28Z" fill="#a47a48"/><path d="m236 252 40-43v75Z" fill="#566d73"/>
-  <path d="m382 263 25-10 21 11-24 13Z" fill="#e5c783"/><path d="m382 263 22 14v17l-22-13Z" fill="#bd944b"/><path d="m404 277 24-13v18l-24 12Z" fill="#d3ae61"/>
-  <path d="m449 222 18-10 18 10-18 10Z" fill="#eed79c"/><path d="m449 222 18 10v16l-18-10Z" fill="#c19a57"/><path d="m467 232 18-10v16l-18 10Z" fill="#d4b77d"/>
-  <path d="m171 253 27 14m172 30 22-10" stroke="#e4eef0" stroke-width="3" stroke-linecap="round"/>
-  <path d="M435 146v48m0-48 36 11-36 10" stroke="#426675" stroke-width="3"/><path d="m437 147 34 10-34 10Z" fill="#d4b778"/>
-  <g fill="#688c79"><path d="m475 209 15-37 17 37Zm-12 13 27-41 28 41Z"/><path d="m137 169 13-31 14 31Z"/></g>
-</svg>:slug==='context-ai'?<div class="context-art"><div class="art-input"><span class="document-lines"></span><span>{l[0]}</span></div><span class="art-connector"></span><div class="context-core"><span class="core-orbit"><span/></span><strong>{l[1]}</strong></div><div class="context-outputs"><span>{l[2]}</span><span>{l[3]}</span></div></div>
-:slug==='yunxinyi'?<div class="phone-scene"><div class="phone phone-back"><div class="phone-notch"/><span>{l[1]}</span><div class="report-sheet"><i/><i/><i/><i/><i/></div></div><div class="phone"><div class="phone-notch"/><strong>{l[0]}</strong>{[1,2,3].map(()=> <div class="record-row"><span class="record-circle"/><div><i/><i/></div><span>›</span></div>)}<div class="phone-tab"><span/><span/><span/></div></div><span class="phone-caption">{l[2]}</span></div>
-:slug==='ml-pipeline'?<div class="pipeline-art"><div class="data-matrix">{Array.from({length:30},(_,i)=><i style={`opacity:${.25+(i%5)*.15}`}/>)}</div><div class="pipeline-steps">{l.map((step,i)=><div class="pipeline-step"><span class="step-shape" style={`--step:${i}`}><i/><i/><i/></span><span>{step}</span></div>)}</div></div>
-:<div class="system-art">{l.map((label,i)=><div class="system-node"><span class="system-icon">{i===0?'⌘':i===1?'⇄':'✓'}</span><strong>{label}</strong><span class="system-lines"><i/><i/></span></div>)}</div>}
-<span class="art-label">{slug==='goldencamp'?(zh?'概念示意':'Concept illustration'):(zh?'示意图':'Illustrative diagram')}</span>
+
+<div class:list={['project-art', 'spectrum-art', `art-${slug}`, { large }]} aria-hidden="true">
+  <svg class="spectrum-illustration" viewBox="0 0 640 400" fill="none" focusable="false">
+    <defs>
+      <linearGradient id={`${id}-surface`} x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="var(--art-bright)" />
+        <stop offset=".6" stop-color="var(--art-surface)" />
+        <stop offset="1" stop-color="var(--art-blue-soft)" />
+      </linearGradient>
+      <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="var(--art-bright)" stop-opacity=".95" />
+        <stop offset="1" stop-color="var(--art-panel)" stop-opacity=".8" />
+      </linearGradient>
+      <linearGradient id={`${id}-ice`} x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#8de6ed" />
+        <stop offset=".48" stop-color="#64abd8" />
+        <stop offset="1" stop-color="#5174b4" />
+      </linearGradient>
+      <linearGradient id={`${id}-signal`} x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#8ce3eb" />
+        <stop offset=".55" stop-color="#579de8" />
+        <stop offset="1" stop-color="#938ad6" />
+      </linearGradient>
+      <linearGradient id={`${id}-gold`} x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="#ffdf94" />
+        <stop offset="1" stop-color="#d29c4d" />
+      </linearGradient>
+    </defs>
+
+    {slug === 'goldencamp' ? (
+      <g class="spectrum-camp">
+        <g class="art-contours" stroke="var(--art-line)" stroke-width="1.5">
+          <path d="M33 244c54-76 173-146 291-155s232 65 280 137" />
+          <path d="M52 266c59-69 168-127 273-134s203 50 260 115" />
+          <path d="M82 289c87-58 155-85 243-88s175 25 232 68" />
+        </g>
+        <ellipse cx="323" cy="325" rx="215" ry="34" fill="var(--art-shadow)" opacity=".13" />
+        <path d="m102 230 202-104 237 101-214 116Z" fill={paint('surface')} stroke="var(--art-bright)" stroke-width="2" />
+        <path d="m102 230 225 113v31L102 258Z" fill="#589bb8" />
+        <path d="m327 343 214-116v31L327 374Z" fill="#347796" />
+        <path d="m111 236 216 107 205-110" stroke="#b9f0f3" stroke-opacity=".8" stroke-width="2" />
+        <path d="m112 260 214 108m25-43v33m40-55v32m42-57v33m42-58v32" stroke="#b9f0f3" stroke-opacity=".25" stroke-width="2" />
+        <path d="m145 205 65-125 87 135-84 32Z" fill={paint('ice')} />
+        <path d="m210 80 3 167 84-32Z" fill="#4f83b0" />
+        <path d="m186 126 24-46 31 48-22-11-12 18-9-10Z" fill="#eefbff" />
+        <path d="m205 155 5-75 3 167" stroke="#a4e7f0" stroke-opacity=".8" stroke-width="2" />
+        <path d="m308 194 58-105 87 132-70 34Z" fill="#a4e5ec" />
+        <path d="m366 89 17 166 70-34Z" fill="#689ac4" />
+        <path d="m344 129 22-40 27 40-23-9-8 12-8-9Z" fill="#effdff" />
+        <path d="m126 237 52-17 52 24-45 21Z" fill="#9ce9ed" fill-opacity=".8" />
+        <path d="m145 239 28-8 30 14-18 10m-25-12 28 8" stroke="#dcffff" stroke-width="2" stroke-linecap="round" />
+        <path d="M194 287c27-18 71-19 103-6s69 13 87-6 42-37 69-31" stroke="#fff4d4" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 13" opacity=".75" />
+        <path d="m216 247 69-85 71 107-70 39Z" fill={paint('gold')} />
+        <path d="m285 162 1 146 70-39Z" fill="#c58c43" />
+        <path d="m238 258 37-57 1 88Z" fill="#304a5d" />
+        <path d="m216 247 69-85 71 107m-71-107 1 146" stroke="#fff0bf" stroke-width="2" stroke-linejoin="round" />
+        <path d="m208 254 7-8m140 25 14 5" stroke="#587c88" stroke-width="3" stroke-linecap="round" />
+        <g transform="translate(392 256)">
+          <path d="m0 0 27-14 27 14-27 16Z" fill="#ffe7a4" />
+          <path d="m0 0 27 16v24L0 24Z" fill="#c18c40" />
+          <path d="m27 16 27-16v24L27 40Z" fill="#e7b356" />
+          <path d="m10-1 16-8 17 9-16 9Z" fill="#fff2c6" />
+        </g>
+        <g transform="translate(461 221) scale(.65)">
+          <path d="m0 0 27-14 27 14-27 16Z" fill="#ffe7a4" />
+          <path d="m0 0 27 16v24L0 24Z" fill="#c18c40" />
+          <path d="m27 16 27-16v24L27 40Z" fill="#e7b356" />
+        </g>
+        <path d="M449 149v48m0-48 36 12-36 12" stroke="#365a70" stroke-width="3" stroke-linejoin="round" />
+        <path d="m452 151 29 10-29 10Z" fill="#edd394" />
+        <g fill="#458b9b" stroke="#b7e8ec" stroke-width="1.5">
+          <path d="m145 169 16-40 18 40Zm-7 20 23-43 24 43Z" />
+          <path d="m481 188 15-36 17 36Zm-8 18 23-41 24 41Z" />
+        </g>
+      </g>
+    ) : slug === 'context-ai' ? (
+      <g class="spectrum-context">
+        <ellipse cx="329" cy="304" rx="222" ry="35" fill="var(--art-shadow)" opacity=".1" />
+        <path d="m221 186 58 8m131-18 43-44m-43 87 43 44" stroke="var(--art-line)" stroke-width="2" />
+        <path d="m222 180 62 9m122-18 41-43m-41 85 42 44" stroke={paint('signal')} stroke-width="4" stroke-linecap="round" />
+        <circle cx="249" cy="184" r="5" fill="#78dce9" stroke="var(--art-bright)" stroke-width="2" />
+        <circle cx="430" cy="147" r="5" fill="#86afea" stroke="var(--art-bright)" stroke-width="2" />
+        <circle cx="430" cy="239" r="5" fill="#a39ce4" stroke="var(--art-bright)" stroke-width="2" />
+        <g transform="translate(71 113) rotate(-7 80 87)">
+          <rect x="10" y="13" width="143" height="171" rx="14" fill="var(--art-shadow)" opacity=".13" />
+          <rect width="143" height="171" rx="14" fill={paint('glass')} stroke="var(--art-bright)" stroke-width="2" />
+          <rect x="22" y="23" width="31" height="35" rx="6" fill="var(--art-blue-soft)" />
+          <path d="M30 32h15m-15 7h15m-15 7h10M23 80h92M23 95h78M23 110h87" stroke="var(--art-line)" stroke-width="4" stroke-linecap="round" />
+          <text class="spectrum-label" x="71.5" y={zh ? 146 : 136} text-anchor="middle">
+            {zh ? words[0] : <><tspan x="71.5">Structured</tspan><tspan x="71.5" dy="22">input</tspan></>}
+          </text>
+        </g>
+        <g transform="translate(269 103) rotate(-4 78 90)">
+          <rect x="10" y="13" width="144" height="184" rx="21" fill="#598dca" opacity=".24" />
+          <rect width="144" height="184" rx="21" fill={paint('surface')} stroke="#94d5ec" stroke-width="2" />
+          <rect x="9" y="9" width="126" height="166" rx="15" stroke="var(--art-bright)" stroke-opacity=".8" />
+          <circle cx="72" cy="74" r="45" fill={paint('signal')} fill-opacity=".18" />
+          <circle cx="72" cy="74" r="34" stroke="var(--art-bright)" stroke-width="2" />
+          <path d="m72 47 24 14v28l-24 14-24-14V61Z" fill={paint('signal')} stroke="#c2f2fc" stroke-width="1.5" />
+          <path d="m48 61 24 14 24-14M72 75v28" stroke="#e0f9ff" stroke-width="1.5" />
+          <text class="spectrum-label emphasis" x="72" y={zh ? 147 : 137} text-anchor="middle">
+            {zh ? words[1] : <><tspan x="72">Shared</tspan><tspan x="72" dy="22">context</tspan></>}
+          </text>
+        </g>
+        <g transform="translate(446 96) rotate(5 62 36)">
+          <rect x="5" y="8" width="128" height="82" rx="13" fill="var(--art-shadow)" opacity=".12" />
+          <rect width="128" height="82" rx="13" fill={paint('glass')} stroke="var(--art-bright)" stroke-width="2" />
+          <path d="M20 23h49m-49 9h78" stroke="var(--art-line)" stroke-width="3" stroke-linecap="round" />
+          <text class="spectrum-label" x="20" y="61">{words[2]}</text>
+        </g>
+        <g transform="translate(453 234) rotate(5 62 36)">
+          <rect x="5" y="8" width="128" height="82" rx="13" fill="var(--art-shadow)" opacity=".12" />
+          <rect width="128" height="82" rx="13" fill={paint('glass')} stroke="var(--art-bright)" stroke-width="2" />
+          <path d="M20 19h23v19H28l-8 6Zm39 8h46m-46 9h32" stroke="var(--art-line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          <text class="spectrum-label" x="20" y="64">{words[3]}</text>
+        </g>
+      </g>
+    ) : slug === 'yunxinyi' ? (
+      <g class="spectrum-records">
+        <ellipse cx="337" cy="328" rx="191" ry="32" fill="var(--art-shadow)" opacity=".11" />
+        <path d="M161 177c-47-39-18-98 37-95m276 166c53 19 44 71 5 86" stroke="var(--art-line)" stroke-width="1.5" stroke-dasharray="3 9" />
+        <g transform="translate(322 104) rotate(9 83 110)">
+          <rect x="8" y="11" width="162" height="235" rx="18" fill="var(--art-shadow)" opacity=".14" />
+          <rect width="162" height="235" rx="18" fill={paint('surface')} stroke="var(--art-bright)" stroke-width="2" />
+          <rect x="16" y="18" width="130" height="198" rx="11" fill="var(--art-panel)" stroke="var(--art-line)" stroke-opacity=".4" />
+          <text class="spectrum-label emphasis" x="34" y="50">{words[1]}</text>
+          <path d="M34 68h72m-72 12h91" stroke="var(--art-line)" stroke-width="3" stroke-linecap="round" />
+          <rect x="32" y="99" width="98" height="57" rx="8" fill="var(--art-cyan-soft)" />
+          <path d="M46 115h61m-61 11h46m-46 11h56M34 180h77m-77 12h50" stroke="var(--art-line)" stroke-width="3" stroke-linecap="round" />
+        </g>
+        <g transform="translate(166 47) rotate(-7 83 142)">
+          <rect x="8" y="10" width="172" height="288" rx="29" fill="var(--art-shadow)" opacity=".14" />
+          <rect width="172" height="288" rx="29" fill={paint('glass')} stroke="var(--art-line)" stroke-width="4" />
+          <rect x="10" y="11" width="152" height="266" rx="22" stroke="var(--art-bright)" stroke-width="2" />
+          <rect x="61" y="15" width="50" height="5" rx="2.5" fill="var(--art-line)" />
+          <text class="spectrum-label emphasis" x="25" y="56">{words[0]}</text>
+          {[0, 1, 2].map(index => (
+            <g transform={`translate(19 ${75 + index * 53})`}>
+              <rect width="134" height="44" rx="10" fill="var(--art-panel)" stroke="var(--art-line)" stroke-opacity=".55" />
+              <circle cx="21" cy="21" r="9" fill="var(--art-cyan-soft)" stroke="#63adc7" stroke-width="2" />
+              <path d="M41 16h59m-59 11h37" stroke="var(--art-line)" stroke-width="3.5" stroke-linecap="round" />
+              <path d="m116 18 4 4-4 4" stroke="var(--art-line)" stroke-width="2" stroke-linecap="round" />
+            </g>
+          ))}
+          <path d="M39 252h94" stroke="var(--art-line)" stroke-opacity=".4" />
+          <circle cx="51" cy="263" r="4" fill="#67bed2" />
+          <circle cx="86" cy="263" r="4" fill="var(--art-line)" />
+          <circle cx="121" cy="263" r="4" fill="var(--art-line)" />
+        </g>
+        <g transform="translate(344 199)">
+          <circle r="23" fill={paint('signal')} stroke="#d3f6fd" stroke-width="2" />
+          <path d="M-9 0H9m-7-7 7 7-7 7" stroke="#f1fdff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <text class="spectrum-label" x="422" y="75" text-anchor="middle">{words[2]}</text>
+      </g>
+    ) : slug === 'ml-pipeline' ? (
+      <g class="spectrum-pipeline">
+        <ellipse cx="325" cy="295" rx="230" ry="37" fill="var(--art-shadow)" opacity=".09" />
+        <g transform="translate(244 54) rotate(-9 100 39)">
+          <path d="m-19 67 108 34 138-31" stroke="var(--art-line)" stroke-opacity=".6" />
+          {Array.from({ length: 32 }, (_, index) => (
+            <rect x={(index % 8) * 22} y={Math.floor(index / 8) * 20} width="13" height="12" rx="2.5" fill={paint('signal')} opacity={.38 + (index % 5) * .13} />
+          ))}
+        </g>
+        <path d="m328 137 0 21c0 10-8 18-18 18H99" stroke="var(--art-line)" stroke-width="2" stroke-dasharray="4 7" />
+        <path d="M125 237h396" stroke="var(--art-line)" stroke-width="2" />
+        {words.map((word, index) => (
+          <g transform={`translate(${77 + index * 133} 180)`}>
+            <path d="m0 15 42-22 54 22-42 24Z" fill="var(--art-bright)" stroke="var(--art-line)" stroke-opacity=".65" />
+            <path d="m0 15 54 24v63L0 77Z" fill="var(--art-surface)" stroke="var(--art-line)" stroke-opacity=".6" />
+            <path d="m54 39 42-24v62l-42 25Z" fill="var(--art-blue-soft)" stroke="var(--art-line)" stroke-opacity=".6" />
+            <path d="m6 21 43 20v52" stroke="var(--art-bright)" stroke-width="2" />
+            {index === 0 ? <g stroke="#568eb8" stroke-width="3"><path d="m17 45 22 10m-22 1 22 10m-22 1 22 10" /></g>
+              : index === 1 ? <g stroke="#5796bb" stroke-width="3"><path d="m17 45 22 10m-22 12 22 10m-12-27v23" /><path d="m29 51 10 5" stroke="#807dcc" /></g>
+              : index === 2 ? <g fill="#668bca"><circle cx="18" cy="52" r="4" /><circle cx="37" cy="62" r="4" /><circle cx="19" cy="75" r="4" /><path d="m18 52 19 10-18 13Z" fill="none" stroke="#668bca" stroke-width="2" /></g>
+              : <path d="m17 62 8 10 16-15" stroke="#628ccc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />}
+            <text class="spectrum-label" x="47" y="133" text-anchor="middle">{word}</text>
+            {index < 3 && <path d="m112 49 5 5-5 5" stroke="var(--art-line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />}
+          </g>
+        ))}
+      </g>
+    ) : (
+      <g class="spectrum-system">
+        <ellipse cx="320" cy="284" rx="214" ry="27" fill="var(--art-shadow)" opacity=".1" />
+        <path d="M150 198h342" stroke="var(--art-line)" stroke-width="2" />
+        {words.map((word, index) => (
+          <g transform={`translate(${74 + index * 173} 115)`}>
+            <rect x="8" y="10" width="146" height="167" rx="18" fill="var(--art-shadow)" opacity=".13" />
+            <rect width="146" height="167" rx="18" fill={paint(index === 1 ? 'surface' : 'glass')} stroke="var(--art-bright)" stroke-width="2" />
+            <circle cx="73" cy="53" r="27" fill={paint('signal')} fill-opacity=".22" />
+            {index === 0 ? <g stroke="var(--art-line)" stroke-width="3" stroke-linecap="round"><path d="M60 41h26M60 52h26M60 63h18" /></g>
+              : index === 1 ? <path d="M56 47h33m-7-7 7 7-7 7M89 61H56m7-7-7 7 7 7" stroke="var(--art-line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              : <path d="m59 53 10 10 20-22" stroke="var(--art-line)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />}
+            <text class="spectrum-label emphasis" x="73" y={zh ? 116 : 105} text-anchor="middle">
+              {zh || !word.includes(' ') ? word : word.split(' ').map((part, wordIndex) => <tspan x="73" dy={wordIndex ? '21' : '0'}>{part}</tspan>)}
+            </text>
+            <path d="M39 144h68" stroke="var(--art-line)" stroke-opacity=".5" stroke-width="3" stroke-linecap="round" />
+            {index < 2 && <path d="m157 77 5 5-5 5" stroke="var(--art-line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />}
+          </g>
+        ))}
+      </g>
+    )}
+  </svg>
+  <span class="art-label">{slug === 'goldencamp' ? (zh ? '概念示意' : 'Concept illustration') : (zh ? '示意图' : 'Illustrative diagram')}</span>
 </div>

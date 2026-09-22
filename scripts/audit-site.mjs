@@ -17,7 +17,8 @@ for (const path of ['/en/work/', '/en/about/', '/en/resume/', '/en/work/context-
   scenarios.push({ path, theme: 'light', mobile: false, paused: false });
 }
 
-mkdirSync('docs/reports', { recursive: true });
+const reportDirectory = process.env.REPORT_DIRECTORY || 'docs/reports';
+mkdirSync(reportDirectory, { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const reports = [];
 try {
@@ -43,7 +44,7 @@ try {
   }
 } finally { await browser.close(); }
 
-writeFileSync('docs/reports/axe.json', JSON.stringify({ date: new Date().toISOString(), browser: browser.version(), scope: 'Automated WCAG A/AA rules on retained pages and both localized homes in light/dark, desktop/mobile and paused/unpaused states. This is not a complete accessibility conformance assessment.', reports }, null, 2));
+writeFileSync(`${reportDirectory}/axe.json`, JSON.stringify({ date: new Date().toISOString(), browser: browser.version(), scope: 'Automated WCAG A/AA rules on retained pages and both localized homes in light/dark, desktop/mobile and paused/unpaused states. This is not a complete accessibility conformance assessment.', reports }, null, 2));
 console.log(JSON.stringify({ scenarios: reports.length, violations: reports.reduce((total, report) => total + report.violations.length, 0), reports: reports.map(report => ({
   ...report, violations: report.violations.map(violation => ({ id: violation.id, impact: violation.impact, nodes: violation.nodes.map(node => ({ target: node.target, summary: node.failureSummary })) })),
 })) }, null, 2));

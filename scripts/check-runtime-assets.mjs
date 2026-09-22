@@ -43,7 +43,8 @@ try {
     } finally { await context.close(); }
   }
 } finally { await browser.close(); }
-mkdirSync('docs/reports', { recursive: true });
-writeFileSync('docs/reports/runtime-assets.json', JSON.stringify({ date: new Date().toISOString(), results }, null, 2));
+const reportDirectory = process.env.REPORT_DIRECTORY || 'docs/reports';
+mkdirSync(reportDirectory, { recursive: true });
+writeFileSync(`${reportDirectory}/runtime-assets.json`, JSON.stringify({ date: new Date().toISOString(), results }, null, 2));
 console.log(JSON.stringify(results, null, 2));
 if (results.some(result => !result.passed)) process.exitCode = 1;

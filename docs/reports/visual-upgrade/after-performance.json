@@ -1,0 +1,844 @@
+{
+  "date": "2026-09-22T17:01:07.805Z",
+  "summaries": [
+    {
+      "profile": "desktop",
+      "metrics": {
+        "performance": {
+          "median": 91,
+          "min": 91,
+          "max": 91
+        },
+        "lcpMs": {
+          "median": 565.588,
+          "min": 565.1419999999999,
+          "max": 568.5500000000001
+        },
+        "tbtMs": {
+          "median": 243,
+          "min": 239.9999999999999,
+          "max": 245.0000000000001
+        },
+        "cls": {
+          "median": 0.00318419780448297,
+          "min": 0.00318419780448297,
+          "max": 0.00318419780448297
+        },
+        "jsTransferBytes": {
+          "median": 315346,
+          "min": 315346,
+          "max": 315346
+        },
+        "jsExecutionMs": {
+          "median": 154.17900000000012,
+          "min": 144.76500000000001,
+          "max": 155.0980000000012
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "metrics": {
+        "performance": {
+          "median": 75,
+          "min": 73,
+          "max": 75
+        },
+        "lcpMs": {
+          "median": 2554.9880000000003,
+          "min": 2554.202,
+          "max": 2556.074
+        },
+        "tbtMs": {
+          "median": 1014.5,
+          "min": 994.4999999999995,
+          "max": 1183.9999999999995
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "jsTransferBytes": {
+          "median": 315346,
+          "min": 315346,
+          "max": 315346
+        },
+        "jsExecutionMs": {
+          "median": 625.9800000000012,
+          "min": 613.5399999999976,
+          "max": 700.9960000000011
+        }
+      }
+    }
+  ],
+  "results": [
+    {
+      "phase": "after",
+      "profile": "desktop",
+      "run": 1,
+      "date": "2026-09-22T17:00:16.528Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "benchmarkIndex": 3419,
+      "settings": {
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 91,
+      "fcpMs": 284.191,
+      "lcpMs": 565.588,
+      "tbtMs": 243,
+      "cls": 0.00318419780448297,
+      "speedIndexMs": 529.492361931458,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 155.0980000000012,
+      "execution": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "total": 439.71800000000025,
+          "scripting": 70.84700000000035,
+          "scriptParseCompile": 0.21
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "total": 86.83300000000001,
+          "scripting": 3.1559999999999984,
+          "scriptParseCompile": 0.7020000000000001
+        },
+        {
+          "url": "Unattributable",
+          "total": 85.7560000000002,
+          "scripting": 9.354999999999983,
+          "scriptParseCompile": 0
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "total": 72.5890000000009,
+          "scripting": 70.8230000000009,
+          "scriptParseCompile": 0.005
+        }
+      ],
+      "longTasks": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 370,
+          "startTime": 881.9850000000001
+        }
+      ],
+      "mainThread": [
+        {
+          "group": "other",
+          "groupLabel": "Other",
+          "duration": 472.02300000000014
+        },
+        {
+          "group": "scriptEvaluation",
+          "groupLabel": "Script Evaluation",
+          "duration": 163.85800000000165
+        },
+        {
+          "group": "styleLayout",
+          "groupLabel": "Style & Layout",
+          "duration": 58.50400000000002
+        },
+        {
+          "group": "paintCompositeRender",
+          "groupLabel": "Rendering",
+          "duration": 6.457000000000008
+        },
+        {
+          "group": "garbageCollection",
+          "groupLabel": "Garbage Collection",
+          "duration": 3.850999999999992
+        },
+        {
+          "group": "parseHTML",
+          "groupLabel": "Parse HTML & CSS",
+          "duration": 2.8169999999999997
+        },
+        {
+          "group": "scriptParseCompile",
+          "groupLabel": "Script Parsing & Compilation",
+          "duration": 1.076
+        }
+      ],
+      "runtimeError": null,
+      "warnings": []
+    },
+    {
+      "phase": "after",
+      "profile": "desktop",
+      "run": 2,
+      "date": "2026-09-22T17:00:25.647Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "benchmarkIndex": 2990,
+      "settings": {
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 91,
+      "fcpMs": 326.41249999999997,
+      "lcpMs": 568.5500000000001,
+      "tbtMs": 239.9999999999999,
+      "cls": 0.00318419780448297,
+      "speedIndexMs": 565.4451070066241,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 154.17900000000012,
+      "execution": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "total": 430.83300000000037,
+          "scripting": 72.70800000000037,
+          "scriptParseCompile": 0.207
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "total": 120.05100000000006,
+          "scripting": 3.9549999999999974,
+          "scriptParseCompile": 0.884
+        },
+        {
+          "url": "Unattributable",
+          "total": 106.26100000000017,
+          "scripting": 10.408999999999985,
+          "scriptParseCompile": 0
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "total": 67.76799999999974,
+          "scripting": 66.00899999999976,
+          "scriptParseCompile": 0.007
+        }
+      ],
+      "longTasks": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 366,
+          "startTime": 884.6875000000002
+        }
+      ],
+      "mainThread": [
+        {
+          "group": "other",
+          "groupLabel": "Other",
+          "duration": 485.8139999999997
+        },
+        {
+          "group": "scriptEvaluation",
+          "groupLabel": "Script Evaluation",
+          "duration": 164.0250000000018
+        },
+        {
+          "group": "styleLayout",
+          "groupLabel": "Style & Layout",
+          "duration": 87.63900000000005
+        },
+        {
+          "group": "paintCompositeRender",
+          "groupLabel": "Rendering",
+          "duration": 7.1900000000000235
+        },
+        {
+          "group": "parseHTML",
+          "groupLabel": "Parse HTML & CSS",
+          "duration": 4.031999999999999
+        },
+        {
+          "group": "garbageCollection",
+          "groupLabel": "Garbage Collection",
+          "duration": 3.1559999999999957
+        },
+        {
+          "group": "scriptParseCompile",
+          "groupLabel": "Script Parsing & Compilation",
+          "duration": 1.313
+        }
+      ],
+      "runtimeError": null,
+      "warnings": []
+    },
+    {
+      "phase": "after",
+      "profile": "desktop",
+      "run": 3,
+      "date": "2026-09-22T17:00:34.578Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "benchmarkIndex": 3219,
+      "settings": {
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 91,
+      "fcpMs": 323.85650000000004,
+      "lcpMs": 565.1419999999999,
+      "tbtMs": 245.0000000000001,
+      "cls": 0.00318419780448297,
+      "speedIndexMs": 493.5835134287246,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 144.76500000000001,
+      "execution": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "total": 436.1100000000004,
+          "scripting": 69.19100000000044,
+          "scriptParseCompile": 0.154
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "total": 119.28099999999999,
+          "scripting": 3.9929999999999977,
+          "scriptParseCompile": 0.796
+        },
+        {
+          "url": "Unattributable",
+          "total": 65.5500000000001,
+          "scripting": 10.428999999999984,
+          "scriptParseCompile": 0
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "total": 61.781999999999584,
+          "scripting": 60.19699999999959,
+          "scriptParseCompile": 0.005
+        }
+      ],
+      "longTasks": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 369,
+          "startTime": 876.4274999999998
+        }
+      ],
+      "mainThread": [
+        {
+          "group": "other",
+          "groupLabel": "Other",
+          "duration": 459.0549999999995
+        },
+        {
+          "group": "scriptEvaluation",
+          "groupLabel": "Script Evaluation",
+          "duration": 153.02300000000162
+        },
+        {
+          "group": "styleLayout",
+          "groupLabel": "Style & Layout",
+          "duration": 78.72899999999997
+        },
+        {
+          "group": "paintCompositeRender",
+          "groupLabel": "Rendering",
+          "duration": 7.377000000000026
+        },
+        {
+          "group": "parseHTML",
+          "groupLabel": "Parse HTML & CSS",
+          "duration": 3.5679999999999996
+        },
+        {
+          "group": "garbageCollection",
+          "groupLabel": "Garbage Collection",
+          "duration": 3.0319999999999947
+        },
+        {
+          "group": "scriptParseCompile",
+          "groupLabel": "Script Parsing & Compilation",
+          "duration": 1.0950000000000002
+        }
+      ],
+      "runtimeError": null,
+      "warnings": []
+    },
+    {
+      "phase": "after",
+      "profile": "mobile",
+      "run": 1,
+      "date": "2026-09-22T17:00:43.699Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "benchmarkIndex": 3310.5,
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 75,
+      "fcpMs": 1503.741,
+      "lcpMs": 2554.9880000000003,
+      "tbtMs": 994.4999999999995,
+      "cls": 0,
+      "speedIndexMs": 1851.602625352112,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 613.5399999999976,
+      "execution": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "total": 1588.6919999999998,
+          "scripting": 256.9239999999997,
+          "scriptParseCompile": 0.688
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "total": 378.9839999999999,
+          "scripting": 12.50799999999999,
+          "scriptParseCompile": 2.3920000000000003
+        },
+        {
+          "url": "Unattributable",
+          "total": 348.0439999999993,
+          "scripting": 37.34399999999993,
+          "scriptParseCompile": 0
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "total": 259.93999999999807,
+          "scripting": 254.37199999999805,
+          "scriptParseCompile": 0.012
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/client.Cp4golhh.js",
+          "total": 95.90399999999997,
+          "scripting": 49.17199999999996,
+          "scriptParseCompile": 0.128
+        }
+      ],
+      "longTasks": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 1366,
+          "startTime": 4333.235000000001
+        },
+        {
+          "url": "Unattributable",
+          "duration": 160,
+          "startTime": 602.247
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 100,
+          "startTime": 5699.235000000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/Layout.astro_astro_type_script_index_0_lang.CA_krG-m.js",
+          "duration": 96,
+          "startTime": 902.4939999999999
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/client.Cp4golhh.js",
+          "duration": 68,
+          "startTime": 2552.494
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "duration": 62,
+          "startTime": 4206.235000000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "duration": 59,
+          "startTime": 4268.235000000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "duration": 53,
+          "startTime": 762.247
+        }
+      ],
+      "mainThread": [
+        {
+          "group": "other",
+          "groupLabel": "Other",
+          "duration": 1729.0919999999999
+        },
+        {
+          "group": "scriptEvaluation",
+          "groupLabel": "Script Evaluation",
+          "duration": 613.8600000000066
+        },
+        {
+          "group": "styleLayout",
+          "groupLabel": "Style & Layout",
+          "duration": 292.58799999999997
+        },
+        {
+          "group": "paintCompositeRender",
+          "groupLabel": "Rendering",
+          "duration": 22.012000000000015
+        },
+        {
+          "group": "garbageCollection",
+          "groupLabel": "Garbage Collection",
+          "duration": 15.699999999999967
+        },
+        {
+          "group": "parseHTML",
+          "groupLabel": "Parse HTML & CSS",
+          "duration": 10.488
+        },
+        {
+          "group": "scriptParseCompile",
+          "groupLabel": "Script Parsing & Compilation",
+          "duration": 3.672
+        }
+      ],
+      "runtimeError": null,
+      "warnings": []
+    },
+    {
+      "phase": "after",
+      "profile": "mobile",
+      "run": 2,
+      "date": "2026-09-22T17:00:52.556Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "benchmarkIndex": 3254,
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 75,
+      "fcpMs": 1054.5555,
+      "lcpMs": 2556.074,
+      "tbtMs": 1014.5,
+      "cls": 0,
+      "speedIndexMs": 1360.1554036805765,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 625.9800000000012,
+      "execution": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "total": 1632.896000000001,
+          "scripting": 264.4440000000012,
+          "scriptParseCompile": 0.628
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "total": 388.8280000000001,
+          "scripting": 12.47199999999999,
+          "scriptParseCompile": 2.6
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "total": 280.62,
+          "scripting": 274.17199999999997,
+          "scriptParseCompile": 0.02
+        },
+        {
+          "url": "Unattributable",
+          "total": 182.05600000000024,
+          "scripting": 40.65999999999996,
+          "scriptParseCompile": 0
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/client.Cp4golhh.js",
+          "total": 68.704,
+          "scripting": 30.863999999999994,
+          "scriptParseCompile": 0.12
+        }
+      ],
+      "longTasks": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 1402,
+          "startTime": 4332.592500000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 102,
+          "startTime": 5734.592500000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "duration": 66,
+          "startTime": 656.5185
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "duration": 63,
+          "startTime": 4207.592500000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "duration": 56,
+          "startTime": 4270.592500000001
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "duration": 54,
+          "startTime": 602.5185
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/client.Cp4golhh.js",
+          "duration": 51,
+          "startTime": 2553.0370000000003
+        }
+      ],
+      "mainThread": [
+        {
+          "group": "other",
+          "groupLabel": "Other",
+          "duration": 1592.9479999999985
+        },
+        {
+          "group": "scriptEvaluation",
+          "groupLabel": "Script Evaluation",
+          "duration": 625.3120000000071
+        },
+        {
+          "group": "styleLayout",
+          "groupLabel": "Style & Layout",
+          "duration": 295.6280000000001
+        },
+        {
+          "group": "paintCompositeRender",
+          "groupLabel": "Rendering",
+          "duration": 23.060000000000002
+        },
+        {
+          "group": "garbageCollection",
+          "groupLabel": "Garbage Collection",
+          "duration": 14.455999999999982
+        },
+        {
+          "group": "parseHTML",
+          "groupLabel": "Parse HTML & CSS",
+          "duration": 10.32
+        },
+        {
+          "group": "scriptParseCompile",
+          "groupLabel": "Script Parsing & Compilation",
+          "duration": 3.8400000000000007
+        }
+      ],
+      "runtimeError": null,
+      "warnings": []
+    },
+    {
+      "phase": "after",
+      "profile": "mobile",
+      "run": 3,
+      "date": "2026-09-22T17:01:01.196Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "benchmarkIndex": 3324.5,
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 73,
+      "fcpMs": 1203.1515,
+      "lcpMs": 2554.202,
+      "tbtMs": 1183.9999999999995,
+      "cls": 0,
+      "speedIndexMs": 1465.4781405541048,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 700.9960000000011,
+      "execution": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "total": 1781.140000000002,
+          "scripting": 317.76400000000166,
+          "scriptParseCompile": 0.66
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "total": 397.0119999999999,
+          "scripting": 13.747999999999992,
+          "scriptParseCompile": 2.848
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "total": 287.16399999999953,
+          "scripting": 280.41599999999954,
+          "scriptParseCompile": 0.06
+        },
+        {
+          "url": "Unattributable",
+          "total": 195.28800000000044,
+          "scripting": 45.15599999999996,
+          "scriptParseCompile": 0
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/client.Cp4golhh.js",
+          "total": 94.74799999999996,
+          "scripting": 40.187999999999974,
+          "scriptParseCompile": 0.156
+        }
+      ],
+      "longTasks": [
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 1546,
+          "startTime": 4356.2525000000005
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/IceScene.Bd4Cv6Ty.js",
+          "duration": 102,
+          "startTime": 5902.2525000000005
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "duration": 75,
+          "startTime": 4205.2525000000005
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+          "duration": 69,
+          "startTime": 4280.2525000000005
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "duration": 65,
+          "startTime": 658.0504999999999
+        },
+        {
+          "url": "http://127.0.0.1:4321/_astro/client.Cp4golhh.js",
+          "duration": 64,
+          "startTime": 2552.101
+        },
+        {
+          "url": "http://127.0.0.1:4321/en/",
+          "duration": 56,
+          "startTime": 602.0504999999999
+        }
+      ],
+      "mainThread": [
+        {
+          "group": "other",
+          "groupLabel": "Other",
+          "duration": 1713.6959999999983
+        },
+        {
+          "group": "scriptEvaluation",
+          "groupLabel": "Script Evaluation",
+          "duration": 700.768000000008
+        },
+        {
+          "group": "styleLayout",
+          "groupLabel": "Style & Layout",
+          "duration": 301.58799999999985
+        },
+        {
+          "group": "paintCompositeRender",
+          "groupLabel": "Rendering",
+          "duration": 24.119999999999997
+        },
+        {
+          "group": "garbageCollection",
+          "groupLabel": "Garbage Collection",
+          "duration": 12.787999999999982
+        },
+        {
+          "group": "parseHTML",
+          "groupLabel": "Parse HTML & CSS",
+          "duration": 11.595999999999998
+        },
+        {
+          "group": "scriptParseCompile",
+          "groupLabel": "Script Parsing & Compilation",
+          "duration": 4.168
+        }
+      ],
+      "runtimeError": null,
+      "warnings": []
+    }
+  ]
+}

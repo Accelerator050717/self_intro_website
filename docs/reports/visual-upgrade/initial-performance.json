@@ -1,0 +1,294 @@
+{
+  "date": "2026-09-22T16:46:56.936Z",
+  "description": "Initial visual upgrade after group, preserved before unchanged-source diagnostic retests. Its regression was observed but was not reproduced in subsequent unchanged-source tests.",
+  "summaries": [
+    {
+      "profile": "desktop",
+      "metrics": {
+        "performance": {
+          "median": 71,
+          "min": 71,
+          "max": 71
+        },
+        "lcpMs": {
+          "median": 569.158,
+          "min": 562.9740000000002,
+          "max": 583.7339999999999
+        },
+        "tbtMs": {
+          "median": 1117.5,
+          "min": 1052.0000000000002,
+          "max": 1160.4999999999998
+        },
+        "cls": {
+          "median": 0.003238767402153927,
+          "min": 0.00318419780448297,
+          "max": 0.003238767402153927
+        },
+        "jsTransferBytes": {
+          "median": 315346,
+          "min": 315346,
+          "max": 315346
+        },
+        "jsExecutionMs": {
+          "median": 374.0209999999995,
+          "min": 350.22800000000024,
+          "max": 380.32099999999946
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "metrics": {
+        "performance": {
+          "median": 66,
+          "min": 66,
+          "max": 66
+        },
+        "lcpMs": {
+          "median": 2573.884,
+          "min": 2572.916,
+          "max": 2579.938
+        },
+        "tbtMs": {
+          "median": 5097.5,
+          "min": 4813,
+          "max": 5299
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "jsTransferBytes": {
+          "median": 315346,
+          "min": 315346,
+          "max": 315346
+        },
+        "jsExecutionMs": {
+          "median": 1584.6639999999968,
+          "min": 1486.4880000000044,
+          "max": 1648.2560000000044
+        }
+      }
+    }
+  ],
+  "results": [
+    {
+      "profile": "desktop",
+      "run": 1,
+      "date": "2026-09-22T16:45:22.900Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 71,
+      "fcpMs": 297.80050000000006,
+      "lcpMs": 583.7339999999999,
+      "tbtMs": 1117.5,
+      "cls": 0.003238767402153927,
+      "speedIndexMs": 638.8678609572441,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 374.0209999999995,
+      "warnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 2,
+      "date": "2026-09-22T16:45:38.897Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 71,
+      "fcpMs": 297.2305,
+      "lcpMs": 562.9740000000002,
+      "tbtMs": 1160.4999999999998,
+      "cls": 0.00318419780448297,
+      "speedIndexMs": 665.253418484649,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 380.32099999999946,
+      "warnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 3,
+      "date": "2026-09-22T16:45:54.379Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 71,
+      "fcpMs": 381.86850000000004,
+      "lcpMs": 569.158,
+      "tbtMs": 1052.0000000000002,
+      "cls": 0.003238767402153927,
+      "speedIndexMs": 811.1261340678236,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 350.22800000000024,
+      "warnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 1,
+      "date": "2026-09-22T16:46:14.374Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 66,
+      "fcpMs": 1072.4535,
+      "lcpMs": 2579.938,
+      "tbtMs": 5299,
+      "cls": 0,
+      "speedIndexMs": 3056.583724056075,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 1648.2560000000044,
+      "warnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 2,
+      "date": "2026-09-22T16:46:29.786Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 66,
+      "fcpMs": 1517.187,
+      "lcpMs": 2572.916,
+      "tbtMs": 5097.5,
+      "cls": 0,
+      "speedIndexMs": 3226.940406482662,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 1584.6639999999968,
+      "warnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 3,
+      "date": "2026-09-22T16:46:45.617Z",
+      "browser": "153.0.8010.12",
+      "lighthouseVersion": "13.5.0",
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "throttlingMethod": "simulate"
+      },
+      "performance": 66,
+      "fcpMs": 911.942,
+      "lcpMs": 2573.884,
+      "tbtMs": 4813,
+      "cls": 0,
+      "speedIndexMs": 2965.7056936883246,
+      "jsTransferBytes": 315346,
+      "jsRequests": 9,
+      "jsExecutionMs": 1486.4880000000044,
+      "warnings": []
+    }
+  ]
+}

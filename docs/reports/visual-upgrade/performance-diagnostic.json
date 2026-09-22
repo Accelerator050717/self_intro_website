@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-22T16:59:19.277Z",
+  "scope": "Hero ice first-frame regression investigation",
+  "productSourceChanged": false,
+  "buildPerformed": false,
+  "asset": {
+    "name": "IceScene.Bd4Cv6Ty.js",
+    "sha256": "25F81FA4C61ED03170A9132294E8F7D498EA35CFF35DA5188422CA9C4DCDC965"
+  },
+  "initialGroup": "initial-performance.json",
+  "diagnosticRuns": [
+    {
+      "profile": "desktop",
+      "method": "Original Lighthouse script, one run",
+      "performance": 92,
+      "tbtMs": 225.0000000000001
+    },
+    {
+      "profile": "mobile",
+      "method": "Original Lighthouse script, one run",
+      "performance": 75,
+      "tbtMs": 1001.0000000000005
+    },
+    {
+      "profile": "desktop",
+      "method": "Original script plus --disable-gpu-shader-disk-cache",
+      "performance": 92,
+      "tbtMs": 230.5
+    },
+    {
+      "profile": "mobile",
+      "method": "Lighthouse page API with GL instrumentation",
+      "performance": 74,
+      "tbtMs": 1114
+    }
+  ],
+  "runtime": {
+    "canvas": true,
+    "fallback": false,
+    "settled": "true",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "drawCalls": 116,
+    "firstDrawMs": 1395.9,
+    "programs": 10,
+    "shaderInfoTimeMs": 45.9,
+    "textureUploadTimeMs": 0.9
+  },
+  "trace": {
+    "firstTaskMs": 357.352,
+    "javascriptAnimationFrameMs": 57.737,
+    "rendererCommitMs": 299.32,
+    "gpuTaskMs": 298.269,
+    "meaning": "In this captured task, main-thread Commit waiting coincides with GPU-process work under SwiftShader software rendering."
+  },
+  "facts": [
+    "The initial six-run group regressed relative to baseline and is retained in full raw form locally and compact form in initial-performance.json.",
+    "The unchanged asset subsequently scored 92 desktop / TBT 225 ms and 75 mobile / TBT 1001 ms with the original script entry point.",
+    "Disabling the GPU shader disk cache still produced 92 desktop / TBT 230.5 ms.",
+    "Instrumented mobile rendering executed 116 draw calls, retained a Canvas, removed the SVG fallback, and reported scene settled.",
+    "The tested software GL context did not expose KHR_parallel_shader_compile.",
+    "The opaque light-field mesh is included in the existing linear and screen compilation passes."
+  ],
+  "uncertainties": [
+    "The cause of the initial anomalous group is unresolved; the later runs do not establish shader caching or any other root cause.",
+    "Instrumented one-run measurements are diagnostic evidence, not the final three-run medians.",
+    "SwiftShader desktop-browser simulation is not real mobile-device GPU coverage."
+  ],
+  "decision": "No source change was justified by a reproducible regression. Preserve the anomaly and run the original unmodified three-desktop/three-mobile procedure again. If it returns, capture that slow run trace before changing shaders.",
+  "rawEvidenceDirectory": ".verification/visual-upgrade/profiling",
+  "browsersClosed": true
+}

@@ -1,4 +1,14 @@
-# 本轮真实验收 · 2026-09-22
+# 当前验收：Glacial Spectrum 视觉升级
+
+本轮独立的前后对照、性能采样、测试与局限记录在 [VISUAL-UPGRADE.md](VISUAL-UPGRADE.md)，机器结果位于 `reports/visual-upgrade/`。当前交付分支为 `feat/ice-visual-upgrade`；下方保留上一轮人物修复的验收记录，其数字和录屏不能代替本轮执行。
+
+本轮执行：Astro check 33 文件无错误/警告，Lint 通过，Vitest 20/20，生产构建 24 HTML，浏览器 63/63（0失败/跳过/flaky），冰场景 6/6，axe 22 场景 0违规，静态及6路由资源检查通过。全新隔离目录 npm ci / build 通过。中英文实际 PDF 各一页，全文/邮箱/渲染均通过。调整证据输出路径后的2项测试额外重跑通过。
+
+已实际查看[桌面前后](screenshots/visual-upgrade/comparison-desktop.jpg)、[手机前后](screenshots/visual-upgrade/comparison-mobile.jpg)、[桌面动作关键帧](screenshots/visual-upgrade/after/motion-desktop-sequence.jpg)及[手机动作关键帧](screenshots/visual-upgrade/after/motion-mobile-sequence.jpg)。本轮[桌面录屏](evidence/visual-upgrade-desktop.webm)22秒、[手机触控录屏](evidence/visual-upgrade-mobile.webm)21.8秒；动作与卡片/主题反馈均来自实际浏览器输入。
+
+同配置修改前/后各3次 Lighthouse：桌面中位82→91，模拟移动70→75。首次异常慢样本和不确定原因也完整保留，详见本轮视觉文档，不能用最终分数代表真实设备。未公开部署；真实手机、Safari/Firefox、人工屏幕阅读器、实体打印及真实邮件发送未验收。
+
+## 上一轮人物修复验收 · 2026-09-22
 
 本轮为既有网站的增量修复：人物独立抬臂、删除 Play、统一联系邮箱，并准备同步授权的公开源码仓库。旧报告与修改前文件已留在本机忽略快照；以下数字全部来自本轮运行。
 

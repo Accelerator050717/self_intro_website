@@ -5,8 +5,8 @@ import {ui,route,type Lang} from '../i18n/ui';
 import type {Project} from '../data/content';
 const {project,lang,featured=false}=Astro.props as {project:Project;lang:Lang;featured?:boolean};
 ---
-<article class:list={['project-card',{featured}]} data-categories={project.categories.join(' ')}>
-  <a class="project-art-link" href={route(lang,`work/${project.slug}`)} aria-label={`${ui[lang].project}: ${project.title[lang]}`}><ProjectArt slug={project.slug} lang={lang}/><span class="project-open"><Icon name="arrow" size={22}/></span></a>
+<article class:list={['project-card',{featured}]} data-categories={project.categories.join(' ')} data-reveal>
+  <a class="project-art-link" data-light-card href={route(lang,`work/${project.slug}`)} aria-label={`${ui[lang].project}: ${project.title[lang]}`}><ProjectArt slug={project.slug} lang={lang}/><span class="project-open"><Icon name="arrow" size={22}/></span></a>
   <div class="project-meta"><span>{project.kind[lang]}</span><span>{project.tech.slice(0,2).join(' / ')}</span></div>
   <h3><a href={route(lang,`work/${project.slug}`)}>{project.shortTitle[lang]}</a></h3>
   <p>{project.description[lang]}</p>

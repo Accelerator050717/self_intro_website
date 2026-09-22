@@ -4,8 +4,8 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const output = path.join(root, 'docs');
-const images = path.join(output, 'screenshots', 'revision');
+const output = path.join(root, process.env.REPORT_DIRECTORY || 'docs');
+const images = path.join(root, process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4321';
 const report = {
   startedAt: new Date().toISOString(), finishedAt: '', base,

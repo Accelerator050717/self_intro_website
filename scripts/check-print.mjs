@@ -6,8 +6,9 @@ import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const output = path.join(root, 'docs', 'screenshots', 'revision');
-const reports = path.join(root, 'docs', 'reports');
+const outputRelative = process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision';
+const output = path.join(root, outputRelative);
+const reports = path.join(root, process.env.REPORT_DIRECTORY || 'docs/reports');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4321';
 // Read the real shared configuration without requiring Node's newer TS loader.
 const configSource = await readFile(path.join(root, 'src/data/site-config.ts'), 'utf8');
@@ -54,8 +55,8 @@ try {
       assert(result.printText.includes(siteContact.email));
       assert(!/myu12@uci\.edu/i.test(result.documentText), `${lang}: old contact email must be absent`);
       assert(!/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.edu\b/i.test(result.printText), `${lang}: school email must not be printed`);
-      const pdfFile = `docs/screenshots/revision/resume-print-${lang}.pdf`;
-      const screenFile = `docs/screenshots/revision/resume-print-${lang}-browser.png`;
+      const pdfFile = `${outputRelative}/resume-print-${lang}.pdf`;
+      const screenFile = `${outputRelative}/resume-print-${lang}-browser.png`;
       await page.pdf({ path: path.join(root, pdfFile), format: 'A4', printBackground: true, preferCSSPageSize: true });
       await page.screenshot({ path: path.join(root, screenFile), fullPage: true });
       const { documentText: _documentText, ...evidence } = result;

@@ -1,0 +1,259 @@
+{
+  "date": "2026-09-22T17:15:07.894Z",
+  "scope": "Current visual upgrade. Laboratory browser evidence is separate from real devices and public deployment.",
+  "environment": {
+    "os": "Windows",
+    "node": "24.14.1",
+    "npm": "11.11.0",
+    "chromium": "153.0.8010.12",
+    "baseURL": "http://127.0.0.1:4321"
+  },
+  "checks": {
+    "astro": {
+      "files": 33,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "lint": {
+      "exit": 0
+    },
+    "unit": {
+      "files": 2,
+      "passed": 20
+    },
+    "build": {
+      "exit": 0,
+      "html": 24
+    },
+    "browser": {
+      "startTime": "2026-09-22T17:02:00.329Z",
+      "duration": 215894.443,
+      "expected": 63,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "outputPathRetest": {
+      "startTime": "2026-09-22T17:12:59.177Z",
+      "duration": 13543.122,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "ice": {
+      "passed": true,
+      "checks": 6
+    },
+    "axe": {
+      "scenarios": 22,
+      "violations": 0
+    },
+    "cleanInstall": true,
+    "finalBuildInputs": {
+      "files": 46,
+      "contentDifferences": 0,
+      "gitCheckoutNewlineOnlyDifferences": 7
+    },
+    "print": true,
+    "svgReview": {
+      "date": "2026-09-22T17:12:59.255Z",
+      "base": "http://127.0.0.1:4321",
+      "route": "/en/?webgl=0",
+      "browser": "Installed Chrome, headless",
+      "scope": "Forced SVG fallback visual review",
+      "settings": {
+        "paused": true,
+        "reason": "Stable screenshots without a greeting overlay; no product code modified."
+      },
+      "cases": [
+        {
+          "device": "desktop",
+          "theme": "light",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "screenshot": "docs/screenshots/visual-upgrade/after/svg-desktop-light.png",
+          "canvasCount": 0,
+          "svgCount": 1,
+          "sceneSettled": true,
+          "scrollY": 0,
+          "viewportWidth": 1440,
+          "viewportHeight": 1000,
+          "svgBounds": {
+            "x": 739,
+            "y": 143,
+            "width": 601,
+            "height": 645
+          },
+          "horizontalOverflow": false,
+          "studEllipses": 20,
+          "sidePolygons": 12,
+          "svgTopColor": "#f1ffff",
+          "svgBlueColor": "#69bce0",
+          "visualReview": {
+            "inspected": true,
+            "backgroundEdgePass": true,
+            "studsVisible": true,
+            "thicknessVisible": true,
+            "unintendedClipping": false
+          }
+        },
+        {
+          "device": "desktop",
+          "theme": "dark",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "screenshot": "docs/screenshots/visual-upgrade/after/svg-desktop-dark.png",
+          "canvasCount": 0,
+          "svgCount": 1,
+          "sceneSettled": true,
+          "scrollY": 0,
+          "viewportWidth": 1440,
+          "viewportHeight": 1000,
+          "svgBounds": {
+            "x": 739,
+            "y": 143,
+            "width": 601,
+            "height": 645
+          },
+          "horizontalOverflow": false,
+          "studEllipses": 20,
+          "sidePolygons": 12,
+          "svgTopColor": "#d0f8ff",
+          "svgBlueColor": "#3675a7",
+          "visualReview": {
+            "inspected": true,
+            "backgroundEdgePass": true,
+            "studsVisible": true,
+            "thicknessVisible": true,
+            "unintendedClipping": false
+          }
+        },
+        {
+          "device": "mobile",
+          "theme": "light",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screenshot": "docs/screenshots/visual-upgrade/after/svg-mobile-light.png",
+          "canvasCount": 0,
+          "svgCount": 1,
+          "sceneSettled": true,
+          "scrollY": 329,
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "svgBounds": {
+            "x": 7,
+            "y": 232.9375,
+            "width": 376,
+            "height": 445
+          },
+          "horizontalOverflow": false,
+          "studEllipses": 20,
+          "sidePolygons": 12,
+          "svgTopColor": "#f1ffff",
+          "svgBlueColor": "#69bce0",
+          "visualReview": {
+            "inspected": true,
+            "backgroundEdgePass": true,
+            "studsVisible": true,
+            "thicknessVisible": true,
+            "unintendedClipping": false
+          }
+        },
+        {
+          "device": "mobile",
+          "theme": "dark",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "screenshot": "docs/screenshots/visual-upgrade/after/svg-mobile-dark.png",
+          "canvasCount": 0,
+          "svgCount": 1,
+          "sceneSettled": true,
+          "scrollY": 335,
+          "viewportWidth": 390,
+          "viewportHeight": 844,
+          "svgBounds": {
+            "x": 7,
+            "y": 226.9375,
+            "width": 376,
+            "height": 445
+          },
+          "horizontalOverflow": false,
+          "studEllipses": 20,
+          "sidePolygons": 12,
+          "svgTopColor": "#d0f8ff",
+          "svgBlueColor": "#3675a7",
+          "visualReview": {
+            "inspected": true,
+            "backgroundEdgePass": true,
+            "studsVisible": true,
+            "thicknessVisible": true,
+            "unintendedClipping": false
+          }
+        }
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "visualReviewPending": false,
+      "reviewedAt": "2026-09-22T17:13:40.508Z",
+      "passed": true,
+      "visualFindings": {
+        "allFourImagesInspected": true,
+        "backgroundEdges": "No rectangular SVG surface, visible canvas seam, or clipped glow boundary. The intentional cyan/violet polygon behind the avatar remains visible.",
+        "brickShape": "Cylindrical stud tops and sides, thick front/side faces, bright edge strokes and cyan-to-violet face contrast remain readable at both viewport sizes.",
+        "darkTheme": "Dark SVG colors were applied; platform edges and peripheral bricks remain distinct against the navy page.",
+        "mobileFraming": "The page was scrolled to center the complete Hero stage. The title crop at the top is the viewport scroll position, not document clipping. No horizontal overflow or clipped peripheral brick.",
+        "limitations": "These are static SVG fallback illustrations, not physical WebGL refraction. Installed Chrome desktop and mobile viewport emulation only."
+      },
+      "browsersClosed": true
+    },
+    "motion": [
+      {
+        "profile": "desktop",
+        "passed": true,
+        "liveInteractionMs": 21005,
+        "keyframes": 7,
+        "errors": []
+      },
+      {
+        "profile": "mobile",
+        "passed": true,
+        "liveInteractionMs": 21008,
+        "keyframes": 7,
+        "errors": []
+      }
+    ],
+    "videoDecoding": {
+      "desktopDurationSeconds": 22,
+      "mobileDurationSeconds": 21.8,
+      "method": "Decoded actual WebM frames at 1, 4, 7, 10, 13, 16 and 19 seconds; viewed both resulting strips.",
+      "passed": true
+    }
+  },
+  "performance": {
+    "before": "before-performance.json",
+    "after": "after-performance.json",
+    "initialAnomalousRunsPreserved": "initial-performance.json",
+    "diagnosis": "performance-diagnostic.json",
+    "warning": "Initial regression cause is unresolved; SwiftShader trace shows GPU wait. Final three-run medians are laboratory samples, not real device guarantees."
+  },
+  "unverified": [
+    "Physical iOS/Android",
+    "Safari/Firefox",
+    "Manual screen reader",
+    "Real OS background scheduling",
+    "Email sending",
+    "Physical printer",
+    "Public deployment/domain/CDN"
+  ],
+  "passed": true
+}

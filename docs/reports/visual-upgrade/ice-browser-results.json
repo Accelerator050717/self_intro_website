@@ -1,0 +1,79 @@
+{
+  "startedAt": "2026-09-22T17:05:38.441Z",
+  "finishedAt": "2026-09-22T17:05:58.609Z",
+  "base": "http://127.0.0.1:4321",
+  "browser": "Installed Chrome, headless",
+  "scope": "Hero ice scene only",
+  "passed": true,
+  "failure": "",
+  "checks": [
+    {
+      "name": "Reduced motion + saved pause: SVG persists through environment loading, then a real static frame replaces it",
+      "passed": true,
+      "milliseconds": 3766
+    },
+    {
+      "name": "Saved pause and greeting with normal motion: static 3D stays ready without continuous GL draws",
+      "passed": true,
+      "milliseconds": 5762
+    },
+    {
+      "name": "Hidden and offscreen scenes stop GL rendering even when theme invalidates; returning draws again",
+      "passed": true,
+      "milliseconds": 3980
+    },
+    {
+      "name": "WebGL context loss returns to SVG and leaves real page content available",
+      "passed": true,
+      "milliseconds": 2023
+    },
+    {
+      "name": "Invalid local environment safely returns to SVG",
+      "passed": true,
+      "milliseconds": 2003
+    },
+    {
+      "name": "Forced SVG at 320px and JavaScript disabled preserve the hero and page content",
+      "passed": true,
+      "milliseconds": 2176
+    }
+  ],
+  "measurements": {
+    "firstFrame": {
+      "total": 116,
+      "firstDrawAt": 1722,
+      "firstDrawHadFallback": true
+    },
+    "reducedAndPaused": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "darkThemeIdle": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "pausedWithNormalMotion": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "greetingPausesBrickInteraction": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "hiddenThemeChange": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "offscreenThemeChange": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    }
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "warnings": [
+    "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+  ],
+  "warningNotes": "THREE.Clock deprecation comes from React Three Fiber 9.7. Windows shader precision warnings and warnings caused by deliberate WEBGL_lose_context are retained. These Hero checks do not validate the avatar limb animation.",
+  "visibilityNote": "Offscreen uses real scrolling. Hidden-page handling uses a document.hidden override and a visibilitychange event; it is not a real operating-system background-tab test."
+}

@@ -4,7 +4,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 
 // Inspect the exact Git index before the first public commit. Never print matching secret values.
 const git = args => execFileSync('git', args, { maxBuffer: 24 * 1024 * 1024 });
-const reportPath = 'docs/reports/public-content-audit.json';
+const reportPath = `${process.env.REPORT_DIRECTORY || 'docs/reports'}/public-content-audit.json`;
 const paths = git(['ls-files', '--cached', '-z']).toString('utf8').split('\0').filter(path => path && path !== reportPath);
 const findings = [];
 const manifest = [];
@@ -38,7 +38,7 @@ const report = {
   exclusions: ['Raw reference PNGs and retired side/back derivatives', 'Private briefs and local snapshots', 'Real .env values and credentials', 'Dependencies, dist, caches, traces and machine-specific raw reports'],
   passed: findings.length === 0,
 };
-mkdirSync('docs/reports', { recursive: true });
+mkdirSync(process.env.REPORT_DIRECTORY || 'docs/reports', { recursive: true });
 writeFileSync(reportPath, JSON.stringify(report, null, 2));
 console.log(JSON.stringify(report, null, 2));
 if (findings.length) process.exitCode = 1;
