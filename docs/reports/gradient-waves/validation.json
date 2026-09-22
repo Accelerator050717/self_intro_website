@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-22T19:51:41.614Z",
+  "scope": "GradientWaves integration; independent production-preview evidence, no public deployment or physical-device claim.",
+  "environment": {
+    "os": "Windows",
+    "node": "24.14.1",
+    "npm": "11.11.0",
+    "chromium": "153.0.8010.12",
+    "baseURL": "http://127.0.0.1:4321"
+  },
+  "checks": {
+    "astro": {
+      "files": 37,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "lint": {
+      "exit": 0
+    },
+    "unit": {
+      "files": 2,
+      "passed": 20
+    },
+    "build": {
+      "exit": 0,
+      "html": 24
+    },
+    "browser": {
+      "validatedDistinctTests": 82,
+      "unresolved": 0,
+      "passed": true,
+      "initialFullSuite": {
+        "startTime": "2026-09-22T19:33:06.174Z",
+        "duration": 367590.768,
+        "expected": 78,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      },
+      "targetedRuns": [
+        {
+          "label": "scoped selectors and initialization fault",
+          "stats": {
+            "startTime": "2026-09-22T19:41:00.782Z",
+            "duration": 35373.793000000005,
+            "expected": 3,
+            "skipped": 0,
+            "unexpected": 1,
+            "flaky": 0
+          }
+        },
+        {
+          "label": "scene readiness correction, three independent repeats",
+          "stats": {
+            "startTime": "2026-09-22T19:46:01.023Z",
+            "duration": 45761.583999999995,
+            "expected": 3,
+            "skipped": 0,
+            "unexpected": 0,
+            "flaky": 0
+          }
+        }
+      ],
+      "note": "82 distinct tests ultimately pass using unchanged passing coverage plus affected retests. This was not one uninterrupted 82-test green run."
+    },
+    "ice": {
+      "passed": true,
+      "checks": 6
+    },
+    "composition": {
+      "passed": true,
+      "cases": 4
+    },
+    "axe": {
+      "scenarios": 22,
+      "violations": 0
+    },
+    "runtimeAssets": {
+      "routes": 6,
+      "passed": true
+    },
+    "staticAudit": {
+      "passed": true,
+      "html": 24
+    },
+    "cleanInstall": true,
+    "finalBuildInputs": {
+      "files": 53,
+      "contentDifferences": [],
+      "gitCheckoutNewlineOnlyDifferences": 7
+    },
+    "print": true,
+    "pdf": {
+      "passed": true,
+      "pages": [
+        {
+          "lang": "en",
+          "count": 1
+        },
+        {
+          "lang": "zh",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "Existing Three.js output chunk remains above the Vite 500 kB advisory threshold.",
+    "Clean npm ci reports the pinned ESLint version is deprecated; dependency audit reports 0 vulnerabilities.",
+    "PDF text parser reports a FontBBox descriptor warning; complete text/link/bounds and rendered-page checks pass."
+  ],
+  "limitations": [
+    "Physical iOS/Android, Safari and Firefox were not tested.",
+    "Hidden and BFCache lifecycle handling uses explicit injected events; real OS background scheduling was not validated.",
+    "RAF scheduling and WebGL call rates are not GPU presented FPS; emulated input latency is not INP.",
+    "Before desktop motion raw array was overwritten by an excluded supplemental capture; the original tool summary was recovered and the gap is disclosed.",
+    "No real email transmission, physical printing, public hosting or CDN verification."
+  ]
+}

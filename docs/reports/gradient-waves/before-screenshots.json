@@ -1,0 +1,217 @@
+{
+  "phase": "before",
+  "base": "http://127.0.0.1:4321",
+  "date": "2026-09-22T18:53:37.941Z",
+  "finishedAt": "2026-09-22T18:54:02.295Z",
+  "browser": "153.0.8010.12",
+  "method": "Eight production-preview scenes, normal motion, fresh contexts, welcome already seen. Mobile is Chromium emulation, not a physical device.",
+  "results": [
+    {
+      "name": "desktop-home",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-home.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "2e8b205d5c6777888395a4086a7d06141f6a6c22aadd48c234447b32e98957d3",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 2953,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-projects",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-projects.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "2e8b205d5c6777888395a4086a7d06141f6a6c22aadd48c234447b32e98957d3",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 847,
+      "documentHeight": 2953,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-footer",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-footer.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "2e8b205d5c6777888395a4086a7d06141f6a6c22aadd48c234447b32e98957d3",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 1953,
+      "documentHeight": 2953,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "mobile-zh-dark",
+      "path": "/zh/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "expectedTheme": "dark",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/mobile-zh-dark.png",
+      "fullPageScreenshot": "docs/screenshots/gradient-waves/before/mobile-zh-dark-full.png",
+      "htmlSha256": "652d48a3fda502ed9aaffb9aaace1440b405d149902f12acebe5c78dd5af1fad",
+      "width": 390,
+      "scrollWidth": 390,
+      "scrollY": 0,
+      "documentHeight": 3889,
+      "title": "余明阳 — 把想法，一块块搭起来",
+      "theme": "dark",
+      "canvases": [
+        {
+          "width": 376,
+          "height": 445,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-work",
+      "path": "/en/work/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-work.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "9856c5e80b497baf2f3aba3665b737fc9acb20a61717a204fee178151745a573",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 2148,
+      "title": "Ideas, put to work. — Mingyang Yu",
+      "theme": "light",
+      "canvases": []
+    },
+    {
+      "name": "desktop-about",
+      "path": "/en/about/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-about.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "e90bac2161d6b6773165dd398533e7887606e3fc42ec1cc3f3c2a3dc78a6ae9f",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 2021,
+      "title": "Between ideas and making things. — Mingyang Yu",
+      "theme": "light",
+      "canvases": []
+    },
+    {
+      "name": "desktop-detail",
+      "path": "/en/work/context-ai/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-detail.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "b58003b5c8688d82cdd8fd64a4068e8e1ef35d0101044720f49e5344e896e9b2",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 3150,
+      "title": "Context-aware AI Assistant — Mingyang Yu",
+      "theme": "light",
+      "canvases": []
+    },
+    {
+      "name": "desktop-resume",
+      "path": "/en/resume/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/before/desktop-resume.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "8491ce6be1bff1f9e2d30f9137431563619ab99f0b03d8e5222e1f790427fc94",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 1934,
+      "title": "Résumé — Mingyang Yu",
+      "theme": "light",
+      "canvases": []
+    }
+  ],
+  "passed": true,
+  "visualReview": {
+    "allEightScenesViewed": true,
+    "mobileFullPageViewed": true,
+    "completedAt": "2026-09-22T18:57:04.6647968Z",
+    "conclusion": "All eight before scenes and the mobile full-page screenshot were visually inspected. Existing character, project illustrations, content, and footer are present. No unexpected layout break or horizontal clipping was observed."
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "date": "2026-09-22T19:50:18.112Z",
+  "browser": "153.0.8010.12",
+  "scope": "Automated WCAG A/AA rules on retained pages and both localized homes in light/dark, desktop/mobile and paused/unpaused states. This is not a complete accessibility conformance assessment.",
+  "reports": [
+    {
+      "path": "/en/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "light",
+      "mobile": false,
+      "paused": true,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "light",
+      "mobile": true,
+      "paused": false,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "light",
+      "mobile": true,
+      "paused": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "dark",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "dark",
+      "mobile": false,
+      "paused": true,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "dark",
+      "mobile": true,
+      "paused": false,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/",
+      "theme": "dark",
+      "mobile": true,
+      "paused": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "light",
+      "mobile": false,
+      "paused": true,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "light",
+      "mobile": true,
+      "paused": false,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "light",
+      "mobile": true,
+      "paused": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "dark",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "dark",
+      "mobile": false,
+      "paused": true,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "dark",
+      "mobile": true,
+      "paused": false,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/zh/",
+      "theme": "dark",
+      "mobile": true,
+      "paused": true,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/work/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/about/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 22
+    },
+    {
+      "path": "/en/resume/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 19
+    },
+    {
+      "path": "/en/work/context-ai/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 21
+    },
+    {
+      "path": "/zh/work/yunxinyi/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 21
+    },
+    {
+      "path": "/en/404/",
+      "theme": "light",
+      "mobile": false,
+      "paused": false,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "violations": [],
+      "passes": 18
+    }
+  ]
+}

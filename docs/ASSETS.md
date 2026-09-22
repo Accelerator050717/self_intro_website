@@ -1,5 +1,7 @@
 # 素材来源与处理
 
+全站 GradientWaves 的来源与许可见 [VISUAL-SOURCES.md](VISUAL-SOURCES.md)。`public/images/waves/light.webp`（9,282 bytes）和 `dark.webp`（7,318 bytes）为用户指定参数的真实 shader 在 1440×1000、时间0的浏览器静帧，经 WebP 压缩，仅用于加载/图形失败/无JS回退。它们不是外部照片，不替代正常运行的 OGL 动态背景；制作与验收见 [GRADIENT-WAVES.md](GRADIENT-WAVES.md)。
+
 程序化冰材质环境另见 [ICE_ENVIRONMENT.md](ICE_ENVIRONMENT.md)：由项目使用的 Three.js RoomEnvironment 在本机预烘焙，包含可复现脚本、精确尺寸/校验、341,829字节压缩资源及MIT归属。它不是外部人物或远程HDR素材。
 
 ## 当前人物素材与公开边界（2026-09-22）

@@ -112,6 +112,9 @@ test('pause cancels and resets joints, survives refresh, and resumes without a q
   expect((await pose(page)).shoulder[6]).toBe(0);
   await page.reload();
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-rig', 'ready');
+  // Match openReady after reload: an actionability retry on a disabled greeting
+  // can schedule native smooth scrolling while the optional scene is settling.
+  await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-scene-settled', 'true');
   await expect(page.locator('.animation-toggle')).toHaveAttribute('aria-pressed', 'true');
   await page.locator('.animation-toggle').click(); await expectIdle(page);
   await page.locator('.hello-button').click(); await expectRaised(page); await expectIdle(page);

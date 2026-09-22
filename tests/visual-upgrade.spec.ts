@@ -6,8 +6,9 @@ async function ready(page: Page) {
   await page.goto('/en/');
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-scene-settled', 'true');
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-rig', 'ready');
+  await expect(page.locator('.gradient-waves-container')).toHaveAttribute('data-state', 'ready');
 }
-const glowState = (page: Page) => page.locator('.spectral-glow').evaluate(element => getComputedStyle(element).animationPlayState);
+const wavesMotion = (page: Page) => page.locator('.gradient-waves-container').getAttribute('data-motion');
 
 test('bounded spotlight and cover tilt follow mouse without moving link or title, then settle', async ({ page }) => {
   await ready(page);
@@ -35,10 +36,10 @@ test('bounded spotlight and cover tilt follow mouse without moving link or title
 
 test('pause controls ambient motion and card tracking across navigation; resume restores', async ({ page }) => {
   await ready(page);
-  await expect.poll(() => glowState(page)).toBe('running');
+  await expect.poll(() => wavesMotion(page)).toBe('running');
   await page.locator('.animation-toggle').click();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still');
-  await expect.poll(() => glowState(page)).toBe('paused');
+  await expect.poll(() => wavesMotion(page)).toBe('paused');
   const card = page.locator('[data-light-card]').first();
   await card.hover();
   await expect(card).not.toHaveAttribute('data-tracking');
@@ -51,29 +52,29 @@ test('pause controls ambient motion and card tracking across navigation; resume 
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'enabled');
 });
 
-test('ambient stops while greeting, offscreen, or document hidden and resumes without a new loop', async ({ page }) => {
+test('viewport waves remain available while greeting and at the footer; hidden document suspends them', async ({ page }) => {
   await ready(page);
   await page.locator('.hello-button').click();
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'greeting');
-  await expect.poll(() => glowState(page)).toBe('paused');
+  await expect.poll(() => wavesMotion(page)).toBe('running');
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
-  await expect.poll(() => glowState(page)).toBe('running');
+  await expect.poll(() => wavesMotion(page)).toBe('running');
   await page.locator('footer').scrollIntoViewIfNeeded();
-  await expect.poll(() => glowState(page)).toBe('paused');
+  await expect.poll(() => wavesMotion(page)).toBe('running');
   await page.locator('.person-button').scrollIntoViewIfNeeded();
-  await expect.poll(() => glowState(page)).toBe('running');
+  await expect.poll(() => wavesMotion(page)).toBe('running');
   await page.evaluate(() => {
     Object.defineProperty(document, 'hidden', { configurable: true, value: true });
     document.dispatchEvent(new Event('visibilitychange'));
   });
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still');
-  await expect.poll(() => glowState(page)).toBe('paused');
+  await expect.poll(() => wavesMotion(page)).toBe('paused');
   await page.evaluate(() => {
     delete (document as unknown as { hidden?: boolean }).hidden;
     document.dispatchEvent(new Event('visibilitychange'));
   });
-  await expect.poll(() => glowState(page)).toBe('running');
-  expect(await page.locator('.spectral-glow').evaluate(el => el.getAnimations().length)).toBe(1);
+  await expect.poll(() => wavesMotion(page)).toBe('running');
+  await expect(page.locator('[data-gradient-waves] canvas')).toHaveCount(1);
 });
 
 test('live reduced-motion change cancels decorative tracking and reveals immediately', async ({ page }) => {
@@ -85,10 +86,10 @@ test('live reduced-motion change cancels decorative tracking and reveals immedia
   await expect(card).not.toHaveAttribute('data-tracking');
   expect(await card.locator('.project-art').evaluate(el => getComputedStyle(el).transform)).toBe('none');
   expect(await page.locator('.project-card').first().evaluate(el => getComputedStyle(el).opacity)).toBe('1');
-  expect(await page.locator('.spectral-glow').evaluate(el => el.getAnimations().length)).toBe(0);
+  await expect.poll(() => wavesMotion(page)).toBe('paused');
 });
 
-test('touch keeps static ambient and stable covers while preserving actual arm gestures', async ({ browser }) => {
+test('touch keeps stable covers and low-detail waves while preserving actual arm gestures', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, reducedMotion: 'no-preference' });
   const page = await context.newPage();
   try {
@@ -101,7 +102,7 @@ test('touch keeps static ambient and stable covers while preserving actual arm g
     const card = page.locator('[data-light-card]').first();
     await card.scrollIntoViewIfNeeded();
     expect(await card.locator('.project-art').evaluate(el => getComputedStyle(el).transform)).toBe('none');
-    expect(await page.locator('.spectral-glow').evaluate(el => el.getAnimations().length)).toBe(0);
+    await expect(page.locator('.gradient-waves-container')).toHaveAttribute('data-quality', 'low');
     await expect(card).not.toHaveAttribute('data-tracking');
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
     await card.tap();

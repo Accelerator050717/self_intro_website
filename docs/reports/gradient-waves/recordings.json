@@ -1,0 +1,1345 @@
+[
+  {
+    "profile": "desktop",
+    "browser": "153.0.8010.12",
+    "recordedAt": "2026-09-22T19:24:30.655Z",
+    "recording": "docs/evidence/gradient-waves-desktop.webm",
+    "durationMs": 40003,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "method": "Real-time browser capture with real wheel or explicit touch input and click/tap; no timeline seeking, animation speed changes, or substitute rendered video.",
+    "keyframeTiming": "Joint transforms are sampled immediately before full-viewport screenshot capture. The screenshotCaptureWindowMs interval bounds asynchronous capture timing; it is not a claim that a PNG matches the exact earlier joint-sample timestamp. Cropping occurs offline only.",
+    "durationInRequestedRange": true,
+    "canvasEvidence": {
+      "method": "Actual wave canvas copied immediately after WebGL draw, downsampled to width 320; 2px Gaussian blur and >8/255 per-channel threshold suppress fine grain noise. These are pixel differences, not GPU FPS.",
+      "frames": [
+        {
+          "timeMs": 3854.3999999910593,
+          "sourceWidth": 720,
+          "sourceHeight": 500,
+          "path": "docs/screenshots/gradient-waves/after/canvas-desktop-0.png"
+        },
+        {
+          "timeMs": 4910.399999991059,
+          "sourceWidth": 720,
+          "sourceHeight": 500,
+          "path": "docs/screenshots/gradient-waves/after/canvas-desktop-1.png"
+        },
+        {
+          "timeMs": 5956,
+          "sourceWidth": 720,
+          "sourceHeight": 500,
+          "path": "docs/screenshots/gradient-waves/after/canvas-desktop-2.png"
+        },
+        {
+          "timeMs": 7001,
+          "sourceWidth": 720,
+          "sourceHeight": 500,
+          "path": "docs/screenshots/gradient-waves/after/canvas-desktop-3.png"
+        }
+      ],
+      "comparisons": [
+        {
+          "from": 0,
+          "to": 1,
+          "elapsedMs": 1056,
+          "meanAbsoluteChannelDifference": 6.479115052552553,
+          "fractionPixelsOver8": 0.27149493243243245
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "elapsedMs": 1045.6000000089407,
+          "meanAbsoluteChannelDifference": 6.106554992492493,
+          "fractionPixelsOver8": 0.20557432432432432
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "elapsedMs": 1045,
+          "meanAbsoluteChannelDifference": 6.041253753753754,
+          "fractionPixelsOver8": 0.2028856981981982
+        }
+      ],
+      "visibleWaveChange": true
+    },
+    "pause": {
+      "pausedDraws": 914,
+      "stoppedDraws": 914,
+      "resumedDraws": 966
+    },
+    "frames": [
+      {
+        "id": "00",
+        "label": "Idle",
+        "elapsedMs": 0,
+        "screenshotCaptureWindowMs": null,
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "elbow": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "wrist": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "head": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-00.png"
+      },
+      {
+        "id": "01",
+        "label": "Arm rising",
+        "elapsedMs": 422,
+        "screenshotCaptureWindowMs": [
+          451,
+          1197
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -40.93747537991517,
+            "matrix": [
+              0.41110688295831893,
+              -0.35658239782989626,
+              0.35658239782989626,
+              0.41110688295831893,
+              -93.2574835359456,
+              227.40584224242934
+            ]
+          },
+          "elbow": {
+            "degrees": -37.83952603295019,
+            "matrix": [
+              0.10591810618424286,
+              -0.5337988670278037,
+              0.5337988670278037,
+              0.10591810618424286,
+              -47.819778481774414,
+              492.1177248470686
+            ]
+          },
+          "wrist": {
+            "degrees": -4.391659837043809,
+            "matrix": [
+              0.06473207794658495,
+              -0.540342145073416,
+              0.540342145073416,
+              0.06473207794658495,
+              -31.165419782747428,
+              522.0413410577211
+            ]
+          },
+          "head": {
+            "degrees": -1.5489559864314018,
+            "matrix": [
+              0.5440068724409279,
+              -0.014710485881280561,
+              0.014710485881280561,
+              0.5440068724409279,
+              22.649808239358283,
+              5.521234237838242
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-01.png"
+      },
+      {
+        "id": "02",
+        "label": "Wrist wave A",
+        "elapsedMs": 1284,
+        "screenshotCaptureWindowMs": [
+          1325,
+          2039
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -67.99998152223321,
+            "matrix": [
+              0.20386305432054744,
+              -0.5045787656460792,
+              0.5045787656460792,
+              0.20386305432054744,
+              -76.24563608893112,
+              399.4618150901643
+            ]
+          },
+          "elbow": {
+            "degrees": -64.00000639632559,
+            "matrix": [
+              -0.36414470954125633,
+              -0.4044236716253606,
+              0.4044236716253606,
+              -0.36414470954125633,
+              259.43272758372876,
+              682.302663303347
+            ]
+          },
+          "wrist": {
+            "degrees": -11.931195000088021,
+            "matrix": [
+              -0.4398871394537207,
+              -0.3204047131380034,
+              0.3204047131380034,
+              -0.4398871394537207,
+              352.11038673218087,
+              688.634661073709
+            ]
+          },
+          "head": {
+            "degrees": -1.9985663218507048,
+            "matrix": [
+              0.5438746888466682,
+              -0.018978895904746097,
+              0.018978895904746097,
+              0.5438746888466682,
+              20.700968094658272,
+              7.158139458610582
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-02.png"
+      },
+      {
+        "id": "03",
+        "label": "Wrist wave B",
+        "elapsedMs": 2129,
+        "screenshotCaptureWindowMs": [
+          2169,
+          2951
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -14.14733035203365,
+            "matrix": [
+              0.527700209661627,
+              -0.13301264744714392,
+              0.13301264744714392,
+              0.527700209661627,
+              -31.13055812673784,
+              67.89097387594856
+            ]
+          },
+          "elbow": {
+            "degrees": -11.972840857539717,
+            "matrix": [
+              0.4886274184897153,
+              -0.23958948549112088,
+              0.23958948549112088,
+              0.4886274184897153,
+              -74.30390945252742,
+              142.71898088580576
+            ]
+          },
+          "wrist": {
+            "degrees": -0.6979427463399753,
+            "matrix": [
+              0.48567270169335286,
+              -0.24552373100721417,
+              0.24552373100721417,
+              0.48567270169335286,
+              -76.63939064016796,
+              147.63639041291518
+            ]
+          },
+          "head": {
+            "degrees": -0.5436213392105403,
+            "matrix": [
+              0.5441812341494348,
+              -0.0051633378178676664,
+              0.0051633378178676664,
+              0.5441812341494348,
+              27.053534062596505,
+              1.9167353228576978
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-03.png"
+      },
+      {
+        "id": "04",
+        "label": "Wrist wave A",
+        "elapsedMs": 3374,
+        "screenshotCaptureWindowMs": [
+          3526,
+          4311
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "elbow": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "wrist": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "head": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-04.png"
+      },
+      {
+        "id": "05",
+        "label": "Arm lowering",
+        "elapsedMs": 4522,
+        "screenshotCaptureWindowMs": [
+          4635,
+          5433
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "elbow": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "wrist": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "head": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-05.png"
+      },
+      {
+        "id": "06",
+        "label": "Back to idle",
+        "elapsedMs": 5622,
+        "screenshotCaptureWindowMs": [
+          5728,
+          6527
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "elbow": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "wrist": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          },
+          "head": {
+            "degrees": 0,
+            "matrix": [
+              0.5442057291666667,
+              0,
+              0,
+              0.5442057291666667,
+              29.460937499999993,
+              0
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-desktop-06.png"
+      }
+    ],
+    "actions": [
+      {
+        "action": "click",
+        "selector": ".hello-button",
+        "elapsedMs": 8630
+      },
+      {
+        "action": "wheel",
+        "deltaY": 832,
+        "initialY": 0,
+        "finalY": 832,
+        "elapsedMs": 15751
+      },
+      {
+        "action": "projects dwell",
+        "durationMs": 4000,
+        "elapsedMs": 15757
+      },
+      {
+        "action": "wheel",
+        "deltaY": 900,
+        "initialY": 832,
+        "finalY": 1732,
+        "elapsedMs": 20100
+      },
+      {
+        "action": "wheel",
+        "deltaY": 369,
+        "initialY": 1732,
+        "finalY": 2101,
+        "elapsedMs": 20370
+      },
+      {
+        "action": "footer dwell",
+        "durationMs": 4000,
+        "elapsedMs": 20372
+      },
+      {
+        "action": "wheel",
+        "deltaY": -900,
+        "initialY": 2101,
+        "finalY": 1201,
+        "elapsedMs": 24652
+      },
+      {
+        "action": "wheel",
+        "deltaY": -900,
+        "initialY": 1201,
+        "finalY": 301,
+        "elapsedMs": 24901
+      },
+      {
+        "action": "wheel",
+        "deltaY": -301,
+        "initialY": 301,
+        "finalY": 0,
+        "elapsedMs": 25255
+      },
+      {
+        "action": "click",
+        "selector": ".theme-toggle",
+        "elapsedMs": 25998
+      },
+      {
+        "action": "click",
+        "selector": ".animation-toggle",
+        "elapsedMs": 27732
+      },
+      {
+        "action": "click",
+        "selector": ".animation-toggle",
+        "elapsedMs": 30026
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "visualReview": {
+      "reviewedAt": "2026-09-22T19:30:55.404Z",
+      "actualWebmFramesViewed": 9,
+      "contactSheet": "docs/screenshots/gradient-waves/after/video-desktop-contact.jpg",
+      "allFrameViewportsIntact": true,
+      "grayClippedScreencastArtifact": false,
+      "independentArmRaiseAndReturnVisible": true,
+      "backgroundWaveChangeVisible": true,
+      "scrollProjectAndFooterVisible": true,
+      "themeChangeVisible": true,
+      "method": "Nine frames decoded from each final WebM using FFmpeg, including four successive greeting stages and actual scroll/theme scenes; inspected visually. Separate live canvas and joint data corroborate motion. This is sampled frame review, not a claim that every encoded frame was inspected.",
+      "characterContact": "docs/screenshots/gradient-waves/after/character-desktop-sequence.jpg",
+      "canvasContact": "docs/screenshots/gradient-waves/after/canvas-desktop-sequence.png"
+    },
+    "recordingSha256": "424bec33888ccd7d13cc0ef08dbedfd958cc49552865a6054bc8114951919611",
+    "recordingBytes": 4795334
+  },
+  {
+    "profile": "mobile",
+    "browser": "153.0.8010.12",
+    "recordedAt": "2026-09-22T19:25:10.808Z",
+    "recording": "docs/evidence/gradient-waves-mobile.webm",
+    "durationMs": 40007,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "method": "Real-time browser capture with real wheel or explicit touch input and click/tap; no timeline seeking, animation speed changes, or substitute rendered video.",
+    "keyframeTiming": "Joint transforms are sampled immediately before full-viewport screenshot capture. The screenshotCaptureWindowMs interval bounds asynchronous capture timing; it is not a claim that a PNG matches the exact earlier joint-sample timestamp. Cropping occurs offline only.",
+    "durationInRequestedRange": true,
+    "canvasEvidence": {
+      "method": "Actual wave canvas copied immediately after WebGL draw, downsampled to width 320; 2px Gaussian blur and >8/255 per-channel threshold suppress fine grain noise. These are pixel differences, not GPU FPS.",
+      "frames": [
+        {
+          "timeMs": 2436,
+          "sourceWidth": 390,
+          "sourceHeight": 844,
+          "path": "docs/screenshots/gradient-waves/after/canvas-mobile-0.png"
+        },
+        {
+          "timeMs": 3492.3999999910593,
+          "sourceWidth": 273,
+          "sourceHeight": 590,
+          "path": "docs/screenshots/gradient-waves/after/canvas-mobile-1.png"
+        },
+        {
+          "timeMs": 4567.79999999702,
+          "sourceWidth": 273,
+          "sourceHeight": 590,
+          "path": "docs/screenshots/gradient-waves/after/canvas-mobile-2.png"
+        },
+        {
+          "timeMs": 5619.399999991059,
+          "sourceWidth": 273,
+          "sourceHeight": 590,
+          "path": "docs/screenshots/gradient-waves/after/canvas-mobile-3.png"
+        }
+      ],
+      "comparisons": [
+        {
+          "from": 0,
+          "to": 1,
+          "elapsedMs": 1056.3999999910593,
+          "meanAbsoluteChannelDifference": 11.324873737373737,
+          "fractionPixelsOver8": 0.4130366161616162
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "elapsedMs": 1075.4000000059605,
+          "meanAbsoluteChannelDifference": 10.300201418951419,
+          "fractionPixelsOver8": 0.2748196248196248
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "elapsedMs": 1051.5999999940395,
+          "meanAbsoluteChannelDifference": 9.700183381433382,
+          "fractionPixelsOver8": 0.23401875901875901
+        }
+      ],
+      "visibleWaveChange": true
+    },
+    "pause": {
+      "pausedDraws": 778,
+      "stoppedDraws": 778,
+      "resumedDraws": 868
+    },
+    "frames": [
+      {
+        "id": "00",
+        "label": "Idle",
+        "elapsedMs": 0,
+        "screenshotCaptureWindowMs": null,
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "elbow": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "wrist": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "head": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-00.png"
+      },
+      {
+        "id": "01",
+        "label": "Arm rising",
+        "elapsedMs": 397,
+        "screenshotCaptureWindowMs": [
+          415,
+          586
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -29.892614849228654,
+            "matrix": [
+              0.3214979466669138,
+              -0.1848145865457307,
+              0.1848145865457307,
+              0.3214979466669138,
+              -63.01233588497889,
+              107.82250277248204
+            ]
+          },
+          "elbow": {
+            "degrees": -27.16290846398016,
+            "matrix": [
+              0.2016687918969104,
+              -0.3112026019909727,
+              0.3112026019909727,
+              0.2016687918969104,
+              -78.34630937723857,
+              239.4800806954421
+            ]
+          },
+          "wrist": {
+            "degrees": -2.919020062455348,
+            "matrix": [
+              0.18555930505718526,
+              -0.3210686926777595,
+              0.3210686926777595,
+              0.18555930505718526,
+              -76.5522941331622,
+              254.88891717210547
+            ]
+          },
+          "head": {
+            "degrees": -1.3648805544111242,
+            "matrix": [
+              0.3707281201320378,
+              -0.008833009366940923,
+              0.008833009366940923,
+              0.3707281201320378,
+              5.279975287549692,
+              3.308620234607502
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-01.png"
+      },
+      {
+        "id": "02",
+        "label": "Wrist wave A",
+        "elapsedMs": 1063,
+        "screenshotCaptureWindowMs": [
+          1128,
+          1372
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -67.99998152223321,
+            "matrix": [
+              0.1389166117250674,
+              -0.34383067940185036,
+              0.34383067940185036,
+              0.1389166117250674,
+              -62.65570261545063,
+              272.201758434451
+            ]
+          },
+          "elbow": {
+            "degrees": -64.00000639632559,
+            "matrix": [
+              -0.24813593319140997,
+              -0.27558287278120036,
+              0.27558287278120036,
+              -0.24813593319140997,
+              166.08265837024993,
+              464.93551503479665
+            ]
+          },
+          "wrist": {
+            "degrees": 10.691860962902588,
+            "matrix": [
+              -0.1927001458093555,
+              -0.31683436511237895,
+              0.31683436511237895,
+              -0.1927001458093555,
+              111.32825012160691,
+              450.03850299789696
+            ]
+          },
+          "head": {
+            "degrees": -1.999999842926156,
+            "matrix": [
+              0.37060743168624805,
+              -0.01294189669384411,
+              0.01294189669384411,
+              0.37060743168624805,
+              3.4015500550554236,
+              4.881281850864418
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-02.png"
+      },
+      {
+        "id": "03",
+        "label": "Wrist wave B",
+        "elapsedMs": 1427,
+        "screenshotCaptureWindowMs": [
+          1446,
+          1643
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -67.99998152223321,
+            "matrix": [
+              0.1389166117250674,
+              -0.34383067940185036,
+              0.34383067940185036,
+              0.1389166117250674,
+              -62.65570261545063,
+              272.201758434451
+            ]
+          },
+          "elbow": {
+            "degrees": -64.00000639632559,
+            "matrix": [
+              -0.24813593319140997,
+              -0.27558287278120036,
+              0.27558287278120036,
+              -0.24813593319140997,
+              166.08265837024993,
+              464.93551503479665
+            ]
+          },
+          "wrist": {
+            "degrees": 9.247531790344267,
+            "matrix": [
+              -0.2006246981269787,
+              -0.3118767250254013,
+              0.3118767250254013,
+              -0.2006246981269787,
+              118.54863364282937,
+              452.64424027098386
+            ]
+          },
+          "head": {
+            "degrees": -1.55734148796576,
+            "matrix": [
+              0.3706963571237132,
+              -0.010078289850944003,
+              0.010078289850944003,
+              0.3706963571237132,
+              4.708904571108051,
+              3.7829938211005785
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-03.png"
+      },
+      {
+        "id": "04",
+        "label": "Wrist wave A",
+        "elapsedMs": 1705,
+        "screenshotCaptureWindowMs": [
+          1742,
+          1954
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -67.99998152223321,
+            "matrix": [
+              0.1389166117250674,
+              -0.34383067940185036,
+              0.34383067940185036,
+              0.1389166117250674,
+              -62.65570261545063,
+              272.201758434451
+            ]
+          },
+          "elbow": {
+            "degrees": -64.00000639632559,
+            "matrix": [
+              -0.24813593319140997,
+              -0.27558287278120036,
+              0.27558287278120036,
+              -0.24813593319140997,
+              166.08265837024993,
+              464.93551503479665
+            ]
+          },
+          "wrist": {
+            "degrees": -6.065480088966833,
+            "matrix": [
+              -0.2758662064894025,
+              -0.2478208974809378,
+              0.2478208974809378,
+              -0.2758662064894025,
+              198.0761429763017,
+              468.7739501080667
+            ]
+          },
+          "head": {
+            "degrees": -1.0483645851768093,
+            "matrix": [
+              0.3707712585695898,
+              -0.006784904555960125,
+              0.006784904555960125,
+              0.3707712585695898,
+              6.222570255632012,
+              2.5326807705812455
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-04.png"
+      },
+      {
+        "id": "05",
+        "label": "Arm lowering",
+        "elapsedMs": 2197,
+        "screenshotCaptureWindowMs": [
+          2265,
+          2535
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": -10.136915253501028,
+            "matrix": [
+              0.36504462714734154,
+              -0.06526700009935742,
+              0.06526700009935742,
+              0.36504462714734154,
+              -21.388885385633323,
+              32.13237790545458
+            ]
+          },
+          "elbow": {
+            "degrees": -8.09836351164193,
+            "matrix": [
+              0.35220991725152706,
+              -0.11604109315575914,
+              0.11604109315575914,
+              0.35220991725152706,
+              -44.77761730141448,
+              64.40560589613426
+            ]
+          },
+          "wrist": {
+            "degrees": -0.15415740421290697,
+            "matrix": [
+              0.35189642830561707,
+              -0.11698831077018255,
+              0.11698831077018255,
+              0.35189642830561707,
+              -45.23058098475565,
+              65.08835908570481
+            ]
+          },
+          "head": {
+            "degrees": -0.5096351422140939,
+            "matrix": [
+              0.37081866371422995,
+              -0.003298446953333847,
+              0.003298446953333847,
+              0.37081866371422995,
+              7.836739915288906,
+              1.2239923075205685
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-05.png"
+      },
+      {
+        "id": "06",
+        "label": "Back to idle",
+        "elapsedMs": 2879,
+        "screenshotCaptureWindowMs": [
+          2912,
+          3178
+        ],
+        "joints": {
+          "body": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "shoulder": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "elbow": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "wrist": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          },
+          "head": {
+            "degrees": 0,
+            "matrix": [
+              0.37083333333333335,
+              0,
+              0,
+              0.37083333333333335,
+              9.374999999999995,
+              0
+            ]
+          }
+        },
+        "path": "docs/screenshots/gradient-waves/after/wave-mobile-06.png"
+      }
+    ],
+    "actions": [
+      {
+        "action": "touch drag",
+        "deltaY": 461.9375,
+        "initialY": 0,
+        "finalY": 447,
+        "elapsedMs": 6607
+      },
+      {
+        "action": "tap",
+        "selector": ".hello-button",
+        "elapsedMs": 6975
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 560.9375,
+        "initialY": 447,
+        "finalY": 972,
+        "elapsedMs": 10966
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 35.9375,
+        "initialY": 972,
+        "finalY": 993,
+        "elapsedMs": 11649
+      },
+      {
+        "action": "projects dwell",
+        "durationMs": 4000,
+        "elapsedMs": 11652
+      },
+      {
+        "action": "tap",
+        "selector": "[data-light-card]",
+        "elapsedMs": 15733
+      },
+      {
+        "action": "project link and browser back",
+        "elapsedMs": 17377
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 900,
+        "initialY": 993,
+        "finalY": 1518,
+        "elapsedMs": 18073
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 900,
+        "initialY": 1518,
+        "finalY": 2043,
+        "elapsedMs": 18728
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 900,
+        "initialY": 2043,
+        "finalY": 2568,
+        "elapsedMs": 19463
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 713,
+        "initialY": 2568,
+        "finalY": 3093,
+        "elapsedMs": 20216
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 188,
+        "initialY": 3093,
+        "finalY": 3266,
+        "elapsedMs": 20847
+      },
+      {
+        "action": "footer dwell",
+        "durationMs": 4000,
+        "elapsedMs": 20882
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -900,
+        "initialY": 3266,
+        "finalY": 2741,
+        "elapsedMs": 25595
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -900,
+        "initialY": 2741,
+        "finalY": 2216,
+        "elapsedMs": 26276
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -900,
+        "initialY": 2216,
+        "finalY": 1691,
+        "elapsedMs": 26902
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -900,
+        "initialY": 1691,
+        "finalY": 1166,
+        "elapsedMs": 27587
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -900,
+        "initialY": 1166,
+        "finalY": 641,
+        "elapsedMs": 28249
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -641,
+        "initialY": 641,
+        "finalY": 116,
+        "elapsedMs": 28925
+      },
+      {
+        "action": "touch drag",
+        "deltaY": -116,
+        "initialY": 116,
+        "finalY": 15,
+        "elapsedMs": 29565
+      },
+      {
+        "action": "tap",
+        "selector": ".theme-toggle",
+        "elapsedMs": 29851
+      },
+      {
+        "action": "touch drag",
+        "deltaY": 461.9375,
+        "initialY": 0,
+        "finalY": 447,
+        "elapsedMs": 32095
+      },
+      {
+        "action": "tap",
+        "selector": ".animation-toggle",
+        "elapsedMs": 32233
+      },
+      {
+        "action": "tap",
+        "selector": ".animation-toggle",
+        "elapsedMs": 34533
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "visualReview": {
+      "reviewedAt": "2026-09-22T19:30:55.404Z",
+      "actualWebmFramesViewed": 9,
+      "contactSheet": "docs/screenshots/gradient-waves/after/video-mobile-contact.jpg",
+      "allFrameViewportsIntact": true,
+      "grayClippedScreencastArtifact": false,
+      "independentArmRaiseAndReturnVisible": true,
+      "backgroundWaveChangeVisible": true,
+      "scrollProjectAndFooterVisible": true,
+      "themeChangeVisible": true,
+      "method": "Nine frames decoded from each final WebM using FFmpeg, including four successive greeting stages and actual scroll/theme scenes; inspected visually. Separate live canvas and joint data corroborate motion. This is sampled frame review, not a claim that every encoded frame was inspected.",
+      "characterContact": "docs/screenshots/gradient-waves/after/character-mobile-sequence.jpg",
+      "canvasContact": "docs/screenshots/gradient-waves/after/canvas-mobile-sequence.png"
+    },
+    "recordingSha256": "6af9c8f5a1144d06f4470ef74033f2a319522cb0b62ea99c14fcb163c8e670b8",
+    "recordingBytes": 4226547
+  }
+]

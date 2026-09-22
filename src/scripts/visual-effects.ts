@@ -16,6 +16,10 @@ export function enhanceVisuals() {
 
   function syncMotion() {
     root.dataset.motion = running() ? 'enabled' : 'still';
+    document.querySelectorAll<HTMLButtonElement>('[data-global-pause]').forEach(button => {
+      button.setAttribute('aria-pressed', String(paused));
+      button.setAttribute('aria-label', (paused ? button.dataset.resumeLabel : button.dataset.pauseLabel)!);
+    });
     if (!running() || !finePointer.matches) resetCards.forEach(reset => reset());
     if (!running()) {
       for (const animation of reveals) animation.cancel();
@@ -31,9 +35,24 @@ export function enhanceVisuals() {
   }
   window.addEventListener('ice-pause-change', preference);
   window.addEventListener('storage', storage);
+  function restorePreferences(event: PageTransitionEvent) {
+    if (!event.persisted) return;
+    try { paused = localStorage.getItem('ice-paused') === 'true'; } catch { /* Keep current state. */ }
+    window.dispatchEvent(new CustomEvent('ice-pause-change', { detail: paused }));
+  }
+  window.addEventListener('pageshow', restorePreferences);
   document.addEventListener('visibilitychange', syncMotion);
   reduced.addEventListener('change', syncMotion);
   finePointer.addEventListener('change', syncMotion);
+  document.querySelectorAll<HTMLButtonElement>('[data-global-pause]').forEach(button => {
+    const toggle = () => {
+      const next = !paused;
+      try { localStorage.setItem('ice-paused', String(next)); } catch { /* Current-page control still works. */ }
+      window.dispatchEvent(new CustomEvent('ice-pause-change', { detail: next }));
+    };
+    button.addEventListener('click', toggle);
+    cleanups.push(() => button.removeEventListener('click', toggle));
+  });
 
   document.querySelectorAll<HTMLElement>('[data-light-card]').forEach(card => {
     let frame = 0;
@@ -113,6 +132,7 @@ export function enhanceVisuals() {
     for (const animation of reveals) animation.cancel();
     window.removeEventListener('ice-pause-change', preference);
     window.removeEventListener('storage', storage);
+    window.removeEventListener('pageshow', restorePreferences);
     window.removeEventListener('scroll', resetOnScroll);
     window.removeEventListener('resize', resetOnScroll);
     document.removeEventListener('visibilitychange', syncMotion);

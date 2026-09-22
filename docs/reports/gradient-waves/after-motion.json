@@ -1,0 +1,370 @@
+{
+  "phase": "after",
+  "base": "http://127.0.0.1:4321",
+  "date": "2026-09-22T19:15:48.424Z",
+  "finishedAt": "2026-09-22T19:16:15.699Z",
+  "browser": "153.0.8010.12",
+  "durationMs": 10000,
+  "method": "Ten continuous seconds per fresh Chromium context, normal motion, welcome already seen, no CPU/network throttling. Desktop wheel and emulated mobile CDP touch scroll gestures run during the same sampling window.",
+  "limitations": [
+    "RAF callback intervals describe browser main-thread scheduling and are not GPU FPS, presented frames, or dropped-frame measurements.",
+    "WebGL draw counts instrument actual JavaScript draw calls per canvas. Calls can batch many objects or use multiple render passes; they do not measure GPU completion or presentation FPS.",
+    "Command-to-first-scroll-event timings include browser automation scheduling and are not INP or real hardware input latency.",
+    "Mobile viewport/touch emulation runs on this desktop machine; no physical mobile device was tested.",
+    "The 10-second window starts after page fonts and the avatar rig are ready, with a 1-second settling period; this complements rather than replaces Lighthouse load metrics."
+  ],
+  "results": [
+    {
+      "profile": "desktop",
+      "mobileEmulation": false,
+      "status": 200,
+      "errors": [],
+      "actualDurationMs": 10003.20000000298,
+      "visibilityState": "visible",
+      "raf": {
+        "intervals": 458,
+        "medianMs": 16.699999999999818,
+        "p95Ms": 33.400000000000546,
+        "p99Ms": 83.30000000000109,
+        "maxMs": 133.30000000000018,
+        "over20Ms": 104,
+        "over33_4Ms": 26,
+        "over50Ms": 11
+      },
+      "longTasks": {
+        "supported": true,
+        "count": 11,
+        "totalMs": 837,
+        "maxMs": 105
+      },
+      "webglDrawCalls": {
+        "waves": 459,
+        "ice": 638,
+        "other": 0,
+        "canvases": [
+          {
+            "id": 1,
+            "contextType": "WebGL2RenderingContext",
+            "methods": {
+              "drawArrays": 459
+            },
+            "width": 720,
+            "height": 500,
+            "kind": "waves",
+            "connected": true,
+            "callsDuringWindow": 459
+          },
+          {
+            "id": 2,
+            "contextType": "WebGL2RenderingContext",
+            "methods": {
+              "drawElements": 363,
+              "drawArrays": 220,
+              "drawElementsInstanced": 55
+            },
+            "width": 601,
+            "height": 645,
+            "kind": "ice",
+            "connected": true,
+            "callsDuringWindow": 638
+          }
+        ]
+      },
+      "scroll": {
+        "issuedInputs": 8,
+        "inputsWithScrollEvents": 8,
+        "eventCount": 8,
+        "minY": 0,
+        "maxY": 1680,
+        "finalY": 0,
+        "inputs": [
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 1081.7000000029802,
+            "initialY": 0,
+            "firstScrollEventMs": 167.29999999701977
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 1982.0999999940395,
+            "initialY": 420,
+            "firstScrollEventMs": 97.90000000596046
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 2880.7000000029802,
+            "initialY": 840,
+            "firstScrollEventMs": 87.79999999701977
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 3795.5999999940395,
+            "initialY": 1260,
+            "firstScrollEventMs": 81.29999999701977
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 4710.20000000298,
+            "initialY": 1680,
+            "firstScrollEventMs": 83.3999999910593
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 5609.0999999940395,
+            "initialY": 1260,
+            "firstScrollEventMs": 84.1000000089407
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 6517,
+            "initialY": 840,
+            "firstScrollEventMs": 93.70000000298023
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 7422.5,
+            "initialY": 420,
+            "firstScrollEventMs": 105.70000000298023
+          }
+        ],
+        "dispatches": [
+          {
+            "index": 0,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 161
+          },
+          {
+            "index": 1,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 84
+          },
+          {
+            "index": 2,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 72
+          },
+          {
+            "index": 3,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 76
+          },
+          {
+            "index": 4,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 80
+          },
+          {
+            "index": 5,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 68
+          },
+          {
+            "index": 6,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 79
+          },
+          {
+            "index": 7,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 85
+          }
+        ]
+      },
+      "rawFile": ".verification/gradient-waves/motion/after/desktop.json",
+      "passed": true
+    },
+    {
+      "profile": "mobile",
+      "mobileEmulation": true,
+      "status": 200,
+      "errors": [],
+      "actualDurationMs": 10001.09999999404,
+      "visibilityState": "visible",
+      "raf": {
+        "intervals": 536,
+        "medianMs": 16.699999999999818,
+        "p95Ms": 33.30000000000109,
+        "p99Ms": 50,
+        "maxMs": 83.40000000000055,
+        "over20Ms": 46,
+        "over33_4Ms": 19,
+        "over50Ms": 4
+      },
+      "longTasks": {
+        "supported": true,
+        "count": 2,
+        "totalMs": 130,
+        "maxMs": 71
+      },
+      "webglDrawCalls": {
+        "waves": 537,
+        "ice": 1856,
+        "other": 0,
+        "canvases": [
+          {
+            "id": 1,
+            "contextType": "WebGL2RenderingContext",
+            "methods": {
+              "drawArrays": 537
+            },
+            "width": 312,
+            "height": 675,
+            "kind": "waves",
+            "connected": true,
+            "callsDuringWindow": 537
+          },
+          {
+            "id": 2,
+            "contextType": "WebGL2RenderingContext",
+            "methods": {
+              "drawElements": 1056,
+              "drawArrays": 640,
+              "drawElementsInstanced": 160
+            },
+            "width": 376,
+            "height": 445,
+            "kind": "ice",
+            "connected": true,
+            "callsDuringWindow": 1856
+          }
+        ]
+      },
+      "scroll": {
+        "issuedInputs": 8,
+        "inputsWithScrollEvents": 8,
+        "eventCount": 56,
+        "minY": 0,
+        "maxY": 1620,
+        "finalY": 0,
+        "inputs": [
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 1033.8999999910593,
+            "initialY": 0,
+            "firstScrollEventMs": 89.40000000596046
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 1934.5,
+            "initialY": 405,
+            "firstScrollEventMs": 89.29999999701977
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 2852.3999999910593,
+            "initialY": 810,
+            "firstScrollEventMs": 88.70000000298023
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 3755.7000000029802,
+            "initialY": 1215,
+            "firstScrollEventMs": 84.3999999910593
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 4668.29999999702,
+            "initialY": 1620,
+            "firstScrollEventMs": 87.5
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 5570.899999991059,
+            "initialY": 1215,
+            "firstScrollEventMs": 85.80000001192093
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 6484.20000000298,
+            "initialY": 810,
+            "firstScrollEventMs": 89.79999999701977
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 7383.0999999940395,
+            "initialY": 405,
+            "firstScrollEventMs": 89.5
+          }
+        ],
+        "dispatches": [
+          {
+            "index": 0,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 671
+          },
+          {
+            "index": 1,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 649
+          },
+          {
+            "index": 2,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 734
+          },
+          {
+            "index": 3,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 607
+          },
+          {
+            "index": 4,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 637
+          },
+          {
+            "index": 5,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 659
+          },
+          {
+            "index": 6,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 669
+          },
+          {
+            "index": 7,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 603
+          }
+        ]
+      },
+      "rawFile": ".verification/gradient-waves/motion/after/mobile.json",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "failure": null
+}

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { ACESFilmicToneMapping, Color, CubeUVReflectionMapping, DataTexture, Group, HalfFloatType, Line, LinearFilter, LinearSRGBColorSpace, Mesh, NoToneMapping, OrthographicCamera, RGBAFormat, SRGBColorSpace, Vector3, WebGLRenderTarget, type Camera, type Scene, type WebGLRenderer } from 'three';
+import { ACESFilmicToneMapping, CubeUVReflectionMapping, DataTexture, Group, HalfFloatType, Line, LinearFilter, LinearSRGBColorSpace, Mesh, NoToneMapping, OrthographicCamera, RGBAFormat, SRGBColorSpace, Vector3, WebGLRenderTarget, type Camera, type Scene, type WebGLRenderer } from 'three';
 import IceBrick, { IceBrickResources } from './IceBrick';
 import { studioPalette } from './studio-palette';
 
@@ -23,7 +23,7 @@ function createLightField(dark: boolean) {
   for (let row = 0; row < size; row++) for (let column = 0; column < size; column++) {
     const x = column / (size - 1);
     const y = 1 - row / (size - 1);
-    // Exact paper at the outer edge avoids a colored line at the Canvas bounds.
+    // Refracted samples near the light field's edge return the theme's paper.
     const edge = Math.min(1, Math.min(x, 1 - x) / 0.07, Math.min(y, 1 - y) / 0.06);
     const color = [...paper];
     for (const lobe of lobes) {
@@ -98,6 +98,13 @@ async function compileStudio(gl: WebGLRenderer, scene: Scene, camera: Camera, si
   await gl.compileAsync(scene, camera);
 }
 
+const writeTransmissionBackdrop: Mesh['onBeforeRender'] = (renderer, _scene, _camera, _geometry, material) => {
+  // Three draws opaque objects into its transmission target before the screen.
+  // Keep this lighting reference there, but write neither RGB nor alpha to the
+  // final canvas. colorWrite is render state, so this adds no shader variant.
+  material.colorWrite = renderer.getRenderTarget() !== null;
+};
+
 function Studio({ dark, onReady, onFailure, onPrepared }: Pick<SceneProps, 'dark' | 'onReady' | 'onFailure'> & { onPrepared: () => void }) {
   const { gl, scene, camera, size, invalidate } = useThree();
   const reported = useRef(false);
@@ -105,12 +112,11 @@ function Studio({ dark, onReady, onFailure, onPrepared }: Pick<SceneProps, 'dark
   const lightField = useMemo(() => createLightField(Boolean(dark)), [dark]);
   useEffect(() => () => lightField.dispose(), [lightField]);
   useEffect(() => {
-    // A real local backdrop participates in the transmission prepass; DOM color
-    // behind a transparent canvas cannot supply refracted light to the material.
+    // Let the page's moving background show through empty canvas pixels. The
+    // dedicated backdrop still supplies the ice's transmission lighting below.
     const previousBackground = scene.background;
-    const paper = studioPalette[dark ? 'dark' : 'light'].paper;
-    scene.background = new Color(paper);
-    gl.setClearColor(paper, 1);
+    scene.background = null;
+    gl.setClearColor(0x000000, 0);
     invalidate();
     return () => { scene.background = previousBackground; };
   }, [dark, gl, scene, invalidate]);
@@ -161,9 +167,9 @@ function Studio({ dark, onReady, onFailure, onPrepared }: Pick<SceneProps, 'dark
     if (!reported.current) { reported.current = true; requestAnimationFrame(onReady); }
   });
   return <>
-    <mesh ref={backdrop} renderOrder={-1000} frustumCulled={false}>
+    <mesh ref={backdrop} renderOrder={-1000} frustumCulled={false} onBeforeRender={writeTransmissionBackdrop}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial map={lightField} toneMapped={false} depthWrite={false} />
+      <meshBasicMaterial map={lightField} toneMapped={false} depthWrite={false} colorWrite={false} />
     </mesh>
     <ambientLight intensity={dark ? 0.42 : 0.5} color={dark ? '#91cddd' : '#def7ff'} />
     <directionalLight position={[-4, 9, 6]} intensity={dark ? 2 : 1.65} color="#f2fcff" />
@@ -187,8 +193,10 @@ function SoftShadow() {
     return result;
   }, []);
   useEffect(() => () => texture.dispose(), [texture]);
-  return <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.46, 0.6]}>
-    <planeGeometry args={[7.5, 5]} />
+  // Keep the radial shadow inside the camera's shortest visible height, so its
+  // alpha reaches zero before the transparent canvas edge without a CSS mask.
+  return <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.46, 0]}>
+    <planeGeometry args={[6.6, 3.6]} />
     <meshBasicMaterial map={texture} transparent depthWrite={false} />
   </mesh>;
 }
@@ -211,7 +219,7 @@ export default function IceScene({ active, interactive = false, dark = false, on
     frameloop={active && prepared ? 'demand' : 'never'} dpr={[1, 1.25]}
     gl={{ alpha: true, antialias: true, powerPreference: 'low-power', failIfMajorPerformanceCaveat: true }}
     onCreated={({ gl }) => {
-      gl.setClearColor(studioPalette[dark ? 'dark' : 'light'].paper, 1);
+      gl.setClearColor(0x000000, 0);
       gl.transmissionResolutionScale = 0.75;
       gl.toneMapping = ACESFilmicToneMapping;
       gl.toneMappingExposure = 0.95;

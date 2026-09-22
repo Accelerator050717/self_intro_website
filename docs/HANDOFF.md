@@ -1,4 +1,8 @@
-# 当前交接：Glacial Spectrum 视觉升级
+# 当前交接：GradientWaves 全站背景
+
+当前分支为 `feat/gradient-waves-background`，基于已交付视觉分支继续。启动方式、指定参数、全站控制、实际截图/录屏/性能及验证边界见 [GRADIENT-WAVES.md](GRADIENT-WAVES.md)。原人物、联系方式、页面功能和此前证据均保留。
+
+## 上一轮 Glacial Spectrum 视觉升级交接
 
 当前分支为 `feat/ice-visual-upgrade`。访问/启动、维护入口、保留范围与Git边界见 [HANDOFF-VISUAL.md](HANDOFF-VISUAL.md)，前后截图、真实录屏和性能对照见 [VISUAL-UPGRADE.md](VISUAL-UPGRADE.md)。本地地址仍为 `http://127.0.0.1:4321/en/` 和 `/zh/`，启动仍为 `npm.cmd ci` 后 `.\start-site.ps1`。
 

@@ -198,12 +198,14 @@ for (const lang of ['en', 'zh'] as const) {
     await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
     await page.getByRole('button', { name: ui[lang].hello, exact: true }).click();
     await expect(page.locator('.avatar-greeting')).toHaveText(ui[lang].greeting);
-    await page.getByRole('button', { name: ui[lang].pause, exact: true }).click();
+    await page.locator('.avatar-exhibit').getByRole('button', { name: ui[lang].pause, exact: true }).click();
+    await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'true');
     expect(await page.evaluate(() => localStorage.getItem('ice-paused'))).toBe('true');
     await page.reload();
-    await expect(page.getByRole('button', { name: ui[lang].resumeAnimation, exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.avatar-exhibit').getByRole('button', { name: ui[lang].resumeAnimation, exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'paused');
-    await page.getByRole('button', { name: ui[lang].resumeAnimation, exact: true }).click();
+    await page.locator('.avatar-exhibit').getByRole('button', { name: ui[lang].resumeAnimation, exact: true }).click();
+    await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'false');
     await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
   });
 }

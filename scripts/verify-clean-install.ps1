@@ -1,16 +1,18 @@
 $ErrorActionPreference = 'Stop'
+$evidenceRound = if ($env:VERIFICATION_ROUND) { $env:VERIFICATION_ROUND } else { 'visual-upgrade' }
+if ($evidenceRound -notmatch '^[a-z0-9-]+$') { throw 'Invalid verification round name.' }
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
-$verificationRoot = Join-Path $projectRoot '.verification\visual-upgrade'
+$verificationRoot = Join-Path $projectRoot ".verification\$evidenceRound"
 $snapshotName = 'clean-install-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
 $snapshotPath = Join-Path $verificationRoot $snapshotName
 if (Test-Path -LiteralPath $snapshotPath) { throw 'Choose a fresh snapshot directory.' }
 New-Item -ItemType Directory -Path $snapshotPath -Force | Out-Null
 $originalDirectory = Get-Location
-$reportPath = Join-Path $projectRoot 'docs\reports\visual-upgrade\clean-install.json'
+$reportPath = Join-Path $projectRoot "docs\reports\$evidenceRound\clean-install.json"
 $startedAt = (Get-Date).ToUniversalTime().ToString('o')
 $result = [ordered]@{
   startedAt = $startedAt
-  snapshot = ".verification/visual-upgrade/$snapshotName"
+  snapshot = ".verification/$evidenceRound/$snapshotName"
   method = 'Export the exact reviewed Git index into a new empty directory, install from lockfile, build with no private original images or local environment file.'
   indexTree = ''
   node = (& node --version)

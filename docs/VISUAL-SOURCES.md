@@ -1,6 +1,37 @@
 # 视觉组件来源与实现边界
 
-核查日期：2026-09-22。本轮保持 Astro 静态页面、普通 CSS 与已有 React islands。没有新增 Motion、GSAP、OGL、Paper Shaders、Tailwind、shadcn 或 next-themes 运行依赖；没有安装 AI Kit/MCP、使用付费源码或复制演示业务内容。
+## 当前增量：用户指定的 GradientWaves
+
+核查日期：2026-09-22。此次明确采用 React Bits **GradientWaves 的 JavaScript + 普通 CSS** 源码和 OGL，不以其他背景组件或 CSS 近似替代。下方 Glacial Spectrum 研究记录保留为上一轮历史；其中“未引入 OGL”只描述上一轮状态。
+
+- 官方页面：[Gradient Waves](https://reactbits.dev/backgrounds/gradient-waves)。官方仓库固定 commit：`c5df8610c0b47d7cd805cda480baba402f7267c1`，提交时间 `2026-09-22T14:45:55Z`。
+- 指定变体：[GradientWaves.jsx](https://github.com/DavidHDev/react-bits/blob/c5df8610c0b47d7cd805cda480baba402f7267c1/src/content/Backgrounds/GradientWaves/GradientWaves.jsx) 与 [GradientWaves.css](https://github.com/DavidHDev/react-bits/blob/c5df8610c0b47d7cd805cda480baba402f7267c1/src/content/Backgrounds/GradientWaves/GradientWaves.css)。不是 TS-CSS、Tailwind 或其他组件变体。
+- 原始 UTF-8 源码 SHA-256：JSX 为 `92cf6aa408e3b7fe98474c6465441ecea7a7810250bbcc4a92b905e6848ae24f`；CSS 为 `4a3a19cd7977d5ddd128658750a007be8632c6fd9a66fa0c280eec2187927d65`。这两个指纹用于区分上游原文与站点生命周期适配，不代表修改后的文件哈希。
+- 上游许可仍为 **MIT + Commons Clause License Condition v1.0**，与本站已有完整通知逐字一致；新增 GradientWaves 也在该通知的适用范围内，见 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。
+
+上游以 OGL 的 `Renderer`、`Program`、`Mesh`、`Triangle` 绘制 GLSL ES 3.00 全屏三角形。波形、`plasma`、`raymarch`、雾化/颜色混合和颗粒 shader 属于指定源码，不能换成简化算法。站点适配范围为 Astro 挂载、参数在首帧前赋值、单背景实例、可见性/全站暂停/减少动态/打印、输入策略、尺寸管理、错误回退和卸载清理。
+
+用户指定源码在本站拆为 `src/components/waves/gradient-waves-shaders.ts`、`GradientWaves.tsx`、`GradientWaves.css`，由 `SiteWaves.tsx` 设置参数。已按 LF 统一换行后比较：**vertex 与 fragment 字符串分别与固定版本逐字一致**，SHA-256 分别为 `427d4b9827b17bd6a699b4f7a6c48b9b072549ae625face5f159414c404f2f95` 与 `2a42dd89921e9d970e2b1bd835cfb71adde89de569562a190c7d92611410e9fa`。CSS 原四项容器声明保留，追加站点定位、点击穿透与打印规则。React 生命周期包装已经适配，因此不宣称完整 JSX 文件逐字未改。
+
+浅色使用用户指定的 `#27cbff / #9fe3ff / #9de4e2`，有别于上游默认紫粉白；深色独立为 `#126a95 / #174d70 / #328b9e`。桌面保留示例数值：speed `0.4`、amplitude `2.5`、waveScale `0.6`、waveRatio `0.9`、swell `35`、turbulence `20`、tilt `1.11`、zoom `1`、height `5.5`、fogDepth `15`、medium `70` 步、brightness/opacity `1`、parallaxStrength `0.5`、grainIntensity `0.05`，鼠标与颗粒启用。手机/粗指针仅调整运行质量：low `40` 步、DPR 上限 `1`、关闭鼠标视差；不改 shader 波形算法。
+
+站点另增加自适应像素密度：每累计 `18` 个活动帧间隔，若平均间隔超过 `38ms`，按测得间隔降低 DPR 的缩放系数，最低为初始 DPR 的 `0.5` 倍；一次页面实例内只降低、不自动回升。桌面基础 DPR 上限 `2`，手机/粗指针基础上限 `1`，再乘该系数。暂停时间不计入这些活动帧间隔。这是本站的运行质量适配，只调整实际绘图缓冲区尺寸，不改桌面 medium `70` 步、波形/颗粒 shader、颜色或上述视觉参数；实际流畅度结果仍以独立性能记录为准。
+
+需由运行测试验证的上游边界：原文 `setSize()` 在颜色属性 effect 之前先绘制，颜色 uniform 初始是白色；原文 `iTime = (t - t0) * 0.001` 包括暂停间隔；原文尺寸回调会直接绘制。全站暂停不能只把 speed 置零或取消常规 rAF，还需覆盖其他绘制入口：稳定暂停和鼠标移动不产生新帧；可见状态的主题或尺寸变化允许必要的静态重绘，但不恢复连续动画；隐藏状态不重绘。此来源核查本身不证明站点首帧、暂停或性能已通过。
+
+### OGL 版本、类型与释放接口
+
+精确 npm 版本为 [`ogl@1.0.11`](https://www.npmjs.com/package/ogl/v/1.0.11)，registry 的 `gitHead` 为 `b9e653ccac8e08211ce0678695d0a01f722e1fc2`。该固定版本 [package.json](https://github.com/oframe/ogl/blob/b9e653ccac8e08211ce0678695d0a01f722e1fc2/package.json) 声明 ESM 入口 `src/index.js`、自带类型 `types/index.d.ts` 和 **Unlicense**，不是旧版 MIT 标记。完整 Unlicense 位于该版本 [README](https://github.com/oframe/ogl/blob/b9e653ccac8e08211ce0678695d0a01f722e1fc2/README.md#unlicense)，本站通知另保留该原文。
+
+- [`Renderer` 实现](https://github.com/oframe/ogl/blob/b9e653ccac8e08211ce0678695d0a01f722e1fc2/src/core/Renderer.js) 与 [类型](https://github.com/oframe/ogl/blob/b9e653ccac8e08211ce0678695d0a01f722e1fc2/types/core/Renderer.d.ts)：`new Renderer(options)`、`setSize(width, height)`、`render({ scene })`、`isWebgl2`；没有 `dispose()` 或 `destroy()`。`webgl: 2` 仍会尝试 WebGL1 回退，而指定 shader 需要 WebGL2，应检查实际上下文和 shader 链接结果。
+- [`Geometry.remove()`](https://github.com/oframe/ogl/blob/b9e653ccac8e08211ce0678695d0a01f722e1fc2/src/core/Geometry.js) 删除 VAO 和属性缓冲；`Triangle` 继承这一接口。
+- [`Program.remove()`](https://github.com/oframe/ogl/blob/b9e653ccac8e08211ce0678695d0a01f722e1fc2/src/core/Program.js) 删除 WebGL program。适配层还应停止 rAF、断开 observer、移除监听与 canvas；必要时使用可选 `WEBGL_lose_context` 扩展释放独立背景上下文。
+
+本机安装的 Renderer、Program、Geometry 及 Renderer 类型已与上述固定 commit 源码比对一致。这里只研究用户指定的 GradientWaves 和所需 OGL；没有搜索或选择替代背景。
+
+## 上一轮：Glacial Spectrum 来源记录
+
+核查日期：2026-09-22。上一轮保持 Astro 静态页面、普通 CSS 与已有 React islands。该轮没有新增 Motion、GSAP、OGL、Paper Shaders、Tailwind、shadcn 或 next-themes 运行依赖；没有安装 AI Kit/MCP、使用付费源码或复制演示业务内容。
 
 ## 实际采用
 

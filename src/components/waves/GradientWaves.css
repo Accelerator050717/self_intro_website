@@ -1,0 +1,28 @@
+.gradient-waves-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.gradient-waves-container canvas { display: block; width: 100%; height: 100%; }
+
+.site-waves {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  contain: strict;
+}
+.site-waves > astro-island { display: block; width: 100%; height: 100%; }
+.site-waves-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.site-waves:has([data-state='ready']) .site-waves-fallback { visibility: hidden; }
+@media print { .site-waves { display: none !important; } }

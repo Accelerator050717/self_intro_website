@@ -1,4 +1,12 @@
-# 当前验收：Glacial Spectrum 视觉升级
+# 当前验收：GradientWaves 全站背景
+
+本轮当前证据见 [GRADIENT-WAVES.md](GRADIENT-WAVES.md) 和 `reports/gradient-waves/`，当前交付分支 `feat/gradient-waves-background`。下方上一轮数据保留为历史记录，不能代替当前执行。
+
+本轮：Astro check 37文件无错误/警告，Lint通过，Vitest20/20，24页生产构建和隔离npm ci/build通过。82个不同浏览器用例最终覆盖通过；首次81项78通过/3失败，修正测试控制定位及刷新后场景就绪等待，定点复测及人物暂停恢复连续3次通过。全部首轮结果与修正过程保留，不宣称一次82项全绿。冰场景6/6、合成4/4、axe22场景0违规、静态与6路由资源检查通过。中英文实际PDF各1页，正文与链接、画面及打印停止绘制均通过。
+
+前后截图、40秒桌面/手机真实录屏及像素/关节动作证据见[本轮文档](GRADIENT-WAVES.md)。Lighthouse各3次中位桌面71→70、模拟手机66→65；持续动画最终RAF间隔中位两端16.7ms，桌面p95由16.8增至33.4ms。完整成本、原始桌面基线数组缺口与实体设备等未验收范围已明确记录。
+
+## 上一轮 Glacial Spectrum 视觉升级
 
 本轮独立的前后对照、性能采样、测试与局限记录在 [VISUAL-UPGRADE.md](VISUAL-UPGRADE.md)，机器结果位于 `reports/visual-upgrade/`。当前交付分支为 `feat/ice-visual-upgrade`；下方保留上一轮人物修复的验收记录，其数字和录屏不能代替本轮执行。
 

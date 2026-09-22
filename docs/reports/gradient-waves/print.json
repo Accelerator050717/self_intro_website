@@ -1,0 +1,130 @@
+{
+  "date": "2026-09-22T19:32:31.514Z",
+  "finishedAt": "2026-09-22T19:32:38.600Z",
+  "base": "http://127.0.0.1:4321",
+  "passed": true,
+  "failure": "",
+  "browser": "Installed Chrome, headless, print media, A4, native CSS without injection",
+  "expectedContact": {
+    "email": "yumin050717@gmail.com",
+    "mailto": "mailto:yumin050717@gmail.com",
+    "github": "https://github.com/Accelerator050717"
+  },
+  "results": [
+    {
+      "lang": "en",
+      "heading": "Mingyang Yu",
+      "navigationHidden": true,
+      "footerHidden": true,
+      "wavesPresent": true,
+      "wavesHidden": true,
+      "gradientMotion": "paused",
+      "projects": 6,
+      "projectTitles": [
+        "GoldenCamp",
+        "Context-aware AI",
+        "Yunxinyi",
+        "ML Research Pipeline",
+        "Admin Modernization",
+        "Registry Integrity"
+      ],
+      "sectionHeadings": [
+        "Education",
+        "Focus",
+        "Along the way",
+        "Selected projects",
+        "Tools & technologies"
+      ],
+      "contactLinks": [
+        {
+          "text": "yumin050717@gmail.com",
+          "href": "mailto:yumin050717@gmail.com"
+        },
+        {
+          "text": "github.com/Accelerator050717",
+          "href": "https://github.com/Accelerator050717"
+        }
+      ],
+      "emailLinks": [
+        "mailto:yumin050717@gmail.com",
+        "mailto:yumin050717@gmail.com"
+      ],
+      "printText": "Mingyang Yu\n\nComputer Science · University of California, Irvine\n\nyumin050717@gmail.com\ngithub.com/Accelerator050717\nEducation\nUniversity of California, Irvine\n\nComputer Science · Undergraduate, in progress\n\nFocus\n\nApplied AI / Software systems / Interactive experiments\n\nAlong the way\nBaheal Pharma Group\nIntern / 2026\n\nDeveloped and iterated a complete WeChat mini-program client, integrated applied AI, and worked on frontend modernization, backend integration, and data consistency.\n\nBaidu / Xiaodu\nIntern / 2025\n\nWorked on automation, data pipelines, experiment tooling, and system validation.\n\nSelected projects\nGoldenCamp\nIn development\n\nA four-player gold-mining prototype exploring cooperation, private discoveries, and playful betrayal.\n\nContext-aware AI\nInternship project\n\nConnecting structured summaries and follow-up questions through shared, carefully scoped context.\n\nYunxinyi\nInternship project\n\nBuilding and iterating a complete patient-facing mini-program client, from authentication to records and reports.\n\nML Research Pipeline\nResearch prototype\n\nA research pipeline for time-aware model evaluation, backtesting, and execution-oriented experiments.\n\nAdmin Modernization\nInternship project\n\nModernizing an administrative interface while integrating with an existing backend and permission model.\n\nRegistry Integrity\nInternship project\n\nImproving record integrity through consistent validation, edit handling, and soft-delete-aware logic.\n\nTools & technologies\nTypeScript, Python, C#, Unity, Vue, WeChat Mini Program, Coze Workflow, FastAPI, Java / Spring, MySQL, Redis, LEAN",
+      "overflow": false,
+      "wavesPrint": {
+        "applicable": true,
+        "beforePrint": {
+          "present": true,
+          "state": "ready",
+          "motion": "running",
+          "drawCalls": 13
+        },
+        "observedMilliseconds": 408.70000000298023,
+        "additionalDrawCalls": 0,
+        "drawCallsAfterExport": 14
+      },
+      "pdfFile": "docs/screenshots/gradient-waves/after/resume-print-en.pdf",
+      "screenFile": "docs/screenshots/gradient-waves/after/resume-print-en-browser.png",
+      "passed": true
+    },
+    {
+      "lang": "zh",
+      "heading": "余明阳 / Mingyang Yu",
+      "navigationHidden": true,
+      "footerHidden": true,
+      "wavesPresent": true,
+      "wavesHidden": true,
+      "gradientMotion": "paused",
+      "projects": 6,
+      "projectTitles": [
+        "四人淘金营地",
+        "上下文共享 AI",
+        "云心医",
+        "机器学习实验系统",
+        "管理平台现代化",
+        "登记数据一致性"
+      ],
+      "sectionHeadings": [
+        "教育",
+        "关注方向",
+        "走过的路",
+        "项目经历",
+        "工具与技术"
+      ],
+      "contactLinks": [
+        {
+          "text": "yumin050717@gmail.com",
+          "href": "mailto:yumin050717@gmail.com"
+        },
+        {
+          "text": "github.com/Accelerator050717",
+          "href": "https://github.com/Accelerator050717"
+        }
+      ],
+      "emailLinks": [
+        "mailto:yumin050717@gmail.com",
+        "mailto:yumin050717@gmail.com"
+      ],
+      "printText": "余明阳 / Mingyang Yu\n\n计算机科学 · 加州大学欧文分校\n\nyumin050717@gmail.com\ngithub.com/Accelerator050717\n教育\n加州大学欧文分校\n\n计算机科学本科 · 在读\n\n关注方向\n\n应用 AI / 软件系统 / 交互实验\n\n走过的路\n百洋医药集团\n实习 / 2026\n\n承担完整微信小程序客户端的开发与迭代，参与应用 AI 集成、既有系统前端重构、后端联调与数据一致性处理。\n\n百度 / 小度\n实习 / 2025\n\n参与自动化、数据管线、实验工具与系统验证相关工作。\n\n项目经历\n四人淘金营地\n开发中原型\n\n一个面向最多四人的合作淘金游戏原型，探索私下发现、共同建设，以及合作中的利益冲突。\n\n上下文共享 AI\n实习项目\n\n把结构化摘要与后续问答连接起来，让上下文可以共享，同时保留清楚的患者与问诊边界。\n\n云心医\n实习项目\n\n承担完整微信小程序客户端的开发与迭代，连接认证、测量记录、报告访问与界面流程。\n\n机器学习实验系统\n研究原型\n\n组织时间划分验证、滚动回测与执行衔接实验，让机器学习研究形成清楚的流程。\n\n管理平台现代化\n实习项目\n\n迁移既有管理系统的前端，适配原有后端接口、登录流程与菜单权限。\n\n登记数据一致性\n实习项目\n\n围绕病案号唯一性、编辑校验与软删除处理，让前后端遵守一致的数据规则。\n\n工具与技术\nTypeScript, Python, C#, Unity, Vue, 微信小程序, Coze Workflow, FastAPI, Java / Spring, MySQL, Redis, LEAN",
+      "overflow": false,
+      "wavesPrint": {
+        "applicable": true,
+        "beforePrint": {
+          "present": true,
+          "state": "ready",
+          "motion": "running",
+          "drawCalls": 136
+        },
+        "observedMilliseconds": 406.70000000298023,
+        "additionalDrawCalls": 0,
+        "drawCallsAfterExport": 136
+      },
+      "pdfFile": "docs/screenshots/gradient-waves/after/resume-print-zh.pdf",
+      "screenFile": "docs/screenshots/gradient-waves/after/resume-print-zh-browser.png",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "pdfInspection": "Browser export and DOM assertions only. Actual PDF text, links, page rendering, and visual inspection are recorded separately in print-pdf-inspection.json."
+}

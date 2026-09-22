@@ -159,7 +159,6 @@ export default function Avatar({ lang }: { lang: Lang }) {
   const origin = (joint: keyof AvatarRig['joints']) => ({ transformOrigin: `${rig!.joints[joint][0]}px ${rig!.joints[joint][1]}px` });
 
   return <div className={`avatar-exhibit ${canMove ? '' : 'is-still'}`} data-ambient data-state={paused ? 'paused' : greeting ? 'greeting' : 'idle'} data-rig={rig ? 'ready' : resourceFailed ? 'fallback' : 'loading'} data-scene-settled={sceneSettled}>
-    <div className="exhibit-halo" aria-hidden="true"><div className="spectral-facet" /><div className="spectral-glow" /></div>
     <div className="brick-stage" aria-hidden="true">{sceneReady && !sceneTimedOut ? <IceBoundary onFailure={onSceneSettled}><Suspense fallback={<SceneFallback />}><HeroBricks paused={!canMove || greeting} dark={dark} onSettled={onSceneSettled} /></Suspense></IceBoundary> : <SceneFallback />}</div>
     <div className="person-wrap" onPointerMove={event => {
       if (!canMove || busy.current || event.pointerType !== 'mouse' || !head.current) return;

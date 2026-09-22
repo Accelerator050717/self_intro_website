@@ -18,9 +18,12 @@ __pycache__/
 /docs/screenshots/*
 !/docs/screenshots/revision/
 !/docs/screenshots/visual-upgrade/
+!/docs/screenshots/gradient-waves/
 /docs/reports/lighthouse-*.report.*
 /docs/reports/performance-before/
 /docs/reports/visual-upgrade/playwright.json
+/docs/reports/gradient-waves/playwright.json
+/*_logs.txt
 /docs/test-results.json
 /docs/first-visual-check.json
 /docs/dependency-audit.json

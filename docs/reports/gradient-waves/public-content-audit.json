@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-22T19:54:05.510Z",
+  "scope": "Exact staged files before public commit, excluding this generated self-report; pattern scan plus separate manual source/file review. Not a guarantee that every possible secret format is detectable.",
+  "excludedSelfReport": "docs/reports/gradient-waves/public-content-audit.json",
+  "files": 339,
+  "totalBytes": 85973333,
+  "findings": [],
+  "fileListSha256": "32cd556cef0c863fad39a78a64d68a1938736fcc91fe4e306cc37937e7f34115",
+  "exclusions": [
+    "Raw reference PNGs and retired side/back derivatives",
+    "Private briefs and local snapshots",
+    "Real .env values and credentials",
+    "Dependencies, dist, caches, traces and machine-specific raw reports"
+  ],
+  "passed": true
+}

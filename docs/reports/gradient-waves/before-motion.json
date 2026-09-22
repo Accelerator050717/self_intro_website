@@ -1,0 +1,310 @@
+{
+  "phase": "before",
+  "base": "http://127.0.0.1:4321",
+  "date": null,
+  "finishedAt": "2026-09-22T18:59:14Z",
+  "browser": "153.0.8010.12",
+  "durationMs": 10000,
+  "method": "Ten continuous seconds per fresh Chromium context, normal motion, welcome already seen, no CPU/network throttling. Desktop wheel and emulated mobile CDP touch scroll gestures run during the same sampling window.",
+  "limitations": [
+    "RAF callback intervals describe browser main-thread scheduling and are not GPU FPS, presented frames, or dropped-frame measurements.",
+    "Command-to-first-scroll-event timings include browser automation scheduling and are not INP or real hardware input latency.",
+    "Mobile viewport/touch emulation runs on this desktop machine; no physical mobile device was tested.",
+    "The 10-second window starts after page fonts and the avatar rig are ready, with a 1-second settling period; this complements rather than replaces Lighthouse load metrics."
+  ],
+  "results": [
+    {
+      "profile": "desktop",
+      "mobileEmulation": false,
+      "status": 200,
+      "errors": [],
+      "actualDurationMs": 10009.60000000894,
+      "visibilityState": "visible",
+      "raf": {
+        "intervals": 502,
+        "medianMs": 16.699999999999818,
+        "p95Ms": 16.80000000000109,
+        "p99Ms": 133.30000000000018,
+        "maxMs": 166.69999999999982,
+        "over20Ms": 26,
+        "over33_4Ms": 14,
+        "over50Ms": 11
+      },
+      "longTasks": {
+        "supported": true,
+        "count": 11,
+        "totalMs": 1411,
+        "maxMs": 150
+      },
+      "scroll": {
+        "issuedInputs": 8,
+        "inputsWithScrollEvents": 8,
+        "eventCount": 8,
+        "minY": 0,
+        "maxY": 1680,
+        "finalY": 0,
+        "inputs": [
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 1030.800000011921,
+            "initialY": 0,
+            "firstScrollEventMs": 182.29999999701977
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 1939.9000000059605,
+            "initialY": 420,
+            "firstScrollEventMs": 87.5
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 2847.1000000089407,
+            "initialY": 840,
+            "firstScrollEventMs": 47.3999999910593
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "requestedAtMs": 3754.2000000029802,
+            "initialY": 1260,
+            "firstScrollEventMs": 39.5
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 4662.300000011921,
+            "initialY": 1680,
+            "firstScrollEventMs": 47.79999999701977
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 5566.800000011921,
+            "initialY": 1260,
+            "firstScrollEventMs": 43.69999998807907
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 6466.9000000059605,
+            "initialY": 840,
+            "firstScrollEventMs": 51.29999999701977
+          },
+          {
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "requestedAtMs": 7382.20000000298,
+            "initialY": 420,
+            "firstScrollEventMs": 69.40000000596046
+          }
+        ],
+        "dispatches": [
+          {
+            "index": 0,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 169
+          },
+          {
+            "index": 1,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 66
+          },
+          {
+            "index": 2,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 38
+          },
+          {
+            "index": 3,
+            "kind": "Playwright mouse wheel",
+            "deltaY": 420,
+            "automationCallDurationMs": 27
+          },
+          {
+            "index": 4,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 38
+          },
+          {
+            "index": 5,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 30
+          },
+          {
+            "index": 6,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 32
+          },
+          {
+            "index": 7,
+            "kind": "Playwright mouse wheel",
+            "deltaY": -420,
+            "automationCallDurationMs": 51
+          }
+        ]
+      },
+      "rawFile": null,
+      "passed": true,
+      "rawDataNote": "The 18:59 pre-build summary above was preserved in command stdout. Its raw RAF array was accidentally overwritten by the excluded GL supplement; no raw array is claimed for this sample."
+    },
+    {
+      "profile": "mobile",
+      "mobileEmulation": true,
+      "status": 200,
+      "errors": [],
+      "actualDurationMs": 10007.5,
+      "visibilityState": "visible",
+      "raf": {
+        "intervals": 513,
+        "medianMs": 16.699999999999818,
+        "p95Ms": 33.400000000000546,
+        "p99Ms": 83.29999999999927,
+        "maxMs": 83.40000000000055,
+        "over20Ms": 29,
+        "over33_4Ms": 27,
+        "over50Ms": 25
+      },
+      "longTasks": {
+        "supported": true,
+        "count": 26,
+        "totalMs": 1691,
+        "maxMs": 68
+      },
+      "scroll": {
+        "issuedInputs": 8,
+        "inputsWithScrollEvents": 8,
+        "eventCount": 56,
+        "minY": 0,
+        "maxY": 1620,
+        "finalY": 0,
+        "inputs": [
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 1037.6000000089407,
+            "initialY": 0,
+            "firstScrollEventMs": 70.20000000298023
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 1937.800000011921,
+            "initialY": 405,
+            "firstScrollEventMs": 70
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 2845.1000000089407,
+            "initialY": 810,
+            "firstScrollEventMs": 63.599999994039536
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "requestedAtMs": 3760.6000000089407,
+            "initialY": 1215,
+            "firstScrollEventMs": 63.70000000298023
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 4663.4000000059605,
+            "initialY": 1620,
+            "firstScrollEventMs": 77.59999999403954
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 5568.800000011921,
+            "initialY": 1215,
+            "firstScrollEventMs": 72.09999999403954
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 6474.70000000298,
+            "initialY": 810,
+            "firstScrollEventMs": 83.20000000298023
+          },
+          {
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "requestedAtMs": 7383.9000000059605,
+            "initialY": 405,
+            "firstScrollEventMs": 73.59999999403954
+          }
+        ],
+        "dispatches": [
+          {
+            "index": 0,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 759
+          },
+          {
+            "index": 1,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 846
+          },
+          {
+            "index": 2,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 707
+          },
+          {
+            "index": 3,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": 420,
+            "automationCallDurationMs": 550
+          },
+          {
+            "index": 4,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 515
+          },
+          {
+            "index": 5,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 639
+          },
+          {
+            "index": 6,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 579
+          },
+          {
+            "index": 7,
+            "kind": "CDP touchStart/touchMove/touchEnd",
+            "deltaY": -420,
+            "automationCallDurationMs": 575
+          }
+        ]
+      },
+      "rawFile": ".verification/gradient-waves/motion/before/mobile.json",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "recovery": {
+    "reason": "A later optional GL instrumentation attempt ran across a dist rebuild and was excluded in full. The completed pre-build summaries are restored from the actual process stdout; the completed mobile raw data remains unchanged.",
+    "desktopRawArrayAvailable": false,
+    "desktopSummarySource": "Completed pre-build command stdout, 2026-09-22 18:59:14 UTC round",
+    "mobileRawDataPreserved": true,
+    "excludedAttempt": ".verification/gradient-waves/motion/interrupted-gl-supplement/report.json"
+  }
+}

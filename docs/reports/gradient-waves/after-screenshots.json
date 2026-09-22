@@ -1,0 +1,493 @@
+{
+  "phase": "after",
+  "base": "http://127.0.0.1:4321",
+  "date": "2026-09-22T19:18:58.573Z",
+  "finishedAt": "2026-09-22T19:19:55.035Z",
+  "browser": "153.0.8010.12",
+  "method": "15 production-preview scenes, normal motion, fresh contexts, welcome already seen. After additionally covers both languages and themes on desktop/mobile plus width 320. Mobile is Chromium emulation, not a physical device.",
+  "results": [
+    {
+      "name": "desktop-home",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-home.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 3101,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        },
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-projects",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-projects.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 847,
+      "documentHeight": 3101,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        },
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-footer",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-footer.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 2101,
+      "documentHeight": 3101,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        },
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "mobile-zh-dark",
+      "path": "/zh/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "expectedTheme": "dark",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/mobile-zh-dark.png",
+      "fullPageScreenshot": "docs/screenshots/gradient-waves/after/mobile-zh-dark-full.png",
+      "htmlSha256": "9d9541de8de4099426d12e53226e9175afd17fed878f0e38e20e42dea74e3c23",
+      "width": 390,
+      "scrollWidth": 390,
+      "scrollY": 0,
+      "documentHeight": 4125,
+      "title": "余明阳 — 把想法，一块块搭起来",
+      "theme": "dark",
+      "canvases": [
+        {
+          "width": 253,
+          "height": 548,
+          "class": ""
+        },
+        {
+          "width": 376,
+          "height": 445,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-work",
+      "path": "/en/work/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-work.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "9bd19a15b56d8c9d89cd6ecbdf6097487e3fd68b7f44475072efd58cdd8cd625",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 2272,
+      "title": "Ideas, put to work. — Mingyang Yu",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 792,
+          "height": 550,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-about",
+      "path": "/en/about/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-about.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "afc59fc32d28ef7c277d482589a63d0aa4163198dc24056496ab6b01922272a1",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 2178,
+      "title": "Between ideas and making things. — Mingyang Yu",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-detail",
+      "path": "/en/work/context-ai/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-detail.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "ed7838ed807029271718adc6c255476450bc0a1c3a625608bc8af2226454e626",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 3272,
+      "title": "Context-aware AI Assistant — Mingyang Yu",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-resume",
+      "path": "/en/resume/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-resume.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "b6ba3e8b2ace24a27fe32ba97b4af9bb03434ebe8cd48413ffd0c85dac32a4d0",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 1956,
+      "title": "Résumé — Mingyang Yu",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-en-dark",
+      "path": "/en/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "dark",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-en-dark.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 3101,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "dark",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        },
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-zh-light",
+      "path": "/zh/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-zh-light.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "9d9541de8de4099426d12e53226e9175afd17fed878f0e38e20e42dea74e3c23",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 3072,
+      "title": "余明阳 — 把想法，一块块搭起来",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        },
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "desktop-zh-dark",
+      "path": "/zh/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "mobileEmulation": false,
+      "expectedTheme": "dark",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/desktop-zh-dark.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "9d9541de8de4099426d12e53226e9175afd17fed878f0e38e20e42dea74e3c23",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "scrollY": 0,
+      "documentHeight": 3072,
+      "title": "余明阳 — 把想法，一块块搭起来",
+      "theme": "dark",
+      "canvases": [
+        {
+          "width": 720,
+          "height": 500,
+          "class": ""
+        },
+        {
+          "width": 601,
+          "height": 645,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "mobile-en-light",
+      "path": "/en/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/mobile-en-light.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 390,
+      "scrollWidth": 390,
+      "scrollY": 0,
+      "documentHeight": 4280,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 253,
+          "height": 548,
+          "class": ""
+        },
+        {
+          "width": 376,
+          "height": 445,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "mobile-en-dark",
+      "path": "/en/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "expectedTheme": "dark",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/mobile-en-dark.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 390,
+      "scrollWidth": 390,
+      "scrollY": 0,
+      "documentHeight": 4280,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "dark",
+      "canvases": [
+        {
+          "width": 273,
+          "height": 590,
+          "class": ""
+        },
+        {
+          "width": 376,
+          "height": 445,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "mobile-zh-light",
+      "path": "/zh/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/mobile-zh-light.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "9d9541de8de4099426d12e53226e9175afd17fed878f0e38e20e42dea74e3c23",
+      "width": 390,
+      "scrollWidth": 390,
+      "scrollY": 0,
+      "documentHeight": 4125,
+      "title": "余明阳 — 把想法，一块块搭起来",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 273,
+          "height": 590,
+          "class": ""
+        },
+        {
+          "width": 376,
+          "height": 445,
+          "class": ""
+        }
+      ]
+    },
+    {
+      "name": "narrow-en-light",
+      "path": "/en/",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "mobileEmulation": true,
+      "expectedTheme": "light",
+      "status": 200,
+      "errors": [],
+      "screenshot": "docs/screenshots/gradient-waves/after/narrow-en-light.png",
+      "fullPageScreenshot": null,
+      "htmlSha256": "5e5ce95cc10c45f6f4d7be7c416fdc6e096c382d42730efca24d15862482453d",
+      "width": 320,
+      "scrollWidth": 320,
+      "scrollY": 0,
+      "documentHeight": 4401,
+      "title": "Mingyang Yu — Ideas, one block at a time",
+      "theme": "light",
+      "canvases": [
+        {
+          "width": 256,
+          "height": 675,
+          "class": ""
+        },
+        {
+          "width": 314,
+          "height": 415,
+          "class": ""
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "visualReview": {
+    "reviewedAt": "2026-09-22T19:30:55.405Z",
+    "all15ScenesViewed": true,
+    "mobileFullPageViewed": true,
+    "findings": "Both languages and light/dark themes remain readable on desktop/mobile; 320px narrow layout fits. Character identity and full artwork are retained. No unexpected horizontal clipping or overlap was observed.",
+    "fullPageCaptureLimitation": "The mobile full-page screenshot extends beyond the viewport while the fixed WebGL canvas backing buffer stays viewport-sized. Its background is visible only in the initial viewport of that long screenshot. Runtime scrolling is verified by the real video and separate viewport screenshots, including the desktop footer; the long screenshot is not evidence of a runtime background cutoff."
+  }
+}

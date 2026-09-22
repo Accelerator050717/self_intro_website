@@ -1,0 +1,660 @@
+{
+  "generatedAt": "2026-09-22T19:50:20.214Z",
+  "scope": "Static metadata, HTML/CSS local references, image targets, publication boundaries, isolated SITE_URL and dotenv config checks. Runtime interactions and real deployment are outside this audit.",
+  "externalWebsitesRequested": false,
+  "fixtureDomainIsNotUserDomain": true,
+  "baselineFingerprint": "7f81f8379d6f8d395544d5c76cd09a967c941de8024b6249b87e2eab9261487f",
+  "defaultDistUnchanged": null,
+  "defaultBuild": {
+    "directory": "dist",
+    "siteUrl": null,
+    "fingerprint": "7f81f8379d6f8d395544d5c76cd09a967c941de8024b6249b87e2eab9261487f",
+    "fileCount": 57,
+    "htmlCount": 24,
+    "contentPageCount": 20,
+    "pages": [
+      {
+        "route": "/404.html",
+        "file": "404.html",
+        "lang": "en",
+        "titles": [
+          "Page not found — Mingyang Yu"
+        ],
+        "descriptions": [
+          "This page isn't here. Explore Mingyang Yu's work or return home."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Page not found — Mingyang Yu",
+          "og:description": "This page isn't here. Explore Mingyang Yu's work or return home.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/404/",
+        "file": "en/404/index.html",
+        "lang": "en",
+        "titles": [
+          "This block is out of place. — Mingyang Yu"
+        ],
+        "descriptions": [
+          "The page you’re looking for isn’t here. Let’s find a better starting point."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "This block is out of place. — Mingyang Yu",
+          "og:description": "The page you’re looking for isn’t here. Let’s find a better starting point.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/about/",
+        "file": "en/about/index.html",
+        "lang": "en",
+        "titles": [
+          "Between ideas and making things. — Mingyang Yu"
+        ],
+        "descriptions": [
+          "I like connecting the pieces: understanding a problem, building a system, and testing where it breaks."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Between ideas and making things. — Mingyang Yu",
+          "og:description": "I like connecting the pieces: understanding a problem, building a system, and testing where it breaks.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/",
+        "file": "en/index.html",
+        "lang": "en",
+        "titles": [
+          "Mingyang Yu — Ideas, one block at a time"
+        ],
+        "descriptions": [
+          "I'm a computer science student at UC Irvine, exploring applied AI, building software, and making room for playful ideas."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Mingyang Yu — Ideas, one block at a time",
+          "og:description": "I'm a computer science student at UC Irvine, exploring applied AI, building software, and making room for playful ideas.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/resume/",
+        "file": "en/resume/index.html",
+        "lang": "en",
+        "titles": [
+          "Résumé — Mingyang Yu"
+        ],
+        "descriptions": [
+          "Computer Science · University of California, Irvine"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Résumé — Mingyang Yu",
+          "og:description": "Computer Science · University of California, Irvine",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/admin-modernization/",
+        "file": "en/work/admin-modernization/index.html",
+        "lang": "en",
+        "titles": [
+          "Admin Platform Modernization — Mingyang Yu"
+        ],
+        "descriptions": [
+          "Modernizing an administrative interface while integrating with an existing backend and permission model."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Admin Platform Modernization — Mingyang Yu",
+          "og:description": "Modernizing an administrative interface while integrating with an existing backend and permission model.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/context-ai/",
+        "file": "en/work/context-ai/index.html",
+        "lang": "en",
+        "titles": [
+          "Context-aware AI Assistant — Mingyang Yu"
+        ],
+        "descriptions": [
+          "Connecting structured summaries and follow-up questions through shared, carefully scoped context."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Context-aware AI Assistant — Mingyang Yu",
+          "og:description": "Connecting structured summaries and follow-up questions through shared, carefully scoped context.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/goldencamp/",
+        "file": "en/work/goldencamp/index.html",
+        "lang": "en",
+        "titles": [
+          "GoldenCamp — Mingyang Yu"
+        ],
+        "descriptions": [
+          "A four-player gold-mining prototype exploring cooperation, private discoveries, and playful betrayal."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "GoldenCamp — Mingyang Yu",
+          "og:description": "A four-player gold-mining prototype exploring cooperation, private discoveries, and playful betrayal.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/",
+        "file": "en/work/index.html",
+        "lang": "en",
+        "titles": [
+          "Ideas, put to work. — Mingyang Yu"
+        ],
+        "descriptions": [
+          "Applied AI, software systems, and experiments that start with curiosity. A closer look at what I’m building and the questions behind it."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Ideas, put to work. — Mingyang Yu",
+          "og:description": "Applied AI, software systems, and experiments that start with curiosity. A closer look at what I’m building and the questions behind it.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/ml-pipeline/",
+        "file": "en/work/ml-pipeline/index.html",
+        "lang": "en",
+        "titles": [
+          "ML Research Pipeline — Mingyang Yu"
+        ],
+        "descriptions": [
+          "A research pipeline for time-aware model evaluation, backtesting, and execution-oriented experiments."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "ML Research Pipeline — Mingyang Yu",
+          "og:description": "A research pipeline for time-aware model evaluation, backtesting, and execution-oriented experiments.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/registry-integrity/",
+        "file": "en/work/registry-integrity/index.html",
+        "lang": "en",
+        "titles": [
+          "Registry Data Integrity — Mingyang Yu"
+        ],
+        "descriptions": [
+          "Improving record integrity through consistent validation, edit handling, and soft-delete-aware logic."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Registry Data Integrity — Mingyang Yu",
+          "og:description": "Improving record integrity through consistent validation, edit handling, and soft-delete-aware logic.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/en/work/yunxinyi/",
+        "file": "en/work/yunxinyi/index.html",
+        "lang": "en",
+        "titles": [
+          "Yunxinyi WeChat Mini Program — Mingyang Yu"
+        ],
+        "descriptions": [
+          "Building and iterating a complete patient-facing mini-program client, from authentication to records and reports."
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "Yunxinyi WeChat Mini Program — Mingyang Yu",
+          "og:description": "Building and iterating a complete patient-facing mini-program client, from authentication to records and reports.",
+          "og:locale": "en_US",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/",
+        "file": "index.html",
+        "lang": "en",
+        "titles": [
+          "Mingyang Yu"
+        ],
+        "descriptions": [
+          "Mingyang Yu — computer science, applied AI, software, and playful experiments."
+        ],
+        "robots": [
+          "noindex,follow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {},
+        "refresh": "0;url=/en/"
+      },
+      {
+        "route": "/zh/404/",
+        "file": "zh/404/index.html",
+        "lang": "zh",
+        "titles": [
+          "这一块，好像放错了。 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "这里没有你要找的页面。换个地方，继续探索吧。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "这一块，好像放错了。 — Mingyang Yu",
+          "og:description": "这里没有你要找的页面。换个地方，继续探索吧。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/about/",
+        "file": "zh/about/index.html",
+        "lang": "zh",
+        "titles": [
+          "在想法与 动手之间。 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "我喜欢把零散的部分连接起来：理解一个问题，搭出一个系统，再看看它会在哪里出错。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "在想法与 动手之间。 — Mingyang Yu",
+          "og:description": "我喜欢把零散的部分连接起来：理解一个问题，搭出一个系统，再看看它会在哪里出错。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/",
+        "file": "zh/index.html",
+        "lang": "zh",
+        "titles": [
+          "余明阳 — 把想法，一块块搭起来"
+        ],
+        "descriptions": [
+          "我是余明阳，就读于加州大学欧文分校计算机科学专业。我喜欢把 AI 与软件中的想法做成能用的东西，也给有趣的实验留一点空间。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "余明阳 — 把想法，一块块搭起来",
+          "og:description": "我是余明阳，就读于加州大学欧文分校计算机科学专业。我喜欢把 AI 与软件中的想法做成能用的东西，也给有趣的实验留一点空间。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/resume/",
+        "file": "zh/resume/index.html",
+        "lang": "zh",
+        "titles": [
+          "简历 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "计算机科学 · 加州大学欧文分校"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "简历 — Mingyang Yu",
+          "og:description": "计算机科学 · 加州大学欧文分校",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/admin-modernization/",
+        "file": "zh/work/admin-modernization/index.html",
+        "lang": "zh",
+        "titles": [
+          "管理平台现代化 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "迁移既有管理系统的前端，适配原有后端接口、登录流程与菜单权限。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "管理平台现代化 — Mingyang Yu",
+          "og:description": "迁移既有管理系统的前端，适配原有后端接口、登录流程与菜单权限。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/context-ai/",
+        "file": "zh/work/context-ai/index.html",
+        "lang": "zh",
+        "titles": [
+          "上下文共享 AI 助手 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "把结构化摘要与后续问答连接起来，让上下文可以共享，同时保留清楚的患者与问诊边界。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "上下文共享 AI 助手 — Mingyang Yu",
+          "og:description": "把结构化摘要与后续问答连接起来，让上下文可以共享，同时保留清楚的患者与问诊边界。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/goldencamp/",
+        "file": "zh/work/goldencamp/index.html",
+        "lang": "zh",
+        "titles": [
+          "四人淘金营地 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "一个面向最多四人的合作淘金游戏原型，探索私下发现、共同建设，以及合作中的利益冲突。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "四人淘金营地 — Mingyang Yu",
+          "og:description": "一个面向最多四人的合作淘金游戏原型，探索私下发现、共同建设，以及合作中的利益冲突。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/",
+        "file": "zh/work/index.html",
+        "lang": "zh",
+        "titles": [
+          "让想法，有迹可循。 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "从应用 AI、软件系统，到始于好奇的小实验。这里记录我正在搭建的东西，以及背后的工程问题。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "让想法，有迹可循。 — Mingyang Yu",
+          "og:description": "从应用 AI、软件系统，到始于好奇的小实验。这里记录我正在搭建的东西，以及背后的工程问题。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/ml-pipeline/",
+        "file": "zh/work/ml-pipeline/index.html",
+        "lang": "zh",
+        "titles": [
+          "机器学习实验系统 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "组织时间划分验证、滚动回测与执行衔接实验，让机器学习研究形成清楚的流程。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "机器学习实验系统 — Mingyang Yu",
+          "og:description": "组织时间划分验证、滚动回测与执行衔接实验，让机器学习研究形成清楚的流程。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/registry-integrity/",
+        "file": "zh/work/registry-integrity/index.html",
+        "lang": "zh",
+        "titles": [
+          "登记系统数据一致性 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "围绕病案号唯一性、编辑校验与软删除处理，让前后端遵守一致的数据规则。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "登记系统数据一致性 — Mingyang Yu",
+          "og:description": "围绕病案号唯一性、编辑校验与软删除处理，让前后端遵守一致的数据规则。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      },
+      {
+        "route": "/zh/work/yunxinyi/",
+        "file": "zh/work/yunxinyi/index.html",
+        "lang": "zh",
+        "titles": [
+          "云心医微信小程序 — Mingyang Yu"
+        ],
+        "descriptions": [
+          "承担完整微信小程序客户端的开发与迭代，连接认证、测量记录、报告访问与界面流程。"
+        ],
+        "robots": [
+          "noindex, nofollow"
+        ],
+        "canonical": [],
+        "hreflang": [],
+        "og": {
+          "og:type": "website",
+          "og:site_name": "Mingyang Yu",
+          "og:title": "云心医微信小程序 — Mingyang Yu",
+          "og:description": "承担完整微信小程序客户端的开发与迭代，连接认证、测量记录、报告访问与界面流程。",
+          "og:locale": "zh_CN",
+          "og:image": "/images/share.png"
+        },
+        "refresh": null
+      }
+    ],
+    "linkCounts": {
+      "checked": 600,
+      "valid": 600,
+      "externalSkipped": 58,
+      "dataSkipped": 1,
+      "broken": 0
+    },
+    "brokenLinks": [],
+    "robotsText": "User-agent: *\nDisallow: /\n",
+    "sitemapFiles": [],
+    "sitemap": null,
+    "forbiddenFiles": [],
+    "shareImage": {
+      "width": 1200,
+      "height": 630,
+      "bytes": 327376,
+      "sha256": "562e5e01fa8755e29bf5fce77043e9901c76648a26bd3fb149a8d09f0435b30c"
+    },
+    "avatarRig": {
+      "type": "registered-2d-image-rig",
+      "width": 720,
+      "height": 960,
+      "source": "/images/avatar/front-960.webp",
+      "layers": [
+        "body",
+        "upper-arm",
+        "hand",
+        "forearm",
+        "head"
+      ]
+    },
+    "passed": true
+  },
+  "configuredBuild": null,
+  "dotenv": {
+    "passed": true,
+    "method": "Imported the actual Astro config with cwd set to an isolated temporary directory containing only a fixture .env.",
+    "loadedSite": "https://portfolio.test",
+    "rootEnvModified": false,
+    "temporaryFixtureRemoved": true,
+    "processEnvironmentRestored": true
+  },
+  "preview": {
+    "url": "http://127.0.0.1:4321/en/",
+    "status": 200,
+    "matchesDefaultDist": true,
+    "remainsNoindex": true
+  },
+  "issues": [],
+  "passed": true
+}

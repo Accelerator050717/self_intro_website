@@ -1,0 +1,450 @@
+{
+  "date": "2026-09-22T19:08:05.432Z",
+  "url": "http://127.0.0.1:4321/en/",
+  "browser": "Installed Chrome, headless",
+  "method": "Read default WebGL framebuffer at the microtask checkpoint after the first complete ice frame, before browser compositing discards it. Full two-pixel perimeter and an opaque lower-center brick region are sampled.",
+  "viewportCoverage": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "screenshotsPaused": true,
+  "cases": [
+    {
+      "device": "desktop",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "docs/screenshots/gradient-waves/after/ice-desktop-light.png",
+      "readback": {
+        "width": 601,
+        "height": 645,
+        "drawCalls": 58,
+        "alphaContext": true,
+        "defaultFramebuffer": true,
+        "firstFrameHadFallback": true,
+        "edge": {
+          "pixels": 4968,
+          "nonzeroAlphaPixels": 0,
+          "maxAlpha": 0
+        },
+        "transparentPixels": 331794,
+        "opaquePixels": 38293,
+        "brick": {
+          "sampledOpaquePixels": 27626,
+          "meanLuminance": 207.218,
+          "p05Luminance": 194.012,
+          "medianLuminance": 208.56,
+          "blackFraction": 0,
+          "normalizedSamples": [
+            {
+              "x": 0.4,
+              "y": 0.19,
+              "rgba": [
+                162,
+                207,
+                248,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.19,
+              "rgba": [
+                148,
+                219,
+                250,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.19,
+              "rgba": [
+                179,
+                211,
+                254,
+                255
+              ]
+            },
+            {
+              "x": 0.4,
+              "y": 0.25,
+              "rgba": [
+                154,
+                224,
+                249,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.25,
+              "rgba": [
+                130,
+                209,
+                241,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.25,
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "glError": 0
+      },
+      "scrollY": 0,
+      "waves": {
+        "state": "ready",
+        "motion": "paused",
+        "canvas": true
+      },
+      "canvasMask": "none",
+      "dynamicWaveEvidence": {
+        "resumedViaVisibleControl": true,
+        "additionalWaveDraws": 107,
+        "requestedWaitMs": 450,
+        "note": "Draw-count change proves resumed rendering; the requested wait is not a frame-rate measurement."
+      },
+      "visualPass": true
+    },
+    {
+      "device": "desktop",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "docs/screenshots/gradient-waves/after/ice-desktop-dark.png",
+      "readback": {
+        "width": 601,
+        "height": 645,
+        "drawCalls": 58,
+        "alphaContext": true,
+        "defaultFramebuffer": true,
+        "firstFrameHadFallback": true,
+        "edge": {
+          "pixels": 4968,
+          "nonzeroAlphaPixels": 0,
+          "maxAlpha": 0
+        },
+        "transparentPixels": 331794,
+        "opaquePixels": 38293,
+        "brick": {
+          "sampledOpaquePixels": 27626,
+          "meanLuminance": 109.125,
+          "p05Luminance": 82.551,
+          "medianLuminance": 107.36,
+          "blackFraction": 0,
+          "normalizedSamples": [
+            {
+              "x": 0.4,
+              "y": 0.19,
+              "rgba": [
+                86,
+                107,
+                139,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.19,
+              "rgba": [
+                80,
+                114,
+                143,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.19,
+              "rgba": [
+                106,
+                119,
+                148,
+                255
+              ]
+            },
+            {
+              "x": 0.4,
+              "y": 0.25,
+              "rgba": [
+                100,
+                127,
+                149,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.25,
+              "rgba": [
+                62,
+                100,
+                134,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.25,
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "glError": 0
+      },
+      "scrollY": 0,
+      "waves": {
+        "state": "ready",
+        "motion": "paused",
+        "canvas": true
+      },
+      "canvasMask": "none",
+      "visualPass": true
+    },
+    {
+      "device": "mobile",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "docs/screenshots/gradient-waves/after/ice-mobile-light.png",
+      "readback": {
+        "width": 376,
+        "height": 445,
+        "drawCalls": 58,
+        "alphaContext": true,
+        "defaultFramebuffer": true,
+        "firstFrameHadFallback": true,
+        "edge": {
+          "pixels": 3268,
+          "nonzeroAlphaPixels": 0,
+          "maxAlpha": 0
+        },
+        "transparentPixels": 144636,
+        "opaquePixels": 15380,
+        "brick": {
+          "sampledOpaquePixels": 12490,
+          "meanLuminance": 205.864,
+          "p05Luminance": 192.895,
+          "medianLuminance": 206.524,
+          "blackFraction": 0,
+          "normalizedSamples": [
+            {
+              "x": 0.4,
+              "y": 0.19,
+              "rgba": [
+                172,
+                213,
+                253,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.19,
+              "rgba": [
+                138,
+                212,
+                244,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.19,
+              "rgba": [
+                156,
+                195,
+                245,
+                255
+              ]
+            },
+            {
+              "x": 0.4,
+              "y": 0.25,
+              "rgba": [
+                139,
+                215,
+                243,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.25,
+              "rgba": [
+                152,
+                219,
+                250,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.25,
+              "rgba": [
+                170,
+                216,
+                239,
+                255
+              ]
+            }
+          ]
+        },
+        "glError": 0
+      },
+      "scrollY": 352,
+      "waves": {
+        "state": "ready",
+        "motion": "paused",
+        "canvas": true
+      },
+      "canvasMask": "none",
+      "visualPass": true
+    },
+    {
+      "device": "mobile",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "docs/screenshots/gradient-waves/after/ice-mobile-dark.png",
+      "readback": {
+        "width": 376,
+        "height": 445,
+        "drawCalls": 58,
+        "alphaContext": true,
+        "defaultFramebuffer": true,
+        "firstFrameHadFallback": true,
+        "edge": {
+          "pixels": 3268,
+          "nonzeroAlphaPixels": 0,
+          "maxAlpha": 0
+        },
+        "transparentPixels": 144636,
+        "opaquePixels": 15380,
+        "brick": {
+          "sampledOpaquePixels": 12490,
+          "meanLuminance": 110.539,
+          "p05Luminance": 83.338,
+          "medianLuminance": 108.049,
+          "blackFraction": 0,
+          "normalizedSamples": [
+            {
+              "x": 0.4,
+              "y": 0.19,
+              "rgba": [
+                96,
+                114,
+                142,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.19,
+              "rgba": [
+                68,
+                103,
+                135,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.19,
+              "rgba": [
+                72,
+                92,
+                135,
+                255
+              ]
+            },
+            {
+              "x": 0.4,
+              "y": 0.25,
+              "rgba": [
+                81,
+                117,
+                144,
+                255
+              ]
+            },
+            {
+              "x": 0.5,
+              "y": 0.25,
+              "rgba": [
+                101,
+                128,
+                155,
+                255
+              ]
+            },
+            {
+              "x": 0.6,
+              "y": 0.25,
+              "rgba": [
+                116,
+                143,
+                168,
+                255
+              ]
+            }
+          ]
+        },
+        "glError": 0
+      },
+      "scrollY": 352,
+      "waves": {
+        "state": "ready",
+        "motion": "paused",
+        "canvas": true
+      },
+      "canvasMask": "none",
+      "visualPass": true
+    }
+  ],
+  "errors": [],
+  "visualReviewPending": false,
+  "browsersClosed": true,
+  "reviewedAt": "2026-09-22T19:08:50.199Z",
+  "passed": true,
+  "visualReview": {
+    "allFourScreenshotsInspected": true,
+    "canvasBoundary": "Waves remain visible across all former canvas edges; no opaque rectangular field or clipped shadow line.",
+    "ice": "Rounded bodies and cylindrical studs retain their form. Cyan and violet faces remain lit; dark-theme faces are dimmer by design, with visible highlights and no black regions.",
+    "mobile": "Both complete Hero stages were scrolled into view with instant scrolling; peripheral bricks remain inside the viewport.",
+    "scope": "Desktop Chrome plus mobile viewport emulation; screenshots paused for inspection, with a separate real wave-resume draw check."
+  },
+  "shadowFix": {
+    "initialDesktopEdgeMaxAlpha": 12,
+    "finalEdgeMaxAlphaAllCases": 0,
+    "change": "Only the radial shadow plane changed from 7.5x5 at z=0.6 to 6.6x3.6 at z=0. Brick geometry and material were unchanged."
+  }
+}
