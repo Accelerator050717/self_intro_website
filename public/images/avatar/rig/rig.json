@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "type": "registered-2d-image-rig",
+  "width": 720,
+  "height": 960,
+  "source": "/images/avatar/front-960.webp",
+  "sourceSha256": "e58894d907d73cfe682f43e90df5b0bea490ea3e1717ec26a94b58db650ce4b8",
+  "coordinates": "Original full-canvas image coordinates; x right, y down; SVG positive angle is clockwise.",
+  "wavingSide": "viewer-right (character anatomical left)",
+  "joints": {
+    "shoulder": [
+      447,
+      511
+    ],
+    "elbow": [
+      488,
+      584
+    ],
+    "wrist": [
+      507,
+      646
+    ],
+    "neck": [
+      369,
+      468
+    ]
+  },
+  "layerOrder": [
+    "body",
+    "upper-arm",
+    "hand",
+    "forearm",
+    "head"
+  ],
+  "occlusion": "Inside elbow group: wrist group with hand first, then forearm image. The cuff hides the extended proximal hand cap.",
+  "hierarchy": {
+    "body": null,
+    "upper-arm": "shoulder",
+    "forearm": "elbow",
+    "hand": "wrist",
+    "head": "neck"
+  },
+  "durationMs": 2600,
+  "timeline": [
+    {
+      "offset": 0,
+      "shoulder": 0,
+      "elbow": 0,
+      "wrist": 0,
+      "head": 0
+    },
+    {
+      "offset": 0.1,
+      "shoulder": -8,
+      "elbow": -6,
+      "wrist": 0,
+      "head": -1
+    },
+    {
+      "offset": 0.28,
+      "shoulder": -68,
+      "elbow": -64,
+      "wrist": -8,
+      "head": -2
+    },
+    {
+      "offset": 0.39,
+      "shoulder": -68,
+      "elbow": -64,
+      "wrist": 12,
+      "head": -2
+    },
+    {
+      "offset": 0.49,
+      "shoulder": -68,
+      "elbow": -64,
+      "wrist": -12,
+      "head": -2
+    },
+    {
+      "offset": 0.59,
+      "shoulder": -68,
+      "elbow": -64,
+      "wrist": 12,
+      "head": -1.5
+    },
+    {
+      "offset": 0.69,
+      "shoulder": -68,
+      "elbow": -64,
+      "wrist": -8,
+      "head": -1
+    },
+    {
+      "offset": 0.88,
+      "shoulder": -9,
+      "elbow": -7,
+      "wrist": 0,
+      "head": -0.5
+    },
+    {
+      "offset": 1,
+      "shoulder": 0,
+      "elbow": 0,
+      "wrist": 0,
+      "head": 0
+    }
+  ],
+  "layers": {
+    "body": {
+      "src": "/images/avatar/rig/body.webp",
+      "width": 720,
+      "height": 960,
+      "alphaBbox": [
+        197,
+        433,
+        509,
+        924
+      ],
+      "bytes": 35268,
+      "sha256": "a3b2fefe6b0d1f814fe859ef5fbbe50b220aa1db271e5d09e8a3a1d06da091f9"
+    },
+    "upper-arm": {
+      "src": "/images/avatar/rig/upper-arm.webp",
+      "width": 720,
+      "height": 960,
+      "alphaBbox": [
+        429,
+        490,
+        527,
+        613
+      ],
+      "bytes": 5096,
+      "sha256": "2458f604932d691e57a968b90f77761b6e1c2c10d7001998de6f1aa691344596"
+    },
+    "hand": {
+      "src": "/images/avatar/rig/hand.webp",
+      "width": 720,
+      "height": 960,
+      "alphaBbox": [
+        492,
+        636,
+        532,
+        687
+      ],
+      "bytes": 3218,
+      "sha256": "e8d5db91b190f21b447001a8ebeb3c00bb55b30b3e43318739fa2ef2d74503f7"
+    },
+    "forearm": {
+      "src": "/images/avatar/rig/forearm.webp",
+      "width": 720,
+      "height": 960,
+      "alphaBbox": [
+        449,
+        559,
+        539,
+        658
+      ],
+      "bytes": 4604,
+      "sha256": "553c0d63b03bd842f307f49005f76cec894227ef26f0a39551dc936129cf8c65"
+    },
+    "head": {
+      "src": "/images/avatar/rig/head.webp",
+      "width": 720,
+      "height": 960,
+      "alphaBbox": [
+        132,
+        32,
+        588,
+        479
+      ],
+      "bytes": 51330,
+      "sha256": "041a2fd2336c578b4f1789d17472b36b14389ce19ca398199cb0492760c8356d"
+    }
+  },
+  "encoding": "WebP quality 95; exact alpha; RGB of fully transparent pixels cleared before encoding",
+  "method": "Hand-traced subpixel masks on the supplied derivative; original RGBA interior; local collar texture backing and sleeve edge extension only.",
+  "limitations": [
+    "2D articulated photo layers, not a 3D model",
+    "The supplied small hand remains in its original gently curled pose",
+    "Use the checked angle range; unseen back surfaces are not synthesized"
+  ]
+}

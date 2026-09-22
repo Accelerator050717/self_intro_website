@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+import {ui,type Lang} from '../i18n/ui';
+import {siteContact} from '../data/site-config';
+const {lang} = Astro.props as {lang:Lang}; const t=ui[lang];
+---
+<section class="contact-section wrap" aria-labelledby="contact-title">
+  <div><span class="small-note">{lang === 'en' ? 'Say hello' : '打个招呼'}</span><h2 id="contact-title">{t.contact}</h2><p>{t.contactDesc}</p></div>
+  <div class="contact-actions"><a class="email-address" data-email-text tabindex="0" href={siteContact.mailto}>{siteContact.email} <Icon name="arrow" size={27}/></a><div class="contact-links"><button class="text-button js-only" data-copy-email data-success={t.copied} data-failure={t.copyFailed}><Icon name="copy" size={17}/>{t.copy}</button><a href={siteContact.github} target="_blank" rel="noopener noreferrer">GitHub <Icon name="arrow" size={16}/></a></div><p class="copy-status" role="status" aria-live="polite"></p></div>
+</section>

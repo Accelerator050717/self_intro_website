@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Avatar from '../../components/Avatar';
+import Icon from '../../components/Icon.astro';
+import Contact from '../../components/Contact.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import {ui,route,languages,type Lang} from '../../i18n/ui';
+import {projects,experiences} from '../../data/content';
+export function getStaticPaths(){return languages.map(lang=>({params:{lang}}));}
+const lang=Astro.params.lang as Lang; const t=ui[lang];
+---
+<Layout lang={lang} title={lang==='en'?'Mingyang Yu — Ideas, one block at a time':'余明阳 — 把想法，一块块搭起来'} description={t.intro}>
+  <section class="hero wrap">
+    <div class="hero-copy"><p class="intro-name">{t.introName}</p><h1>{t.hero.map(line=><span>{line}</span>)}</h1><p class="hero-intro">{t.intro}</p><div class="hero-actions"><a class="button primary" href={route(lang,'work')}>{t.explore}<Icon name="arrow" size={19}/></a><a class="button secondary" href={route(lang,'about')}>{t.aboutMe}</a></div><p class="campus-note"><span class="status-dot"/>{t.campus}</p></div>
+    <Avatar lang={lang} client:load/>
+  </section>
+  <section class="selected-section wrap" aria-labelledby="selected-title">
+    <div class="section-heading"><div><h2 id="selected-title">{t.selected}<span class="small-count">04</span></h2><p>{t.selectedSub}</p></div><a class="text-link" href={route(lang,'work')}>{t.allWork}<Icon name="right"/></a></div>
+    <div class="selected-grid">{projects.slice(0,4).map((project,i)=><ProjectCard lang={lang} project={project} featured={i===0||i===3}/>)}</div>
+  </section>
+  <section class="about-preview wrap"><div><span class="small-note">{t.aboutMe}</span><h2>{t.briefAbout}</h2><p>{t.briefText}</p><a class="text-link" href={route(lang,'about')}>{t.moreAbout}<Icon name="right"/></a></div><div class="experience-preview"><span class="small-note">{t.experience}</span>{experiences.map(exp=><div class="experience-row"><span class="year">{exp.year}</span><div><h3>{exp.company[lang]}</h3><p>{exp.role[lang]}</p></div><Icon name="arrow" size={20}/></div>)}</div></section>
+  <Contact lang={lang}/>
+</Layout>

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "width": 384,
+  "height": 512,
+  "format": "rgba16f",
+  "byteLength": 1572864,
+  "sha256": "939b4597f9e575809348035c12f1470988fcfe101baa686e39e943220ec46cbb",
+  "source": "three@0.186.0 RoomEnvironment; PMREMGenerator.fromScene(room, 0.04, 0.1, 100, { size: 128 }); position=(0,0,0)",
+  "byteOrder": "little-endian",
+  "rowOrder": "bottom-to-top",
+  "flipY": false,
+  "mapping": "CubeUVReflectionMapping",
+  "colorSpace": "LinearSRGBColorSpace",
+  "minFilter": "LinearFilter",
+  "magFilter": "LinearFilter",
+  "generateMipmaps": false,
+  "compressedByteLength": 341829,
+  "attribution": "Three.js authors, MIT; RoomEnvironment is based on the model-viewer EnvironmentScene.",
+  "license": "The MIT License\n\nCopyright © 2010-2026 three.js authors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.",
+  "validation": {
+    "validHalfFloat": true,
+    "nonFiniteHalfValues": 0,
+    "rgbMin": 0,
+    "rgbMax": 43,
+    "rgbMean": 0.6679675371463721,
+    "nonzeroRgbValues": 419328,
+    "rgbValuesAboveOne": 41760,
+    "totalRgbValues": 589824,
+    "roundTripDifferingHalfWords": 0,
+    "clearColorDifferingHalfWords": {
+      "light": 0,
+      "dark": 0
+    }
+  }
+}

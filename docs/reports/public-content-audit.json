@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-22T14:39:20.515Z",
+  "scope": "Exact staged files before public commit, excluding this generated self-report; pattern scan plus separate manual source/file review. Not a guarantee that every possible secret format is detectable.",
+  "excludedSelfReport": "docs/reports/public-content-audit.json",
+  "files": 129,
+  "totalBytes": 10987273,
+  "findings": [],
+  "fileListSha256": "f348afad92f2b8f52cc91171ea12e6cf11e0f7abd01d11eb4abfa6c5318e3277",
+  "exclusions": [
+    "Raw reference PNGs and retired side/back derivatives",
+    "Private briefs and local snapshots",
+    "Real .env values and credentials",
+    "Dependencies, dist, caches, traces and machine-specific raw reports"
+  ],
+  "passed": true
+}

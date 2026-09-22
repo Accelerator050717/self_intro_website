@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-22T14:25:12.532Z",
+  "results": [
+    {
+      "width": 1440,
+      "screenshot": "docs/screenshots/revision/inspect-home-1440.png",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": [],
+      "errors": [],
+      "retiredControls": 0,
+      "helloButton": true,
+      "rigReady": true,
+      "webglReady": true,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "screenshot": "docs/screenshots/revision/inspect-home-390.png",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "class": "exhibit-halo",
+          "left": -15.546875,
+          "right": 405.546875
+        }
+      ],
+      "errors": [],
+      "retiredControls": 0,
+      "helloButton": true,
+      "rigReady": true,
+      "webglReady": true,
+      "passed": true
+    },
+    {
+      "width": 320,
+      "screenshot": "docs/screenshots/revision/inspect-home-320.png",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": [
+        {
+          "tag": "DIV",
+          "class": "exhibit-halo",
+          "left": -15.828125,
+          "right": 335.828125
+        },
+        {
+          "tag": "DIV",
+          "class": "context-art",
+          "left": -13.810235977172852,
+          "right": 333.81024742126465
+        },
+        {
+          "tag": "DIV",
+          "class": "phone-scene",
+          "left": -8.396646499633789,
+          "right": 328.39662742614746
+        }
+      ],
+      "errors": [],
+      "retiredControls": 0,
+      "helloButton": true,
+      "rigReady": true,
+      "webglReady": true,
+      "passed": true
+    }
+  ]
+}

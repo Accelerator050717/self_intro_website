@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Contact from '../../components/Contact.astro';
+import SceneFallback from '../../components/ice/SceneFallback';
+import {ui,route,languages,mainPages,type Lang} from '../../i18n/ui';
+import {projects,experiences,aboutCopy} from '../../data/content';
+import {siteContact} from '../../data/site-config';
+import {resumePdf} from '../../lib/site';
+type Page=typeof mainPages[number]|'404';
+export function getStaticPaths(){return languages.flatMap(lang=>[...mainPages,'404'].map(page=>({params:{lang,page}})));}
+const lang=Astro.params.lang as Lang;const page=Astro.params.page as Page;const t=ui[lang];
+const titles={work:t.workTitle,about:t.aboutTitle.replace('\n',' '),resume:t.resume,404:t.notFound};
+const descriptions={work:t.workDesc,about:t.briefText,resume:t.resumeSubtitle,404:t.notFoundDesc};
+---
+<Layout lang={lang} title={`${titles[page]} — Mingyang Yu`} description={descriptions[page]} page={page} noindex={page==='404'}>
+  {page==='work'&&<>
+    <div class="page-head wrap"><span class="small-note">{t.work}</span><h1>{t.workTitle}</h1><p>{t.workDesc}</p></div>
+    <section class="wrap" aria-label={t.projects}>
+      <div class="filter-bar js-only" role="group" aria-label={lang==='en'?'Filter projects':'筛选项目'}>{['all','ai','software','experiments'].map((filter,i)=><button class="filter-button" data-filter={filter} aria-pressed={i===0}>{t.filters[i]}</button>)}</div>
+      <p class="filter-status js-only" role="status" aria-live="polite" data-filter-status data-lang={lang}>{lang==='en'?'6 projects':'6 个项目'}</p>
+      <noscript><p class="noscript-note">{t.noJs}</p></noscript>
+      <div class="work-grid">{projects.map(project=><ProjectCard project={project} lang={lang}/>)}</div>
+    </section>
+  </>}
+  {page==='about'&&<>
+    <section class="page-head about-hero wrap"><div><span class="small-note">{t.aboutMe}</span><h1>{t.aboutTitle}</h1><p class="about-subtitle">{t.aboutSubtitle}</p></div><div class="about-image"><img src="/images/avatar/front-960.webp" srcset="/images/avatar/front-480.webp 360w, /images/avatar/front-960.webp 720w" sizes="(max-width:640px) 270px, 350px" width="720" height="960" alt={lang==='en'?'Mingyang’s blue-haired character in a black hoodie':'蓝发黑卫衣的明阳公仔'}/></div></section>
+    <section class="about-body wrap"><div class="prose">{aboutCopy[lang].map(p=><p>{p}</p>)}</div><div><div class="education-block"><span class="small-note">{t.education}</span><h3>{t.educationDesc}</h3><p>{t.degree}</p></div><h2 class="sr-only">{t.experience}</h2>{experiences.map(exp=><article class="experience-detail"><div class="exp-top"><h3>{exp.company[lang]}</h3><span>{exp.year} / {exp.role[lang]}</span></div><p>{exp.description[lang]}</p></article>)}</div></section>
+    <section class="wrap"><h2 class="sr-only">{t.interests}</h2><div class="interests">{t.interestTitles.map((title,i)=><div class="interest-item"><Icon name={['sparkle','code','play'][i]} size={26}/><h3>{title}</h3><p>{t.interestBody[i]}</p></div>)}</div></section><Contact lang={lang}/>
+  </>}
+  {page==='resume'&&<div class="wrap">
+    <div class="resume-header"><div><h1>{t.resumeTitle}</h1><p>{t.resumeSubtitle}</p></div><div><button class="button secondary js-only" data-print><Icon name="print" size={18}/>{t.print}</button>{resumePdf&&<a class="button secondary" href={resumePdf} download>{t.download}</a>}</div></div>
+    <p class="resume-note">{t.resumeNote}</p>
+    <article class="resume-sheet"><div class="resume-contact"><a href={siteContact.mailto}>{siteContact.email}</a><a href={siteContact.github} target="_blank" rel="noopener noreferrer">{siteContact.github.replace('https://','')}</a></div>
+      <section><h2>{t.education}</h2><h3>{t.educationDesc}</h3><p>{t.degree}</p></section>
+      <section><h2>{t.focus}</h2><p>{t.interestTitles.join(' / ')}</p></section>
+      <section><h2>{t.experience}</h2>{experiences.map(exp=><div><div class="resume-row-head"><h3>{exp.company[lang]}</h3><span>{exp.role[lang]} / {exp.year}</span></div><p>{exp.description[lang]}</p></div>)}</section>
+      <section><h2>{t.projects}</h2>{projects.map(project=><div class="resume-project"><div class="resume-row-head"><h3><a href={route(lang,`work/${project.slug}`)}>{project.shortTitle[lang]}</a></h3><span>{project.status[lang]}</span></div><p>{project.description[lang]}</p></div>)}</section>
+      <section><h2>{t.skills}</h2><div class="resume-tools">TypeScript, Python, C#, Unity, Vue, {lang==='en'?'WeChat Mini Program':'微信小程序'}, Coze Workflow, FastAPI, Java / Spring, MySQL, Redis, LEAN</div></section>
+    </article>
+  </div>}
+  {page==='404'&&<section class="not-found wrap"><div class="not-found-art" aria-hidden="true"><SceneFallback mode="hero"/></div><p class="small-note">404</p><h1>{t.notFound}</h1><p>{t.notFoundDesc}</p><div class="hero-actions"><a class="button primary" href={route(lang)}>{t.backHome}<Icon name="right" size={18}/></a><a class="button secondary" href={route(lang,'work')}>{t.work}</a></div></section>}
+</Layout>
+<script>
+  const filters=document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards=document.querySelectorAll<HTMLElement>('.work-grid .project-card');
+  const status=document.querySelector<HTMLElement>('[data-filter-status]');
+  filters.forEach(button=>button.addEventListener('click',()=>{
+    filters.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    let count=0;cards.forEach(card=>{const show=button.dataset.filter==='all'||card.dataset.categories?.split(' ').includes(button.dataset.filter!);card.hidden=!show;if(show)count++;});
+    if(status)status.textContent=status.dataset.lang==='zh'?`${count} 个项目`:`${count} ${count===1?'project':'projects'}`;
+  }));
+</script>

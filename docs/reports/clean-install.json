@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-22T14:34:36.911Z",
+  "method": "Exported the exact staged source and required runtime assets with git checkout-index into an empty ignored directory, then ran npm ci and npm run build.",
+  "node": "v24.14.1",
+  "npm": "11.11.0",
+  "installedPackages": 586,
+  "auditedPackages": 587,
+  "npmAuditVulnerabilities": 0,
+  "htmlCount": 24,
+  "lockfileSha256": "6ff1022a4ebbd346a8c2de17547a1d4851623ab1123accf4beee8f11c7888b09",
+  "privateRawAssetsPresent": false,
+  "pythonRequiredForBuild": false,
+  "ciExitCode": 0,
+  "buildExitCode": 0,
+  "warnings": [
+    "Pinned ESLint 9 version is deprecated upstream; retained requested lockfile.",
+    "Existing lazy Three.js chunk exceeds the bundler 500 kB warning threshold."
+  ],
+  "passed": true
+}

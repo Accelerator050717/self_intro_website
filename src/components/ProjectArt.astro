@@ -1,0 +1,31 @@
+---
+import type {Lang} from '../i18n/ui';
+const {slug,lang='en',large=false}=Astro.props as {slug:string;lang?:Lang;large?:boolean};
+const zh=lang==='zh';
+const labels:Record<string,string[]>={
+  'context-ai':zh?['结构化资料','共享上下文','摘要','后续问答']:['Structured input','Shared context','Summary','Follow-up'],
+  yunxinyi:zh?['测量记录','报告','患者查看端']:['Records','Reports','Patient view'],
+  'ml-pipeline':zh?['数据','时间划分','模型','评估']:['Data','Time splits','Models','Evaluation'],
+  'admin-modernization':zh?['新前端','接口适配','既有后端']:['New interface','API adaptation','Existing backend'],
+  'registry-integrity':zh?['录入','校验','唯一记录']:['Input','Validation','Unique record'],
+};
+const l=labels[slug]||[];
+---
+<div class:list={['project-art',`art-${slug}`,{large}]} aria-hidden="true">
+{slug==='goldencamp'?<svg viewBox="0 0 640 360" fill="none" class="camp-art">
+  <ellipse cx="320" cy="296" rx="205" ry="24" fill="#294b5b" opacity=".12"/>
+  <path d="m116 224 199-98 211 100-202 102Z" fill="#80a9b6"/><path d="m116 224 208 104v25L116 249Z" fill="#64909f"/><path d="m324 328 202-102v25L324 353Z" fill="#467785"/>
+  <path d="m138 203 62-89 79 89-68 39Z" fill="#678d9b"/><path d="m200 114 11 128 68-39Z" fill="#476e80"/><path d="m180 144 20-30 24 27-16-8-12 14-6-7Z" fill="#dbedf1"/>
+  <path d="m282 221 68-94 80 94-74 39Z" fill="#9fc0c9"/><path d="m350 127 6 133 74-39Z" fill="#6b95a4"/><path d="m330 156 20-29 27 32-25-10-7 11Z" fill="#eaf6f8"/>
+  <path d="m220 247 71-66 49 92-53 28Z" fill="#c9a570"/><path d="m291 181-4 120 53-28Z" fill="#a47a48"/><path d="m236 252 40-43v75Z" fill="#566d73"/>
+  <path d="m382 263 25-10 21 11-24 13Z" fill="#e5c783"/><path d="m382 263 22 14v17l-22-13Z" fill="#bd944b"/><path d="m404 277 24-13v18l-24 12Z" fill="#d3ae61"/>
+  <path d="m449 222 18-10 18 10-18 10Z" fill="#eed79c"/><path d="m449 222 18 10v16l-18-10Z" fill="#c19a57"/><path d="m467 232 18-10v16l-18 10Z" fill="#d4b77d"/>
+  <path d="m171 253 27 14m172 30 22-10" stroke="#e4eef0" stroke-width="3" stroke-linecap="round"/>
+  <path d="M435 146v48m0-48 36 11-36 10" stroke="#426675" stroke-width="3"/><path d="m437 147 34 10-34 10Z" fill="#d4b778"/>
+  <g fill="#688c79"><path d="m475 209 15-37 17 37Zm-12 13 27-41 28 41Z"/><path d="m137 169 13-31 14 31Z"/></g>
+</svg>:slug==='context-ai'?<div class="context-art"><div class="art-input"><span class="document-lines"></span><span>{l[0]}</span></div><span class="art-connector"></span><div class="context-core"><span class="core-orbit"><span/></span><strong>{l[1]}</strong></div><div class="context-outputs"><span>{l[2]}</span><span>{l[3]}</span></div></div>
+:slug==='yunxinyi'?<div class="phone-scene"><div class="phone phone-back"><div class="phone-notch"/><span>{l[1]}</span><div class="report-sheet"><i/><i/><i/><i/><i/></div></div><div class="phone"><div class="phone-notch"/><strong>{l[0]}</strong>{[1,2,3].map(()=> <div class="record-row"><span class="record-circle"/><div><i/><i/></div><span>›</span></div>)}<div class="phone-tab"><span/><span/><span/></div></div><span class="phone-caption">{l[2]}</span></div>
+:slug==='ml-pipeline'?<div class="pipeline-art"><div class="data-matrix">{Array.from({length:30},(_,i)=><i style={`opacity:${.25+(i%5)*.15}`}/>)}</div><div class="pipeline-steps">{l.map((step,i)=><div class="pipeline-step"><span class="step-shape" style={`--step:${i}`}><i/><i/><i/></span><span>{step}</span></div>)}</div></div>
+:<div class="system-art">{l.map((label,i)=><div class="system-node"><span class="system-icon">{i===0?'⌘':i===1?'⇄':'✓'}</span><strong>{label}</strong><span class="system-lines"><i/><i/></span></div>)}</div>}
+<span class="art-label">{slug==='goldencamp'?(zh?'概念示意':'Concept illustration'):(zh?'示意图':'Illustrative diagram')}</span>
+</div>

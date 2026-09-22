@@ -1,0 +1,131 @@
+{
+  "date": "2026-09-22T14:22:14.508792+00:00",
+  "renderer": "Bundled Poppler pdftoppm at 150 dpi",
+  "textExtractor": "pypdf; pdfplumber character bounds",
+  "documents": [
+    {
+      "lang": "en",
+      "pdfFile": "docs/screenshots/revision/resume-print-en.pdf",
+      "sha256": "0b19d89113b98663dd877e68d646f5bf5802b1e04e2f43d666fba68f20771299",
+      "bytes": 87113,
+      "pageCount": 1,
+      "links": [
+        "mailto:yumin050717@gmail.com",
+        "https://github.com/Accelerator050717",
+        "http://127.0.0.1:4321/en/work/goldencamp/",
+        "http://127.0.0.1:4321/en/work/context-ai/",
+        "http://127.0.0.1:4321/en/work/yunxinyi/",
+        "http://127.0.0.1:4321/en/work/ml-pipeline/",
+        "http://127.0.0.1:4321/en/work/admin-modernization/",
+        "http://127.0.0.1:4321/en/work/registry-integrity/"
+      ],
+      "checks": {
+        "exactBrowserTextIgnoringWhitespace": true,
+        "allSectionHeadings": true,
+        "allSixProjectTitles": true,
+        "emailText": true,
+        "emailLink": true,
+        "oldOrSchoolEmailAbsent": true,
+        "noCharactersOutsidePages": true,
+        "noBlankPages": true
+      },
+      "pages": [
+        {
+          "page": 1,
+          "characters": 1573,
+          "sizePoints": [
+            594.95996,
+            841.91998
+          ],
+          "outOfPageCharacters": [],
+          "contentBounds": [
+            47.999998,
+            47.50499802062495,
+            547.496788256813,
+            767.24996803125
+          ],
+          "render": "docs/screenshots/revision/resume-print-en-page-1.png",
+          "text": "Mingyang Yu\nComputer Science · University of California, Irvine\nyumin050717@gmail.comgithub.com/Accelerator050717\nEducation\nUniversity of California, Irvine\nComputer Science · Undergraduate, in progress\nFocus\nApplied AI / Software systems / Interactive experiments\nAlong the way\nBaheal Pharma Group Intern / 2026\nDeveloped and iterated a complete WeChat mini-program client, integrated applied AI, and\nworked on frontend modernization, backend integration, and data consistency.\nBaidu / Xiaodu Intern / 2025\nWorked on automation, data pipelines, experiment tooling, and system validation.\nSelected projects\nGoldenCamp In development\nA four-player gold-mining prototype exploring cooperation, private discoveries, and playful\nbetrayal.\nContext-aware AI Internship project\nConnecting structured summaries and follow-up questions through shared, carefully scoped\ncontext.\nYunxinyi Internship project\nBuilding and iterating a complete patient-facing mini-program client, from authentication to\nrecords and reports.\nML Research Pipeline Research prototype\nA research pipeline for time-aware model evaluation, backtesting, and execution-oriented\nexperiments.\nAdmin Modernization Internship project\nModernizing an administrative interface while integrating with an existing backend and\npermission model.\nRegistry Integrity Internship project\nImproving record integrity through consistent validation, edit handling, and soft-delete-\naware logic.\nTools & technologies\nTypeScript, Python, C#, Unity, Vue, WeChat Mini Program, Coze Workflow, FastAPI, Java / Spring, MySQL, Redis, LEAN"
+        }
+      ],
+      "passedAutomated": true,
+      "visualReview": {
+        "allPagesViewed": true,
+        "clippedText": false,
+        "overlap": false,
+        "garbledGlyphs": false,
+        "isolatedHeading": false,
+        "blankPage": false,
+        "sixProjectsAndToolsComplete": true
+      },
+      "passed": true
+    },
+    {
+      "lang": "zh",
+      "pdfFile": "docs/screenshots/revision/resume-print-zh.pdf",
+      "sha256": "91394f2bba21281c9a2d2a81fd21d4a4d0f50105271235ec6884d6afdd265287",
+      "bytes": 167755,
+      "pageCount": 1,
+      "links": [
+        "mailto:yumin050717@gmail.com",
+        "https://github.com/Accelerator050717",
+        "http://127.0.0.1:4321/zh/work/goldencamp/",
+        "http://127.0.0.1:4321/zh/work/context-ai/",
+        "http://127.0.0.1:4321/zh/work/yunxinyi/",
+        "http://127.0.0.1:4321/zh/work/ml-pipeline/",
+        "http://127.0.0.1:4321/zh/work/admin-modernization/",
+        "http://127.0.0.1:4321/zh/work/registry-integrity/"
+      ],
+      "checks": {
+        "exactBrowserTextIgnoringWhitespace": true,
+        "allSectionHeadings": true,
+        "allSixProjectTitles": true,
+        "emailText": true,
+        "emailLink": true,
+        "oldOrSchoolEmailAbsent": true,
+        "noCharactersOutsidePages": true,
+        "noBlankPages": true
+      },
+      "pages": [
+        {
+          "page": 1,
+          "characters": 680,
+          "sizePoints": [
+            594.95996,
+            841.91998
+          ],
+          "outOfPageCharacters": [],
+          "contentBounds": [
+            47.999998,
+            47.50499802062495,
+            547.4999771875,
+            691.6054399331053
+          ],
+          "render": "docs/screenshots/revision/resume-print-zh-page-1.png",
+          "text": "余明阳  / Mingyang Yu\n计算机科学  · 加州大学欧文分校\nyumin050717@gmail.comgithub.com/Accelerator050717\n教育\n加州大学欧文分校\n计算机科学本科  · 在读\n关注方向\n应用  AI / 软件系统  / 交互实验\n走过的路\n百洋医药集团 实习  / 2026\n承担完整微信小程序客户端的开发与迭代，参与应用  AI 集成、既有系统前端重构、后端联调与数\n据一致性处理。\n百度  / 小度 实习  / 2025\n参与自动化、数据管线、实验工具与系统验证相关工作。\n项目经历\n四人淘金营地 开发中原型\n一个面向最多四人的合作淘金游戏原型，探索私下发现、共同建设，以及合作中的利益冲突。\n上下文共享  AI 实习项目\n把结构化摘要与后续问答连接起来，让上下文可以共享，同时保留清楚的患者与问诊边界。\n云心医 实习项目\n承担完整微信小程序客户端的开发与迭代，连接认证、测量记录、报告访问与界面流程。\n机器学习实验系统 研究原型\n组织时间划分验证、滚动回测与执行衔接实验，让机器学习研究形成清楚的流程。\n管理平台现代化 实习项目\n迁移既有管理系统的前端，适配原有后端接口、登录流程与菜单权限。\n登记数据一致性 实习项目\n围绕病案号唯一性、编辑校验与软删除处理，让前后端遵守一致的数据规则。\n工具与技术\nTypeScript, Python, C#, Unity, Vue, 微信小程序 , Coze Workflow, FastAPI, Java / Spring, MySQL, Redis, LEAN"
+        }
+      ],
+      "passedAutomated": true,
+      "visualReview": {
+        "allPagesViewed": true,
+        "clippedText": false,
+        "overlap": false,
+        "garbledGlyphs": false,
+        "isolatedHeading": false,
+        "blankPage": false,
+        "sixProjectsAndToolsComplete": true
+      },
+      "passed": true
+    }
+  ],
+  "passedAutomated": true,
+  "visualInspection": {
+    "completedAt": "2026-09-22T14:23:09.020535+00:00",
+    "allActualPagesRenderedAndViewed": true,
+    "reviewer": "Codex visual inspection of both 150 dpi Poppler page renders",
+    "conclusion": "English and Chinese are each one complete A4 page. Headings stay with their content; all six projects and the final tools section are legible. No clipped text, overlap, garbled glyphs, isolated heading, or extra blank page was observed.",
+    "knownParserWarnings": "pdfplumber reported missing FontBBox descriptors for some embedded fonts. pypdf full-text comparison passed and Poppler rendering was visually checked independently.",
+    "realPrinterTested": false
+  },
+  "passed": true
+}

@@ -1,0 +1,25 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ProjectArt from '../../../components/ProjectArt.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import Icon from '../../../components/Icon.astro';
+import {ui,route,languages,type Lang} from '../../../i18n/ui';
+import {projects,type Project} from '../../../data/content';
+export function getStaticPaths(){return languages.flatMap(lang=>projects.map(project=>({params:{lang,slug:project.slug},props:{project}})));}
+const lang=Astro.params.lang as Lang;const {project}=Astro.props as {project:Project};const t=ui[lang];
+const related=projects.filter(p=>p.slug!==project.slug).sort((a,b)=>Number(b.categories.some(c=>project.categories.includes(c)))-Number(a.categories.some(c=>project.categories.includes(c)))).slice(0,2);
+---
+<Layout lang={lang} page="work" title={`${project.title[lang]} — Mingyang Yu`} description={project.description[lang]}>
+  <div class="project-heading wrap"><a class="text-link" href={route(lang,'work')}><Icon name="back" size={17}/>{t.backWork}</a><h1>{project.title[lang]}</h1><p>{project.description[lang]}</p><div class="project-detail-meta"><span class="status">{project.status[lang]}</span><span>{project.kind[lang]}</span><span>{project.tech.join(' / ')}</span></div></div>
+  <div class="project-visual wrap"><ProjectArt slug={project.slug} lang={lang} large/></div>
+  <div class="project-reading wrap">
+    <aside class="project-aside"><h2>{lang==='en'?'Inside this project':'项目内容'}</h2><nav aria-label={lang==='en'?'Project sections':'项目章节'}>{project.sections[lang].map((section,i)=><a href={`#section-${i}`}>{section.title}</a>)}</nav></aside>
+    <article class="project-sections">
+      {project.sections[lang].map((section,i)=><>
+        <section id={`section-${i}`}><h2>{section.title}</h2>{section.paragraphs.map(p=><p>{p}</p>)}</section>
+        {i===1&&<figure class="flow-figure"><figcaption>{t.flow} / {t.diagram}</figcaption><ol class="workflow">{project.workflow[lang].map((step,index)=><li><span>{step}</span>{index<project.workflow[lang].length-1&&<Icon name="right" size={15}/>}</li>)}</ol></figure>}
+      </>)}
+    </article>
+  </div>
+  <section class="related-section wrap"><h2>{t.related}</h2><div class="related-grid">{related.map(project=><ProjectCard project={project} lang={lang}/>)}</div></section>
+</Layout>

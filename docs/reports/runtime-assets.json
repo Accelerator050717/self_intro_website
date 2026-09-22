@@ -1,0 +1,117 @@
+{
+  "date": "2026-09-22T14:32:03.346Z",
+  "results": [
+    {
+      "route": "/en/",
+      "passed": true,
+      "sceneReadyElapsedMs": 2734,
+      "sceneRequests": [
+        "http://127.0.0.1:4321/_astro/IceScene.D306JulF.js"
+      ],
+      "avatarAssets": [
+        "http://127.0.0.1:4321/images/avatar/front-960.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/rig.json",
+        "http://127.0.0.1:4321/images/avatar/rig/body.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/head.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/upper-arm.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/forearm.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/hand.webp"
+      ],
+      "missingRigAssets": [],
+      "unexpectedAvatarAssets": [],
+      "retiredViewRequests": [],
+      "retiredViewPreloads": [],
+      "external": [],
+      "privateFiles": [],
+      "failures": [],
+      "requestCount": 21
+    },
+    {
+      "route": "/zh/",
+      "passed": true,
+      "sceneReadyElapsedMs": 2584,
+      "sceneRequests": [
+        "http://127.0.0.1:4321/_astro/IceScene.D306JulF.js"
+      ],
+      "avatarAssets": [
+        "http://127.0.0.1:4321/images/avatar/front-960.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/rig.json",
+        "http://127.0.0.1:4321/images/avatar/rig/body.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/head.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/upper-arm.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/forearm.webp",
+        "http://127.0.0.1:4321/images/avatar/rig/hand.webp"
+      ],
+      "missingRigAssets": [],
+      "unexpectedAvatarAssets": [],
+      "retiredViewRequests": [],
+      "retiredViewPreloads": [],
+      "external": [],
+      "privateFiles": [],
+      "failures": [],
+      "requestCount": 21
+    },
+    {
+      "route": "/en/about/",
+      "passed": true,
+      "sceneReadyElapsedMs": null,
+      "sceneRequests": [],
+      "avatarAssets": [
+        "http://127.0.0.1:4321/images/avatar/front-480.webp"
+      ],
+      "missingRigAssets": [],
+      "unexpectedAvatarAssets": [],
+      "retiredViewRequests": [],
+      "retiredViewPreloads": [],
+      "external": [],
+      "privateFiles": [],
+      "failures": [],
+      "requestCount": 5
+    },
+    {
+      "route": "/en/work/",
+      "passed": true,
+      "sceneReadyElapsedMs": null,
+      "sceneRequests": [],
+      "avatarAssets": [],
+      "missingRigAssets": [],
+      "unexpectedAvatarAssets": [],
+      "retiredViewRequests": [],
+      "retiredViewPreloads": [],
+      "external": [],
+      "privateFiles": [],
+      "failures": [],
+      "requestCount": 4
+    },
+    {
+      "route": "/en/work/context-ai/",
+      "passed": true,
+      "sceneReadyElapsedMs": null,
+      "sceneRequests": [],
+      "avatarAssets": [],
+      "missingRigAssets": [],
+      "unexpectedAvatarAssets": [],
+      "retiredViewRequests": [],
+      "retiredViewPreloads": [],
+      "external": [],
+      "privateFiles": [],
+      "failures": [],
+      "requestCount": 4
+    },
+    {
+      "route": "/zh/resume/",
+      "passed": true,
+      "sceneReadyElapsedMs": null,
+      "sceneRequests": [],
+      "avatarAssets": [],
+      "missingRigAssets": [],
+      "unexpectedAvatarAssets": [],
+      "retiredViewRequests": [],
+      "retiredViewPreloads": [],
+      "external": [],
+      "privateFiles": [],
+      "failures": [],
+      "requestCount": 4
+    }
+  ]
+}

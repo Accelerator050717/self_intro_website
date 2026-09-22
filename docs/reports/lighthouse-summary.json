@@ -1,0 +1,46 @@
+[
+  {
+    "profile": "desktop",
+    "url": "http://127.0.0.1:4321/en/",
+    "date": "2026-09-22T14:35:35.439Z",
+    "lighthouseVersion": "13.5.0",
+    "browser": "153.0.8010.12",
+    "scores": {
+      "performance": 85,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66
+    },
+    "metrics": {
+      "first-contentful-paint": 322.81999999999994,
+      "largest-contentful-paint": 462.81999999999994,
+      "total-blocking-time": 353,
+      "cumulative-layout-shift": 0.0001057535825817938,
+      "speed-index": 492.5754304195366
+    },
+    "runtimeError": null,
+    "warnings": []
+  },
+  {
+    "profile": "mobile",
+    "url": "http://127.0.0.1:4321/en/",
+    "date": "2026-09-22T14:35:43.779Z",
+    "lighthouseVersion": "13.5.0",
+    "browser": "153.0.8010.12",
+    "scores": {
+      "performance": 68,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66
+    },
+    "metrics": {
+      "first-contentful-paint": 1056.27615,
+      "largest-contentful-paint": 2558.3682,
+      "total-blocking-time": 2277,
+      "cumulative-layout-shift": 0,
+      "speed-index": 2109.6050660944484
+    },
+    "runtimeError": null,
+    "warnings": []
+  }
+]
