@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-13T03:17:22.846Z",
+  "scope": "Exact staged files before public commit, excluding this generated self-report; pattern scan plus separate manual source/file review. Not a guarantee that every possible secret format is detectable.",
+  "excludedSelfReport": "docs/reports/avatar-interaction/public-content-audit.json",
+  "files": 489,
+  "totalBytes": 162012132,
+  "findings": [],
+  "fileListSha256": "d43d7e279261ec698a31485b0e87415063cd20cc1aa290d782f4d1bea8a5cec0",
+  "exclusions": [
+    "Raw reference PNGs and retired side/back derivatives",
+    "Private briefs and local snapshots",
+    "Real .env values and credentials",
+    "Dependencies, dist, caches, traces and machine-specific raw reports"
+  ],
+  "passed": true
+}

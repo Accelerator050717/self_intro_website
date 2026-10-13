@@ -26,6 +26,8 @@ SIZE = (720, 960)
 SS = 4
 JOINTS = {"shoulder": [447, 511], "elbow": [488, 584],
           "wrist": [507, 646], "neck": [369, 468]}
+# Legacy asset-envelope audit only, not the runtime choreography. The current
+# independent joint timings and easing live in src/lib/avatar-motion.ts.
 # SVG screen coordinates: negative angles raise the viewer-right arm.
 TIMELINE = [
     {"offset": 0, "shoulder": 0, "elbow": 0, "wrist": 0, "head": 0},
@@ -296,7 +298,7 @@ def main() -> None:
         "layerOrder": ["body", "upper-arm", "hand", "forearm", "head"],
         "occlusion": "Inside elbow group: wrist group with hand first, then forearm image. The cuff hides the extended proximal hand cap.",
         "hierarchy": {"body": None, "upper-arm": "shoulder", "forearm": "elbow", "hand": "wrist", "head": "neck"},
-        "durationMs": 2600, "timeline": TIMELINE, "layers": {},
+        "motionSource": "src/lib/avatar-motion.ts; independent native joint timelines, exact completion before unlock", "layers": {},
         "encoding": "WebP quality 95; exact alpha; RGB of fully transparent pixels cleared before encoding",
         "method": "Hand-traced subpixel masks on the supplied derivative; original RGBA interior; local collar texture backing and sleeve edge extension only.",
         "limitations": ["2D articulated photo layers, not a 3D model", "The supplied small hand remains in its original gently curled pose", "Use the checked angle range; unseen back surfaces are not synthesized"],

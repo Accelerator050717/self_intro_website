@@ -1,5 +1,5 @@
 import { defineConfig } from '@playwright/test';
-const evidenceRound = process.env.REPORT_DIRECTORY?.includes('gradient-waves') ? 'gradient-waves' : 'visual-upgrade';
+const evidenceRound = process.env.REPORT_DIRECTORY?.includes('avatar-interaction') ? 'avatar-interaction' : process.env.REPORT_DIRECTORY?.includes('gradient-waves') ? 'gradient-waves' : 'visual-upgrade';
 export default defineConfig({
   testDir:'./tests',testMatch:'**/*.spec.ts',fullyParallel:false,workers:1,
   timeout:45000,expect:{timeout:12000},

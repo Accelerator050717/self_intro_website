@@ -36,7 +36,8 @@ try {
       await page.waitForFunction((expectedTheme) => document.documentElement.dataset.theme === expectedTheme, theme);
       if (/^\/(en|zh)\/$/.test(path)) {
         await page.locator('.avatar-exhibit[data-rig="ready"]').waitFor();
-        await page.locator(`.avatar-exhibit[data-state="${paused ? 'paused' : 'idle'}"]`).waitFor();
+        await page.locator('.avatar-exhibit[data-state="idle"]').waitFor();
+        await page.waitForFunction(value => document.querySelector('[data-global-pause]')?.getAttribute('aria-pressed') === String(value), paused);
       }
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
       reports.push({ ...scenario, viewport, reducedMotion: 'reduce', violations: results.violations, passes: results.passes.length });

@@ -22,10 +22,28 @@ const canonical = siteUrl ? new URL(pathname, siteUrl).href : null;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <!-- Opt in before pagereveal, including when external styles arrive later. -->
+    <style is:inline data-navigation-opt-in>@view-transition { navigation: auto; }</style>
     <script is:inline>
       document.documentElement.classList.add('js');
       try { const saved = localStorage.getItem('ice-theme'); document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
       catch { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      function syncNavigationMotion(event) {
+        let paused = false;
+        try { paused = localStorage.getItem('ice-paused') === 'true'; } catch { /* Storage is optional. */ }
+        const enabled = !paused && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.documentElement.dataset.motion = enabled ? 'enabled' : 'still';
+        const transition = event?.viewTransition;
+        if (transition) {
+          // A skipped transition rejects ready even when finished resolves.
+          // Native navigation still completes; no animation state needs restoring.
+          void transition.ready.catch(() => {});
+          if (!enabled) transition.skipTransition();
+        }
+      }
+      syncNavigationMotion();
+      window.addEventListener('pageswap', syncNavigationMotion);
+      window.addEventListener('pagereveal', syncNavigationMotion);
     </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="description" content={description} />

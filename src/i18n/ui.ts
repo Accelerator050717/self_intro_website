@@ -18,7 +18,7 @@ export const ui = {
     interests: 'What keeps me curious', interestTitles: ['Applied AI', 'Software systems', 'Interactive experiments'], interestBody: ['Making context useful, while being clear about its limits.', 'Connecting interfaces, data, and the rules between them.', 'Small worlds where a simple idea can turn into something playful.'],
     resumeTitle: 'Mingyang Yu', resumeSubtitle: 'Computer Science · University of California, Irvine', print: 'Print / Save as PDF', resumeNote: 'A concise web résumé based on the information shared here.', focus: 'Focus', projects: 'Selected projects', skills: 'Tools & technologies',
     backWork: 'Back to work', related: 'Keep exploring', flow: 'At a glance', notFound: 'This block is out of place.', notFoundDesc: 'The page you’re looking for isn’t here. Let’s find a better starting point.', backHome: 'Back home',
-    greeting: 'Hey there. Glad you’re here.', greet: 'Say hello to Mingyang', hello: 'Say hello', pause: 'Pause animation', resumeAnimation: 'Resume animation',
+    greeting: 'Hey there. Glad you’re here.', greet: 'Say hello to Mingyang', hello: 'Say hello', pause: 'Pause background animation', resumeAnimation: 'Resume background animation',
     noJs: 'The core site works without JavaScript. Enable it for interactive controls.', download: 'Download résumé PDF',
   },
   zh: {
@@ -37,7 +37,7 @@ export const ui = {
     interests: '好奇心的方向', interestTitles: ['应用 AI', '软件系统', '交互实验'], interestBody: ['让上下文真正有用，也清楚呈现它的局限。', '连接界面、数据，以及两者之间的规则。', '在小小的世界里，把一个简单念头变成有趣的体验。'],
     resumeTitle: '余明阳 / Mingyang Yu', resumeSubtitle: '计算机科学 · 加州大学欧文分校', print: '打印 / 保存为 PDF', resumeNote: '根据本站已提供信息整理的简洁网页简历。', focus: '关注方向', projects: '项目经历', skills: '工具与技术',
     backWork: '返回作品列表', related: '继续探索', flow: '流程一览', notFound: '这一块，好像放错了。', notFoundDesc: '这里没有你要找的页面。换个地方，继续探索吧。', backHome: '回到首页',
-    greeting: '你好，很高兴在这里遇见你。', greet: '向明阳打个招呼', hello: '打个招呼', pause: '暂停动画', resumeAnimation: '恢复动画',
+    greeting: '你好，很高兴在这里遇见你。', greet: '向明阳打个招呼', hello: '打个招呼', pause: '暂停背景动画', resumeAnimation: '恢复背景动画',
     noJs: '关闭 JavaScript 仍可阅读本站。启用后可使用交互控件。', download: '下载正式简历 PDF',
   },
 } as const;

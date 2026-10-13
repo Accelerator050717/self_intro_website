@@ -1,0 +1,55 @@
+{
+  "round": "avatar-interaction",
+  "recordedLocalDate": "2026-10-12",
+  "test": "history return retains card input and a cached pagehide does not consume final cleanup",
+  "testFile": "tests/visual-upgrade.spec.ts",
+  "environment": {
+    "runner": "Playwright 1.63.0",
+    "browser": "headless Chromium",
+    "viewport": { "width": 1440, "height": 1000 },
+    "reducedMotion": "no-preference",
+    "target": "local production preview"
+  },
+  "firstFullRun": {
+    "startedAt": "2026-10-13T01:49:22.819Z",
+    "total": 101,
+    "passed": 100,
+    "failed": 1,
+    "skipped": 0,
+    "failedAssertion": "The first hover after native history return did not retain data-tracking=true. Later lifecycle assertions were not reached."
+  },
+  "investigation": {
+    "originalIsolatedRun": { "passed": 1, "failed": 0 },
+    "instrumentedNavigationRuns": 3,
+    "reproducedMissingTrackingRuns": 1,
+    "observations": [
+      "The first-full-run trace shows the hover target shifting vertically by 171px while the action was in progress.",
+      "In the instrumented reproduction the returned document was visible, motion was enabled and fine-pointer media matched.",
+      "A real pointermove set tracking to true. Continuing scroll then cleared tracking through the existing scroll-reset handler and moved the card away from the pointer.",
+      "The reproduced scroll position progressed from 145px to 437px and finally 515px. After scrolling settled, a new real pointer input inside the card immediately restored tracking."
+    ],
+    "conclusion": "The test raced with navigation/scroll restoration. Evidence did not show a lost listener or broken cached-page cleanup. Resetting pointer coordinates after scrolling remains intended product behavior."
+  },
+  "change": {
+    "scope": "test synchronization only",
+    "productSourceChanged": false,
+    "buildRequired": false,
+    "details": [
+      "Wait for loaded fonts, finite document animations to stop and four successive animation-frame samples of stable scroll and card geometry.",
+      "Move the pointer outside, then send explicit fresh positions inside the real card.",
+      "Retain native link navigation and history return, tracking assertions, both injected pagehide lifecycle branches and cleanup assertions.",
+      "Additionally verify actual computed SVG horizontal displacement changes after the second pointer position."
+    ]
+  },
+  "verification": {
+    "startedAt": "2026-10-13T02:02:50.565Z",
+    "command": "playwright test tests/visual-upgrade.spec.ts --grep 'history return' --repeat-each=3",
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 34066.144,
+    "eslint": "tests/visual-upgrade.spec.ts: passed with zero warnings",
+    "unchangedResultsReused": "The first full run's other 100 passing cases remain applicable because product sources did not change. This is not a claim that a second complete 101-case suite was run."
+  },
+  "evidenceBoundary": "Raw traces and instrumented machine output remain in private verification storage. This report includes only local browser observations and test results; no real-device or deployment claim is made."
+}

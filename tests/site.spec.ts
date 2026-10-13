@@ -183,28 +183,46 @@ test('mobile navigation opens, closes with Escape, and follows a link', async ({
 });
 
 for (const lang of ['en', 'zh'] as const) {
-  test(`${lang} reduced-motion character stays clear, responds, and preserves pause`, async ({ page }) => {
+  test(`${lang} reduced-motion character responds statically while global pause persists`, async ({ page }) => {
     await open(page, route(lang));
     await expect(page.locator('.person-button')).toBeVisible();
     await expect(page.locator('img.avatar-image')).toHaveAttribute('src', '/images/avatar/front-960.webp');
     expect(await page.locator('img.avatar-image').evaluate(image => (image as HTMLImageElement).naturalWidth > 0)).toBe(true);
-    await expect(page.locator('.view-control, .avatar-caption')).toHaveCount(0);
-    await expect(page.locator('.hello-button')).toHaveText(ui[lang].hello);
+    await expect(page.locator('.view-control, .avatar-caption, .hello-button, .animation-toggle, .avatar-controls, .avatar-greeting')).toHaveCount(0);
+    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-rig', 'ready');
     await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
-    await expect(page.getByRole('button', { name: ui[lang].greet, exact: true })).toBeEnabled();
-    await page.getByRole('button', { name: ui[lang].greet, exact: true }).focus();
+    const person = page.locator('.person-button');
+    await expect(person).toHaveAttribute('aria-label', ui[lang].greet);
+    await expect(person).toBeEnabled();
+    await person.focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('.avatar-greeting')).toHaveText(ui[lang].greeting);
+    await expect(page.locator('.avatar-announcement')).toHaveText(ui[lang].greeting);
+    await expect(page.locator('.avatar-announcement')).toHaveClass(/sr-only/);
+    const staticPose = await page.locator('.avatar-rig').evaluate(svg => ({
+      animations: svg.getAnimations({ subtree: true }).length,
+      angles: [...svg.querySelectorAll('[data-joint]')].map(joint => {
+        const matrix = new DOMMatrix(getComputedStyle(joint).transform);
+        return Math.atan2(matrix.b, matrix.a) * 180 / Math.PI;
+      }),
+    }));
+    expect(staticPose.animations).toBe(0);
+    expect(staticPose.angles).toHaveLength(4);
+    staticPose.angles.forEach(angle => expect(Math.abs(angle)).toBeLessThan(.05));
     await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
-    await page.getByRole('button', { name: ui[lang].hello, exact: true }).click();
-    await expect(page.locator('.avatar-greeting')).toHaveText(ui[lang].greeting);
-    await page.locator('.avatar-exhibit').getByRole('button', { name: ui[lang].pause, exact: true }).click();
+    await person.click();
+    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-greeting-count', '2');
+    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
+    await page.locator('[data-global-pause]').click();
     await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'true');
     expect(await page.evaluate(() => localStorage.getItem('ice-paused'))).toBe('true');
     await page.reload();
-    await expect(page.locator('.avatar-exhibit').getByRole('button', { name: ui[lang].resumeAnimation, exact: true })).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'paused');
-    await page.locator('.avatar-exhibit').getByRole('button', { name: ui[lang].resumeAnimation, exact: true }).click();
+    await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
+    await person.click();
+    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-greeting-count', '1');
+    await expect(page.locator('.avatar-announcement')).toHaveText(ui[lang].greeting);
+    await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
+    await page.locator('[data-global-pause]').click();
     await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'false');
     await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
   });
@@ -268,10 +286,11 @@ test('WebGL fallback keeps the character, greeting, and page content usable', as
   await expect(stage).toHaveAttribute('data-scene', 'svg');
   await expect(stage.locator('svg')).toBeVisible();
   await expect(page.locator('.person-button')).toBeVisible();
-  const hello = page.getByRole('button', { name: ui.en.hello, exact: true });
-  await hello.focus();
+  const person = page.getByRole('button', { name: ui.en.greet, exact: true });
+  await person.focus();
   await page.keyboard.press('Enter');
-  await expect(page.locator('.avatar-greeting')).toHaveText(ui.en.greeting);
+  await expect(page.locator('.avatar-announcement')).toHaveText(ui.en.greeting);
+  await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
   await expect(page.locator('main h1')).toBeVisible();
   await expect(stage.locator('canvas')).toHaveCount(0);
 });

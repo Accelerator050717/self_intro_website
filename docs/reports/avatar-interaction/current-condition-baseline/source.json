@@ -1,0 +1,45 @@
+{
+  "preparedAt": "2026-10-13T03:04:51.844Z",
+  "purpose": "Fresh source baseline for a controlled comparison with the current candidate on the same host.",
+  "sourceCommit": "119a81967023030e18809fefc6ba0ae676294ee7",
+  "sourceMethod": "Git archive of tracked files into a new isolated private directory; no reset, checkout, index change or modification of the current source tree.",
+  "dependencies": {
+    "packageJsonGitBlob": "00cb9d9f73edb18c7f7a793236e2e0b4f9033a1f",
+    "packageLockGitBlob": "78f03887a9c6cb777ea9107d68167159939a2df5",
+    "matchCurrentCandidate": true,
+    "resolution": "Existing ancestor node_modules reused because the package and lockfile blobs exactly match.",
+    "npmCiRun": false,
+    "dependencyInstallationOrNetworkPackageFetch": false
+  },
+  "build": {
+    "command": "astro build",
+    "successful": true,
+    "htmlFiles": 24,
+    "totalArtifactFiles": 57,
+    "homepageSha256": "26bea2867270ab923c8ca63937f6f592e7862d4252b2fa2ec55957a2f8317020",
+    "distFingerprint": "968351e6d998d41ade488a7dc68e37d5b2d57b7357e6ddab43e3c4ac3ae67baf",
+    "fingerprintMethod": "SHA-256 of JSON.stringify(sorted [POSIX-relative-path, file-SHA256] pairs), matching scripts/check-static.mjs.",
+    "reproducibilityBoundary": "This is a fresh build of the identified Git source and lockfile at a different build path. Generated chunk identifiers and HTML hashes can differ with that build context. Source identity is verified; bit-for-bit identity with a historical build is not claimed."
+  },
+  "preview": {
+    "baseURL": "http://127.0.0.1:4322",
+    "verifiedURL": "http://127.0.0.1:4322/en/",
+    "httpStatus": 200,
+    "servedHomepageMatchesBuild": true
+  },
+  "currentCandidatePreserved": {
+    "baseURL": "http://127.0.0.1:4321",
+    "homepageSha256": "8193e9773a4fab046135ab918a73c207c2f69b10250cf8b02f430c47e972e415",
+    "distFingerprint": "231478db59fdc4d6c54be85ae7c314ee7ec5f18fc67e8d102ef5d73c7fbf1225",
+    "unchanged": true
+  },
+  "preparationOnly": "These hashes and HTTP checks identify build inputs and served artifacts. No browser or performance result is inferred from this preparation record.",
+  "diagnosticPreviewStopped": true,
+  "cleanupVerification": {
+    "verifiedAt": "2026-10-13T03:14:46.7578479Z",
+    "originalURL": "http://127.0.0.1:4321/en/",
+    "originalStatus": 200,
+    "originalHomepageSha256": "8193e9773a4fab046135ab918a73c207c2f69b10250cf8b02f430c47e972e415",
+    "originalHomepageUnchanged": true
+  }
+}

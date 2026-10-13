@@ -1,0 +1,654 @@
+{
+  "createdAt": "2026-10-13T03:10:16.638Z",
+  "method": "A complete new six-sample Lighthouse batch and two ten-second continuous runs against the exact old-source 119a819 diagnostic build on port 4322, after the original final-product batch on port 4321. All original and control samples are retained separately; no highest-score selection or replacement was used.",
+  "sources": {
+    "originalBefore": "docs/reports/avatar-interaction/before-performance.json",
+    "originalAfter": "docs/reports/avatar-interaction/after-performance.json",
+    "currentConditionBaseline": "docs/reports/avatar-interaction/current-condition-baseline/before-performance.json",
+    "originalBeforeMotion": "docs/reports/avatar-interaction/before-motion.json",
+    "originalAfterMotion": "docs/reports/avatar-interaction/after-motion.json",
+    "currentConditionBaselineMotion": "docs/reports/avatar-interaction/current-condition-baseline/before-motion.json"
+  },
+  "diagnosticBaseline": {
+    "sourceCommit": "119a819",
+    "url": "http://127.0.0.1:4322/en/",
+    "scope": "Old source independently built and served by the main task; no alteration to product source or the original port 4321 dist by this evidence task."
+  },
+  "configuration": {
+    "browserVersions": [
+      [
+        "153.0.8010.12"
+      ],
+      [
+        "153.0.8010.12"
+      ],
+      [
+        "153.0.8010.12"
+      ]
+    ],
+    "lighthouseVersions": [
+      [
+        "13.5.0"
+      ],
+      [
+        "13.5.0"
+      ],
+      [
+        "13.5.0"
+      ]
+    ],
+    "privateAdapter": "Only rawDirectory was changed from the standard collection scripts. Source/adapter hashes and exact restoration checks are preserved privately. REPORT_DIRECTORY and target URL were changed through process-local environment variables."
+  },
+  "benchmarkRanges": {
+    "originalBefore": {
+      "min": 3317.5,
+      "max": 3918
+    },
+    "originalAfter": {
+      "min": 1453.5,
+      "max": 1908
+    },
+    "currentConditionBaseline": {
+      "min": 1271,
+      "max": 1692
+    }
+  },
+  "observedConclusion": "The exact old-source control also reproduces high blocking and JavaScript execution cost under the later measurement conditions. The original after slowdown therefore is not unique to the new product source. Host-condition drift materially confounds the original before/after comparison; these sequential measurements cannot prove a specific host cause or quantify the product-only contribution.",
+  "limitations": [
+    "This is a later sequential control, not simultaneous randomized A/B sampling. Benchmark drift remains visible within the samples; original poor results are not discarded.",
+    "The benchmark index is an observed calibration signal, not direct proof of thermal throttling, driver behavior or a particular competing process. No such cause was measured here.",
+    "Lighthouse simulated TBT is not real-device INP. RAF intervals and WebGL call counts are not GPU completion/presentation FPS. Mobile remains desktop-host viewport/touch emulation.",
+    "Continuous-script pass flags indicate execution and permissive scroll criteria, not smoothness. Inputs with individually attributed scroll events are reported exactly; original after desktop is 7 of 8 despite eight observed scroll events.",
+    "Adaptive shader resolution may differ between samples as an intended response to timing. Actual canvas dimensions are included and have not been normalized after collection."
+  ],
+  "profiles": [
+    {
+      "profile": "desktop",
+      "identicalAuditSettings": true,
+      "scores": {
+        "originalBefore": [
+          76,
+          74,
+          74
+        ],
+        "originalAfter": [
+          66,
+          67,
+          67
+        ],
+        "currentConditionBaseline": [
+          61,
+          62,
+          62
+        ]
+      },
+      "benchmarkIndex": {
+        "originalBefore": [
+          3918,
+          3413,
+          3345.5
+        ],
+        "originalAfter": [
+          1576,
+          1453.5,
+          1748
+        ],
+        "currentConditionBaseline": [
+          1271,
+          1692,
+          1597
+        ]
+      },
+      "metrics": {
+        "performance": {
+          "originalBefore": {
+            "median": 74,
+            "min": 74,
+            "max": 76
+          },
+          "originalAfter": {
+            "median": 67,
+            "min": 66,
+            "max": 67
+          },
+          "currentConditionBaseline": {
+            "median": 62,
+            "min": 61,
+            "max": 62
+          },
+          "originalAfterMinusCurrentControlMedian": 5,
+          "controlMinusOriginalBeforeMedian": -12
+        },
+        "lcpMs": {
+          "originalBefore": {
+            "median": 591.828,
+            "min": 589.7919999999999,
+            "max": 594.952
+          },
+          "originalAfter": {
+            "median": 767.0369999999999,
+            "min": 662.7370000000001,
+            "max": 821.8720000000001
+          },
+          "currentConditionBaseline": {
+            "median": 717.583,
+            "min": 699.561,
+            "max": 836.2840000000001
+          },
+          "originalAfterMinusCurrentControlMedian": 49.45399999999995,
+          "controlMinusOriginalBeforeMedian": 125.755
+        },
+        "tbtMs": {
+          "originalBefore": {
+            "median": 560.5215000000003,
+            "min": 515.6310000000001,
+            "max": 596.4999999999998
+          },
+          "originalAfter": {
+            "median": 3092.3759999999997,
+            "min": 2831.1605,
+            "max": 3278.7104999999992
+          },
+          "currentConditionBaseline": {
+            "median": 3253.5,
+            "min": 3105.3194999999996,
+            "max": 3486
+          },
+          "originalAfterMinusCurrentControlMedian": -161.12400000000025,
+          "controlMinusOriginalBeforeMedian": 2692.9784999999997
+        },
+        "cls": {
+          "originalBefore": {
+            "median": 0.00337774560021014,
+            "min": 0.00337774560021014,
+            "max": 0.00337774560021014
+          },
+          "originalAfter": {
+            "median": 0.00337774560021014,
+            "min": 0.003298279430435164,
+            "max": 0.00337774560021014
+          },
+          "currentConditionBaseline": {
+            "median": 0.00337774560021014,
+            "min": 0.00337774560021014,
+            "max": 0.00337774560021014
+          },
+          "originalAfterMinusCurrentControlMedian": 0,
+          "controlMinusOriginalBeforeMedian": 0
+        },
+        "jsTransferBytes": {
+          "originalBefore": {
+            "median": 332596,
+            "min": 332596,
+            "max": 332596
+          },
+          "originalAfter": {
+            "median": 333421,
+            "min": 333421,
+            "max": 333421
+          },
+          "currentConditionBaseline": {
+            "median": 332596,
+            "min": 332596,
+            "max": 332596
+          },
+          "originalAfterMinusCurrentControlMedian": 825,
+          "controlMinusOriginalBeforeMedian": 0
+        },
+        "jsExecutionMs": {
+          "originalBefore": {
+            "median": 228.09000000000097,
+            "min": 205.07300000000126,
+            "max": 239.24100000000115
+          },
+          "originalAfter": {
+            "median": 665.1289999999982,
+            "min": 639.1299999999976,
+            "max": 711.2609999999981
+          },
+          "currentConditionBaseline": {
+            "median": 678.0489999999982,
+            "min": 657.9849999999975,
+            "max": 747.5579999999975
+          },
+          "originalAfterMinusCurrentControlMedian": -12.919999999999959,
+          "controlMinusOriginalBeforeMedian": 449.9589999999972
+        }
+      },
+      "continuous": {
+        "originalBefore": {
+          "actualDurationMs": 10031.299999999814,
+          "raf": {
+            "intervals": 362,
+            "medianMs": 16.700000000000728,
+            "p95Ms": 50,
+            "p99Ms": 100,
+            "maxMs": 383.3000000000002,
+            "over20Ms": 145,
+            "over33_4Ms": 36,
+            "over50Ms": 17
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 13,
+            "totalMs": 1349,
+            "maxMs": 380
+          },
+          "webgl": {
+            "wavesCalls": 364,
+            "wavesCallsPerSecond": 36.28642349446301,
+            "iceCalls": 754,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 720,
+                "height": 500
+              },
+              {
+                "kind": "ice",
+                "width": 601,
+                "height": 645
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 8,
+            "minY": 0,
+            "maxY": 1680,
+            "finalY": 0
+          },
+          "errors": [],
+          "scriptPassed": true
+        },
+        "originalAfter": {
+          "actualDurationMs": 10057.800000000745,
+          "raf": {
+            "intervals": 187,
+            "medianMs": 33.399999999999636,
+            "p95Ms": 116.60000000000036,
+            "p99Ms": 166.69999999999982,
+            "maxMs": 1150,
+            "over20Ms": 171,
+            "over33_4Ms": 89,
+            "over50Ms": 41
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 38,
+            "totalMs": 4250,
+            "maxMs": 1143
+          },
+          "webgl": {
+            "wavesCalls": 188,
+            "wavesCallsPerSecond": 18.69196046849073,
+            "iceCalls": 754,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 720,
+                "height": 500
+              },
+              {
+                "kind": "ice",
+                "width": 601,
+                "height": 645
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 7,
+            "observedScrollEvents": 8,
+            "minY": 0,
+            "maxY": 1680,
+            "finalY": 0
+          },
+          "errors": [],
+          "scriptPassed": true
+        },
+        "currentConditionBaseline": {
+          "actualDurationMs": 10054.39999999851,
+          "raf": {
+            "intervals": 185,
+            "medianMs": 33.399999999999636,
+            "p95Ms": 116.70000000000073,
+            "p99Ms": 283.3000000000002,
+            "maxMs": 1250,
+            "over20Ms": 168,
+            "over33_4Ms": 76,
+            "over50Ms": 29
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 24,
+            "totalMs": 3989,
+            "maxMs": 1255
+          },
+          "webgl": {
+            "wavesCalls": 187,
+            "wavesCallsPerSecond": 18.598822406113513,
+            "iceCalls": 638,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 720,
+                "height": 500
+              },
+              {
+                "kind": "ice",
+                "width": 601,
+                "height": 645
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 7,
+            "observedScrollEvents": 8,
+            "minY": 0,
+            "maxY": 1680,
+            "finalY": 0
+          },
+          "errors": [],
+          "scriptPassed": true
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "identicalAuditSettings": true,
+      "scores": {
+        "originalBefore": [
+          66,
+          67,
+          67
+        ],
+        "originalAfter": [
+          64,
+          62,
+          63
+        ],
+        "currentConditionBaseline": [
+          58,
+          58,
+          60
+        ]
+      },
+      "benchmarkIndex": {
+        "originalBefore": [
+          3528.5,
+          3412,
+          3317.5
+        ],
+        "originalAfter": [
+          1572,
+          1755,
+          1908
+        ],
+        "currentConditionBaseline": [
+          1471.5,
+          1277,
+          1627
+        ]
+      },
+      "metrics": {
+        "performance": {
+          "originalBefore": {
+            "median": 67,
+            "min": 66,
+            "max": 67
+          },
+          "originalAfter": {
+            "median": 63,
+            "min": 62,
+            "max": 64
+          },
+          "currentConditionBaseline": {
+            "median": 58,
+            "min": 58,
+            "max": 60
+          },
+          "originalAfterMinusCurrentControlMedian": 5,
+          "controlMinusOriginalBeforeMedian": -9
+        },
+        "lcpMs": {
+          "originalBefore": {
+            "median": 2787.076,
+            "min": 2785.6320000000005,
+            "max": 2787.3599999999997
+          },
+          "originalAfter": {
+            "median": 2805.192,
+            "min": 2802.58,
+            "max": 2892.645
+          },
+          "currentConditionBaseline": {
+            "median": 2812.0074999999997,
+            "min": 2803.8640000000005,
+            "max": 2878.7889999999998
+          },
+          "originalAfterMinusCurrentControlMedian": -6.815499999999702,
+          "controlMinusOriginalBeforeMedian": 24.931499999999687
+        },
+        "tbtMs": {
+          "originalBefore": {
+            "median": 1687.0000000000005,
+            "min": 1623.5,
+            "max": 2090.5285000000003
+          },
+          "originalAfter": {
+            "median": 7995.404000000002,
+            "min": 7848.0525,
+            "max": 8933.7065
+          },
+          "currentConditionBaseline": {
+            "median": 10611.079,
+            "min": 8463.892,
+            "max": 10748.5
+          },
+          "originalAfterMinusCurrentControlMedian": -2615.6749999999975,
+          "controlMinusOriginalBeforeMedian": 8924.079
+        },
+        "cls": {
+          "originalBefore": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "originalAfter": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "currentConditionBaseline": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "originalAfterMinusCurrentControlMedian": 0,
+          "controlMinusOriginalBeforeMedian": 0
+        },
+        "jsTransferBytes": {
+          "originalBefore": {
+            "median": 332596,
+            "min": 332596,
+            "max": 332596
+          },
+          "originalAfter": {
+            "median": 333421,
+            "min": 333421,
+            "max": 333421
+          },
+          "currentConditionBaseline": {
+            "median": 332596,
+            "min": 332596,
+            "max": 332596
+          },
+          "originalAfterMinusCurrentControlMedian": 825,
+          "controlMinusOriginalBeforeMedian": 0
+        },
+        "jsExecutionMs": {
+          "originalBefore": {
+            "median": 872.2280000000037,
+            "min": 835.8400000000038,
+            "max": 979.712000000005
+          },
+          "originalAfter": {
+            "median": 2309.0119999999906,
+            "min": 2193.5319999999915,
+            "max": 2647.4239999999895
+          },
+          "currentConditionBaseline": {
+            "median": 3004.399999999991,
+            "min": 1800.8319999999976,
+            "max": 3316.0639999999867
+          },
+          "originalAfterMinusCurrentControlMedian": -695.3880000000004,
+          "controlMinusOriginalBeforeMedian": 2132.1719999999873
+        }
+      },
+      "continuous": {
+        "originalBefore": {
+          "actualDurationMs": 10010.799999999814,
+          "raf": {
+            "intervals": 522,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 33.30000000000109,
+            "p99Ms": 50.099999999999454,
+            "maxMs": 283.39999999999964,
+            "over20Ms": 36,
+            "over33_4Ms": 25,
+            "over50Ms": 7
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 11,
+            "totalMs": 650,
+            "maxMs": 77
+          },
+          "webgl": {
+            "wavesCalls": 524,
+            "wavesCallsPerSecond": 52.343469053423284,
+            "iceCalls": 1740,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 234,
+                "height": 506
+              },
+              {
+                "kind": "ice",
+                "width": 376,
+                "height": 445
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 56,
+            "minY": 0,
+            "maxY": 1620,
+            "finalY": 0
+          },
+          "errors": [],
+          "scriptPassed": true
+        },
+        "originalAfter": {
+          "actualDurationMs": 10014.200000001118,
+          "raf": {
+            "intervals": 457,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 50,
+            "p99Ms": 83.29999999999973,
+            "maxMs": 250,
+            "over20Ms": 67,
+            "over33_4Ms": 37,
+            "over50Ms": 16
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 18,
+            "totalMs": 1585,
+            "maxMs": 247
+          },
+          "webgl": {
+            "wavesCalls": 460,
+            "wavesCallsPerSecond": 45.93477262287039,
+            "iceCalls": 1798,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 195,
+                "height": 422
+              },
+              {
+                "kind": "ice",
+                "width": 376,
+                "height": 445
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 56,
+            "minY": 0,
+            "maxY": 1620,
+            "finalY": 0
+          },
+          "errors": [],
+          "scriptPassed": true
+        },
+        "currentConditionBaseline": {
+          "actualDurationMs": 10002.800000000745,
+          "raf": {
+            "intervals": 471,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 50,
+            "p99Ms": 99.89999999999964,
+            "maxMs": 133.4000000000001,
+            "over20Ms": 50,
+            "over33_4Ms": 39,
+            "over50Ms": 24
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 29,
+            "totalMs": 2108,
+            "maxMs": 130
+          },
+          "webgl": {
+            "wavesCalls": 473,
+            "wavesCallsPerSecond": 47.28675970727844,
+            "iceCalls": 2146,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 195,
+                "height": 422
+              },
+              {
+                "kind": "ice",
+                "width": 376,
+                "height": 445
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 56,
+            "minY": 0,
+            "maxY": 1620,
+            "finalY": 0
+          },
+          "errors": [],
+          "scriptPassed": true
+        }
+      }
+    }
+  ]
+}

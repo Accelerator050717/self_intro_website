@@ -1,0 +1,139 @@
+{
+  "round": "avatar-interaction",
+  "recordedLocalDate": "2026-10-12",
+  "scope": "Native cross-document navigation opt-in timing and transition promise lifecycle",
+  "environment": {
+    "runner": "Playwright 1.63.0",
+    "target": "local production preview",
+    "probeViewport": { "width": 390, "height": 844 },
+    "probeDeviceScaleFactor": 1,
+    "probeInput": "mobile viewport emulation with touch enabled",
+    "realDeviceTest": false
+  },
+  "beforeFix": {
+    "firstRecordingAttempt": {
+      "browserVersion": "154.0.8037.98",
+      "startedAt": "2026-10-13T02:10:00.043Z",
+      "finishedAt": "2026-10-13T02:12:08.448Z",
+      "passed": false,
+      "failedPhase": "mobile: theme, scrolling and navigation",
+      "observedError": "Transition was aborted because of invalid state. ViewTransition opt-in disabled"
+    },
+    "originalDiagnosticProbe": [
+      {
+        "channel": "installed Chrome",
+        "version": "154.0.8037.98",
+        "receivingTransitions": 2,
+        "readyResolved": 2,
+        "finishedResolved": 2,
+        "pageErrors": 0,
+        "note": "This probe did not reproduce the preceding recording failure. It does not invalidate that earlier failure."
+      },
+      {
+        "channel": "bundled Chromium",
+        "version": "153.0.8010.12",
+        "pageErrors": 1,
+        "failedNavigation": "/zh/ to /zh/work/",
+        "outgoingPageswapHadTransition": true,
+        "receivingPagerevealHadTransition": false,
+        "contentNavigationCompleted": true,
+        "returnHomeReadyResolved": true,
+        "returnHomeFinishedResolved": true
+      }
+    ],
+    "preservation": "The original failed recording report and original diagnostic output were retained privately and were not overwritten by this retest."
+  },
+  "analysis": {
+    "directlyObserved": "The failed receiving document reported opt-in disabled and had no ViewTransition object in pagereveal, while the outgoing document had a transition. The native navigation still displayed the intended page.",
+    "chromiumSourceMatch": "The inspected Chromium implementation skips with kRejectInvalidState and kOptInDisabled, then returns null, when the receiving document's cross_document_opt_in_ is disabled. This matches the observed error and missing receiving object.",
+    "timingNotObserved": "The original probe did not record the exact external stylesheet download, parse or application time. An external-CSS timing race is the repair hypothesis, not a directly measured cause in that original run.",
+    "promiseBoundary": "A skipped transition can reject ready while finished resolves. Handling finished alone does not handle ready rejection, and an incoming event with no transition object cannot be repaired by attaching a later ready handler.",
+    "sources": [
+      "https://developer.chrome.com/docs/web-platform/view-transitions/cross-document",
+      "https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition/ready",
+      "https://chromium.googlesource.com/chromium/src/+/bed98a9780b75372c1974d8aa0e48f1433082e2f%5E%21/"
+    ]
+  },
+  "productChange": {
+    "files": [
+      "src/layouts/Layout.astro",
+      "src/scripts/visual-effects.ts",
+      "src/styles/spectrum.css"
+    ],
+    "details": [
+      "Move the sole @view-transition navigation:auto rule into an early inline style in Layout head, before the synchronous preference script and external stylesheet.",
+      "Register pageswap and pagereveal preference protection in the synchronous head script and handle each transition's ready rejection before an intentional skip.",
+      "Keep the enhancement module's active-transition cleanup and independently settle ready rejection and finished completion.",
+      "Keep native anchor navigation, the main-only 220ms arrival animation, static root snapshot behavior and pause/reduced-motion fallback. No global error event suppression was added."
+    ]
+  },
+  "targetedRegression": {
+    "startedAt": "2026-10-13T02:22:29.095Z",
+    "durationMs": 33171.064,
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "newCases": [
+      {
+        "testFile": "tests/site-motion.spec.ts",
+        "scenario": "Hold the external CSS response during real link navigation. Before releasing it, verify the incoming document already has a parsed inline opt-in; then verify the real transition becomes ready, main uses content-arrival, the root uses no animation, and language navigation still works.",
+        "pageErrors": 0
+      },
+      {
+        "testFile": "tests/site-motion.spec.ts",
+        "scenario": "Change the saved pause preference after outgoing handlers run and hold incoming JavaScript modules. Verify the receiving document has a real transition, its head handler calls skipTransition, main has no transition animation, and the pause remains after module release and language navigation. The test does not catch ready itself.",
+        "pageErrors": 0
+      }
+    ],
+    "existingCasesRechecked": [
+      "Native content transition with no background fade",
+      "Saved global pause across native navigation",
+      "No-JavaScript content and native links",
+      "Native history return, card input and both cached/final cleanup branches"
+    ],
+    "fullSuiteBoundary": "This was a six-case targeted run, not the complete 103-case suite. The complete suite is reported separately."
+  },
+  "afterFixMobileProbe": {
+    "method": "Replay the original diagnostic sequence in a fresh context for each browser: Chinese homepage, reduced motion on/off, theme tap, screenshot, real Work link tap, screenshot and real homepage brand tap. The probe initializes dark/unpaused storage on each new document, so it is not evidence of theme persistence across navigation.",
+    "runs": [
+      {
+        "channel": "installed Chrome",
+        "version": "154.0.8037.98",
+        "startedAt": "2026-10-13T02:23:11.011Z",
+        "lastRecordedEventAt": "2026-10-13T02:23:17.341Z",
+        "receivingTransitions": 2,
+        "readyResolved": 2,
+        "finishedResolved": 2,
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "failures": 0
+      },
+      {
+        "channel": "bundled Chromium",
+        "version": "153.0.8010.12",
+        "startedAt": "2026-10-13T02:23:19.469Z",
+        "lastRecordedEventAt": "2026-10-13T02:23:27.763Z",
+        "receivingTransitions": 2,
+        "readyResolved": 2,
+        "finishedResolved": 2,
+        "pageErrors": 0,
+        "consoleErrors": 0,
+        "failures": 0
+      }
+    ],
+    "aggregate": {
+      "receivingTransitions": 4,
+      "readyResolved": 4,
+      "finishedResolved": 4,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    "warningsRetained": [
+      "Both versions: existing THREE.Clock deprecation warning.",
+      "Bundled Chromium: ReadPixels GPU-stall and unsupported KHR_parallel_shader_compile warnings."
+    ],
+    "visualReview": "The bundled-browser homepage and Work screenshots were opened and inspected; content remained readable, with no visible horizontal overflow or blank navigation result in these two captures."
+  },
+  "evidenceBoundary": "This sanitized report contains scoped local browser observations, source-based analysis and test results. Raw timelines, traces and diagnostic screenshots remain private. Two successful probe runs do not establish an exhaustive absence of timing failures. No real-device, deployment or performance claim is made."
+}

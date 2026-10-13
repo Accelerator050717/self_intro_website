@@ -1,0 +1,2130 @@
+{
+  "phase": "after",
+  "startedAt": "2026-10-13T02:45:24.989Z",
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "passed": true,
+      "errors": [],
+      "diagnostics": [
+        {
+          "type": "console",
+          "level": "warning",
+          "elapsedMs": 2781,
+          "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+          "location": {
+            "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+            "line": 0,
+            "column": 2454,
+            "lineNumber": 0,
+            "columnNumber": 2454
+          }
+        },
+        {
+          "type": "console",
+          "level": "warning",
+          "elapsedMs": 49831,
+          "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+          "location": {
+            "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+            "line": 0,
+            "column": 2454,
+            "lineNumber": 0,
+            "columnNumber": 2454
+          }
+        }
+      ],
+      "actions": [
+        {
+          "elapsedMs": 41175,
+          "action": "click theme",
+          "initialTheme": "light",
+          "nextTheme": "dark"
+        },
+        {
+          "elapsedMs": 43435,
+          "action": "wheel",
+          "initialY": 0,
+          "finalY": 430
+        },
+        {
+          "elapsedMs": 44456,
+          "action": "wheel",
+          "initialY": 430,
+          "finalY": 530
+        },
+        {
+          "elapsedMs": 46181,
+          "action": "click internal work link",
+          "destination": "/en/work/"
+        },
+        {
+          "elapsedMs": 49952,
+          "action": "click home link",
+          "destination": "/en/"
+        }
+      ],
+      "screenshots": [
+        "docs/screenshots/avatar-interaction/after/desktop-home.png",
+        "docs/screenshots/avatar-interaction/after/desktop-idle.png",
+        "docs/screenshots/avatar-interaction/after/desktop-returned.png",
+        "docs/screenshots/avatar-interaction/after/desktop-rapid-returned.png",
+        "docs/screenshots/avatar-interaction/after/desktop-reduced-feedback.png",
+        "docs/screenshots/avatar-interaction/after/desktop-theme-switched.png",
+        "docs/screenshots/avatar-interaction/after/desktop-work-navigation.png"
+      ],
+      "scenarios": [
+        {
+          "name": "single direct person activation",
+          "completedElapsedMs": 13908,
+          "acceptedBefore": 0,
+          "acceptedAfter": 1,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "ten rapid direct inputs while busy",
+          "completedElapsedMs": 19417,
+          "acceptedBefore": 1,
+          "acceptedAfter": 2,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "repeat after idle",
+          "completedElapsedMs": 24920,
+          "acceptedBefore": 2,
+          "acceptedAfter": 3,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "keyboard Enter",
+          "completedElapsedMs": 29042,
+          "acceptedBefore": 3,
+          "acceptedAfter": 4,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "keyboard Space",
+          "completedElapsedMs": 33147,
+          "acceptedBefore": 4,
+          "acceptedAfter": 5,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "finite greeting while ambient background is paused",
+          "completedElapsedMs": 37697,
+          "acceptedBefore": 5,
+          "acceptedAfter": 6,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "reduced-motion static feedback",
+          "completedElapsedMs": 39396,
+          "acceptedBefore": 6,
+          "acceptedAfter": 7,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        }
+      ],
+      "avatarBounds": {
+        "x": 739,
+        "y": 143,
+        "width": 601,
+        "height": 645
+      },
+      "acceptedImmediatelyAfterTenInputs": 2,
+      "reducedAnnouncement": "Hey there. Glad you’re here.",
+      "events": [
+        {
+          "time": 8835.699999999255,
+          "elapsedMs": 0,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 0
+        },
+        {
+          "time": 14518.300000000745,
+          "elapsedMs": 5682.60000000149,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 1
+        },
+        {
+          "time": 14608.599999999627,
+          "elapsedMs": 5772.9000000003725,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 14685.199999999255,
+          "elapsedMs": 5849.5,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 14763,
+          "elapsedMs": 5927.300000000745,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 14836.199999999255,
+          "elapsedMs": 6000.5,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 14920.900000000373,
+          "elapsedMs": 6085.200000001118,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 15010.800000000745,
+          "elapsedMs": 6175.10000000149,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 15085.5,
+          "elapsedMs": 6249.800000000745,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 15163.699999999255,
+          "elapsedMs": 6328,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 15236.400000000373,
+          "elapsedMs": 6400.700000001118,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 20789.199999999255,
+          "elapsedMs": 11953.5,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 24951.400000000373,
+          "elapsedMs": 16115.700000001118,
+          "trusted": true,
+          "pointerType": "keyboard",
+          "detail": 0,
+          "acceptedBeforeHandler": 3
+        },
+        {
+          "time": 29050.599999999627,
+          "elapsedMs": 20214.900000000373,
+          "trusted": true,
+          "pointerType": "keyboard",
+          "detail": 0,
+          "acceptedBeforeHandler": 4
+        },
+        {
+          "time": 33617.300000000745,
+          "elapsedMs": 24781.60000000149,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 5
+        },
+        {
+          "time": 37753,
+          "elapsedMs": 28917.300000000745,
+          "trusted": true,
+          "pointerType": "mouse",
+          "detail": 1,
+          "acceptedBeforeHandler": 6
+        }
+      ],
+      "keys": [
+        {
+          "key": "Enter",
+          "repeat": false,
+          "trusted": true,
+          "time": 24948.5
+        },
+        {
+          "key": " ",
+          "repeat": false,
+          "trusted": true,
+          "time": 29048.900000000373
+        }
+      ],
+      "motionTransitions": [
+        {
+          "elapsedMs": null,
+          "state": "idle",
+          "count": 0
+        },
+        {
+          "elapsedMs": 14.600000001490116,
+          "state": "preparing",
+          "count": 1
+        },
+        {
+          "elapsedMs": 318.1000000014901,
+          "state": "raising",
+          "count": 1
+        },
+        {
+          "elapsedMs": 1150.4000000003725,
+          "state": "waving",
+          "count": 1
+        },
+        {
+          "elapsedMs": 2487.300000000745,
+          "state": "recovering",
+          "count": 1
+        },
+        {
+          "elapsedMs": 3397.4000000003725,
+          "state": "idle",
+          "count": 1
+        },
+        {
+          "elapsedMs": 5689.300000000745,
+          "state": "preparing",
+          "count": 2
+        },
+        {
+          "elapsedMs": 6017.300000000745,
+          "state": "raising",
+          "count": 2
+        },
+        {
+          "elapsedMs": 6841.300000000745,
+          "state": "waving",
+          "count": 2
+        },
+        {
+          "elapsedMs": 8189.700000001118,
+          "state": "recovering",
+          "count": 2
+        },
+        {
+          "elapsedMs": 9096.60000000149,
+          "state": "idle",
+          "count": 2
+        },
+        {
+          "elapsedMs": 11966.10000000149,
+          "state": "preparing",
+          "count": 3
+        },
+        {
+          "elapsedMs": 12282.60000000149,
+          "state": "raising",
+          "count": 3
+        },
+        {
+          "elapsedMs": 13112.900000000373,
+          "state": "waving",
+          "count": 3
+        },
+        {
+          "elapsedMs": 14461.800000000745,
+          "state": "recovering",
+          "count": 3
+        },
+        {
+          "elapsedMs": 15382.800000000745,
+          "state": "idle",
+          "count": 3
+        },
+        {
+          "elapsedMs": 16120.800000000745,
+          "state": "preparing",
+          "count": 4
+        },
+        {
+          "elapsedMs": 16450.10000000149,
+          "state": "raising",
+          "count": 4
+        },
+        {
+          "elapsedMs": 17259.300000000745,
+          "state": "waving",
+          "count": 4
+        },
+        {
+          "elapsedMs": 18640.60000000149,
+          "state": "recovering",
+          "count": 4
+        },
+        {
+          "elapsedMs": 19517.200000001118,
+          "state": "idle",
+          "count": 4
+        },
+        {
+          "elapsedMs": 20222.60000000149,
+          "state": "preparing",
+          "count": 5
+        },
+        {
+          "elapsedMs": 20542.60000000149,
+          "state": "raising",
+          "count": 5
+        },
+        {
+          "elapsedMs": 21362.800000000745,
+          "state": "waving",
+          "count": 5
+        },
+        {
+          "elapsedMs": 22740.900000000373,
+          "state": "recovering",
+          "count": 5
+        },
+        {
+          "elapsedMs": 23616.10000000149,
+          "state": "idle",
+          "count": 5
+        },
+        {
+          "elapsedMs": 24896.10000000149,
+          "state": "preparing",
+          "count": 6
+        },
+        {
+          "elapsedMs": 25104,
+          "state": "raising",
+          "count": 6
+        },
+        {
+          "elapsedMs": 25936.700000001118,
+          "state": "waving",
+          "count": 6
+        },
+        {
+          "elapsedMs": 27291.200000001118,
+          "state": "recovering",
+          "count": 6
+        },
+        {
+          "elapsedMs": 28177.400000000373,
+          "state": "idle",
+          "count": 6
+        },
+        {
+          "elapsedMs": 28919.900000000373,
+          "state": "preparing",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29002.400000000373,
+          "state": "raising",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29090.800000000745,
+          "state": "waving",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29241.200000001118,
+          "state": "recovering",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29419.5,
+          "state": "idle",
+          "count": 7
+        }
+      ],
+      "poseSamples": [
+        {
+          "time": 8850.300000000745,
+          "elapsedMs": 14.600000001490116,
+          "state": "preparing",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0.05250050914483065,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0.021993442252110484,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 9130.900000000373,
+          "elapsedMs": 295.2000000011176,
+          "state": "preparing",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 1.001529891015818,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -3.585112864691937,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.6994101081249064,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 9153.800000000745,
+          "elapsedMs": 318.1000000014901,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0.47327190404102004,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -3.960320624146313,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.7027100984529967,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 9482.900000000373,
+          "elapsedMs": 647.2000000011176,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -50.73610331756022,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -31.839526128165872,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -2.0022312912522016,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.4019436834736436,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 9837.699999999255,
+          "elapsedMs": 1002,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.85948216626257,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -84.10296772407794,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -4.951999394362487,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.6910676807352447,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 9974,
+          "elapsedMs": 1138.300000000745,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.9999982984376,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -4.999996052434918,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.7945614692171479,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 10236.199999999255,
+          "elapsedMs": 1400.5,
+          "state": "waving",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.79800995165999,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.94048697246994,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 6.008844011634462,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.562581060040336,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 10637.400000000373,
+          "elapsedMs": 1801.7000000011176,
+          "state": "waving",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.84800241623354,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.54032031649452,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -7.92467039839652,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.3064684975536154,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 11233.699999999255,
+          "elapsedMs": 2398,
+          "state": "waving",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.824377095333304,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.9999982984376,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0.5296682078645042,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.045706504815889,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 11343.800000000745,
+          "elapsedMs": 2508.10000000149,
+          "state": "recovering",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.43915106892853,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.9999982984376,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0.3748578691522007,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.9950773676433698,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 11836,
+          "elapsedMs": 3000.300000000745,
+          "state": "recovering",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -11.18747567272388,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -48.35617353084783,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.1856592305945785,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 12233.099999999627,
+          "elapsedMs": 3397.4000000003725,
+          "state": "idle",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 13326,
+          "elapsedMs": 4490.300000000745,
+          "state": "idle",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          }
+        }
+      ],
+      "finalAcceptedCount": 7,
+      "finalState": "idle",
+      "returnedHome": {
+        "path": "/en/",
+        "theme": "dark",
+        "language": "en",
+        "greetingCount": 0
+      },
+      "video": "docs/evidence/avatar-interaction-after-desktop.webm",
+      "privateMaster": ".verification/avatar-interaction/after/video/desktop-master.webm",
+      "masterBytes": 6070158,
+      "keyframes": [
+        {
+          "nominalPostInputMs": 0,
+          "actualTimerMs": 27,
+          "videoTimeMs": 7880,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-0000ms.png"
+        },
+        {
+          "nominalPostInputMs": 300,
+          "actualTimerMs": 286,
+          "videoTimeMs": 8120,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-0300ms.png"
+        },
+        {
+          "nominalPostInputMs": 320,
+          "actualTimerMs": 318,
+          "videoTimeMs": 8160,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-0320ms.png"
+        },
+        {
+          "nominalPostInputMs": 650,
+          "actualTimerMs": 640,
+          "videoTimeMs": 8480,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-0650ms.png"
+        },
+        {
+          "nominalPostInputMs": 1000,
+          "actualTimerMs": 1002,
+          "videoTimeMs": 8840,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-1000ms.png"
+        },
+        {
+          "nominalPostInputMs": 1140,
+          "actualTimerMs": 1161,
+          "videoTimeMs": 9000,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-1140ms.png"
+        },
+        {
+          "nominalPostInputMs": 1400,
+          "actualTimerMs": 1401,
+          "videoTimeMs": 9240,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-1400ms.png"
+        },
+        {
+          "nominalPostInputMs": 1800,
+          "actualTimerMs": 1802,
+          "videoTimeMs": 9640,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-1800ms.png"
+        },
+        {
+          "nominalPostInputMs": 2400,
+          "actualTimerMs": 2418,
+          "videoTimeMs": 10240,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-2400ms.png"
+        },
+        {
+          "nominalPostInputMs": 2500,
+          "actualTimerMs": 2487,
+          "videoTimeMs": 10320,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-2500ms.png"
+        },
+        {
+          "nominalPostInputMs": 3000,
+          "actualTimerMs": 3007,
+          "videoTimeMs": 10840,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-3000ms.png"
+        },
+        {
+          "nominalPostInputMs": 3400,
+          "actualTimerMs": 3388,
+          "videoTimeMs": 11240,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-3400ms.png"
+        },
+        {
+          "nominalPostInputMs": 4500,
+          "actualTimerMs": 4522,
+          "videoTimeMs": 12360,
+          "path": "docs/screenshots/avatar-interaction/after/desktop-action-4500ms.png"
+        }
+      ],
+      "videoAlignment": {
+        "method": "Read the 16-bit visible QA timer from actual encoded video frames; map the requested elapsed time to the closest recorded timer value.",
+        "recordedFrameSpacingMs": 40,
+        "maximumObservedSelectionErrorMs": 27,
+        "timerFramesUnderFiveSeconds": 125,
+        "repeatedAdjacentTimerCodes": 0,
+        "timerCaveat": "Repeated timer codes measure repeated observed rAF values; they are distinct from exact duplicate decoded image frames. The public inspection report checks exact image duplicates separately.",
+        "overlay": "Temporary 200×38 QA timer, lower-left. It only observes real trusted input and live rAF state. Omitted from clean screenshots and character crops."
+      },
+      "contactSheet": "docs/screenshots/avatar-interaction/after/desktop-action-contact-sheet.png",
+      "videoEncoding": {
+        "masterDurationMs": 49760,
+        "masterDimensions": {
+          "width": 1440,
+          "height": 1000
+        },
+        "timeCuts": false,
+        "speedChanges": false,
+        "encoderFrameDropping": false,
+        "captureLimit": "The browser recorder produces a nominal 25 fps stream and can repeat captured frames or omit intermediate browser draws. This recording does not preserve or measure every GPU-presented frame.",
+        "reencoded": true,
+        "codec": "libvpx VP8",
+        "width": 1152,
+        "height": 800,
+        "bitrate": 724899,
+        "crf": 28,
+        "deadline": "good",
+        "cpuUsed": 4,
+        "threads": 2,
+        "dropThreshold": 0,
+        "method": "Lossy spatial/bitrate re-encoding of the complete private master. All scenes and time are retained; no trims, concatenation, animation seeking or speed changes.",
+        "publicDurationMs": 49760
+      },
+      "videoBytes": 3707755,
+      "comparison": "docs/screenshots/avatar-interaction/comparison-desktop.png"
+    },
+    {
+      "profile": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "passed": true,
+      "errors": [],
+      "diagnostics": [
+        {
+          "type": "console",
+          "level": "warning",
+          "elapsedMs": 1398,
+          "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+          "location": {
+            "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+            "line": 0,
+            "column": 2454,
+            "lineNumber": 0,
+            "columnNumber": 2454
+          }
+        },
+        {
+          "type": "console",
+          "level": "warning",
+          "elapsedMs": 51049,
+          "message": "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+          "location": {
+            "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+            "line": 0,
+            "column": 2454,
+            "lineNumber": 0,
+            "columnNumber": 2454
+          }
+        }
+      ],
+      "actions": [
+        {
+          "elapsedMs": 4356,
+          "action": "touch drag",
+          "initialY": 0,
+          "finalY": 417
+        },
+        {
+          "elapsedMs": 29863,
+          "action": "touch drag",
+          "initialY": 417,
+          "finalY": 15
+        },
+        {
+          "elapsedMs": 30725,
+          "action": "touch drag",
+          "initialY": 0,
+          "finalY": 417
+        },
+        {
+          "elapsedMs": 38844,
+          "action": "touch drag",
+          "initialY": 417,
+          "finalY": 15
+        },
+        {
+          "elapsedMs": 40474,
+          "action": "tap theme",
+          "initialTheme": "dark",
+          "nextTheme": "light"
+        },
+        {
+          "elapsedMs": 42549,
+          "action": "touch drag",
+          "initialY": 0,
+          "finalY": 415
+        },
+        {
+          "elapsedMs": 43939,
+          "action": "touch drag",
+          "initialY": 415,
+          "finalY": 358
+        },
+        {
+          "elapsedMs": 45536,
+          "action": "tap internal work link",
+          "destination": "/zh/work/"
+        },
+        {
+          "elapsedMs": 51223,
+          "action": "tap home link",
+          "destination": "/zh/"
+        }
+      ],
+      "screenshots": [
+        "docs/screenshots/avatar-interaction/after/mobile-home.png",
+        "docs/screenshots/avatar-interaction/after/mobile-idle.png",
+        "docs/screenshots/avatar-interaction/after/mobile-returned.png",
+        "docs/screenshots/avatar-interaction/after/mobile-rapid-returned.png",
+        "docs/screenshots/avatar-interaction/after/mobile-reduced-feedback.png",
+        "docs/screenshots/avatar-interaction/after/mobile-theme-switched.png",
+        "docs/screenshots/avatar-interaction/after/mobile-work-navigation.png"
+      ],
+      "scenarios": [
+        {
+          "name": "single direct person activation",
+          "completedElapsedMs": 10916,
+          "acceptedBefore": 0,
+          "acceptedAfter": 1,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "ten rapid direct inputs while busy",
+          "completedElapsedMs": 16202,
+          "acceptedBefore": 1,
+          "acceptedAfter": 2,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "repeat after idle",
+          "completedElapsedMs": 20757,
+          "acceptedBefore": 2,
+          "acceptedAfter": 3,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "keyboard Enter",
+          "completedElapsedMs": 24870,
+          "acceptedBefore": 3,
+          "acceptedAfter": 4,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "keyboard Space",
+          "completedElapsedMs": 28985,
+          "acceptedBefore": 4,
+          "acceptedAfter": 5,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "finite greeting while ambient background is paused",
+          "completedElapsedMs": 34895,
+          "acceptedBefore": 5,
+          "acceptedAfter": 6,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        },
+        {
+          "name": "reduced-motion static feedback",
+          "completedElapsedMs": 36394,
+          "acceptedBefore": 6,
+          "acceptedAfter": 7,
+          "expectedDelta": 1,
+          "finalState": "idle"
+        }
+      ],
+      "avatarBounds": {
+        "x": 7,
+        "y": 144.9375,
+        "width": 376,
+        "height": 445
+      },
+      "acceptedImmediatelyAfterTenInputs": 2,
+      "reducedAnnouncement": "你好，很高兴在这里遇见你。",
+      "events": [
+        {
+          "time": 5866.9000000003725,
+          "elapsedMs": 0,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 0
+        },
+        {
+          "time": 11254.599999999627,
+          "elapsedMs": 5387.699999999255,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 1
+        },
+        {
+          "time": 11350,
+          "elapsedMs": 5483.0999999996275,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 2,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11433.699999999255,
+          "elapsedMs": 5566.799999998882,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 3,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11532.400000000373,
+          "elapsedMs": 5665.5,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11615,
+          "elapsedMs": 5748.0999999996275,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 2,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11705,
+          "elapsedMs": 5838.0999999996275,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 3,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11804.299999998882,
+          "elapsedMs": 5937.39999999851,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11888,
+          "elapsedMs": 6021.0999999996275,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 2,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 11970.199999999255,
+          "elapsedMs": 6103.299999998882,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 3,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 12053.599999999627,
+          "elapsedMs": 6186.699999999255,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 16666.599999999627,
+          "elapsedMs": 10799.699999999255,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 2
+        },
+        {
+          "time": 20778.599999999627,
+          "elapsedMs": 14911.699999999255,
+          "trusted": true,
+          "pointerType": "keyboard",
+          "detail": 0,
+          "acceptedBeforeHandler": 3
+        },
+        {
+          "time": 24890.699999999255,
+          "elapsedMs": 19023.799999998882,
+          "trusted": true,
+          "pointerType": "keyboard",
+          "detail": 0,
+          "acceptedBeforeHandler": 4
+        },
+        {
+          "time": 30812.699999999255,
+          "elapsedMs": 24945.799999998882,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 5
+        },
+        {
+          "time": 34946.90000000037,
+          "elapsedMs": 29080,
+          "trusted": true,
+          "pointerType": "touch",
+          "detail": 1,
+          "acceptedBeforeHandler": 6
+        }
+      ],
+      "keys": [
+        {
+          "key": "Enter",
+          "repeat": false,
+          "trusted": true,
+          "time": 20776.799999998882
+        },
+        {
+          "key": " ",
+          "repeat": false,
+          "trusted": true,
+          "time": 24888
+        }
+      ],
+      "motionTransitions": [
+        {
+          "elapsedMs": null,
+          "state": "idle",
+          "count": 0
+        },
+        {
+          "elapsedMs": 15.5,
+          "state": "preparing",
+          "count": 1
+        },
+        {
+          "elapsedMs": 319.2999999988824,
+          "state": "raising",
+          "count": 1
+        },
+        {
+          "elapsedMs": 1147.699999999255,
+          "state": "waving",
+          "count": 1
+        },
+        {
+          "elapsedMs": 2497.7999999988824,
+          "state": "recovering",
+          "count": 1
+        },
+        {
+          "elapsedMs": 3397.7999999988824,
+          "state": "idle",
+          "count": 1
+        },
+        {
+          "elapsedMs": 5393.199999999255,
+          "state": "preparing",
+          "count": 2
+        },
+        {
+          "elapsedMs": 5716,
+          "state": "raising",
+          "count": 2
+        },
+        {
+          "elapsedMs": 6533.39999999851,
+          "state": "waving",
+          "count": 2
+        },
+        {
+          "elapsedMs": 7895.799999998882,
+          "state": "recovering",
+          "count": 2
+        },
+        {
+          "elapsedMs": 8795.799999998882,
+          "state": "idle",
+          "count": 2
+        },
+        {
+          "elapsedMs": 10804.299999998882,
+          "state": "preparing",
+          "count": 3
+        },
+        {
+          "elapsedMs": 11123,
+          "state": "raising",
+          "count": 3
+        },
+        {
+          "elapsedMs": 11945.39999999851,
+          "state": "waving",
+          "count": 3
+        },
+        {
+          "elapsedMs": 13301.199999999255,
+          "state": "recovering",
+          "count": 3
+        },
+        {
+          "elapsedMs": 14202.599999999627,
+          "state": "idle",
+          "count": 3
+        },
+        {
+          "elapsedMs": 14916.39999999851,
+          "state": "preparing",
+          "count": 4
+        },
+        {
+          "elapsedMs": 15249.599999999627,
+          "state": "raising",
+          "count": 4
+        },
+        {
+          "elapsedMs": 16069.799999998882,
+          "state": "waving",
+          "count": 4
+        },
+        {
+          "elapsedMs": 17419.099999999627,
+          "state": "recovering",
+          "count": 4
+        },
+        {
+          "elapsedMs": 18315.599999999627,
+          "state": "idle",
+          "count": 4
+        },
+        {
+          "elapsedMs": 19042.5,
+          "state": "preparing",
+          "count": 5
+        },
+        {
+          "elapsedMs": 19339.699999999255,
+          "state": "raising",
+          "count": 5
+        },
+        {
+          "elapsedMs": 20166.39999999851,
+          "state": "waving",
+          "count": 5
+        },
+        {
+          "elapsedMs": 21539.199999999255,
+          "state": "recovering",
+          "count": 5
+        },
+        {
+          "elapsedMs": 22431.299999998882,
+          "state": "idle",
+          "count": 5
+        },
+        {
+          "elapsedMs": 24951.39999999851,
+          "state": "preparing",
+          "count": 6
+        },
+        {
+          "elapsedMs": 25265.799999998882,
+          "state": "raising",
+          "count": 6
+        },
+        {
+          "elapsedMs": 26092.699999999255,
+          "state": "waving",
+          "count": 6
+        },
+        {
+          "elapsedMs": 27492,
+          "state": "recovering",
+          "count": 6
+        },
+        {
+          "elapsedMs": 28391.799999998882,
+          "state": "idle",
+          "count": 6
+        },
+        {
+          "elapsedMs": 29082.699999999255,
+          "state": "preparing",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29165.799999998882,
+          "state": "raising",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29243.599999999627,
+          "state": "waving",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29404.799999998882,
+          "state": "recovering",
+          "count": 7
+        },
+        {
+          "elapsedMs": 29582.89999999851,
+          "state": "idle",
+          "count": 7
+        }
+      ],
+      "poseSamples": [
+        {
+          "time": 5882.4000000003725,
+          "elapsedMs": 15.5,
+          "state": "preparing",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0.005668466254385608,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0.0023426066990224225,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 6169.799999998882,
+          "elapsedMs": 302.8999999985099,
+          "state": "preparing",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 1.0087844315866288,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -3.4459828893160904,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.6966135827565745,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 6186.199999999255,
+          "elapsedMs": 319.2999999988824,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0.8806019506657932,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -3.8240698552946784,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.7004356264505565,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 6514.299999998882,
+          "elapsedMs": 647.3999999985099,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -50.10697671265865,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -27.624486925721428,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -1.9986693914809721,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.3788420411620974,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 6864.5,
+          "elapsedMs": 997.5999999996275,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.736487129208406,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -83.14466124658449,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -4.889475016913052,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.6692673034426757,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 7005.0999999996275,
+          "elapsedMs": 1138.199999999255,
+          "state": "raising",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.9999982984376,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -4.999996052434918,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.789615678884988,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 7270.799999998882,
+          "elapsedMs": 1403.8999999985099,
+          "state": "waving",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.82737514478744,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.95131857904799,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 4.953339295126678,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.580802684458033,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 7664.4000000003725,
+          "elapsedMs": 1797.5,
+          "state": "waving",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.806183993516505,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.52605220095937,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -8.862806110595681,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.2945933693413625,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 8264.699999999255,
+          "elapsedMs": 2397.7999999988824,
+          "state": "waving",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.77622963972061,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.9999982984376,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -0.06604602775314769,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.059785915178666,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 8364.699999999255,
+          "elapsedMs": 2497.7999999988824,
+          "state": "recovering",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -63.977559315090204,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -85.9999982984376,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0.9594223692608025,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.999775906944847,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 8864.799999998882,
+          "elapsedMs": 2997.89999999851,
+          "state": "recovering",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -12.566580043383022,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -53.565623014195964,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.22537874592209647,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 9264.699999999255,
+          "elapsedMs": 3397.7999999988824,
+          "state": "idle",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          }
+        },
+        {
+          "time": 10363.699999999255,
+          "elapsedMs": 4496.799999998882,
+          "state": "idle",
+          "count": 1,
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          }
+        }
+      ],
+      "finalAcceptedCount": 7,
+      "finalState": "idle",
+      "returnedHome": {
+        "path": "/zh/",
+        "theme": "light",
+        "language": "zh",
+        "greetingCount": 0
+      },
+      "video": "docs/evidence/avatar-interaction-after-mobile.webm",
+      "privateMaster": ".verification/avatar-interaction/after/video/mobile-master.webm",
+      "masterBytes": 5728476,
+      "keyframes": [
+        {
+          "nominalPostInputMs": 0,
+          "actualTimerMs": 37,
+          "videoTimeMs": 5920,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-0000ms.png"
+        },
+        {
+          "nominalPostInputMs": 300,
+          "actualTimerMs": 286,
+          "videoTimeMs": 6160,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-0300ms.png"
+        },
+        {
+          "nominalPostInputMs": 320,
+          "actualTimerMs": 325,
+          "videoTimeMs": 6200,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-0320ms.png"
+        },
+        {
+          "nominalPostInputMs": 650,
+          "actualTimerMs": 642,
+          "videoTimeMs": 6520,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-0650ms.png"
+        },
+        {
+          "nominalPostInputMs": 1000,
+          "actualTimerMs": 998,
+          "videoTimeMs": 6880,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-1000ms.png"
+        },
+        {
+          "nominalPostInputMs": 1140,
+          "actualTimerMs": 1166,
+          "videoTimeMs": 7040,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-1140ms.png"
+        },
+        {
+          "nominalPostInputMs": 1400,
+          "actualTimerMs": 1381,
+          "videoTimeMs": 7280,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-1400ms.png"
+        },
+        {
+          "nominalPostInputMs": 1800,
+          "actualTimerMs": 1809,
+          "videoTimeMs": 7680,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-1800ms.png"
+        },
+        {
+          "nominalPostInputMs": 2400,
+          "actualTimerMs": 2409,
+          "videoTimeMs": 8280,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-2400ms.png"
+        },
+        {
+          "nominalPostInputMs": 2500,
+          "actualTimerMs": 2487,
+          "videoTimeMs": 8360,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-2500ms.png"
+        },
+        {
+          "nominalPostInputMs": 3000,
+          "actualTimerMs": 2998,
+          "videoTimeMs": 8880,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-3000ms.png"
+        },
+        {
+          "nominalPostInputMs": 3400,
+          "actualTimerMs": 3398,
+          "videoTimeMs": 9280,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-3400ms.png"
+        },
+        {
+          "nominalPostInputMs": 4500,
+          "actualTimerMs": 4517,
+          "videoTimeMs": 10400,
+          "path": "docs/screenshots/avatar-interaction/after/mobile-action-4500ms.png"
+        }
+      ],
+      "videoAlignment": {
+        "method": "Read the 16-bit visible QA timer from actual encoded video frames; map the requested elapsed time to the closest recorded timer value.",
+        "recordedFrameSpacingMs": 40,
+        "maximumObservedSelectionErrorMs": 37,
+        "timerFramesUnderFiveSeconds": 125,
+        "repeatedAdjacentTimerCodes": 0,
+        "timerCaveat": "Repeated timer codes measure repeated observed rAF values; they are distinct from exact duplicate decoded image frames. The public inspection report checks exact image duplicates separately.",
+        "overlay": "Temporary 200×38 QA timer, lower-left. It only observes real trusted input and live rAF state. Omitted from clean screenshots and character crops."
+      },
+      "contactSheet": "docs/screenshots/avatar-interaction/after/mobile-action-contact-sheet.png",
+      "videoEncoding": {
+        "masterDurationMs": 52160,
+        "masterDimensions": {
+          "width": 390,
+          "height": 844
+        },
+        "timeCuts": false,
+        "speedChanges": false,
+        "encoderFrameDropping": false,
+        "captureLimit": "The browser recorder produces a nominal 25 fps stream and can repeat captured frames or omit intermediate browser draws. This recording does not preserve or measure every GPU-presented frame.",
+        "reencoded": true,
+        "codec": "libvpx VP8",
+        "width": 390,
+        "height": 844,
+        "bitrate": 691545,
+        "crf": 28,
+        "deadline": "good",
+        "cpuUsed": 4,
+        "threads": 2,
+        "dropThreshold": 0,
+        "method": "Lossy spatial/bitrate re-encoding of the complete private master. All scenes and time are retained; no trims, concatenation, animation seeking or speed changes.",
+        "publicDurationMs": 52160
+      },
+      "videoBytes": 2310249,
+      "comparison": "docs/screenshots/avatar-interaction/comparison-mobile.png"
+    }
+  ],
+  "staticScreenshots": [
+    {
+      "lang": "en",
+      "theme": "light",
+      "file": "docs/screenshots/avatar-interaction/after/home-en-light.png",
+      "qaOverlay": false
+    },
+    {
+      "lang": "en",
+      "theme": "dark",
+      "file": "docs/screenshots/avatar-interaction/after/home-en-dark.png",
+      "qaOverlay": false
+    },
+    {
+      "lang": "zh",
+      "theme": "light",
+      "file": "docs/screenshots/avatar-interaction/after/home-zh-light.png",
+      "qaOverlay": false
+    },
+    {
+      "lang": "zh",
+      "theme": "dark",
+      "file": "docs/screenshots/avatar-interaction/after/home-zh-dark.png",
+      "qaOverlay": false
+    }
+  ],
+  "method": "Real-time browser recording of trusted person clicks/taps/keyboard activations. No animation seeking or playback-rate changes. An explicitly labelled temporary QA timer is added only to the recording DOM, with a binary time code for offline frame alignment. Clean screenshots hide or omit that overlay.",
+  "timingLimit": "After zero is the trusted person click event; the QA timer is painted on rAF and sampled by the 25 fps browser recorder. Before zero is the first visible old greeting bubble. The same nominal elapsed times are requested, but repeated recorder frames and delayed rAF can produce selection errors larger than the nominal 40 ms frame spacing; actual decoded times and maximum errors are reported. This is not an input-latency measurement.",
+  "deviceLimit": "Chrome desktop and touch/mobile viewport emulation on the workstation. Mobile keyboard coverage uses browser-dispatched physical-keyboard events, not a physical phone or on-screen keyboard.",
+  "expectedPhasesMs": {
+    "preparing": [
+      0,
+      320
+    ],
+    "raising": [
+      320,
+      1140
+    ],
+    "waving": [
+      1140,
+      2500
+    ],
+    "recovering": [
+      2500,
+      3400
+    ]
+  },
+  "browser": "154.0.8037.98",
+  "finishedAt": "2026-10-13T02:48:19.473Z"
+}

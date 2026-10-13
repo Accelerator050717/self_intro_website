@@ -1,0 +1,163 @@
+{
+  "createdAt": "2026-10-13T02:48:44.167Z",
+  "method": "Decode the published, possibly re-encoded WebM. Inspect every encoded 25 fps frame of the first 3.48-second gesture in shoulder/elbow/wrist contact sheets; also inspect full-character keyframes and full-video scene samples. No new browser session.",
+  "profiles": [
+    {
+      "profile": "desktop",
+      "video": "docs/evidence/avatar-interaction-after-desktop.webm",
+      "publicDimensions": {
+        "width": 1152,
+        "height": 800
+      },
+      "durationMs": 49760,
+      "fullGestureFrames": 87,
+      "firstFrameVideoMs": 7880,
+      "jointSheets": [
+        "docs/screenshots/avatar-interaction/after/public-desktop-joints-1.png",
+        "docs/screenshots/avatar-interaction/after/public-desktop-joints-2.png",
+        "docs/screenshots/avatar-interaction/after/public-desktop-joints-3.png",
+        "docs/screenshots/avatar-interaction/after/public-desktop-joints-4.png",
+        "docs/screenshots/avatar-interaction/after/public-desktop-joints-5.png"
+      ],
+      "poseSheet": "docs/screenshots/avatar-interaction/after/public-desktop-poses.png",
+      "timelineSheet": "docs/screenshots/avatar-interaction/after/public-desktop-timeline.png",
+      "visuallyInspected": true,
+      "duplicateStats": {
+        "method": "Exact SHA-256 equality of decoded RGB images for the sampled 87 encoded video frames; this measures repeated captured images, not GPU presentation or lost browser draws.",
+        "fullFrameAdjacentRepeats": 0,
+        "jointCropAdjacentRepeats": 0,
+        "maxFullFrameRun": 1,
+        "maxJointCropRun": 1
+      },
+      "visualPassed": true,
+      "actualThirteenElapsedMs": [
+        27,
+        286,
+        318,
+        640,
+        1002,
+        1161,
+        1401,
+        1802,
+        2418,
+        2487,
+        3007,
+        3388,
+        4522
+      ],
+      "nominalThirteenElapsedMs": [
+        0,
+        300,
+        320,
+        650,
+        1000,
+        1140,
+        1400,
+        1800,
+        2400,
+        2500,
+        3000,
+        3400,
+        4500
+      ],
+      "maximumSelectionErrorMs": 27,
+      "timerFramesUnderFiveSeconds": 125,
+      "repeatedAdjacentTimerCodes": 0,
+      "returnedHome": {
+        "path": "/en/",
+        "theme": "dark",
+        "language": "en",
+        "greetingCount": 0
+      },
+      "publicBytes": 3707755,
+      "sameDurationAsMaster": true
+    },
+    {
+      "profile": "mobile",
+      "video": "docs/evidence/avatar-interaction-after-mobile.webm",
+      "publicDimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "durationMs": 52160,
+      "fullGestureFrames": 87,
+      "firstFrameVideoMs": 5920,
+      "jointSheets": [
+        "docs/screenshots/avatar-interaction/after/public-mobile-joints-1.png",
+        "docs/screenshots/avatar-interaction/after/public-mobile-joints-2.png",
+        "docs/screenshots/avatar-interaction/after/public-mobile-joints-3.png",
+        "docs/screenshots/avatar-interaction/after/public-mobile-joints-4.png",
+        "docs/screenshots/avatar-interaction/after/public-mobile-joints-5.png"
+      ],
+      "poseSheet": "docs/screenshots/avatar-interaction/after/public-mobile-poses.png",
+      "timelineSheet": "docs/screenshots/avatar-interaction/after/public-mobile-timeline.png",
+      "visuallyInspected": true,
+      "duplicateStats": {
+        "method": "Exact SHA-256 equality of decoded RGB images for the sampled 87 encoded video frames; this measures repeated captured images, not GPU presentation or lost browser draws.",
+        "fullFrameAdjacentRepeats": 0,
+        "jointCropAdjacentRepeats": 0,
+        "maxFullFrameRun": 1,
+        "maxJointCropRun": 1
+      },
+      "visualPassed": true,
+      "actualThirteenElapsedMs": [
+        37,
+        286,
+        325,
+        642,
+        998,
+        1166,
+        1381,
+        1809,
+        2409,
+        2487,
+        2998,
+        3398,
+        4517
+      ],
+      "nominalThirteenElapsedMs": [
+        0,
+        300,
+        320,
+        650,
+        1000,
+        1140,
+        1400,
+        1800,
+        2400,
+        2500,
+        3000,
+        3400,
+        4500
+      ],
+      "maximumSelectionErrorMs": 37,
+      "timerFramesUnderFiveSeconds": 125,
+      "repeatedAdjacentTimerCodes": 0,
+      "returnedHome": {
+        "path": "/zh/",
+        "theme": "light",
+        "language": "zh",
+        "greetingCount": 0
+      },
+      "publicBytes": 2310249,
+      "sameDurationAsMaster": true
+    }
+  ],
+  "inspectedAt": "2026-10-13T02:51:16.759Z",
+  "browser": "154.0.8037.98",
+  "criteria": [
+    "Shoulder, elbow and wrist remain connected in every reviewed encoded first-gesture frame; no duplicate hand, open sleeve hole or persistent residual arm was visible.",
+    "Head, pale-blue hair, clothing and shoes retain the supplied character identity. The hand lifts beside the face, changes wrist pose and returns to the neutral silhouette.",
+    "Thirteen full-character poses per profile and eleven full-video scene samples were viewed, including keyboard focus, paused/reduced-motion portions and theme/navigation ending.",
+    "Four clean locale/theme screenshots and both before/after contact sheets were viewed. Clean screenshots contain no QA timer overlay."
+  ],
+  "limitations": [
+    "Visual review covers every one of 87 encoded frames in the first 3.48-second gesture per profile plus selected full-video scenes; it does not inspect every encoded frame of the entire video.",
+    "The recording is nominally 25 fps (40 ms spacing). The decoded QA timer values below are actual selections, not a guarantee of 40 ms precision or input latency.",
+    "The browser recorder can repeat captured frames or omit intermediate browser draws. Zero exact decoded RGB repeats does not prove that all GPU-presented frames were captured: the changing background and lossy encoder can alter pixels independently.",
+    "Lossy VP8 compression produces occasional brief soft/blocky frames, especially near recovery. Connected anatomy and the final rest pose remain readable; the public video is not lossless.",
+    "A visible focus ring during keyboard interaction is the intended accessibility state. The QA timer is a temporary recording overlay, not website UI.",
+    "The mobile profile uses desktop Chrome touch/viewport emulation. Keyboard evidence in that profile is an emulated external keyboard, not a physical mobile device."
+  ],
+  "passed": true
+}

@@ -1,11 +1,15 @@
-import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { BufferGeometry, CylinderGeometry, InstancedMesh, LineBasicMaterial, Matrix4, MeshBasicMaterial, MeshPhysicalMaterial, SphereGeometry, Vector3 } from 'three';
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useThree, type ThreeEvent } from '@react-three/fiber';
+import { BufferGeometry, Color, CylinderGeometry, Group, InstancedMesh, LineBasicMaterial, Matrix4, MeshBasicMaterial, MeshPhysicalMaterial, SphereGeometry, Vector3 } from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 export type BrickKind = '2x2' | '2x4';
 
 const BODY_HEIGHT = 0.5;
 const STUD_PITCH = 0.46;
+// Decorative lines use Three's wide default line-hit threshold. Let the solid
+// body/studs determine the local hit point instead of catching a distant rim.
+const ignoreDecorativeRaycast = () => {};
 
 function createGeometries() {
   const rim = (columns: number) => {
@@ -47,7 +51,6 @@ function createMaterials(dark: boolean) {
     veinMaterial: new LineBasicMaterial({ color: dark ? '#b6eff7' : '#c6f1f9' }),
     blue: material(dark ? '#bfeefa' : '#dffaff', 0.06, '#74dceb'),
     pale: material(dark ? '#d5e3fa' : '#e8f0ff', 0.075, '#a4c5ef'),
-    highlight: material('#edfaff', 0.055, '#89e2f0'),
   };
 }
 type Resources = ReturnType<typeof createGeometries> & ReturnType<typeof createMaterials>;
@@ -68,14 +71,51 @@ export default function IceBrick({ kind = '2x4', position = [0, 0, 0], rotation 
 }) {
   const resources = useContext(BrickResources);
   if (!resources) throw new Error('IceBrick needs IceBrickResources');
+  const invalidate = useThree(state => state.invalidate);
+  const group = useRef<Group>(null);
   const studs = useRef<InstancedMesh>(null);
   const [hovered, setHovered] = useState(false);
   const columns = kind === '2x4' ? 4 : 2;
-  const material = hovered && interactive ? resources.highlight : pale ? resources.pale : resources.blue;
+  const baseMaterial = pale ? resources.pale : resources.blue;
+  const localPoint = useMemo(() => new Vector3(), []);
+  const highlight = useMemo(() => {
+    const result = baseMaterial.clone();
+    result.color.lerp(new Color('#ebfbff'), 0.16);
+    result.roughness = Math.max(0.025, baseMaterial.roughness * 0.64);
+    return result;
+  }, [baseMaterial]);
+  useEffect(() => () => highlight.dispose(), [highlight]);
+  const material = hovered && interactive ? highlight : baseMaterial;
+  const resetHover = useCallback(() => {
+    setHovered(false);
+    if (group.current) {
+      group.current.position.y = position[1];
+      group.current.rotation.set(0, rotation, 0);
+    }
+    invalidate();
+  }, [position[1], rotation, invalidate]);
+  useEffect(() => { if (!interactive) resetHover(); }, [interactive, resetHover]);
+
+  function moveHighlight(event: ThreeEvent<PointerEvent>) {
+    if (!interactive || event.pointerType !== 'mouse' || !group.current) return;
+    event.stopPropagation();
+    if (!hovered) setHovered(true);
+    group.current.worldToLocal(localPoint.copy(event.point));
+    const x = Math.max(-1, Math.min(1, localPoint.x / (STUD_PITCH * columns / 2)));
+    const z = Math.max(-1, Math.min(1, localPoint.z / STUD_PITCH));
+    // A bounded rigid tilt and specular change follow the local hit point.
+    // Only pointer events invalidate; no animation loop continues after a move.
+    group.current.rotation.x = z * 0.018;
+    group.current.rotation.z = -x * 0.022;
+    // With scene.environment Three uses scene.environmentIntensity rather than
+    // material.envMapIntensity. Roughness is a genuinely local material uniform.
+    highlight.roughness = Math.max(0.025, baseMaterial.roughness * (0.64 - x * 0.1));
+    invalidate();
+  }
   useEffect(() => {
     const instance = studs.current;
     return () => instance?.dispose();
-  }, [resources.stud, material]);
+  }, [resources.stud, resources.blue, columns]);
   useLayoutEffect(() => {
     if (!studs.current) return;
     const matrix = new Matrix4();
@@ -87,16 +127,18 @@ export default function IceBrick({ kind = '2x4', position = [0, 0, 0], rotation 
     }
     studs.current.instanceMatrix.needsUpdate = true;
     studs.current.computeBoundingSphere();
-  }, [columns, resources.stud, material]);
-  return <group position={[position[0], position[1] + (hovered && interactive ? 0.055 : 0), position[2]]} rotation={[0, rotation, 0]} scale={scale} dispose={null}
-    onPointerOver={interactive ? () => setHovered(true) : undefined}
-    onPointerOut={interactive ? () => setHovered(false) : undefined}>
+  }, [columns, resources.stud, resources.blue]);
+  return <group ref={group} position={[position[0], position[1] + (hovered && interactive ? 0.055 : 0), position[2]]} rotation={[0, rotation, 0]} scale={scale} dispose={null}
+    onPointerOver={interactive ? moveHighlight : undefined}
+    onPointerMove={interactive ? moveHighlight : undefined}
+    onPointerOut={interactive ? resetHover : undefined}
+    onPointerCancel={interactive ? resetHover : undefined}>
     <mesh geometry={kind === '2x4' ? resources.long : resources.square} material={material} castShadow receiveShadow />
-    <lineLoop geometry={kind === '2x4' ? resources.longRim : resources.squareRim} material={resources.rimMaterial} position={[0, BODY_HEIGHT / 2 - 0.022, 0]} />
+    <lineLoop geometry={kind === '2x4' ? resources.longRim : resources.squareRim} material={resources.rimMaterial} position={[0, BODY_HEIGHT / 2 - 0.022, 0]} raycast={ignoreDecorativeRaycast} />
     <mesh geometry={resources.bubble} material={resources.bubbleMaterial} position={[columns * 0.066, -0.045, 0.31]} />
     <mesh geometry={resources.bubble} material={resources.bubbleMaterial} position={[columns * 0.075, 0.02, 0.295]} scale={0.48} />
     <mesh geometry={resources.bubble} material={resources.bubbleMaterial} position={[-columns * 0.07, 0.07, 0.26]} scale={0.7} />
-    <lineSegments geometry={resources.vein} material={resources.veinMaterial} scale={[columns / 4, 1, 1]} />
-    <instancedMesh ref={studs} args={[resources.stud, material, columns * 2]} castShadow receiveShadow />
+    <lineSegments geometry={resources.vein} material={resources.veinMaterial} scale={[columns / 4, 1, 1]} raycast={ignoreDecorativeRaycast} />
+    <instancedMesh ref={studs} args={[resources.stud, resources.blue, columns * 2]} material={material} castShadow receiveShadow />
   </group>;
 }

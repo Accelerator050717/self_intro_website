@@ -116,11 +116,6 @@
     background: radial-gradient(ellipse at 32% 62%, #20a5d426, transparent 60%), radial-gradient(ellipse at 74% 32%, #767de32e, transparent 55%);
   }
   .person-wrap { z-index: 3; }
-  .hello-button, .animation-toggle {
-    background: color-mix(in srgb, var(--surface) 94%, transparent);
-    border-color: color-mix(in srgb, var(--ice) 60%, var(--line));
-    box-shadow: 0 4px 12px #1536600a;
-  }
   @keyframes glacial-drift {
     from { transform: translate(-6px, 3px) rotate(-3deg); opacity: .7; }
     to { transform: translate(9px, -8px) rotate(3deg); opacity: 1; }
@@ -147,6 +142,14 @@
     transition: transform var(--motion-settle) var(--ease-out);
     border-radius: inherit;
   }
+  .project-art-link .spectrum-illustration {
+    transform: translate3d(var(--art-shift-x, 0px), var(--art-shift-y, 0px), 0);
+    transition: transform 220ms var(--ease-out);
+  }
+  .project-art-link[data-tracking='true'] .project-art,
+  .project-art-link[data-tracking='true'] .spectrum-illustration {
+    transition-duration: 160ms;
+  }
   .project-art-link::after {
     content: '';
     position: absolute;
@@ -163,6 +166,7 @@
     box-shadow: inset 0 0 0 1px #b4eaff50;
   }
   .project-art-link[data-tracking='true']::after { opacity: 1; }
+  .project-art-link:focus-visible::after { opacity: .55; }
   .project-art-link:focus-visible { outline-offset: 5px; }
   .project-open {
     z-index: 2;
@@ -178,6 +182,19 @@
   .text-link svg { transition: transform var(--motion-fast) var(--ease-out); }
   .text-link:hover svg { transform: translateX(3px); }
   .experience-row { border-color: color-mix(in srgb, var(--line) 85%, transparent); }
+  .filter-button {
+    transition: background-color var(--motion-fast), border-color var(--motion-fast), color var(--motion-fast);
+  }
+  .filter-button:focus-visible { outline-offset: 4px; }
+  .project-aside nav a {
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: color var(--motion-fast), border-color var(--motion-fast);
+  }
+  .project-aside nav a[aria-current='location'] {
+    border-left-color: var(--accent);
+    color: var(--accent);
+  }
 
   /* A quiet closing light field. It does not animate or enter printed résumés. */
   .contact-section {
@@ -234,10 +251,15 @@
     .spectral-glow { animation: none; }
   }
   @media (prefers-reduced-motion: reduce), (hover: none) {
-    .project-art-link .project-art { transform: none; }
+    .project-art-link .project-art,
+    .project-art-link .spectrum-illustration { transform: none; }
     .project-art-link::after { display: none; }
   }
-  [data-motion='still'] .project-art-link .project-art { transform: none; }
+  [data-motion='still'] .project-art-link .project-art,
+  [data-motion='still'] .project-art-link .spectrum-illustration { transform: none; transition: none; }
+  [data-motion='still'] .project-art-link::after { transition: none; }
+  [data-motion='still'] .filter-button,
+  [data-motion='still'] .project-aside nav a { transition: none; }
   [data-motion='still'] .spectral-glow { animation-play-state: paused; }
   [data-motion='still'] .button:hover,
   [data-motion='still'] .button:active,
@@ -251,6 +273,39 @@
       --line: #bbb;
     }
     .exhibit-halo, .contact-section::before { display: none; }
+    .project-art-link .project-art,
+    .project-art-link .spectrum-illustration { transform: none; transition: none; }
+    .project-art-link::after { display: none; }
     [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+}
+
+/* Progressive cross-document navigation. Native anchors are never intercepted.
+   The opt-in is parser-time CSS in Layout's head. Only main content is named:
+   no second wave layer, background fade, or wash. */
+
+@supports (view-transition-name: page-content) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    [data-motion='enabled'] main { view-transition-name: page-content; }
+  }
+
+  ::view-transition { pointer-events: none; }
+  ::view-transition-group(root),
+  ::view-transition-new(root),
+  ::view-transition-group(page-content) { animation: none; }
+  ::view-transition-old(root),
+  ::view-transition-old(page-content) { display: none; }
+  ::view-transition-new(page-content) {
+    animation: content-arrival 220ms cubic-bezier(.22, 1, .36, 1) both;
+  }
+  @keyframes content-arrival {
+    from { opacity: .72; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  [data-motion='still']::view-transition-new(page-content) { animation: none; }
+  @media (prefers-reduced-motion: reduce), print {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) { animation: none !important; }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "round": "avatar-interaction",
+  "method": "Keep failed or superseded raw evidence private; publish the final complete recording and a factual failure history. No product error was filtered from the recording pass criteria.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "failed",
+      "reason": "An actual unhandled native ViewTransition pageerror occurred during mobile navigation: Transition was aborted because of invalid state. ViewTransition opt-in disabled.",
+      "recordingBrowser": "Chrome 154.0.8037.98",
+      "diagnosticBrowser": "Chromium 153.0.8010.12",
+      "evidence": "The failed report, desktop/mobile masters and native-transition probe remain in an ignored private attempt directory. The diagnostic browser also reproduced the native pageerror. Product navigation handling was subsequently corrected by the main task and separately regression-tested.",
+      "probeLimit": "The probe did not observe the outgoing ready/finished settlement before the outgoing context disappeared, and did not capture destination CSSRules timing. It cannot establish that outgoing rejection was handled."
+    },
+    {
+      "attempt": 2,
+      "status": "superseded",
+      "reason": "The recorder init script reset theme storage on every new document. Gesture inputs passed and there were no pageerrors, but the final navigation scene reverted to the profile's initial theme. This was a capture-initialization error, not a product regression.",
+      "correction": "The recorder now writes initial theme/pause settings only when the storage key is absent, then asserts the selected theme and locale survive Work/Home navigation and greetingCount remains zero on the returned Home page.",
+      "evidence": "The original report and full masters remain in a separate ignored private attempt directory. All public after recordings and their derived frame/contact-sheet files were replaced by attempt 3. No product rebuild was required."
+    },
+    {
+      "attempt": 3,
+      "status": "passed",
+      "recordingBrowser": "Chrome 154.0.8037.98",
+      "report": "docs/reports/avatar-interaction/after-recordings.json",
+      "visualInspection": "docs/reports/avatar-interaction/public-video-inspection.json",
+      "result": "Both profiles recorded 16 trusted person activation events and 7 accepted gestures, including ten rapid inputs accepting only one busy-period gesture. Navigation retained EN/dark or ZH/light with greetingCount zero. No pageerror or console error occurred. THREE.Clock deprecation warnings remain recorded.",
+      "recordingLimit": "Published full-duration VP8 videos use lossy re-encoding and nominal 25 fps capture. They contain a temporary QA timer. They do not preserve or measure every browser draw or GPU-presented frame. Actual selected elapsed times and duplicate statistics are reported separately."
+    }
+  ]
+}

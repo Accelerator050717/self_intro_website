@@ -40,72 +40,6 @@
     "hand": "wrist",
     "head": "neck"
   },
-  "durationMs": 2600,
-  "timeline": [
-    {
-      "offset": 0,
-      "shoulder": 0,
-      "elbow": 0,
-      "wrist": 0,
-      "head": 0
-    },
-    {
-      "offset": 0.1,
-      "shoulder": -8,
-      "elbow": -6,
-      "wrist": 0,
-      "head": -1
-    },
-    {
-      "offset": 0.28,
-      "shoulder": -68,
-      "elbow": -64,
-      "wrist": -8,
-      "head": -2
-    },
-    {
-      "offset": 0.39,
-      "shoulder": -68,
-      "elbow": -64,
-      "wrist": 12,
-      "head": -2
-    },
-    {
-      "offset": 0.49,
-      "shoulder": -68,
-      "elbow": -64,
-      "wrist": -12,
-      "head": -2
-    },
-    {
-      "offset": 0.59,
-      "shoulder": -68,
-      "elbow": -64,
-      "wrist": 12,
-      "head": -1.5
-    },
-    {
-      "offset": 0.69,
-      "shoulder": -68,
-      "elbow": -64,
-      "wrist": -8,
-      "head": -1
-    },
-    {
-      "offset": 0.88,
-      "shoulder": -9,
-      "elbow": -7,
-      "wrist": 0,
-      "head": -0.5
-    },
-    {
-      "offset": 1,
-      "shoulder": 0,
-      "elbow": 0,
-      "wrist": 0,
-      "head": 0
-    }
-  ],
   "layers": {
     "body": {
       "src": "/images/avatar/rig/body.webp",
@@ -179,5 +113,6 @@
     "2D articulated photo layers, not a 3D model",
     "The supplied small hand remains in its original gently curled pose",
     "Use the checked angle range; unseen back surfaces are not synthesized"
-  ]
+  ],
+  "motionSource": "src/lib/avatar-motion.ts; independent native joint timelines, exact completion before unlock"
 }

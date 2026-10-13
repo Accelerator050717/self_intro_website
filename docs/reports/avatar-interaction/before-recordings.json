@@ -1,0 +1,1045 @@
+{
+  "phase": "before",
+  "startedAt": "2026-10-13T01:23:54.576Z",
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "passed": true,
+      "errors": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": ".hello-button",
+          "elapsedFromPageCreationMs": 6859
+        }
+      ],
+      "screenshots": [
+        "docs/screenshots/avatar-interaction/before/desktop-home.png",
+        "docs/screenshots/avatar-interaction/before/desktop-idle.png",
+        "docs/screenshots/avatar-interaction/before/desktop-returned.png",
+        "docs/screenshots/avatar-interaction/before/desktop-rapid-returned.png"
+      ],
+      "video": "docs/evidence/avatar-interaction-before-desktop.webm",
+      "initialControls": "Say hello",
+      "avatarBounds": {
+        "x": 739,
+        "y": 143,
+        "width": 601,
+        "height": 645
+      },
+      "firstTrigger": ".hello-button",
+      "poseSamples": [
+        {
+          "time": 6599,
+          "state": "idle",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": -1.699999999254942
+        },
+        {
+          "time": 6903.0999999996275,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -8.344520457525183,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -6.3330735747782265,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -0.04593745433925292,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.005741488689126,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 302.40000000037253
+        },
+        {
+          "time": 7251.5999999996275,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -66.48619649347437,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -62.53665623831657,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -7.798175425119673,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.9747693339830628,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 650.9000000003725
+        },
+        {
+          "time": 7600.0999999996275,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -67.99998152223321,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 11.815396422953782,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.999999842926156,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 999.4000000003725
+        },
+        {
+          "time": 7998.5,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -67.99998152223321,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 2.7536818310632087,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.6926311737551274,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 1397.800000000745
+        },
+        {
+          "time": 8402.5,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -67.99998152223321,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -7.982986853109685,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.0004232504080917,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 1801.800000000745
+        },
+        {
+          "time": 9002.399999999441,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -5.950315543440021,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -4.628001836026347,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.33057167049715386,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 2401.7000000001863
+        },
+        {
+          "time": 9602.5,
+          "state": "idle",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 3001.800000000745
+        },
+        {
+          "time": 11103.5,
+          "state": "idle",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 4502.800000000745
+        }
+      ],
+      "events": [
+        {
+          "time": 6600.699999999255,
+          "wallTime": 1791854641684,
+          "trusted": true,
+          "target": "hello-button",
+          "pointerType": "mouse",
+          "elapsedMs": 0
+        },
+        {
+          "time": 13255.199999999255,
+          "wallTime": 1791854648339,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 6654.5
+        },
+        {
+          "time": 13339.599999999627,
+          "wallTime": 1791854648423,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 6738.9000000003725
+        },
+        {
+          "time": 13415.599999999627,
+          "wallTime": 1791854648499,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 6814.9000000003725
+        },
+        {
+          "time": 13488.099999999627,
+          "wallTime": 1791854648572,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 6887.4000000003725
+        },
+        {
+          "time": 13565.199999999255,
+          "wallTime": 1791854648649,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 6964.5
+        },
+        {
+          "time": 13645.899999999441,
+          "wallTime": 1791854648729,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 7045.200000000186
+        },
+        {
+          "time": 13719.699999999255,
+          "wallTime": 1791854648803,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 7119
+        },
+        {
+          "time": 13792.599999999627,
+          "wallTime": 1791854648876,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 7191.9000000003725
+        },
+        {
+          "time": 13871.799999999814,
+          "wallTime": 1791854648955,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 7271.100000000559
+        },
+        {
+          "time": 13945.099999999627,
+          "wallTime": 1791854649029,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "mouse",
+          "elapsedMs": 7344.4000000003725
+        }
+      ],
+      "rapidInputCount": 10,
+      "finalState": "idle",
+      "trustedInputCount": 11,
+      "greetingObserved": true,
+      "videoFirstInputApproxMs": 6843,
+      "motionTransitions": [
+        {
+          "elapsedMs": -1039,
+          "state": "idle"
+        },
+        {
+          "elapsedMs": 6.300000000745058,
+          "state": "greeting"
+        },
+        {
+          "elapsedMs": 2635,
+          "state": "idle"
+        },
+        {
+          "elapsedMs": 6660.800000000745,
+          "state": "greeting"
+        },
+        {
+          "elapsedMs": 9286.300000000745,
+          "state": "idle"
+        }
+      ],
+      "videoBytes": 2661562,
+      "keyframes": [
+        {
+          "nominalPostInputMs": 0,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-0000ms.png",
+          "videoTimeMs": 5960,
+          "postVisibleGreetingMs": 0
+        },
+        {
+          "nominalPostInputMs": 300,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-0300ms.png",
+          "videoTimeMs": 6260,
+          "postVisibleGreetingMs": 300
+        },
+        {
+          "nominalPostInputMs": 650,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-0650ms.png",
+          "videoTimeMs": 6610,
+          "postVisibleGreetingMs": 650
+        },
+        {
+          "nominalPostInputMs": 1000,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-1000ms.png",
+          "videoTimeMs": 6960,
+          "postVisibleGreetingMs": 1000
+        },
+        {
+          "nominalPostInputMs": 1400,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-1400ms.png",
+          "videoTimeMs": 7360,
+          "postVisibleGreetingMs": 1400
+        },
+        {
+          "nominalPostInputMs": 1800,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-1800ms.png",
+          "videoTimeMs": 7760,
+          "postVisibleGreetingMs": 1800
+        },
+        {
+          "nominalPostInputMs": 2400,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-2400ms.png",
+          "videoTimeMs": 8360,
+          "postVisibleGreetingMs": 2400
+        },
+        {
+          "nominalPostInputMs": 3000,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-3000ms.png",
+          "videoTimeMs": 8960,
+          "postVisibleGreetingMs": 3000
+        },
+        {
+          "nominalPostInputMs": 4500,
+          "path": "docs/screenshots/avatar-interaction/before/desktop-action-4500ms.png",
+          "videoTimeMs": 10460,
+          "postVisibleGreetingMs": 4500
+        }
+      ],
+      "contactSheet": "docs/screenshots/avatar-interaction/before/desktop-action-contact-sheet.png",
+      "videoFirstGreetingVisibleMs": 5960,
+      "videoAlignment": {
+        "method": "Offline inspection of all 25 fps video frames around the first input; detect the first visible greeting bubble text in a fixed ROI, then visually confirm the idle-to-raised sequence.",
+        "firstVisibleGreetingMs": 5960,
+        "frameSpacingMs": 40,
+        "limitation": "Offsets below start at the first visible greeting response, within one recorded 40 ms frame. Trusted input-to-display latency is not inferred from this calibration."
+      },
+      "visualInspection": {
+        "inspected": true,
+        "method": "Viewed the full homepage screenshot and all nine video-derived frames in the contact sheet.",
+        "findings": [
+          "Character identity, hair and both shoes are preserved in the positioned action frames.",
+          "Viewer-right arm lifts, wrist varies, and the arm returns to its original resting pose.",
+          "The old greeting button remains visible.",
+          "The mobile homepage initial viewport naturally ends before the shoes; the separately positioned action view includes the complete character."
+        ],
+        "boundary": "Frame sampling verifies these visible poses; it is not a claim of frame-by-frame inspection of every encoded video frame."
+      }
+    },
+    {
+      "profile": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "passed": true,
+      "errors": [],
+      "actions": [
+        {
+          "type": "touch scroll",
+          "beforeY": 0,
+          "afterY": 417
+        },
+        {
+          "type": "tap",
+          "selector": ".hello-button",
+          "elapsedFromPageCreationMs": 6230
+        }
+      ],
+      "screenshots": [
+        "docs/screenshots/avatar-interaction/before/mobile-home.png",
+        "docs/screenshots/avatar-interaction/before/mobile-idle.png",
+        "docs/screenshots/avatar-interaction/before/mobile-returned.png",
+        "docs/screenshots/avatar-interaction/before/mobile-rapid-returned.png"
+      ],
+      "video": "docs/evidence/avatar-interaction-before-mobile.webm",
+      "initialControls": "打个招呼",
+      "avatarBounds": {
+        "x": 7,
+        "y": 144.9375,
+        "width": 376,
+        "height": 445
+      },
+      "firstTrigger": ".hello-button",
+      "poseSamples": [
+        {
+          "time": 6033.799999999814,
+          "state": "idle",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": -5.2999999998137355
+        },
+        {
+          "time": 6338.700000000186,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -8.539721021399671,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -6.521727450551566,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -0.07196124136039755,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.0089963931011332,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 299.6000000005588
+        },
+        {
+          "time": 6689,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -66.6725050147198,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -62.71673019367068,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -7.822986685481161,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.9778768703791911,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 649.9000000003725
+        },
+        {
+          "time": 7038.5999999996275,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -67.99998152223321,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 11.91427169228039,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.999999842926156,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 999.5
+        },
+        {
+          "time": 7439.0999999996275,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -67.99998152223321,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 4.638550673442973,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.6533611246301654,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 1400
+        },
+        {
+          "time": 7839.0999999996275,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -67.99998152223321,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -64.00000639632559,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": -7.996462025748753,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -1.0000852569502896,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 1800
+        },
+        {
+          "time": 8439.299999999814,
+          "state": "greeting",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": -5.072125882108473,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": -3.944984000960598,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": -0.281784617975333,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 2400.2000000001863
+        },
+        {
+          "time": 9039.099999999627,
+          "state": "idle",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 3000
+        },
+        {
+          "time": 10539.299999999814,
+          "state": "idle",
+          "joints": {
+            "body": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "shoulder": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "elbow": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "wrist": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            },
+            "head": {
+              "angle": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          "elapsedMs": 4500.200000000186
+        }
+      ],
+      "events": [
+        {
+          "time": 6039.0999999996275,
+          "wallTime": 1791854667196,
+          "trusted": true,
+          "target": "hello-button",
+          "pointerType": "touch",
+          "elapsedMs": 0
+        },
+        {
+          "time": 12343.899999999441,
+          "wallTime": 1791854673501,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6304.799999999814
+        },
+        {
+          "time": 12430.899999999441,
+          "wallTime": 1791854673588,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6391.799999999814
+        },
+        {
+          "time": 12509.200000000186,
+          "wallTime": 1791854673666,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6470.100000000559
+        },
+        {
+          "time": 12592.700000000186,
+          "wallTime": 1791854673750,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6553.600000000559
+        },
+        {
+          "time": 12683.099999999627,
+          "wallTime": 1791854673840,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6644
+        },
+        {
+          "time": 12770.700000000186,
+          "wallTime": 1791854673928,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6731.600000000559
+        },
+        {
+          "time": 12848.799999999814,
+          "wallTime": 1791854674006,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6809.700000000186
+        },
+        {
+          "time": 12931.799999999814,
+          "wallTime": 1791854674089,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6892.700000000186
+        },
+        {
+          "time": 13015.5,
+          "wallTime": 1791854674173,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 6976.4000000003725
+        },
+        {
+          "time": 13092.299999999814,
+          "wallTime": 1791854674250,
+          "trusted": true,
+          "target": "person-button",
+          "pointerType": "touch",
+          "elapsedMs": 7053.200000000186
+        }
+      ],
+      "rapidInputCount": 10,
+      "finalState": "idle",
+      "trustedInputCount": 11,
+      "greetingObserved": true,
+      "videoFirstInputApproxMs": 6217,
+      "motionTransitions": [
+        {
+          "elapsedMs": -1056.2999999998137,
+          "state": "idle"
+        },
+        {
+          "elapsedMs": 7.400000000372529,
+          "state": "greeting"
+        },
+        {
+          "elapsedMs": 2616.7999999998137,
+          "state": "idle"
+        },
+        {
+          "elapsedMs": 6307.799999999814,
+          "state": "greeting"
+        },
+        {
+          "elapsedMs": 8919.700000000186,
+          "state": "idle"
+        }
+      ],
+      "videoBytes": 2236191,
+      "keyframes": [
+        {
+          "nominalPostInputMs": 0,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-0000ms.png",
+          "videoTimeMs": 6120,
+          "postVisibleGreetingMs": 0
+        },
+        {
+          "nominalPostInputMs": 300,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-0300ms.png",
+          "videoTimeMs": 6420,
+          "postVisibleGreetingMs": 300
+        },
+        {
+          "nominalPostInputMs": 650,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-0650ms.png",
+          "videoTimeMs": 6770,
+          "postVisibleGreetingMs": 650
+        },
+        {
+          "nominalPostInputMs": 1000,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-1000ms.png",
+          "videoTimeMs": 7120,
+          "postVisibleGreetingMs": 1000
+        },
+        {
+          "nominalPostInputMs": 1400,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-1400ms.png",
+          "videoTimeMs": 7520,
+          "postVisibleGreetingMs": 1400
+        },
+        {
+          "nominalPostInputMs": 1800,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-1800ms.png",
+          "videoTimeMs": 7920,
+          "postVisibleGreetingMs": 1800
+        },
+        {
+          "nominalPostInputMs": 2400,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-2400ms.png",
+          "videoTimeMs": 8520,
+          "postVisibleGreetingMs": 2400
+        },
+        {
+          "nominalPostInputMs": 3000,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-3000ms.png",
+          "videoTimeMs": 9120,
+          "postVisibleGreetingMs": 3000
+        },
+        {
+          "nominalPostInputMs": 4500,
+          "path": "docs/screenshots/avatar-interaction/before/mobile-action-4500ms.png",
+          "videoTimeMs": 10620,
+          "postVisibleGreetingMs": 4500
+        }
+      ],
+      "contactSheet": "docs/screenshots/avatar-interaction/before/mobile-action-contact-sheet.png",
+      "videoFirstGreetingVisibleMs": 6120,
+      "videoAlignment": {
+        "method": "Offline inspection of all 25 fps video frames around the first input; detect the first visible greeting bubble text in a fixed ROI, then visually confirm the idle-to-raised sequence.",
+        "firstVisibleGreetingMs": 6120,
+        "frameSpacingMs": 40,
+        "limitation": "Offsets below start at the first visible greeting response, within one recorded 40 ms frame. Trusted input-to-display latency is not inferred from this calibration."
+      },
+      "visualInspection": {
+        "inspected": true,
+        "method": "Viewed the full homepage screenshot and all nine video-derived frames in the contact sheet.",
+        "findings": [
+          "Character identity, hair and both shoes are preserved in the positioned action frames.",
+          "Viewer-right arm lifts, wrist varies, and the arm returns to its original resting pose.",
+          "The old greeting button remains visible.",
+          "The mobile homepage initial viewport naturally ends before the shoes; the separately positioned action view includes the complete character."
+        ],
+        "boundary": "Frame sampling verifies these visible poses; it is not a claim of frame-by-frame inspection of every encoded video frame."
+      }
+    }
+  ],
+  "method": "Continuous Playwright browser video with trusted mouse/touch input; browser rAF reads joint matrices. Keyframes are extracted offline from the actual video, without changing the viewport during recording.",
+  "timingLimit": "Browser rAF samples use precise performance.now offsets from the trusted click. Video keyframes were subsequently aligned offline to the first visible greeting response at 25 fps (40 ms frame spacing), not to wall-clock page creation. This preserves comparable visual phases but does not measure input-to-display latency.",
+  "hardwareLimit": "Desktop browser and mobile touch emulation on this workstation, not a physical phone or GPU-presented FPS measurement.",
+  "browser": "154.0.8037.98",
+  "finishedAt": "2026-10-13T01:24:44.265Z"
+}

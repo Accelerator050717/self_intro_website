@@ -1,0 +1,258 @@
+{
+  "generatedAt": "2026-10-13T03:15:39.248Z",
+  "round": "avatar-interaction",
+  "baselineCommit": "119a81967023030e18809fefc6ba0ae676294ee7",
+  "branch": "codex/avatar-interaction-revision",
+  "localPreview": "http://127.0.0.1:4321",
+  "sourceChecks": {
+    "astro": {
+      "files": 39,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "eslint": {
+      "exitCode": 0,
+      "warnings": 0
+    },
+    "vitest": {
+      "passed": 20,
+      "files": 2
+    },
+    "build": {
+      "htmlPages": 24,
+      "exitCode": 0,
+      "warning": "Existing Three.js chunk exceeds 500 kB."
+    },
+    "evidenceNote": "Command results observed directly during this round. No new isolated npm ci or configured SITE_URL build was performed."
+  },
+  "browser": {
+    "firstFullRun": {
+      "startTime": "2026-10-13T01:49:22.819Z",
+      "duration": 451241.33999999997,
+      "expected": 100,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "finalFullRun": {
+      "startTime": "2026-10-13T02:24:04.848Z",
+      "duration": 683583.4659999999,
+      "expected": 103,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "finalPassed": 103,
+    "firstFailureInvestigation": "docs/reports/avatar-interaction/history-retest.json",
+    "recordingFailureAndProductRepair": "docs/reports/avatar-interaction/navigation-retest.json",
+    "coverage": {
+      "avatar": 24,
+      "gradientWaves": 19,
+      "siteMotion": 12,
+      "retainedSiteAndVisualCases": 48
+    }
+  },
+  "auxiliary": {
+    "iceChecks": 7,
+    "icePassed": true,
+    "axeScenes": 22,
+    "axeViolations": 0,
+    "runtimeRoutes": 6,
+    "runtimePassed": true,
+    "staticPassed": true,
+    "print": [
+      {
+        "lang": "en",
+        "pages": 1,
+        "passed": true
+      },
+      {
+        "lang": "zh",
+        "pages": 1,
+        "passed": true
+      }
+    ]
+  },
+  "recordings": {
+    "passed": true,
+    "browser": "154.0.8037.98",
+    "profiles": [
+      {
+        "profile": "desktop",
+        "trustedInputs": 16,
+        "accepted": 7,
+        "finalState": "idle",
+        "errors": [],
+        "keyframes": 13,
+        "videoEncoding": {
+          "masterDurationMs": 49760,
+          "masterDimensions": {
+            "width": 1440,
+            "height": 1000
+          },
+          "timeCuts": false,
+          "speedChanges": false,
+          "encoderFrameDropping": false,
+          "captureLimit": "The browser recorder produces a nominal 25 fps stream and can repeat captured frames or omit intermediate browser draws. This recording does not preserve or measure every GPU-presented frame.",
+          "reencoded": true,
+          "codec": "libvpx VP8",
+          "width": 1152,
+          "height": 800,
+          "bitrate": 724899,
+          "crf": 28,
+          "deadline": "good",
+          "cpuUsed": 4,
+          "threads": 2,
+          "dropThreshold": 0,
+          "method": "Lossy spatial/bitrate re-encoding of the complete private master. All scenes and time are retained; no trims, concatenation, animation seeking or speed changes.",
+          "publicDurationMs": 49760
+        }
+      },
+      {
+        "profile": "mobile",
+        "trustedInputs": 16,
+        "accepted": 7,
+        "finalState": "idle",
+        "errors": [],
+        "keyframes": 13,
+        "videoEncoding": {
+          "masterDurationMs": 52160,
+          "masterDimensions": {
+            "width": 390,
+            "height": 844
+          },
+          "timeCuts": false,
+          "speedChanges": false,
+          "encoderFrameDropping": false,
+          "captureLimit": "The browser recorder produces a nominal 25 fps stream and can repeat captured frames or omit intermediate browser draws. This recording does not preserve or measure every GPU-presented frame.",
+          "reencoded": true,
+          "codec": "libvpx VP8",
+          "width": 390,
+          "height": 844,
+          "bitrate": 691545,
+          "crf": 28,
+          "deadline": "good",
+          "cpuUsed": 4,
+          "threads": 2,
+          "dropThreshold": 0,
+          "method": "Lossy spatial/bitrate re-encoding of the complete private master. All scenes and time are retained; no trims, concatenation, animation seeking or speed changes.",
+          "publicDurationMs": 52160
+        }
+      }
+    ],
+    "artifacts": [
+      {
+        "path": "docs/evidence/avatar-interaction-after-desktop.webm",
+        "bytes": 3707755,
+        "sha256": "a0623a4941d33c0506de250df6c6de202352c85e2bc5f9cfc70bc18a755ad9b1",
+        "durationMs": 49760,
+        "comparison": "docs/screenshots/avatar-interaction/comparison-desktop.png"
+      },
+      {
+        "path": "docs/evidence/avatar-interaction-after-mobile.webm",
+        "bytes": 2310249,
+        "sha256": "89b59fb015e285a823b8a8598072ccae75d903f8262d701d6300e4c1b2ffac94",
+        "durationMs": 52160,
+        "comparison": "docs/screenshots/avatar-interaction/comparison-mobile.png"
+      }
+    ],
+    "timingLimit": "After zero is the trusted person click event; the QA timer is painted on rAF and sampled by the 25 fps browser recorder. Before zero is the first visible old greeting bubble. The same nominal elapsed times are requested, but repeated recorder frames and delayed rAF can produce selection errors larger than the nominal 40 ms frame spacing; actual decoded times and maximum errors are reported. This is not an input-latency measurement.",
+    "deviceLimit": "Chrome desktop and touch/mobile viewport emulation on the workstation. Mobile keyboard coverage uses browser-dispatched physical-keyboard events, not a physical phone or on-screen keyboard."
+  },
+  "performance": {
+    "before": "docs/reports/avatar-interaction/before-performance.json",
+    "after": "docs/reports/avatar-interaction/after-performance.json",
+    "afterSummaries": [
+      {
+        "profile": "desktop",
+        "metrics": {
+          "performance": {
+            "median": 67,
+            "min": 66,
+            "max": 67
+          },
+          "lcpMs": {
+            "median": 767.0369999999999,
+            "min": 662.7370000000001,
+            "max": 821.8720000000001
+          },
+          "tbtMs": {
+            "median": 3092.3759999999997,
+            "min": 2831.1605,
+            "max": 3278.7104999999992
+          },
+          "cls": {
+            "median": 0.00337774560021014,
+            "min": 0.003298279430435164,
+            "max": 0.00337774560021014
+          },
+          "jsTransferBytes": {
+            "median": 333421,
+            "min": 333421,
+            "max": 333421
+          },
+          "jsExecutionMs": {
+            "median": 665.1289999999982,
+            "min": 639.1299999999976,
+            "max": 711.2609999999981
+          }
+        }
+      },
+      {
+        "profile": "mobile",
+        "metrics": {
+          "performance": {
+            "median": 63,
+            "min": 62,
+            "max": 64
+          },
+          "lcpMs": {
+            "median": 2805.192,
+            "min": 2802.58,
+            "max": 2892.645
+          },
+          "tbtMs": {
+            "median": 7995.404000000002,
+            "min": 7848.0525,
+            "max": 8933.7065
+          },
+          "cls": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "jsTransferBytes": {
+            "median": 333421,
+            "min": 333421,
+            "max": 333421
+          },
+          "jsExecutionMs": {
+            "median": 2309.0119999999906,
+            "min": 2193.5319999999915,
+            "max": 2647.4239999999895
+          }
+        }
+      }
+    ],
+    "continuousBefore": "docs/reports/avatar-interaction/before-motion.json",
+    "continuousAfter": "docs/reports/avatar-interaction/after-motion.json",
+    "comparison": "docs/reports/avatar-interaction/performance-comparison.json",
+    "currentConditionControl": "docs/reports/avatar-interaction/current-condition-baseline/comparison.json",
+    "currentConditionSource": "docs/reports/avatar-interaction/current-condition-baseline/source.json",
+    "observedControlConclusion": "The exact old-source control also reproduces high blocking and JavaScript execution cost under the later measurement conditions. The original after slowdown therefore is not unique to the new product source. Host-condition drift materially confounds the original before/after comparison; these sequential measurements cannot prove a specific host cause or quantify the product-only contribution.",
+    "limitation": "Three Lighthouse samples per profile in each of three separately retained batches; desktop-workstation mobile emulation. Original after samples are slower and benchmarkIndex dropped; exact old-source later control also reproduces high cost. Sequential control does not isolate product contribution or prove a specific host cause. RAF intervals and GL calls are not displayed GPU FPS or real-device INP."
+  },
+  "unchangedPrivateWork": true,
+  "publicContentReview": {
+    "report": "docs/reports/avatar-interaction/public-content-audit.json",
+    "scope": "Exact final Git index, excluding the generated audit report itself; pattern scan and manual file/source review."
+  },
+  "limitations": [
+    "Original 2D rig and slightly curled hand; mirrored reference constraints, no exact open-palm or 3D reconstruction.",
+    "No physical mobile device, Safari/Firefox, manual screen reader or real printer verification.",
+    "No public website deployment or real email delivery test."
+  ],
+  "passedScope": "Functional regression, asset/print/accessibility checks and actual evidence generation. Performance is measured and reported separately, not declared faster or above an invented acceptance score.",
+  "passed": true
+}

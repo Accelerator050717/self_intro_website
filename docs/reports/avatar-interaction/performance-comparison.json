@@ -1,0 +1,699 @@
+{
+  "createdAt": "2026-10-13T02:58:35.124Z",
+  "sources": [
+    "before-performance.json",
+    "after-performance.json",
+    "before-motion.json",
+    "after-motion.json"
+  ],
+  "method": "Original three desktop plus three simulated mobile Lighthouse samples per revision, followed by one ten-second continuous-animation measurement per profile. All samples are retained. This report does not substitute later current-condition control data for the original observations.",
+  "browsers": {
+    "lighthouseBefore": [
+      "153.0.8010.12"
+    ],
+    "lighthouseAfter": [
+      "153.0.8010.12"
+    ],
+    "motionBefore": "153.0.8010.12",
+    "motionAfter": "153.0.8010.12",
+    "recording": "Chrome 154.0.8037.98"
+  },
+  "benchmarkIndex": {
+    "before": {
+      "minimum": 3317.5,
+      "maximum": 3918
+    },
+    "after": {
+      "minimum": 1453.5,
+      "maximum": 1908
+    }
+  },
+  "observedResult": "The original after samples show higher blocking and JavaScript execution time in both profiles and a slower desktop animation schedule. The host benchmark index also changed substantially. These measurements alone do not establish which change caused the slowdown.",
+  "limitations": [
+    "Same browser and audit configuration do not eliminate machine-load, thermal, driver or other host-condition variation. This report does not assert any one of these as the cause.",
+    "Lighthouse simulated TBT is not real-device INP. Mobile is desktop-host viewport/touch emulation, not a physical phone.",
+    "RAF intervals are main-thread scheduling observations; instrumented WebGL calls do not measure GPU completion, presented FPS or dropped presentation frames.",
+    "The continuous script pass flag indicates its own permissive execution/input criterion, not smoothness or performance parity. The desktop after run issued eight inputs but only seven have individually attributed scroll events; eight actual scroll events were recorded.",
+    "The first desktop wheel call took 941 ms and had no separately attributed first-scroll event before the next input was registered. Total scrolling still reached 1680 px and returned to zero. This does not establish lost physical input."
+  ],
+  "profiles": [
+    {
+      "profile": "desktop",
+      "identicalLighthouseSettings": true,
+      "scores": {
+        "before": [
+          76,
+          74,
+          74
+        ],
+        "after": [
+          66,
+          67,
+          67
+        ]
+      },
+      "metrics": {
+        "performance": {
+          "before": {
+            "median": 74,
+            "min": 74,
+            "max": 76
+          },
+          "after": {
+            "median": 67,
+            "min": 66,
+            "max": 67
+          },
+          "medianDifference": -7
+        },
+        "lcpMs": {
+          "before": {
+            "median": 591.828,
+            "min": 589.7919999999999,
+            "max": 594.952
+          },
+          "after": {
+            "median": 767.0369999999999,
+            "min": 662.7370000000001,
+            "max": 821.8720000000001
+          },
+          "medianDifference": 175.20899999999995
+        },
+        "tbtMs": {
+          "before": {
+            "median": 560.5215000000003,
+            "min": 515.6310000000001,
+            "max": 596.4999999999998
+          },
+          "after": {
+            "median": 3092.3759999999997,
+            "min": 2831.1605,
+            "max": 3278.7104999999992
+          },
+          "medianDifference": 2531.8544999999995
+        },
+        "cls": {
+          "before": {
+            "median": 0.00337774560021014,
+            "min": 0.00337774560021014,
+            "max": 0.00337774560021014
+          },
+          "after": {
+            "median": 0.00337774560021014,
+            "min": 0.003298279430435164,
+            "max": 0.00337774560021014
+          },
+          "medianDifference": 0
+        },
+        "jsTransferBytes": {
+          "before": {
+            "median": 332596,
+            "min": 332596,
+            "max": 332596
+          },
+          "after": {
+            "median": 333421,
+            "min": 333421,
+            "max": 333421
+          },
+          "medianDifference": 825
+        },
+        "jsExecutionMs": {
+          "before": {
+            "median": 228.09000000000097,
+            "min": 205.07300000000126,
+            "max": 239.24100000000115
+          },
+          "after": {
+            "median": 665.1289999999982,
+            "min": 639.1299999999976,
+            "max": 711.2609999999981
+          },
+          "medianDifference": 437.03899999999726
+        }
+      },
+      "benchmarkIndex": {
+        "before": [
+          3918,
+          3413,
+          3345.5
+        ],
+        "after": [
+          1576,
+          1453.5,
+          1748
+        ]
+      },
+      "afterExecutionAndLongTasks": [
+        {
+          "run": 1,
+          "topExecution": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+              "total": 295.47999999999854,
+              "scripting": 288.6999999999985,
+              "scriptParseCompile": 0.022
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+              "total": 276.78299999999956,
+              "scripting": 272.7939999999996,
+              "scriptParseCompile": 0.505
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "total": 9456.072999999978,
+              "scripting": 65.97999999999999,
+              "scriptParseCompile": 0.047
+            }
+          ],
+          "longestTasks": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 994.9999999999995,
+              "startTime": 4034.158
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 614,
+              "startTime": 333.158
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 287,
+              "startTime": 5029.157999999999
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "topExecution": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+              "total": 262.8619999999981,
+              "scripting": 256.49499999999813,
+              "scriptParseCompile": 0.011
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+              "total": 252.3759999999994,
+              "scripting": 247.0939999999994,
+              "scriptParseCompile": 0.559
+            },
+            {
+              "url": "Unattributable",
+              "total": 135.75200000000046,
+              "scripting": 54.86200000000001,
+              "scriptParseCompile": 0
+            }
+          ],
+          "longestTasks": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 1206,
+              "startTime": 3965.624
+            },
+            {
+              "url": "http://127.0.0.1:4321/en/",
+              "duration": 261,
+              "startTime": 196.624
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 203,
+              "startTime": 816.624
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "topExecution": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+              "total": 295.9589999999986,
+              "scripting": 286.3719999999986,
+              "scriptParseCompile": 0.012
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+              "total": 226.34799999999953,
+              "scripting": 223.78399999999954,
+              "scriptParseCompile": 0.562
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "total": 8832.765999999985,
+              "scripting": 64.16099999999997,
+              "scriptParseCompile": 0.061
+            }
+          ],
+          "longestTasks": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 1215,
+              "startTime": 3498.358
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 214.99999999999994,
+              "startTime": 331.358
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 184,
+              "startTime": 4924.358
+            }
+          ]
+        }
+      ],
+      "continuous": {
+        "before": {
+          "actualDurationMs": 10031.299999999814,
+          "raf": {
+            "intervals": 362,
+            "medianMs": 16.700000000000728,
+            "p95Ms": 50,
+            "p99Ms": 100,
+            "maxMs": 383.3000000000002,
+            "over20Ms": 145,
+            "over33_4Ms": 36,
+            "over50Ms": 17
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 13,
+            "totalMs": 1349,
+            "maxMs": 380
+          },
+          "webgl": {
+            "wavesDrawCalls": 364,
+            "wavesDrawCallsPerSecond": 36.28642349446301,
+            "iceDrawCalls": 754,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 720,
+                "height": 500
+              },
+              {
+                "kind": "ice",
+                "width": 601,
+                "height": 645
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 8,
+            "minY": 0,
+            "maxY": 1680,
+            "finalY": 0
+          },
+          "scriptPassed": true,
+          "errors": []
+        },
+        "after": {
+          "actualDurationMs": 10057.800000000745,
+          "raf": {
+            "intervals": 187,
+            "medianMs": 33.399999999999636,
+            "p95Ms": 116.60000000000036,
+            "p99Ms": 166.69999999999982,
+            "maxMs": 1150,
+            "over20Ms": 171,
+            "over33_4Ms": 89,
+            "over50Ms": 41
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 38,
+            "totalMs": 4250,
+            "maxMs": 1143
+          },
+          "webgl": {
+            "wavesDrawCalls": 188,
+            "wavesDrawCallsPerSecond": 18.69196046849073,
+            "iceDrawCalls": 754,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 720,
+                "height": 500
+              },
+              {
+                "kind": "ice",
+                "width": 601,
+                "height": 645
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 7,
+            "observedScrollEvents": 8,
+            "minY": 0,
+            "maxY": 1680,
+            "finalY": 0
+          },
+          "scriptPassed": true,
+          "errors": []
+        }
+      }
+    },
+    {
+      "profile": "mobile",
+      "identicalLighthouseSettings": true,
+      "scores": {
+        "before": [
+          66,
+          67,
+          67
+        ],
+        "after": [
+          64,
+          62,
+          63
+        ]
+      },
+      "metrics": {
+        "performance": {
+          "before": {
+            "median": 67,
+            "min": 66,
+            "max": 67
+          },
+          "after": {
+            "median": 63,
+            "min": 62,
+            "max": 64
+          },
+          "medianDifference": -4
+        },
+        "lcpMs": {
+          "before": {
+            "median": 2787.076,
+            "min": 2785.6320000000005,
+            "max": 2787.3599999999997
+          },
+          "after": {
+            "median": 2805.192,
+            "min": 2802.58,
+            "max": 2892.645
+          },
+          "medianDifference": 18.115999999999985
+        },
+        "tbtMs": {
+          "before": {
+            "median": 1687.0000000000005,
+            "min": 1623.5,
+            "max": 2090.5285000000003
+          },
+          "after": {
+            "median": 7995.404000000002,
+            "min": 7848.0525,
+            "max": 8933.7065
+          },
+          "medianDifference": 6308.404000000002
+        },
+        "cls": {
+          "before": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "after": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "medianDifference": 0
+        },
+        "jsTransferBytes": {
+          "before": {
+            "median": 332596,
+            "min": 332596,
+            "max": 332596
+          },
+          "after": {
+            "median": 333421,
+            "min": 333421,
+            "max": 333421
+          },
+          "medianDifference": 825
+        },
+        "jsExecutionMs": {
+          "before": {
+            "median": 872.2280000000037,
+            "min": 835.8400000000038,
+            "max": 979.712000000005
+          },
+          "after": {
+            "median": 2309.0119999999906,
+            "min": 2193.5319999999915,
+            "max": 2647.4239999999895
+          },
+          "medianDifference": 1436.783999999987
+        }
+      },
+      "benchmarkIndex": {
+        "before": [
+          3528.5,
+          3412,
+          3317.5
+        ],
+        "after": [
+          1572,
+          1755,
+          1908
+        ]
+      },
+      "afterExecutionAndLongTasks": [
+        {
+          "run": 1,
+          "topExecution": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+              "total": 1106.719999999992,
+              "scripting": 1076.9959999999921,
+              "scriptParseCompile": 0.236
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+              "total": 1027.135999999998,
+              "scripting": 1008.2839999999981,
+              "scriptParseCompile": 2.388
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "total": 15325.963999999989,
+              "scripting": 243.80399999999977,
+              "scriptParseCompile": 0.128
+            }
+          ],
+          "longestTasks": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 3734,
+              "startTime": 10040.79
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 604,
+              "startTime": 9200.79
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 434,
+              "startTime": 1363.79
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "topExecution": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+              "total": 1041.651999999992,
+              "scripting": 1008.043999999992,
+              "scriptParseCompile": 0.028
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+              "total": 704.9319999999983,
+              "scripting": 697.1119999999983,
+              "scriptParseCompile": 2.068
+            },
+            {
+              "url": "Unattributable",
+              "total": 1577.7239999999858,
+              "scripting": 217.34800000000007,
+              "scriptParseCompile": 0
+            }
+          ],
+          "longestTasks": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 4469,
+              "startTime": 10285.057999999999
+            },
+            {
+              "url": "Unattributable",
+              "duration": 751,
+              "startTime": 742.529
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 384,
+              "startTime": 9795.057999999999
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "topExecution": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/scheduler.K28Ou6Jl.js",
+              "total": 1055.5279999999927,
+              "scripting": 1031.2719999999927,
+              "scriptParseCompile": 0.048
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/IceScene.BYJs9rOb.js",
+              "total": 639.4719999999988,
+              "scripting": 623.3879999999989,
+              "scriptParseCompile": 2.336
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "total": 14773.392000000002,
+              "scripting": 225.10799999999995,
+              "scriptParseCompile": 0.368
+            }
+          ],
+          "longestTasks": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 3697,
+              "startTime": 9591.096000000001
+            },
+            {
+              "url": "http://127.0.0.1:4321/en/",
+              "duration": 472,
+              "startTime": 664.548
+            },
+            {
+              "url": "http://127.0.0.1:4321/_astro/SiteWaves.DJATx1cZ.js",
+              "duration": 268,
+              "startTime": 9221.096000000001
+            }
+          ]
+        }
+      ],
+      "continuous": {
+        "before": {
+          "actualDurationMs": 10010.799999999814,
+          "raf": {
+            "intervals": 522,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 33.30000000000109,
+            "p99Ms": 50.099999999999454,
+            "maxMs": 283.39999999999964,
+            "over20Ms": 36,
+            "over33_4Ms": 25,
+            "over50Ms": 7
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 11,
+            "totalMs": 650,
+            "maxMs": 77
+          },
+          "webgl": {
+            "wavesDrawCalls": 524,
+            "wavesDrawCallsPerSecond": 52.343469053423284,
+            "iceDrawCalls": 1740,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 234,
+                "height": 506
+              },
+              {
+                "kind": "ice",
+                "width": 376,
+                "height": 445
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 56,
+            "minY": 0,
+            "maxY": 1620,
+            "finalY": 0
+          },
+          "scriptPassed": true,
+          "errors": []
+        },
+        "after": {
+          "actualDurationMs": 10014.200000001118,
+          "raf": {
+            "intervals": 457,
+            "medianMs": 16.699999999999818,
+            "p95Ms": 50,
+            "p99Ms": 83.29999999999973,
+            "maxMs": 250,
+            "over20Ms": 67,
+            "over33_4Ms": 37,
+            "over50Ms": 16
+          },
+          "longTasks": {
+            "supported": true,
+            "count": 18,
+            "totalMs": 1585,
+            "maxMs": 247
+          },
+          "webgl": {
+            "wavesDrawCalls": 460,
+            "wavesDrawCallsPerSecond": 45.93477262287039,
+            "iceDrawCalls": 1798,
+            "canvases": [
+              {
+                "kind": "waves",
+                "width": 195,
+                "height": 422
+              },
+              {
+                "kind": "ice",
+                "width": 376,
+                "height": 445
+              }
+            ]
+          },
+          "scroll": {
+            "issuedInputs": 8,
+            "inputsWithAttributedScrollEvents": 8,
+            "observedScrollEvents": 56,
+            "minY": 0,
+            "maxY": 1620,
+            "finalY": 0
+          },
+          "scriptPassed": true,
+          "errors": []
+        }
+      }
+    }
+  ],
+  "processExitVerification": {
+    "method": "After both scripts exited, an elevated read-only process inventory counted ffmpeg executables and Chrome processes carrying Playwright profile or remote-debugging-port arguments. It did not stop unrelated processes.",
+    "ffmpegProcesses": 0,
+    "playwrightOrRemoteDebugBrowserProcesses": 0,
+    "allMeasurementScriptsExited": true
+  },
+  "laterControlReference": {
+    "report": "docs/reports/avatar-interaction/current-condition-baseline/comparison.json",
+    "note": "Later same-host old-source diagnostic control; all original results above remain unchanged."
+  }
+}

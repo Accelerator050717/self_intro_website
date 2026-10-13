@@ -1,13 +1,13 @@
 import { Component, useCallback, useEffect, useRef, useState, lazy, Suspense, type ReactNode } from 'react';
-import { Hand, Pause, Play as ResumeIcon } from 'lucide-react';
 import { ui, type Lang } from '../i18n/ui';
-import { GREETING_MS, greetingTracks, parseRig, type AvatarRig } from '../lib/avatar-motion';
+import { GREETING_MS, REDUCED_GREETING_MS, gestureTimeline, greetingFrames, greetingPhaseAt, parseRig, type AvatarRig, type GreetingPhase, type MovingJoint } from '../lib/avatar-motion';
 import SceneFallback from './ice/SceneFallback';
+import AvatarJointSurface from './AvatarJointSurface';
+import '../styles/avatar-interaction.css';
 
 const HeroBricks = lazy(() => import('./ice/HeroBricks'));
 const rigBase = '/images/avatar/rig/';
 const layerNames = ['body', 'head', 'upper-arm', 'forearm', 'hand'];
-const welcomeKey = 'mingyang:avatar-welcome:v1';
 
 class IceBoundary extends Component<{ children: ReactNode; onFailure: () => void }, { failed: boolean }> {
   state = { failed: false };
@@ -20,13 +20,14 @@ export default function Avatar({ lang }: { lang: Lang }) {
   const t = ui[lang];
   const [rig, setRig] = useState<AvatarRig | null>(null);
   const [resourceFailed, setResourceFailed] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const [backgroundPaused, setBackgroundPaused] = useState(false);
   const [reduced, setReduced] = useState(true);
   const [preferencesReady, setPreferencesReady] = useState(false);
   const [visible, setVisible] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
-  const [greeting, setGreeting] = useState(false);
-  const [message, setMessage] = useState(false);
+  const [phase, setPhase] = useState<GreetingPhase>('idle');
+  const [accepted, setAccepted] = useState(0);
+  const [announcement, setAnnouncement] = useState('');
   const [sceneReady, setSceneReady] = useState(false);
   const [sceneSettled, setSceneSettled] = useState(false);
   const [sceneTimedOut, setSceneTimedOut] = useState(false);
@@ -36,60 +37,91 @@ export default function Avatar({ lang }: { lang: Lang }) {
   const elbow = useRef<SVGGElement>(null);
   const wrist = useRef<SVGGElement>(null);
   const head = useRef<SVGGElement>(null);
+  const phaseRef = useRef<GreetingPhase>('idle');
+  const mounted = useRef(false);
   const animations = useRef<Animation[]>([]);
-  const busy = useRef(false);
   const sequence = useRef(0);
-  const messageTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const canMove = preferencesReady && !!rig && sceneSettled && !paused && !reduced && visible && pageVisible;
+  const raf = useRef(0);
+  const suspended = useRef(false);
+  const printing = useRef(false);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const ready = preferencesReady && (!!rig || resourceFailed);
+  // Intentional finite gestures remain available while ambient motion is paused.
+  // The optional WebGL scene is never a character readiness dependency.
+  const canTrigger = ready && visible && pageVisible;
+  const current = useRef({ canTrigger, reduced, resourceFailed, greeting: t.greeting });
+  current.current = { canTrigger, reduced, resourceFailed, greeting: t.greeting };
   const onSceneSettled = useCallback(() => setSceneSettled(true), []);
 
   const resetPose = useCallback(() => {
     for (const joint of [shoulder, elbow, wrist, head]) if (joint.current) joint.current.style.transform = '';
   }, []);
-  const cancelMotion = useCallback(() => {
-    sequence.current++;
+  const releaseResources = useCallback(() => {
+    if (raf.current) cancelAnimationFrame(raf.current);
+    raf.current = 0;
+    timers.current.forEach(clearTimeout); timers.current = [];
     for (const animation of animations.current) animation.cancel();
     animations.current = [];
-    busy.current = false;
     resetPose();
   }, [resetPose]);
+  const changePhase = useCallback((next: GreetingPhase) => {
+    phaseRef.current = next;
+    if (mounted.current) setPhase(next);
+  }, []);
+  const cancelGesture = useCallback(() => {
+    sequence.current++;
+    releaseResources();
+    changePhase('idle');
+  }, [releaseResources, changePhase]);
 
   useEffect(() => {
+    mounted.current = true;
     const media = matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReduced(media.matches);
+    const update = () => { cancelGesture(); setReduced(media.matches); };
     update(); media.addEventListener('change', update);
     try {
-      setPaused(localStorage.getItem('ice-paused') === 'true');
+      setBackgroundPaused(localStorage.getItem('ice-paused') === 'true');
       localStorage.removeItem('mingyang:ice-play:v1');
-    } catch { /* Storage is optional; never clear unrelated preferences. */ }
+    } catch { /* Storage is optional. */ }
     setPreferencesReady(true);
-    const pausePreference = (event: Event) => setPaused((event as CustomEvent<boolean>).detail);
-    const storedPreference = (event: StorageEvent) => { if (event.key === 'ice-paused') setPaused(event.newValue === 'true'); };
+    const pausePreference = (event: Event) => setBackgroundPaused((event as CustomEvent<boolean>).detail);
+    const storedPreference = (event: StorageEvent) => { if (event.key === 'ice-paused') setBackgroundPaused(event.newValue === 'true'); };
     window.addEventListener('ice-pause-change', pausePreference);
     window.addEventListener('storage', storedPreference);
     const theme = () => setDark(document.documentElement.dataset.theme === 'dark');
     theme(); window.addEventListener('ice-theme-change', theme);
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting && entry.intersectionRatio >= 0.2), { threshold: [0, 0.2] });
+    const observer = new IntersectionObserver(([entry]) => {
+      const shown = entry.isIntersecting && entry.intersectionRatio >= .2;
+      if (!shown) cancelGesture();
+      setVisible(shown);
+    }, { threshold: [0, .2] });
     if (person.current) observer.observe(person.current);
-    const onVisibility = () => setPageVisible(!document.hidden);
+    const onVisibility = () => { if (document.hidden) cancelGesture(); setPageVisible(!document.hidden); };
     onVisibility(); document.addEventListener('visibilitychange', onVisibility);
+    const pageHide = () => { suspended.current = true; cancelGesture(); };
+    const pageShow = () => { suspended.current = false; onVisibility(); theme(); };
+    window.addEventListener('pagehide', pageHide); window.addEventListener('pageshow', pageShow);
+    const beforePrint = () => { printing.current = true; cancelGesture(); };
+    const afterPrint = () => { printing.current = false; };
+    window.addEventListener('beforeprint', beforePrint);
+    window.addEventListener('afterprint', afterPrint);
     const idle = window.setTimeout(() => setSceneReady(true), 450);
     return () => {
-      clearTimeout(idle);
-      if (messageTimer.current) clearTimeout(messageTimer.current);
-      observer.disconnect(); media.removeEventListener('change', update);
+      mounted.current = false;
+      clearTimeout(idle); observer.disconnect(); media.removeEventListener('change', update);
       window.removeEventListener('ice-theme-change', theme);
       document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('ice-pause-change', pausePreference);
       window.removeEventListener('storage', storedPreference);
-      cancelMotion();
+      window.removeEventListener('pagehide', pageHide); window.removeEventListener('pageshow', pageShow);
+      window.removeEventListener('beforeprint', beforePrint);
+      window.removeEventListener('afterprint', afterPrint);
+      cancelGesture();
     };
-  }, [cancelMotion]);
+  }, [cancelGesture]);
 
   useEffect(() => {
     if (!sceneReady || sceneSettled) return;
-    // A stalled optional import/network must not disable the character forever.
-    // Unmount the entire 3D island before enabling greetings on the static stage.
     const timeout = setTimeout(() => { setSceneTimedOut(true); setSceneSettled(true); }, 10000);
     return () => clearTimeout(timeout);
   }, [sceneReady, sceneSettled]);
@@ -104,73 +136,96 @@ export default function Avatar({ lang }: { lang: Lang }) {
         if (!response.ok) throw new Error('Avatar rig unavailable');
         const nextRig = parseRig(await response.json());
         await Promise.all(layerNames.map(async name => {
-          const image = new Image();
-          image.src = `${rigBase}${name}.webp`;
-          await image.decode();
+          const image = new Image(); image.src = `${rigBase}${name}.webp`; await image.decode();
         }));
         if (!disposed) setRig(nextRig);
-      } catch {
-        if (!disposed) setResourceFailed(true);
-      }
+      } catch { if (!disposed) setResourceFailed(true); }
     }
     void prepare();
     return () => { disposed = true; controller.abort(); };
   }, [visible, rig, resourceFailed]);
 
   const sayHello = useCallback(() => {
-    if (busy.current) return;
-    setMessage(true);
-    if (messageTimer.current) clearTimeout(messageTimer.current);
-    messageTimer.current = setTimeout(() => setMessage(false), GREETING_MS + 600);
-    if (!canMove || !shoulder.current || !elbow.current || !wrist.current || !head.current) return;
-    resetPose(); busy.current = true; setGreeting(true);
+    if (phaseRef.current !== 'idle' || !current.current.canTrigger || suspended.current || printing.current || document.hidden) return;
+    // Lock before React state, announcements or any .animate call can race.
+    changePhase('preparing');
     const ticket = ++sequence.current;
-    const joints = { shoulder, elbow, wrist, head };
-    animations.current = (Object.keys(joints) as (keyof typeof joints)[]).map(name =>
-      joints[name].current!.animate(greetingTracks[name].map(([offset, degrees]) => ({
-        offset, transform: `rotate(${degrees}deg)`, easing: 'cubic-bezier(.4,0,.2,1)',
-      })), { duration: GREETING_MS, fill: 'none' }),
-    );
-    void Promise.all(animations.current.map(animation => animation.finished)).then(() => {
-      if (sequence.current !== ticket) return;
-      animations.current = []; busy.current = false; resetPose(); setGreeting(false);
-    }).catch(() => { /* Cancellation deliberately restores idle, without a queued greeting. */ });
-  }, [canMove, resetPose]);
-
-  useEffect(() => {
-    if (!canMove) { cancelMotion(); setGreeting(false); }
-  }, [canMove, cancelMotion]);
-  useEffect(() => {
-    if (!canMove) return;
+    setAccepted(count => count + 1); setAnnouncement('');
+    const showPhase = (next: GreetingPhase) => {
+      if (sequence.current !== ticket || !mounted.current) return;
+      changePhase(next);
+      if (next === 'waving') setAnnouncement(current.current.greeting);
+    };
+    const finish = () => {
+      if (sequence.current !== ticket || !mounted.current) return;
+      // Remove effects and restore every joint before unlocking input.
+      releaseResources(); changePhase('idle');
+    };
+    if (current.current.reduced || current.current.resourceFailed || !shoulder.current || !elbow.current || !wrist.current || !head.current) {
+      resetPose();
+      for (const [time, next] of [[80, 'raising'], [160, 'waving'], [320, 'recovering']] as const) {
+        timers.current.push(setTimeout(() => showPhase(next), time));
+      }
+      timers.current.push(setTimeout(finish, REDUCED_GREETING_MS));
+      return;
+    }
     try {
-      if (sessionStorage.getItem(welcomeKey)) return;
-      sessionStorage.setItem(welcomeKey, 'seen');
-    } catch { return; /* No reliable session store: manual greetings remain available. */ }
-    sayHello();
-  }, [canMove, sayHello]);
+      const initialHead = new DOMMatrix(getComputedStyle(head.current).transform);
+      const headDegrees = Math.atan2(initialHead.b, initialHead.a) * 180 / Math.PI;
+      resetPose();
+      const joints = { shoulder, elbow, wrist, head };
+      const start = document.timeline.currentTime;
+      const created: Animation[] = [];
+      animations.current = created;
+      for (const name of Object.keys(joints) as MovingJoint[]) {
+        const animation = joints[name].current!.animate(greetingFrames(name, headDegrees), {
+          duration: gestureTimeline[name].duration, fill: 'forwards', easing: 'linear',
+        });
+        animation.id = `avatar-greeting:${name}`;
+        // Each promise is handled even if a later joint fails to initialize.
+        void animation.finished.catch(() => {});
+        created.push(animation);
+        if (typeof start === 'number') animation.startTime = start;
+      }
+      const clock = created[0];
+      const trackPhase = () => {
+        if (sequence.current !== ticket || !mounted.current) return;
+        const elapsed = typeof clock.currentTime === 'number' ? clock.currentTime : 0;
+        const next = greetingPhaseAt(elapsed);
+        if (phaseRef.current !== next) showPhase(next);
+        raf.current = requestAnimationFrame(trackPhase);
+      };
+      raf.current = requestAnimationFrame(trackPhase);
+      timers.current.push(setTimeout(() => { if (sequence.current === ticket) cancelGesture(); }, GREETING_MS + 2000));
+      void Promise.all(created.map(animation => animation.finished)).then(finish).catch(() => {
+        if (sequence.current === ticket) cancelGesture();
+      });
+    } catch { cancelGesture(); }
+  }, [cancelGesture, changePhase, releaseResources, resetPose]);
 
-  function togglePause() {
-    cancelMotion(); setGreeting(false);
-    const next = !paused; setPaused(next);
-    try { localStorage.setItem('ice-paused', String(next)); } catch { /* Optional preference. */ }
-    window.dispatchEvent(new CustomEvent('ice-pause-change', { detail: next }));
-  }
   const layer = (name: string) => <image href={`${rigBase}${name}.webp`} x="0" y="0" width="720" height="960" />;
   const origin = (joint: keyof AvatarRig['joints']) => ({ transformOrigin: `${rig!.joints[joint][0]}px ${rig!.joints[joint][1]}px` });
-
-  return <div className={`avatar-exhibit ${canMove ? '' : 'is-still'}`} data-ambient data-state={paused ? 'paused' : greeting ? 'greeting' : 'idle'} data-rig={rig ? 'ready' : resourceFailed ? 'fallback' : 'loading'} data-scene-settled={sceneSettled}>
-    <div className="brick-stage" aria-hidden="true">{sceneReady && !sceneTimedOut ? <IceBoundary onFailure={onSceneSettled}><Suspense fallback={<SceneFallback />}><HeroBricks paused={!canMove || greeting} dark={dark} onSettled={onSceneSettled} /></Suspense></IceBoundary> : <SceneFallback />}</div>
+  const moving = phase !== 'idle';
+  // A ready character can greet before optional scene initialization. Defer the
+  // first shader compile while it is moving; keep an already settled scene mounted.
+  const mountScene = sceneReady && !sceneTimedOut && (sceneSettled || !moving);
+  return <div className={`avatar-exhibit ${reduced || !canTrigger ? 'is-still' : ''}`} data-ambient data-state={phase} data-greeting-count={accepted} data-rig={rig ? 'ready' : resourceFailed ? 'fallback' : 'loading'} data-action-ready={ready} data-scene-settled={sceneSettled}>
+    <div className="brick-stage" aria-hidden="true">{mountScene ? <IceBoundary onFailure={onSceneSettled}><Suspense fallback={<SceneFallback />}><HeroBricks paused={backgroundPaused || reduced || !visible || !pageVisible || moving} dark={dark} onSettled={onSceneSettled} /></Suspense></IceBoundary> : <SceneFallback />}</div>
     <div className="person-wrap" onPointerMove={event => {
-      if (!canMove || busy.current || event.pointerType !== 'mouse' || !head.current) return;
+      if (!current.current.canTrigger || reduced || backgroundPaused || phaseRef.current !== 'idle' || event.pointerType !== 'mouse' || !head.current) return;
       const bounds = event.currentTarget.getBoundingClientRect();
-      const degrees = Math.max(-3, Math.min(3, ((event.clientX - bounds.left) / bounds.width - 0.5) * 6));
+      const degrees = Math.max(-2, Math.min(2, ((event.clientX - bounds.left) / bounds.width - .5) * 4));
       head.current.style.transform = `rotate(${degrees}deg)`;
-    }} onPointerLeave={() => { if (!busy.current) resetPose(); }}>
-      <button ref={person} className="person-button" onClick={sayHello} aria-label={t.greet} disabled={!sceneSettled && !resourceFailed}>
+    }} onPointerLeave={() => { if (phaseRef.current === 'idle') resetPose(); }}>
+      <button ref={person} className="person-button" onClick={sayHello} aria-label={t.greet} aria-busy={moving} disabled={!ready} onKeyDown={event => {
+        if ((event.key === 'Enter' || event.key === ' ') && (event.repeat || phaseRef.current !== 'idle')) event.preventDefault();
+      }}>
         <img className={`avatar-image ${rig ? 'rig-replaced' : ''}`} src="/images/avatar/front-960.webp" srcSet="/images/avatar/front-480.webp 360w, /images/avatar/front-960.webp 720w" sizes="(max-width: 600px) 280px, 390px" width="720" height="960" fetchPriority="high" alt={lang === 'en' ? 'Mingyang’s ice-blue-haired character in a black hoodie' : '冰蓝发、黑色连帽衫的明阳公仔'} draggable={false} />
-        {rig && <svg className="avatar-rig" viewBox="0 0 720 960" width="720" height="960" aria-hidden="true" data-moving={greeting}>
+        {rig && <svg className="avatar-rig" viewBox="0 0 720 960" width="720" height="960" aria-hidden="true" data-moving={moving}>
+          <AvatarJointSurface joint="shoulder" at={rig.joints.shoulder} />
           <g data-part="body">{layer('body')}</g>
           <g ref={shoulder} data-joint="shoulder" style={origin('shoulder')}>
+            <AvatarJointSurface joint="elbow" at={rig.joints.elbow} />
             {layer('upper-arm')}
             <g ref={elbow} data-joint="elbow" style={origin('elbow')}>
               <g ref={wrist} data-joint="wrist" style={origin('wrist')}>{layer('hand')}</g>
@@ -181,10 +236,6 @@ export default function Avatar({ lang }: { lang: Lang }) {
         </svg>}
       </button>
     </div>
-    <div className={`avatar-greeting ${message ? 'show' : ''}`} role="status">{message ? t.greeting : ''}</div>
-    <div className="avatar-controls js-only">
-      <button className="hello-button" onClick={sayHello} disabled={!sceneSettled && !resourceFailed}><Hand size={17} aria-hidden="true" />{t.hello}</button>
-      <button className="animation-toggle" onClick={togglePause} aria-label={paused ? t.resumeAnimation : t.pause} aria-pressed={paused} title={paused ? t.resumeAnimation : t.pause}>{paused ? <ResumeIcon size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}</button>
-    </div>
+    <span className="avatar-announcement sr-only" role="status" aria-live="polite">{announcement}</span>
   </div>;
 }

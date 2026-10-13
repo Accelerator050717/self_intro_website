@@ -48,7 +48,6 @@ test.use({ reducedMotion: 'no-preference' });
  */
 async function installProbe(page: Page) {
   await page.addInitScript(() => {
-    sessionStorage.setItem('mingyang:avatar-welcome:v1', 'seen');
     const contexts = new Map<WebGL2RenderingContext, {
       program: WebGLProgram | null;
       locations: Map<WebGLProgram, Map<string, WebGLUniformLocation>>;
@@ -201,11 +200,22 @@ test('first GL draw uses the requested colors and only one background canvas', a
 
 test('global pause freezes draws, pointer and shader time; legitimate static updates do not restart the loop', async ({ page }) => {
   await openGradient(page, '/en/');
-  await page.locator('.animation-toggle').click();
+  await page.locator('[data-global-pause]').click();
   await page.waitForTimeout(100);
   const paused = await probe(page);
   await page.mouse.move(90, 160);
   await unchangedDraws(page, 1100);
+  expect((await probe(page)).draws).toBe(paused.draws);
+  // Ambient pause does not block an explicit character command. Verify the
+  // actual shoulder pose while the independent waves GL counter stays frozen.
+  await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-rig', 'ready');
+  await page.locator('.person-button').click();
+  await expect.poll(() => page.locator('[data-joint="shoulder"]').evaluate(el => {
+    const matrix = new DOMMatrix(getComputedStyle(el).transform);
+    return Math.atan2(matrix.b, matrix.a) * 180 / Math.PI;
+  })).toBeLessThan(-60);
+  expect((await probe(page)).draws).toBe(paused.draws);
+  await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
   expect((await probe(page)).draws).toBe(paused.draws);
   await page.locator('.theme-toggle').click();
   await expect.poll(async () => (await probe(page)).draws).toBeGreaterThan(paused.draws);
@@ -216,7 +226,7 @@ test('global pause freezes draws, pointer and shader time; legitimate static upd
   await expect.poll(async () => (await probe(page)).draws).toBeGreaterThan(themed.draws);
   const resized = await unchangedDraws(page);
   expect(resized.latest?.time).toBe(paused.latest?.time);
-  await page.locator('.animation-toggle').click();
+  await page.locator('[data-global-pause]').click();
   await expect.poll(async () => (await probe(page)).draws).toBeGreaterThan(resized.draws);
   const resumed = (await probe(page)).frames.find(frame => frame.number === resized.draws + 1);
   expect(resumed).toBeDefined();

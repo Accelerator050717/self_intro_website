@@ -4,17 +4,17 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const output = path.join(root, process.env.REPORT_DIRECTORY || 'docs');
-const images = path.join(root, process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/revision');
+const output = path.join(root, process.env.REPORT_DIRECTORY || 'docs/reports/avatar-interaction');
+const images = path.join(root, process.env.SCREENSHOT_DIRECTORY || 'docs/screenshots/avatar-interaction/after');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4321';
 const report = {
   startedAt: new Date().toISOString(), finishedAt: '', base,
-  browser: 'Installed Chrome, headless', scope: 'Hero ice scene only',
-  passed: false, failure: '', checks: [], measurements: {},
+  browser: 'Installed Chrome, headless', scope: 'Hero ice scene, transparent composition, local pointer feedback and finite gesture integration',
+  passed: false, failure: '', checks: [], measurements: {}, browsersClosed: false,
   pageErrors: [], consoleErrors: [], warnings: [], warningNotes: '',
   visibilityNote: 'Offscreen uses real scrolling. Hidden-page handling uses a document.hidden override and a visibilitychange event; it is not a real operating-system background-tab test.',
 };
-await mkdir(images, { recursive: true });
+await Promise.all([mkdir(images, { recursive: true }), mkdir(output, { recursive: true })]);
 const browser = await chromium.launch({ headless: true, channel: 'chrome' });
 const expect = baseExpect.configure({ timeout: 20000 });
 function observe(page) {
@@ -34,21 +34,87 @@ async function instrument(context) {
     localStorage.setItem('ice-paused', 'true');
     const calls = { total: 0, firstDrawAt: null, firstDrawHadFallback: null };
     Object.defineProperty(window, '__iceDrawCalls', { value: calls });
-    // Count real GL work belonging to this scene, independent of avatar/CSS motion.
+    const probe = { serial: 0, snapshot: null };
+    Object.defineProperty(window, '__iceProbe', { value: probe });
+    const locations = new WeakMap();
+    const states = new WeakMap();
+    const stateFor = gl => {
+      if (!states.has(gl)) states.set(gl, { queued: false, draws: [] });
+      return states.get(gl);
+    };
+    const capture = gl => {
+      const state = stateFor(gl);
+      state.queued = false;
+      if (gl.isContextLost() || gl.getParameter(gl.FRAMEBUFFER_BINDING) !== null) return;
+      const width = gl.drawingBufferWidth, height = gl.drawingBufferHeight;
+      const pixels = new Uint8Array(width * height * 4);
+      gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+      let edgePixels = 0, nonzeroEdge = 0, maxEdgeAlpha = 0, opaquePixels = 0;
+      const luminance = [];
+      for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+        const index = (y * width + x) * 4, alpha = pixels[index + 3];
+        if (alpha === 255) opaquePixels++;
+        if (x < 2 || x >= width - 2 || y < 2 || y >= height - 2) {
+          edgePixels++; if (alpha) nonzeroEdge++;
+          maxEdgeAlpha = Math.max(maxEdgeAlpha, alpha);
+        }
+        if (x > width * .26 && x < width * .75 && y > height * .08 && y < height * .35 && alpha >= 250) {
+          luminance.push(pixels[index] * .2126 + pixels[index + 1] * .7152 + pixels[index + 2] * .0722);
+        }
+      }
+      if (opaquePixels > 100) {
+        probe.serial++;
+        probe.snapshot = {
+          serial: probe.serial, width, height, alphaContext: gl.getContextAttributes()?.alpha,
+          edge: { pixels: edgePixels, nonzeroAlphaPixels: nonzeroEdge, maxAlpha: maxEdgeAlpha },
+          opaquePixels,
+          brick: { sampledOpaquePixels: luminance.length,
+            meanLuminance: luminance.reduce((sum, value) => sum + value, 0) / luminance.length,
+            blackFraction: luminance.filter(value => value < 10).length / luminance.length },
+          draws: state.draws, glError: gl.getError(),
+        };
+      }
+      state.draws = [];
+    };
+    // Test-side GL observation: no product hooks/userData and no screenshot-only
+    // inference of a tilt. Read before browser compositing discards the frame.
     for (const prototype of [window.WebGLRenderingContext?.prototype, window.WebGL2RenderingContext?.prototype]) {
       if (!prototype) continue;
+      const getUniformLocation = prototype.getUniformLocation;
+      prototype.getUniformLocation = function (...args) {
+        const location = Reflect.apply(getUniformLocation, this, args);
+        if (location) {
+          if (!locations.has(args[0])) locations.set(args[0], new Map());
+          locations.get(args[0]).set(args[1], location);
+        }
+        return location;
+      };
       for (const method of ['drawArrays', 'drawElements', 'drawArraysInstanced', 'drawElementsInstanced']) {
         const original = prototype[method];
         if (typeof original !== 'function') continue;
         prototype[method] = function (...args) {
+          const result = Reflect.apply(original, this, args);
           if (this.canvas?.closest('.ice-hero-scene')) {
             if (calls.firstDrawAt === null) {
               calls.firstDrawAt = performance.now();
               calls.firstDrawHadFallback = Boolean(document.querySelector('.ice-hero-scene > svg'));
             }
             calls.total++;
+            const state = stateFor(this);
+            if (this.getParameter(this.FRAMEBUFFER_BINDING) === null) {
+              const program = this.getParameter(this.CURRENT_PROGRAM);
+              const uniforms = {};
+              for (const name of ['modelMatrix', 'modelViewMatrix', 'projectionMatrix', 'envMapIntensity', 'roughness']) {
+                const location = locations.get(program)?.get(name);
+                if (!location) continue;
+                const value = this.getUniform(program, location);
+                uniforms[name] = ArrayBuffer.isView(value) ? Array.from(value) : value;
+              }
+              state.draws.push({ method, count: method.startsWith('drawElements') ? args[1] : args[2], ...uniforms });
+              if (!state.queued) { state.queued = true; queueMicrotask(() => capture(this)); }
+            }
           }
-          return Reflect.apply(original, this, args);
+          return result;
         };
       }
     }
@@ -61,6 +127,36 @@ async function expectReady(page) {
   await expect.poll(() => drawCount(page), { timeout: 20000 }).toBeGreaterThan(0);
   await expect(page.locator('.ice-hero-scene > svg')).toHaveCount(0);
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-scene-settled', 'true');
+}
+async function recordComposition(page, key) {
+  await page.waitForFunction(() => window['__iceProbe'].snapshot?.opaquePixels > 100);
+  const { draws: _draws, ...snapshot } = await page.evaluate(() => window['__iceProbe'].snapshot);
+  expect(snapshot.alphaContext).toBe(true);
+  expect(snapshot.edge.nonzeroAlphaPixels).toBe(0);
+  expect(snapshot.edge.maxAlpha).toBe(0);
+  expect(snapshot.brick.sampledOpaquePixels).toBeGreaterThan(100);
+  expect(snapshot.brick.meanLuminance).toBeGreaterThan(35);
+  expect(snapshot.brick.blackFraction).toBeLessThan(.05);
+  expect(snapshot.glError).toBe(0);
+  report.measurements[key] = snapshot;
+}
+async function peripheralBrick(page) {
+  return page.evaluate(() => {
+    const frame = window['__iceProbe'].snapshot;
+    const draw = frame?.draws.find(item => item.modelMatrix && item.count > 100 && !item.method.includes('Instanced')
+      && Math.abs(item.modelMatrix[12] + 2.1) < .001 && Math.abs(item.modelMatrix[14] - 1.4) < .001);
+    if (!draw) return null;
+    const canvas = document.querySelector('.ice-hero-scene canvas').getBoundingClientRect();
+    const multiply = (matrix, vector) => [0, 1, 2, 3].map(row => vector.reduce((sum, value, col) => sum + matrix[col * 4 + row] * value, 0));
+    // Front/top face points on the exposed left decorative brick, in local space.
+    const point = (x, y, z) => {
+      const clip = multiply(draw.projectionMatrix, multiply(draw.modelViewMatrix, [x, y, z, 1]));
+      return { x: canvas.left + (clip[0] / clip[3] + 1) / 2 * canvas.width,
+        y: canvas.top + (1 - clip[1] / clip[3]) / 2 * canvas.height };
+    };
+    return { modelMatrix: draw.modelMatrix, envMapIntensity: draw.envMapIntensity,
+      roughness: draw.roughness, points: [point(-.18, .12, .444), point(.18, .12, .444)] };
+  });
 }
 async function expectQuiet(page, key) {
   await page.waitForTimeout(250);
@@ -105,6 +201,16 @@ try {
       expect(firstFrame.firstDrawHadFallback).toBe(true);
       report.measurements.firstFrame = firstFrame;
       await expectQuiet(page, 'reducedAndPaused');
+      await recordComposition(page, 'compositionDesktopLight');
+      await page.locator('[data-global-pause]').click();
+      await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'false');
+      await expectQuiet(page, 'reducedWithAmbientEnabled');
+      const reducedBrick = await peripheralBrick(page);
+      expect(reducedBrick).not.toBeNull();
+      const reducedCount = await drawCount(page);
+      await page.mouse.move(reducedBrick.points[0].x, reducedBrick.points[0].y);
+      await expectQuiet(page, 'reducedPointer');
+      expect(await drawCount(page)).toBe(reducedCount);
       await page.screenshot({ path: path.join(images, 'ice-hero-1440-light-webgl.png') });
       const beforeTheme = await drawCount(page);
       await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
@@ -112,26 +218,115 @@ try {
       await expect.poll(() => drawCount(page)).toBeGreaterThan(beforeTheme);
       await expectReady(page);
       await expectQuiet(page, 'darkThemeIdle');
+      await recordComposition(page, 'compositionDesktopDark');
       await page.screenshot({ path: path.join(images, 'ice-hero-1440-dark-webgl.png') });
     } finally { releaseEnvironment(); await context.close(); }
   });
-  await check('Saved pause and greeting with normal motion: static 3D stays ready without continuous GL draws', async () => {
-    const context = await browser.newContext({ viewport: { width: 390, height: 1000 }, reducedMotion: 'no-preference' });
+  await check('A click starts one finite gesture while ambient pause remains active; coarse pointers never animate ice', async () => {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, reducedMotion: 'no-preference' });
     await instrument(context);
     const page = await context.newPage(); observe(page);
     try {
       await page.goto(`${base}/zh/`); await page.waitForLoadState('networkidle');
+      await page.locator('.avatar-exhibit').scrollIntoViewIfNeeded();
       await expectReady(page);
-      await expect(page.locator('.animation-toggle')).toHaveAttribute('aria-pressed', 'true');
+      await expect(page.locator('.animation-toggle, .hello-button')).toHaveCount(0);
+      await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'true');
+      await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-greeting-count', '0');
+      await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
       await expectQuiet(page, 'pausedWithNormalMotion');
+      await recordComposition(page, 'compositionMobileLight');
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.screenshot({ path: path.join(images, 'ice-hero-390-paused-webgl.png') });
       await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-rig', 'ready');
-      await page.locator('.animation-toggle').click();
-      await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'greeting');
+      await page.evaluate(() => {
+        const exhibit = document.querySelector('.avatar-exhibit');
+        const phases = ['idle']; window['__iceGesturePhases'] = phases;
+        const observer = new MutationObserver(() => {
+          const phase = exhibit.getAttribute('data-state');
+          if (phase !== phases.at(-1)) phases.push(phase);
+          if (phase === 'idle' && phases.length > 1) observer.disconnect();
+        });
+        observer.observe(exhibit, { attributes: true, attributeFilter: ['data-state'] });
+      });
+      await page.locator('.person-button').click();
+      await expect(page.locator('.person-button')).toHaveAttribute('aria-busy', 'true');
+      // Phase changes may cause one finite React/R3F invalidation. Observe the
+      // stable waving phase to distinguish that update from continuous drawing.
+      await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'waving');
       await expectQuiet(page, 'greetingPausesBrickInteraction');
       await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
+      await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-greeting-count', '1');
+      await expect(page.locator('.person-button')).toHaveAttribute('aria-busy', 'false');
+      const phases = await page.evaluate(() => window['__iceGesturePhases']);
+      expect(phases).toEqual(['idle', 'preparing', 'raising', 'waving', 'recovering', 'idle']);
+      report.measurements.finiteGestureWithAmbientPause = { phases, accepted: 1 };
+      await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'true');
+      const mobileThemeCount = await drawCount(page);
+      await setTheme(page, 'dark');
+      await expect.poll(() => drawCount(page)).toBeGreaterThan(mobileThemeCount);
+      await expectQuiet(page, 'mobileDarkIdle');
+      await recordComposition(page, 'compositionMobileDark');
+      await page.screenshot({ path: path.join(images, 'ice-hero-390-dark-webgl.png') });
+      // Resume via the actual header control, then return to the stage. A coarse
+      // pointer must remain static even when pause is no longer the guard.
+      await page.locator('[data-global-pause]').click();
+      await page.locator('.avatar-exhibit').scrollIntoViewIfNeeded();
+      await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'false');
+      expect(await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)).toBe(false);
+      await expectQuiet(page, 'coarsePointerBeforeHover');
+      const coarseBrick = await peripheralBrick(page);
+      expect(coarseBrick).not.toBeNull();
+      const coarseCount = await drawCount(page);
+      await page.mouse.move(coarseBrick.points[0].x, coarseBrick.points[0].y);
+      await expectQuiet(page, 'coarsePointer');
+      expect(await drawCount(page)).toBe(coarseCount);
       await expectReady(page);
+    } finally { await context.close(); }
+  });
+  await check('Fine pointer changes a peripheral brick matrix and specular response; leave/pause restore a quiet static scene', async () => {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
+    await instrument(context);
+    const page = await context.newPage(); observe(page);
+    try {
+      await page.goto(`${base}/en/`); await page.waitForLoadState('networkidle'); await expectReady(page);
+      await page.locator('[data-global-pause]').click();
+      await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'false');
+      await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
+      await expectQuiet(page, 'finePointerBeforeHover');
+      const before = await peripheralBrick(page);
+      expect(before).not.toBeNull();
+      const serial = await page.evaluate(() => window['__iceProbe'].serial);
+      await page.mouse.move(before.points[0].x, before.points[0].y);
+      await expect.poll(() => page.evaluate(() => window['__iceProbe'].serial)).toBeGreaterThan(serial);
+      const firstHover = await peripheralBrick(page);
+      await page.mouse.move(before.points[1].x, before.points[1].y, { steps: 3 });
+      await expectQuiet(page, 'finePointerStationary');
+      const hover = await peripheralBrick(page);
+      expect(hover).not.toBeNull();
+      report.measurements.pointerDebug = { before, firstHover, hover };
+      expect(hover.modelMatrix[13] - before.modelMatrix[13]).toBeCloseTo(.055, 3);
+      expect(hover.modelMatrix.slice(0, 12).some((value, index) => Math.abs(value - before.modelMatrix[index]) > .001)).toBe(true);
+      expect(hover.roughness).toBeLessThan(before.roughness);
+      expect(Math.abs(hover.roughness - firstHover.roughness)).toBeGreaterThan(.001);
+      await recordComposition(page, 'compositionPointerHover');
+      await page.screenshot({ path: path.join(images, 'ice-pointer-hover.png') });
+      await page.mouse.move(10, 10);
+      await expectQuiet(page, 'pointerLeave');
+      const restored = await peripheralBrick(page);
+      expect(restored.modelMatrix).toEqual(before.modelMatrix);
+      expect(restored.envMapIntensity).toBe(before.envMapIntensity);
+      expect(restored.roughness).toBe(before.roughness);
+      await page.locator('[data-global-pause]').click();
+      await expect(page.locator('[data-global-pause]')).toHaveAttribute('aria-pressed', 'true');
+      await expectQuiet(page, 'pauseSettledBeforePointer');
+      const pausedCount = await drawCount(page);
+      await page.mouse.move(before.points[0].x, before.points[0].y);
+      await page.mouse.move(before.points[1].x, before.points[1].y, { steps: 3 });
+      await expectQuiet(page, 'pausedPointer');
+      expect(await drawCount(page)).toBe(pausedCount);
+      report.measurements.pointerResponse = { before, firstHover, hover, restored, pausedDraws: await drawCount(page) - pausedCount };
+      delete report.measurements.pointerDebug;
     } finally { await context.close(); }
   });
   await check('Hidden and offscreen scenes stop GL rendering even when theme invalidates; returning draws again', async () => {
@@ -224,8 +419,9 @@ try {
   process.exitCode = 1;
 } finally {
   await browser.close();
+  report.browsersClosed = true;
   report.finishedAt = new Date().toISOString();
-  report.warningNotes = 'THREE.Clock deprecation comes from React Three Fiber 9.7. Windows shader precision warnings and warnings caused by deliberate WEBGL_lose_context are retained. These Hero checks do not validate the avatar limb animation.';
+  report.warningNotes = 'THREE.Clock deprecation comes from React Three Fiber 9.7. Windows shader precision warnings and warnings caused by deliberate WEBGL_lose_context are retained. The gesture phase check is an integration check; joint seams, occlusion and motion quality require inspection of the separate new-frame captures. Instrumentation overhead means this script is not a performance measurement.';
   await writeFile(path.join(output, 'ice-browser-results.json'), `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify({ passed: report.passed, checks: report.checks, measurements: report.measurements, pageErrors: report.pageErrors, consoleErrors: report.consoleErrors, failure: report.failure }, null, 2));
 }

@@ -1,0 +1,405 @@
+{
+  "reviewedAt": "2026-10-13T01:45:21.040160+00:00",
+  "method": "Actual view_image inspection of all 13 preflight PNGs and all 10 final light/dark recovery PNGs. Continuous trusted click animation; no seeking or freezing. File labels are requested times, not exact displayed pose times.",
+  "preflight": {
+    "timings": [
+      {
+        "target": 0,
+        "actual": 4.900000000372529,
+        "state": "preparing"
+      },
+      {
+        "target": 160,
+        "actual": 210.40000000037253,
+        "state": "raising"
+      },
+      {
+        "target": 320,
+        "actual": 389.59999999962747,
+        "state": "raising"
+      },
+      {
+        "target": 610,
+        "actual": 613,
+        "state": "raising"
+      },
+      {
+        "target": 920,
+        "actual": 1217.5,
+        "state": "waving"
+      },
+      {
+        "target": 1280,
+        "actual": 1428.7999999998137,
+        "state": "waving"
+      },
+      {
+        "target": 1510,
+        "actual": 1587.9000000003725,
+        "state": "waving"
+      },
+      {
+        "target": 1760,
+        "actual": 1763.0999999996275,
+        "state": "waving"
+      },
+      {
+        "target": 2020,
+        "actual": 2024.7999999998137,
+        "state": "waving"
+      },
+      {
+        "target": 2500,
+        "actual": 2502.0999999996275,
+        "state": "recovering"
+      },
+      {
+        "target": 2810,
+        "actual": 2813.4000000003725,
+        "state": "recovering"
+      },
+      {
+        "target": 3160,
+        "actual": 3163.5999999996275,
+        "state": "recovering"
+      },
+      {
+        "target": 3480,
+        "actual": 3491.5,
+        "state": "idle"
+      }
+    ],
+    "framesReviewed": 13,
+    "findings": [
+      "No observed detached limb, background slit across shoulder/elbow/cuff, duplicate hand or exposed gradient backing patch.",
+      "Raised hand remained outside the face and hair in the reviewed frames.",
+      "Wide original forearm sleeve appeared bulbous while bending; the initial recovery passed through a more horizontal outstretched pose."
+    ]
+  },
+  "finalRecovery": {
+    "capturedAt": "2026-10-13T01:44:20.963Z",
+    "cases": [
+      {
+        "theme": "light",
+        "frames": [
+          {
+            "targetMs": 2500,
+            "before": {
+              "elapsedMs": 2509.5999999996275,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -63.91741864534517,
+                "elbow": -85.9999982984376,
+                "wrist": 0.7909358393657756,
+                "head": -0.9992030364104774
+              }
+            },
+            "after": {
+              "elapsedMs": 2681.9000000003725,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -41.81965973710591,
+                "elbow": -85.9999982984376,
+                "wrist": -0.42953554220586493,
+                "head": -0.7860653717514038
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-light-2500.png"
+          },
+          {
+            "targetMs": 2810,
+            "before": {
+              "elapsedMs": 2820,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -37.907752799620084,
+                "elbow": -85.59269219590034,
+                "wrist": 0,
+                "head": -0.4565955854247977
+              }
+            },
+            "after": {
+              "elapsedMs": 2981.0999999996275,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -14.987014605095732,
+                "elbow": -55.952637120706456,
+                "wrist": 0,
+                "head": -0.28773098617867604
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-light-2810.png"
+          },
+          {
+            "targetMs": 2980,
+            "before": {
+              "elapsedMs": 2983.4000000003725,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -14.987014605095732,
+                "elbow": -55.952637120706456,
+                "wrist": 0,
+                "head": -0.28773098617867604
+              }
+            },
+            "after": {
+              "elapsedMs": 3138,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -7.065391378628634,
+                "elbow": -9.815842683417998,
+                "wrist": 0,
+                "head": -0.04117222440934429
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-light-2980.png"
+          },
+          {
+            "targetMs": 3170,
+            "before": {
+              "elapsedMs": 3173.2999999998137,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -5.689766855001373,
+                "elbow": -8.155666844422713,
+                "wrist": 0,
+                "head": -0.025368163087973766
+              }
+            },
+            "after": {
+              "elapsedMs": 3319.7999999998137,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -0.24085730911566527,
+                "elbow": 0,
+                "wrist": 0,
+                "head": -0.00017504032528530732
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-light-3170.png"
+          },
+          {
+            "targetMs": 3480,
+            "before": {
+              "elapsedMs": 3484.7000000001863,
+              "state": "idle",
+              "angles": {
+                "shoulder": 0,
+                "elbow": 0,
+                "wrist": 0,
+                "head": 0
+              }
+            },
+            "after": {
+              "elapsedMs": 3615.2000000001863,
+              "state": "idle",
+              "angles": {
+                "shoulder": 0,
+                "elbow": 0,
+                "wrist": 0,
+                "head": 0
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-light-3480.png"
+          }
+        ]
+      },
+      {
+        "theme": "dark",
+        "frames": [
+          {
+            "targetMs": 2500,
+            "before": {
+              "elapsedMs": 2504.2000000001863,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -63.97827649672191,
+                "elbow": -85.9999982984376,
+                "wrist": 0.9626600858756241,
+                "head": -0.9997873643534959
+              }
+            },
+            "after": {
+              "elapsedMs": 2690.7999999998137,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -41.04684859352626,
+                "elbow": -85.9999982984376,
+                "wrist": -0.2694057333105939,
+                "head": -0.7608929920145717
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-dark-2500.png"
+          },
+          {
+            "targetMs": 2810,
+            "before": {
+              "elapsedMs": 2818.7999999998137,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -37.90926536710708,
+                "elbow": -85.59949558336436,
+                "wrist": 0,
+                "head": -0.4567961143294047
+              }
+            },
+            "after": {
+              "elapsedMs": 2974.0999999996275,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -15.758431504432147,
+                "elbow": -56.001995368753185,
+                "wrist": 0,
+                "head": -0.30001877550617856
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-dark-2810.png"
+          },
+          {
+            "targetMs": 2980,
+            "before": {
+              "elapsedMs": 2980.7000000001863,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -15.02485955919825,
+                "elbow": -55.9594067505625,
+                "wrist": 0,
+                "head": -0.2886236434461028
+              }
+            },
+            "after": {
+              "elapsedMs": 3138.7999999998137,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -10.034435998517713,
+                "elbow": -39.06711133897035,
+                "wrist": 0,
+                "head": -0.1506456060408828
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-dark-2980.png"
+          },
+          {
+            "targetMs": 3170,
+            "before": {
+              "elapsedMs": 3174.5,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -5.173434794763504,
+                "elbow": -6.6600932588013855,
+                "wrist": 0,
+                "head": -0.0232903893145767
+              }
+            },
+            "after": {
+              "elapsedMs": 3340.7999999998137,
+              "state": "recovering",
+              "angles": {
+                "shoulder": -0.11235710431535466,
+                "elbow": 0,
+                "wrist": 0,
+                "head": 0
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-dark-3170.png"
+          },
+          {
+            "targetMs": 3480,
+            "before": {
+              "elapsedMs": 3485.2999999998137,
+              "state": "idle",
+              "angles": {
+                "shoulder": 0,
+                "elbow": 0,
+                "wrist": 0,
+                "head": 0
+              }
+            },
+            "after": {
+              "elapsedMs": 3640.5,
+              "state": "idle",
+              "angles": {
+                "shoulder": 0,
+                "elbow": 0,
+                "wrist": 0,
+                "head": 0
+              }
+            },
+            "screenshot": "docs/screenshots/avatar-interaction/after/ice-recovery-dark-3480.png"
+          }
+        ]
+      }
+    ],
+    "framesReviewed": 10,
+    "findings": [
+      "In both themes the adjusted 2810 capture retains a bent elbow; the 2980 capture has the hand lower, reducing the initial high horizontal extension.",
+      "The 3170 captures approach the resting silhouette; both 3480 captures have idle state and all recorded joint angles at zero.",
+      "No new shoulder/elbow/wrist background slit or visible circular helper patch; no hand/face/hair collision in these recovery frames.",
+      "The oversized sleeve retains its round fold silhouette. It is reduced by pose timing, not redrawn or claimed to be anatomically reconstructed."
+    ]
+  },
+  "helperAssessment": {
+    "changedAfterVisualReview": false,
+    "elbowExposedPixelsInFourApproximateAlphaChecks": 0,
+    "elbowSampledPixels": 1187,
+    "shoulderExposedPixelRange": [
+      16,
+      37
+    ],
+    "note": "Read-only nearest-pixel opaque-mask calculation at idle, raising, peak and recovery. Original texture layers stay above the small backing ellipses; this is supplemental geometry evidence, not a substitute for frame inspection."
+  },
+  "limits": [
+    "This is a 2D registered image rig using the supplied slightly curled hand and oversized garment. It is not an exact open-palm reconstruction of the mirrored reference.",
+    "Screenshot capture spans an elapsed-time interval; final frame records include before/after times and measured angles. These are not uniformly spaced video frames or a real-device motion study.",
+    "Final recovery images were captured before the subsequent ice-only roughness feedback fix; the character, joint helper, trajectory, geometry and static ice materials are unchanged by that fix."
+  ],
+  "pageErrors": [],
+  "browsersClosedAfterCapture": true,
+  "visualIssuesRequiringFurtherHelperChanges": [],
+  "iceFeedbackDiagnostic": {
+    "firstCandidate": {
+      "checksPassedBeforeFailure": 2,
+      "failedCheck": "Fine-pointer material response",
+      "observed": "The actual model matrix showed the intended bounded tilt and 0.055 lift, but the real envMapIntensity uniform remained 1 before and during hover."
+    },
+    "cause": "In installed Three.js 0.186.0, WebGLRenderer sets envMapIntensity from scene.environmentIntensity when material.envMap is null and scene.environment is present. The attempted per-material envMapIntensity change was therefore ineffective.",
+    "repair": "Keep the shared environment and transparent composition unchanged. Vary the local highlight material roughness with the raycast x coordinate; keep color and rigid tilt local. The regression check now reads the actual roughness uniform and verifies movement changes it, then leave restores it.",
+    "assertionRefinement": "An early quiet-window assertion crossed a finite avatar phase transition and observed a single R3F update. The final test observes the stable waving phase to distinguish bounded state invalidation from continuous drawing; this was a test-window correction, not an animation-loop fix.",
+    "finalValidation": {
+      "report": "docs/reports/avatar-interaction/ice-browser-results.json",
+      "finishedAt": "2026-10-13T01:49:02.883Z",
+      "passed": true,
+      "checksPassed": 7,
+      "actualRoughness": [
+        0.05999999865889549,
+        0.040722187608480453,
+        0.03604487329721451,
+        0.05999999865889549
+      ],
+      "actualHoverLift": 0.054999999701976776,
+      "pausedExtraDraws": 0,
+      "browsersClosed": true
+    },
+    "secondaryFinding": "After the roughness fix, actual uniform values changed from 0.060 to about 0.0333, but two pointer positions differed by only 0.00004. Three Line raycasting has a default one-world-unit tolerance; the decorative rim/vein lines intercepted local points. Their raycasts were disabled so the solid body and cylindrical studs determine pointer position. Visible geometry and material appearance are unchanged by this hit-test correction."
+  },
+  "iceVisualReview": {
+    "imagesReviewed": [
+      "ice-hero-1440-light-webgl.png",
+      "ice-hero-1440-dark-webgl.png",
+      "ice-hero-390-paused-webgl.png",
+      "ice-hero-390-dark-webgl.png",
+      "ice-pointer-hover.png",
+      "ice-hero-320-svg.png",
+      "ice-hero-no-javascript.png"
+    ],
+    "directory": "docs/screenshots/avatar-interaction/after",
+    "findings": [
+      "No visible rectangle around the transparent 3D canvas in either theme or viewport. Waves/background continue behind the decorative bricks.",
+      "Cylindrical studs and brick side thickness remain visible. Dark ice stays blue/violet with bright ice streaks; no black refraction region was observed.",
+      "The pointer response is deliberately small; the hovered left brick is slightly lifted/tilted. The actual matrix and two distinct roughness values provide stronger response evidence than a static full-page screenshot alone.",
+      "SVG and JavaScript-disabled fallbacks retain the supplied character and thick studded brick drawing."
+    ],
+    "mobileScreenshotNote": "The mobile page was scrolled to bring the entire stage into view. The clipped heading at the top is viewport framing, not document overflow; the script asserts no horizontal overflow.",
+    "boundary": "Headless installed Chrome only. Hidden-page handling is explicitly simulated; no claim of physical-device testing or a performance measurement."
+  }
+}

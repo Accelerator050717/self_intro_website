@@ -1,0 +1,17 @@
+@layer components {
+  .person-button {
+    cursor: pointer;
+    touch-action: manipulation;
+    outline-offset: 3px;
+    transition: filter 160ms ease, outline-color 160ms ease;
+  }
+  .person-button:focus-visible { outline: 3px solid var(--accent); }
+  .person-button:hover:not(:disabled) { filter: brightness(1.035); }
+  .person-button[aria-busy='true'] { cursor: default; }
+  .person-button[aria-busy='true']:hover { filter: none; }
+  .avatar-rig [data-joint='head'] { transition: transform 180ms ease; }
+  .avatar-rig[data-moving='true'] [data-joint='head'] { transition: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .person-button, .avatar-rig [data-joint='head'] { transition: none; }
+  }
+}

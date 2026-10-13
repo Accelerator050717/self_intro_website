@@ -18,10 +18,10 @@ const descriptions={work:t.workDesc,about:t.briefText,resume:t.resumeSubtitle,40
   {page==='work'&&<>
     <div class="page-head wrap"><span class="small-note">{t.work}</span><h1>{t.workTitle}</h1><p>{t.workDesc}</p></div>
     <section class="wrap" aria-label={t.projects}>
-      <div class="filter-bar js-only" role="group" aria-label={lang==='en'?'Filter projects':'筛选项目'}>{['all','ai','software','experiments'].map((filter,i)=><button class="filter-button" data-filter={filter} aria-pressed={i===0}>{t.filters[i]}</button>)}</div>
+      <div class="filter-bar js-only" role="group" aria-label={lang==='en'?'Filter projects':'筛选项目'}>{['all','ai','software','experiments'].map((filter,i)=><button class="filter-button" data-filter={filter} aria-controls="work-projects" aria-pressed={i===0}>{t.filters[i]}</button>)}</div>
       <p class="filter-status js-only" role="status" aria-live="polite" data-filter-status data-lang={lang}>{lang==='en'?'6 projects':'6 个项目'}</p>
       <noscript><p class="noscript-note">{t.noJs}</p></noscript>
-      <div class="work-grid">{projects.map(project=><ProjectCard project={project} lang={lang}/>)}</div>
+      <div class="work-grid" id="work-projects" data-work-grid data-active-filter="all">{projects.map(project=><ProjectCard project={project} lang={lang}/>)}</div>
     </section>
   </>}
   {page==='about'&&<>
@@ -42,13 +42,3 @@ const descriptions={work:t.workDesc,about:t.briefText,resume:t.resumeSubtitle,40
   </div>}
   {page==='404'&&<section class="not-found wrap"><div class="not-found-art" aria-hidden="true"><SceneFallback mode="hero"/></div><p class="small-note">404</p><h1>{t.notFound}</h1><p>{t.notFoundDesc}</p><div class="hero-actions"><a class="button primary" href={route(lang)}>{t.backHome}<Icon name="right" size={18}/></a><a class="button secondary" href={route(lang,'work')}>{t.work}</a></div></section>}
 </Layout>
-<script>
-  const filters=document.querySelectorAll<HTMLButtonElement>('[data-filter]');
-  const cards=document.querySelectorAll<HTMLElement>('.work-grid .project-card');
-  const status=document.querySelector<HTMLElement>('[data-filter-status]');
-  filters.forEach(button=>button.addEventListener('click',()=>{
-    filters.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    let count=0;cards.forEach(card=>{const show=button.dataset.filter==='all'||card.dataset.categories?.split(' ').includes(button.dataset.filter!);card.hidden=!show;if(show)count++;});
-    if(status)status.textContent=status.dataset.lang==='zh'?`${count} 个项目`:`${count} ${count===1?'project':'projects'}`;
-  }));
-</script>

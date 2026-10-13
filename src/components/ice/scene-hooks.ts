@@ -4,6 +4,7 @@ export function useSceneStatus(element: RefObject<HTMLElement | null>) {
   const [visible, setVisible] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [finePointer, setFinePointer] = useState(false);
   const [dark, setDark] = useState(false);
   useEffect(() => {
     const node = element.current;
@@ -17,6 +18,10 @@ export function useSceneStatus(element: RefObject<HTMLElement | null>) {
     const onMotion = () => setReducedMotion(media.matches);
     onMotion();
     media.addEventListener('change', onMotion);
+    const pointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const onPointer = () => setFinePointer(pointer.matches);
+    onPointer();
+    pointer.addEventListener('change', onPointer);
     const onTheme = () => setDark(document.documentElement.dataset.theme === 'dark');
     onTheme();
     const theme = new MutationObserver(onTheme);
@@ -25,9 +30,10 @@ export function useSceneStatus(element: RefObject<HTMLElement | null>) {
       observer.disconnect(); theme.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
       media.removeEventListener('change', onMotion);
+      pointer.removeEventListener('change', onPointer);
     };
   }, [element]);
-  return { active: visible && pageVisible, visible, reducedMotion, dark };
+  return { active: visible && pageVisible, visible, reducedMotion, finePointer, dark };
 }
 
 export function supportsWebGL(): boolean {

@@ -4,8 +4,9 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 const phase = process.argv[2];
 if (!['before', 'after'].includes(phase)) throw new Error('Use before or after');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4321';
-const directory = 'docs/reports/gradient-waves';
-const rawDirectory = `.verification/gradient-waves/motion/${phase}`;
+const directory = process.env.REPORT_DIRECTORY || 'docs/reports/gradient-waves';
+const round = directory.includes('avatar-interaction') ? 'avatar-interaction' : 'gradient-waves';
+const rawDirectory = `.verification/${round}/motion/${phase}`;
 const reportFile = `${directory}/${phase}-motion.json`;
 if (phase === 'before' && existsSync(reportFile) && JSON.parse(readFileSync(reportFile, 'utf8')).passed) {
   throw new Error('A passing before baseline already exists. Preserve it; run after against the new build.');

@@ -1,6 +1,35 @@
 # 视觉组件来源与实现边界
 
-## 当前增量：用户指定的 GradientWaves
+## 2026-10-12 增量：项目浏览与页面动效
+
+本轮从用户指定的 [Codrops Demos](https://tympanus.net/codrops/demos/)、[Motion](https://motion.dev/)、[GSAP](https://gsap.com/) 和 [React Bits](https://reactbits.dev/) 官方入口研究局部交互。以下为文档与源码机制参考，不将浏览文档记作真实演示操作或本站验收。继续使用 Astro 服务端页面、普通 CSS、原生 DOM 和 Web Animations API，没有增加 Motion、GSAP、Barba 或其他动画运行依赖，也没有新增背景 shader。
+
+| 位置 | 官方参考 | 本站实现与范围 |
+| --- | --- | --- |
+| Work 分类切换 | Codrops [Animating Responsive Grid Layout Transitions with GSAP Flip](https://tympanus.net/codrops/2026/01/20/animating-responsive-grid-layout-transitions-with-gsap-flip/)；GSAP [Flip 的状态测量与布局切换](https://gsap.com/docs/v3/Plugins/Flip/)；Motion [布局动画](https://motion.dev/docs/react-layout-animations) | 自编 FLIP：测量当前位置、立即更新真实 `hidden`/数量/`aria-pressed`、以 WAAPI transform 从旧位置落到新位置。新入项目使用短 opacity/位移。连续选择取消前一次动画并采用当前视觉位置；不锁按钮，不复制 Codrops 的随机延迟、全格模糊或亮度效果。 |
+| 项目封面 | React Bits [Spotlight Card](https://reactbits.dev/components/spotlight-card)、[Tilted Card](https://reactbits.dev/components/tilted-card) | 在下文已归属的 Spotlight 改写上增量维护：夹紧局部鼠标坐标、原有最大约 3° 倾斜、内部 SVG 最大水平 5px/垂直 4px 视差。普通 CSS 负责短缓动，rAF 仅合并输入事件；链接外框、标题和点击区域不随指针漂移。触屏、减少动态、全站暂停与打印回到静态。未复制新的 React/Motion 组件。 |
+| 页面进入 | Motion 布局文档对布局连续性的说明；Chrome [跨文档 View Transitions](https://developer.chrome.com/docs/web-platform/view-transitions/cross-document) | 自编原生跨文档 View Transition 样式与生命周期保护，仅给 `main` 命名并作 220ms 短进入；根快照不做背景淡入或位移。按照浏览器文档，首帧偏好与 `pagereveal` 保护需要同步 head 脚本，不依赖延迟模块抢在首次捕获前运行。没有客户端路由拦截、离场遮罩或等待动画才跳转的逻辑。不支持该 API 时继续正常文档导航。 |
+| 项目详情阅读 | Motion [scroll 文档](https://motion.dev/docs/scroll) 对滚动关联与进入触发的区分 | 复用既有目录锚点，以阅读线位置设置 `aria-current="location"` 和静态边线。每次滚动最多合并一帧测量，不持续运行动画时钟，不接管滚动，不新增导航功能。 |
+
+渲染预算参考 Motion [Performance](https://motion.dev/docs/performance)：布局切换一次集中读取几何位置，后续只动画 transform/opacity；封面光仍限制在原有有界区域。本文不承诺合成线程执行或具体帧率，这些应由本轮生产预览的独立实测确认。
+
+导航首帧与取消另按 Chrome 的上述跨文档文档、MDN [`ViewTransition.ready`](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition/ready) 和 Chromium [跳过原因实现](https://chromium.googlesource.com/chromium/src/+/bed98a9780b75372c1974d8aa0e48f1433082e2f%5E%21/)核查。接收页尚未启用过渡时，Chromium 会以 `kOptInDisabled` 中止并让 `pagereveal` 不携带过渡对象；因此启用规则现在是 Layout head 中唯一的同步内联普通 CSS，不依赖外链样式抵达时机。head 同步注册 `pageswap`/`pagereveal` 偏好保护，分别处理 `ready` 的拒绝；后加载模块继续负责活动过渡集合与完成清理。正常跳过时 `finished` 可以成功而 `ready` 失败，两者不能互相代替。以上是针对浏览器生命周期的实现处理，没有拦截链接，也没有全局屏蔽错误事件；延迟外链样式、延迟模块与主动跳过的实际导航由回归测试单独验证。
+
+许可与分发边界：Codrops [许可页](https://tympanus.net/codrops/licensing/) 将可下载演示标为 MIT（个别说明除外），本轮没有复制演示代码或图片。Motion 官网标注开源 MIT，但没有安装或分发 Motion 代码。GSAP 使用其 [Standard “No Charge” License](https://gsap.com/community/standard-license/)，不能写作 MIT；此处只参考公开 Flip 机制，没有分发 GSAP 库或插件。既有 React Bits 改写继续适用下文固定版本的 **MIT + Commons Clause**，完整通知保留在 [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)。本轮没有借研究名义替换 GradientWaves 算法、参数或 OGL，也没有更改旧轮次的完成统计。
+
+实现文件：`src/scripts/visual-effects.ts`、`src/styles/spectrum.css`、`src/layouts/Layout.astro` 和 `src/pages/[lang]/[page].astro`。所有正文、六个项目事实和原有 SVG 示意内容保持原样。研究、源码实现、浏览器实测与最终验收分别记录；本来源说明不代表新增交互已经通过浏览器验证。
+
+### 人物动作引擎与参考边界
+
+本轮另核查 [GSAP Timeline 官方文档](https://gsap.com/docs/v3/GSAP/Timeline/)、Rive 官方仓库的 [Runtimes Quick Start](https://github.com/rive-app/help-center/blob/master/runtimes/quick-start.md) 与 [State Machines](https://github.com/rive-app/help-center/blob/master/runtimes/state-machines.md)，以及 MDN 的 [Animation.finished](https://developer.mozilla.org/en-US/docs/Web/API/Animation/finished)。GSAP Timeline 提供轨道定位、重叠和统一播放控制；Rive 通过运行时加载 `.riv` 文件，再驱动文件中配置好的状态机及输入。这些能力适合各自工作流，但本站已有注册好的独立图层与 SVG 关节，不需要新增动画文件格式或运行依赖。
+
+因此人物继续使用本站自编 WAAPI 动作：肩、肘、腕和头部各有独立关键帧与错峰时序，共用一次动作起点；正常周期约 `3400ms`，按准备、抬臂、挥手、恢复四阶段执行。完成条件以 `Promise.all` 等待本次所有关节的 `Animation.finished`，再清理动画并回到空闲；取消路径单独恢复原位，不用单一固定计时器冒充真实完成。人物按钮是唯一主动触发入口，动作中同步锁住重复指令，不排队；背景暂停仍允许用户主动触发有限人物动作，减少动态或资源回退时使用短静态回应。这是当前源码的设计说明，实际阶段、关节姿态、重复输入和取消行为由本轮测试另行验证。
+
+本轮已实际取得并查看十张 `1024 × 1536` 清晰参考图，能支持的视觉观察是：画面左侧手臂抬起，开放掌心靠近脸侧。图像不包含完整收手过程、可靠帧时间或精确三维关节数据；本站抬臂幅度、缓动、短挥手与复位时序属于适配设计。现有 rig 的动作臂位于画面右侧，采用镜像方向约束并保持原人物身份、注册图层和独立关节，不宣称逐帧重建参考动作。
+
+本节只记录机制研究与本站实现选择，没有复制 GSAP/Rive 示例源码、引入其库或分发 `.riv` 素材，也不将“研究 Timeline / State Machines”写成已经集成 GSAP 或 Rive。GSAP 的许可条件仍按上文说明；已有第三方通知范围保持原样。
+
+## 既有增量：用户指定的 GradientWaves
 
 核查日期：2026-09-22。此次明确采用 React Bits **GradientWaves 的 JavaScript + 普通 CSS** 源码和 OGL，不以其他背景组件或 CSS 近似替代。下方 Glacial Spectrum 研究记录保留为上一轮历史；其中“未引入 OGL”只描述上一轮状态。
 

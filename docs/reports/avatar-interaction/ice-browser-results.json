@@ -1,0 +1,357 @@
+{
+  "startedAt": "2026-10-13T01:48:30.880Z",
+  "finishedAt": "2026-10-13T01:49:02.883Z",
+  "base": "http://127.0.0.1:4321",
+  "browser": "Installed Chrome, headless",
+  "scope": "Hero ice scene, transparent composition, local pointer feedback and finite gesture integration",
+  "passed": true,
+  "failure": "",
+  "checks": [
+    {
+      "name": "Reduced motion + saved pause: SVG persists through environment loading, then a real static frame replaces it",
+      "passed": true,
+      "milliseconds": 6114
+    },
+    {
+      "name": "A click starts one finite gesture while ambient pause remains active; coarse pointers never animate ice",
+      "passed": true,
+      "milliseconds": 9086
+    },
+    {
+      "name": "Fine pointer changes a peripheral brick matrix and specular response; leave/pause restore a quiet static scene",
+      "passed": true,
+      "milliseconds": 5941
+    },
+    {
+      "name": "Hidden and offscreen scenes stop GL rendering even when theme invalidates; returning draws again",
+      "passed": true,
+      "milliseconds": 4042
+    },
+    {
+      "name": "WebGL context loss returns to SVG and leaves real page content available",
+      "passed": true,
+      "milliseconds": 2105
+    },
+    {
+      "name": "Invalid local environment safely returns to SVG",
+      "passed": true,
+      "milliseconds": 1976
+    },
+    {
+      "name": "Forced SVG at 320px and JavaScript disabled preserve the hero and page content",
+      "passed": true,
+      "milliseconds": 2295
+    }
+  ],
+  "measurements": {
+    "firstFrame": {
+      "total": 116,
+      "firstDrawAt": 2032.7000000001863,
+      "firstDrawHadFallback": true
+    },
+    "reducedAndPaused": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "compositionDesktopLight": {
+      "serial": 2,
+      "width": 601,
+      "height": 645,
+      "alphaContext": true,
+      "edge": {
+        "pixels": 4968,
+        "nonzeroAlphaPixels": 0,
+        "maxAlpha": 0
+      },
+      "opaquePixels": 38293,
+      "brick": {
+        "sampledOpaquePixels": 27626,
+        "meanLuminance": 207.19363371461725,
+        "blackFraction": 0
+      },
+      "glError": 0
+    },
+    "reducedWithAmbientEnabled": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "reducedPointer": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "darkThemeIdle": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "compositionDesktopDark": {
+      "serial": 4,
+      "width": 601,
+      "height": 645,
+      "alphaContext": true,
+      "edge": {
+        "pixels": 4968,
+        "nonzeroAlphaPixels": 0,
+        "maxAlpha": 0
+      },
+      "opaquePixels": 38293,
+      "brick": {
+        "sampledOpaquePixels": 27626,
+        "meanLuminance": 109.04413829725897,
+        "blackFraction": 0
+      },
+      "glError": 0
+    },
+    "pausedWithNormalMotion": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "compositionMobileLight": {
+      "serial": 3,
+      "width": 376,
+      "height": 445,
+      "alphaContext": true,
+      "edge": {
+        "pixels": 3268,
+        "nonzeroAlphaPixels": 0,
+        "maxAlpha": 0
+      },
+      "opaquePixels": 15380,
+      "brick": {
+        "sampledOpaquePixels": 12490,
+        "meanLuminance": 205.83573095276174,
+        "blackFraction": 0
+      },
+      "glError": 0
+    },
+    "greetingPausesBrickInteraction": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "finiteGestureWithAmbientPause": {
+      "phases": [
+        "idle",
+        "preparing",
+        "raising",
+        "waving",
+        "recovering",
+        "idle"
+      ],
+      "accepted": 1
+    },
+    "mobileDarkIdle": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "compositionMobileDark": {
+      "serial": 11,
+      "width": 376,
+      "height": 445,
+      "alphaContext": true,
+      "edge": {
+        "pixels": 3268,
+        "nonzeroAlphaPixels": 0,
+        "maxAlpha": 0
+      },
+      "opaquePixels": 15380,
+      "brick": {
+        "sampledOpaquePixels": 12490,
+        "meanLuminance": 110.35447423538817,
+        "blackFraction": 0
+      },
+      "glError": 0
+    },
+    "coarsePointerBeforeHover": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "coarsePointer": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "finePointerBeforeHover": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "finePointerStationary": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "compositionPointerHover": {
+      "serial": 8,
+      "width": 601,
+      "height": 645,
+      "alphaContext": true,
+      "edge": {
+        "pixels": 4968,
+        "nonzeroAlphaPixels": 0,
+        "maxAlpha": 0
+      },
+      "opaquePixels": 38314,
+      "brick": {
+        "sampledOpaquePixels": 27626,
+        "meanLuminance": 207.19363371461725,
+        "blackFraction": 0
+      },
+      "glError": 0
+    },
+    "pointerLeave": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "pauseSettledBeforePointer": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "pausedPointer": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "pointerResponse": {
+      "before": {
+        "modelMatrix": [
+          0.7304021120071411,
+          0,
+          -0.21003028750419617,
+          0,
+          0,
+          0.7599999904632568,
+          0,
+          0,
+          0.21003028750419617,
+          0,
+          0.7304021120071411,
+          0,
+          -2.0999999046325684,
+          0.03999999910593033,
+          1.399999976158142,
+          1
+        ],
+        "envMapIntensity": 1,
+        "roughness": 0.05999999865889549,
+        "points": [
+          {
+            "x": 811.8922833679562,
+            "y": 682.4621068483538
+          },
+          {
+            "x": 833.9657885239593,
+            "y": 684.4385572315651
+          }
+        ]
+      },
+      "firstHover": {
+        "modelMatrix": [
+          0.7303756475448608,
+          0.010109941475093365,
+          -0.20987899601459503,
+          0,
+          -0.006219075992703438,
+          0.7598273158073425,
+          0.014958848245441914,
+          0,
+          0.21003028750419617,
+          -0.012658323161303997,
+          0.7302924394607544,
+          0,
+          -2.0999999046325684,
+          0.0949999988079071,
+          1.399999976158142,
+          1
+        ],
+        "envMapIntensity": 1,
+        "roughness": 0.040722187608480453,
+        "points": [
+          {
+            "x": 811.7668847813403,
+            "y": 678.7937731053876
+          },
+          {
+            "x": 833.8374200987048,
+            "y": 680.4881173912635
+          }
+        ]
+      },
+      "hover": {
+        "modelMatrix": [
+          0.7303748726844788,
+          -0.0029049336444586515,
+          -0.21010489761829376,
+          0,
+          0.0063072857446968555,
+          0.7598880529403687,
+          0.011419338174164295,
+          0,
+          0.21003028750419617,
+          -0.012717881239950657,
+          0.7302914261817932,
+          0,
+          -2.0999999046325684,
+          0.0949999988079071,
+          1.399999976158142,
+          1
+        ],
+        "envMapIntensity": 1,
+        "roughness": 0.03604487329721451,
+        "points": [
+          {
+            "x": 811.8910804155256,
+            "y": 678.6253953908072
+          },
+          {
+            "x": 833.9650070278838,
+            "y": 680.6824338991453
+          }
+        ]
+      },
+      "restored": {
+        "modelMatrix": [
+          0.7304021120071411,
+          0,
+          -0.21003028750419617,
+          0,
+          0,
+          0.7599999904632568,
+          0,
+          0,
+          0.21003028750419617,
+          0,
+          0.7304021120071411,
+          0,
+          -2.0999999046325684,
+          0.03999999910593033,
+          1.399999976158142,
+          1
+        ],
+        "envMapIntensity": 1,
+        "roughness": 0.05999999865889549,
+        "points": [
+          {
+            "x": 811.8922833679562,
+            "y": 682.4621068483538
+          },
+          {
+            "x": 833.9657885239593,
+            "y": 684.4385572315651
+          }
+        ]
+      },
+      "pausedDraws": 0
+    },
+    "hiddenThemeChange": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    },
+    "offscreenThemeChange": {
+      "milliseconds": 400,
+      "additionalDraws": 0
+    }
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "warnings": [
+    "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+  ],
+  "warningNotes": "THREE.Clock deprecation comes from React Three Fiber 9.7. Windows shader precision warnings and warnings caused by deliberate WEBGL_lose_context are retained. The gesture phase check is an integration check; joint seams, occlusion and motion quality require inspection of the separate new-frame captures. Instrumentation overhead means this script is not a performance measurement.",
+  "visibilityNote": "Offscreen uses real scrolling. Hidden-page handling uses a document.hidden override and a visibilitychange event; it is not a real operating-system background-tab test.",
+  "browsersClosed": true
+}

@@ -19,10 +19,13 @@ __pycache__/
 !/docs/screenshots/revision/
 !/docs/screenshots/visual-upgrade/
 !/docs/screenshots/gradient-waves/
+!/docs/screenshots/avatar-interaction/
 /docs/reports/lighthouse-*.report.*
 /docs/reports/performance-before/
 /docs/reports/visual-upgrade/playwright.json
 /docs/reports/gradient-waves/playwright.json
+/docs/reports/avatar-interaction/playwright.json
+/Calculating Asparagus Caterpillar.json
 /*_logs.txt
 /docs/test-results.json
 /docs/first-visual-check.json

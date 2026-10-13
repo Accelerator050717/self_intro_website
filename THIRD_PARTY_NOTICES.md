@@ -83,3 +83,14 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 ```
+
+## October 2026 character interaction revision
+
+The new independent Web Animations timelines, state machine, garment seam SVGs,
+layout continuity and reading feedback are authored for this site. GSAP Timeline /
+Flip, Rive runtime / state-machine documentation, Motion layout guidance and
+Codrops demonstrations were studied; their runtimes, demo assets and source code
+were not incorporated in this revision. Existing React Bits / OGL notices here
+continue to apply. The ten user-linked pose PNG originals are private verification
+references and are not distributed with this repository. Research scope and URLs
+are recorded in `docs/VISUAL-SOURCES.md`.

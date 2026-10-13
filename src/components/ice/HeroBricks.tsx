@@ -14,7 +14,7 @@ class SceneBoundary extends Component<{ children: ReactNode; fallback: ReactNode
 
 export default function HeroBricks({ paused = false, dark: darkOverride, onSettled }: { paused?: boolean; dark?: boolean; onSettled?: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { active, visible, reducedMotion, dark } = useSceneStatus(ref);
+  const { active, visible, reducedMotion, finePointer, dark } = useSceneStatus(ref);
   const [enabled, setEnabled] = useState(false);
   const [ready, setReady] = useState(false);
   const checked = useRef(false);
@@ -32,7 +32,7 @@ export default function HeroBricks({ paused = false, dark: darkOverride, onSettl
     {!ready && <SceneFallback />}
     {enabled && <SceneBoundary fallback={<SceneFallback />} onFailure={onFailure}>
       <Suspense fallback={null}>
-        <IceScene active={active} interactive={!paused && !reducedMotion} dark={darkOverride ?? dark} onReady={onReady} onFailure={onFailure} />
+        <IceScene active={active} interactive={!paused && !reducedMotion && finePointer} dark={darkOverride ?? dark} onReady={onReady} onFailure={onFailure} />
       </Suspense>
     </SceneBoundary>}
   </div>;

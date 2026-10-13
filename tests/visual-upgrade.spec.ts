@@ -2,7 +2,6 @@ import { test, expect, type Page } from '@playwright/test';
 
 test.use({ reducedMotion: 'no-preference' });
 async function ready(page: Page) {
-  await page.addInitScript(() => sessionStorage.setItem('mingyang:avatar-welcome:v1', 'seen'));
   await page.goto('/en/');
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-scene-settled', 'true');
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-rig', 'ready');
@@ -37,7 +36,7 @@ test('bounded spotlight and cover tilt follow mouse without moving link or title
 test('pause controls ambient motion and card tracking across navigation; resume restores', async ({ page }) => {
   await ready(page);
   await expect.poll(() => wavesMotion(page)).toBe('running');
-  await page.locator('.animation-toggle').click();
+  await page.locator('[data-global-pause]').click();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'still');
   await expect.poll(() => wavesMotion(page)).toBe('paused');
   const card = page.locator('[data-light-card]').first();
@@ -48,14 +47,17 @@ test('pause controls ambient motion and card tracking across navigation; resume 
   await page.locator('[data-light-card]').first().hover();
   await expect(page.locator('[data-light-card]').first()).not.toHaveAttribute('data-tracking');
   await page.goto('/en/');
-  await page.locator('.animation-toggle').click();
+  await page.locator('[data-global-pause]').click();
   await expect(page.locator('html')).toHaveAttribute('data-motion', 'enabled');
 });
 
 test('viewport waves remain available while greeting and at the footer; hidden document suspends them', async ({ page }) => {
   await ready(page);
-  await page.locator('.hello-button').click();
-  await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'greeting');
+  await page.locator('.person-button').click();
+  await expect.poll(() => page.locator('[data-joint="shoulder"]').evaluate(el => {
+    const matrix = new DOMMatrix(getComputedStyle(el).transform);
+    return Math.atan2(matrix.b, matrix.a) * 180 / Math.PI;
+  })).toBeLessThan(-60);
   await expect.poll(() => wavesMotion(page)).toBe('running');
   await expect(page.locator('.avatar-exhibit')).toHaveAttribute('data-state', 'idle');
   await expect.poll(() => wavesMotion(page)).toBe('running');
@@ -94,7 +96,7 @@ test('touch keeps stable covers and low-detail waves while preserving actual arm
   const page = await context.newPage();
   try {
     await ready(page);
-    await page.locator('.hello-button').tap();
+    await page.locator('.person-button').tap();
     await expect.poll(() => page.locator('[data-joint="shoulder"]').evaluate(el => {
       const matrix = new DOMMatrix(getComputedStyle(el).transform);
       return Math.atan2(matrix.b, matrix.a) * 180 / Math.PI;
@@ -118,7 +120,7 @@ test('slow optional graphics settle to SVG within a bounded time and actual wavi
     await ready(page);
     await expect(page.locator('.ice-hero-scene canvas')).toHaveCount(0);
     await expect(page.locator('.brick-stage [data-scene-fallback]')).toBeVisible();
-    await page.locator('.hello-button').click();
+    await page.locator('.person-button').click();
     await expect.poll(() => page.locator('[data-joint="shoulder"]').evaluate(el => {
       const m = new DOMMatrix(getComputedStyle(el).transform);
       return Math.atan2(m.b, m.a) * 180 / Math.PI;
@@ -163,8 +165,39 @@ test('history return retains card input and a cached pagehide does not consume f
   await page.goBack();
   await expect(page).toHaveURL('/en/work/');
   const card = page.locator('[data-light-card]').first();
-  await card.hover();
+  // A history navigation can still be restoring scroll while its content
+  // transition/reveal finishes. A scroll legitimately clears stale tracking.
+  // Wait for actual geometry and animation stability, then send a fresh input.
+  await page.mouse.move(0, 0);
+  await card.scrollIntoViewIfNeeded();
+  await card.evaluate(async element => {
+    await document.fonts.ready;
+    await new Promise<void>(resolve => {
+      let previous = '';
+      let stableFrames = 0;
+      const inspect = () => {
+        const bounds = element.getBoundingClientRect();
+        const geometry = [scrollX, scrollY, bounds.x, bounds.y, bounds.width, bounds.height].join(',');
+        const moving = document.getAnimations().some(animation => animation.playState === 'running'
+          && animation.effect?.getComputedTiming().endTime !== Infinity);
+        stableFrames = !moving && geometry === previous ? stableFrames + 1 : 0;
+        previous = geometry;
+        if (stableFrames >= 4) resolve();
+        else requestAnimationFrame(inspect);
+      };
+      requestAnimationFrame(inspect);
+    });
+  });
+  await card.hover({ position: { x: 60, y: 65 } });
   await expect(card).toHaveAttribute('data-tracking', 'true');
+  const artwork = card.locator('.spectrum-illustration');
+  const horizontalOffset = () => artwork.evaluate(element => new DOMMatrix(getComputedStyle(element).transform).e);
+  await expect.poll(horizontalOffset).toBeLessThan(-2);
+  const firstOffset = await horizontalOffset();
+  const firstPosition = await card.evaluate(element => element.style.getPropertyValue('--light-x'));
+  await card.hover({ position: { x: 240, y: 120 } });
+  await expect.poll(() => card.evaluate(element => element.style.getPropertyValue('--light-x'))).not.toBe(firstPosition);
+  await expect.poll(horizontalOffset).toBeGreaterThan(firstOffset + 1);
   // Explicit lifecycle injection exercises both branches even when the browser
   // chooses a fresh document rather than putting this navigation in bfcache.
   await page.evaluate(() => window.dispatchEvent(new PageTransitionEvent('pagehide', { persisted: true })));
